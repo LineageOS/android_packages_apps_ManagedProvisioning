@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"អ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មានវិទ្យា​របស់អ្នកអាចអនុញ្ញាតឱ្យ​កម្មវិធីចូលប្រើ​ការកំណត់នៅលើ​ឧបករណ៍នេះ រួមទាំងមីក្រូហ្វូន កាមេរ៉ា និងទីតាំង​ផងដែរ។"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"កំពុងរៀបចំឧបករណ៍របស់អ្នក…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ប្រើ​ឧបករណ៍​នេះ ដើម្បី​ចូលប្រើ​កម្មវិធី​ការងារ​របស់អ្នក​បានងាយស្រួល។ ឧបករណ៍​នេះ​មិន​មានលក្ខណៈឯកជន​ទេ ដូច្នេះ​អ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មាន​វិទ្យា​របស់អ្នក​ប្រហែលជាអាចមើលឃើញ​ទិន្នន័យ និងសកម្មភាព​របស់អ្នក។ ដើម្បី​ស្វែងយល់បន្ថែម សូមទាក់ទង​អ្នកគ្រប់គ្រងផ្នែកព័ត៌មានវិទ្យារបស់អ្នក។"</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ប្រគល់ឧបករណ៍នេះ​ទៅអ្នកគ្រប់គ្រងផ្នែកព័ត៌មានវិទ្យា​របស់អ្នក"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ត្រឡប់ទៅ​អេក្រង់មុនវិញ ឬកំណត់​ឧបករណ៍នេះឡើងវិញ និងប្រគល់វាទៅ​អ្នកគ្រប់គ្រងផ្នែកព័ត៌មានវិទ្យា​របស់អ្នក។"</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"បោះបង់​ការរៀបចំ"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"កំណត់ឡើងវិញ និងប្រគល់​ឧបករណ៍"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"កម្មវិធីការងាររក្សាទុកក្នុងកម្រងព័ត៌មានការងារ និងគ្រប់គ្រងដោយអ្នកគ្រប់គ្រងព័ត៌មានវិទ្យា"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"កម្មវិធី​ផ្ទាល់ខ្លួន​ស្ថិតនៅ​ដោយឡែក និង​លាក់ពី​កម្មវិធី​ការងារ"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"អ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មានវិទ្យាអាចគ្រប់គ្រង​ឧបករណ៍នេះ និង​ទប់ស្កាត់​កម្មវិធី​ខ្លះ"</string>

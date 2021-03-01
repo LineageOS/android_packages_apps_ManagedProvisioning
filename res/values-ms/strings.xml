@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Pentadbir IT anda boleh membenarkan apl mengakses tetapan pada peranti ini, termasuk mikrofon, kamera dan lokasi."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Menyediakan peranti anda…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gunakan peranti ini untuk mengakses apl kerja anda dengan mudah. Peranti ini bukan peribadi, maka pentadbir IT anda mungkin dapat melihat data dan aktiviti anda. Untuk mengetahui lebih lanjut, hubungi pentadbir IT anda."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Kembalikan peranti ini kepada pentadbir IT anda"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Kembali ke skrin sebelumnya atau tetapkan semula peranti ini dan kembalikan kepada pentadbir IT anda."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Batalkan persediaan"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Tetapkan semula &amp; kembalikan peranti"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apl kerja disimpan dalam profil kerja anda dan diurus oleh pentadbir IT anda"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Apl peribadi diasingkan dan disembunyikan daripada apl kerja"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Pentadbir IT anda boleh mengawal peranti ini dan menyekat apl tertentu"</string>

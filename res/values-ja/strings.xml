@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"IT 管理者は、このデバイスの設定（マイク、カメラ、位置情報を含む）にアクセスする権限をアプリに付与できます。"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"デバイスをセットアップしています…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"このデバイスを使用して仕事用アプリに簡単にアクセスできます。このデバイスは非公開ではないため、IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります。詳しくは、IT 管理者にお問い合わせください。"</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"このデバイスをリセットして IT 管理者に返却してください"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"前の画面に戻ってセットアップを完了するか、このデバイスをリセットして IT 管理者に返却してください。"</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"セットアップをキャンセル"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"デバイスをリセットして返却"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"仕事用アプリは仕事用プロファイルに保存され、IT 管理者が管理します"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"個人用アプリは仕事用アプリとは別に保存され、一緒には表示されません"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT 管理者は、このデバイスを管理して特定のアプリをブロックできます"</string>

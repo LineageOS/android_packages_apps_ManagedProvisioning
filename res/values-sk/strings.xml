@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Správca IT môže povoliť aplikáciám prístup k nastaveniam v tomto zariadení vrátane mikrofónu, fotoaparátu a polohy."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Zariadenie sa nastavuje…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Toto zariadenie vám poskytuje jednoduchý prístup k pracovným aplikáciám. Nie je súkromné, takže správa IT si môže zobraziť vaše údaje a aktivitu. Ďalšie informácie vám poskytne správca IT."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Vrátenie zariadenia správcovi IT"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Prejdite späť na predchádzajúcu obrazovku alebo toto zariadenie resetujte a vráťte správcovi IT."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Zrušiť nastavenie"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Resetovať a vrátiť zariadenie"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Prac. ap. sú uložené v prac. profile a ovláda ich správca IT"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Osobné aplikácie sú od pracovných oddelené a nevidno ich"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Toto zariadenie ovláda správca IT (môže blokovať aplikácie)"</string>

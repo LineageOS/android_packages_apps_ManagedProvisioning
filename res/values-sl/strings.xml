@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Skrbnik za IT lahko aplikacijam v tej napravi dovoli dostop do nastavitev, vključno z mikrofonom, fotoaparatom in lokacijo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Nastavljanje naprave …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"S to napravo lahko preprosto dostopate do delovnih aplikacij. Ta naprava ni zasebna, zato bo skrbnik za IT morda lahko videl vaše podatke in dejavnost. Če želite izvedeti več, se obrnite na skrbnika za IT."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"To napravo vrnite skrbniku za IT"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Vrnite se na prejšnji zaslon ali ponastavite to napravo in jo vrnite skrbniku za IT."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Prekliči nastavitev"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Ponastavi napravo pred vrnitvijo"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Delovne aplikacije so shranjene v delovnem profilu, upravlja pa jih skrbnik za IT"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Osebne aplikacije so ločene in skrite pred delovnimi aplikacijami"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Skrbnik za IT lahko upravlja to napravo in blokira nekatere aplikacije"</string>

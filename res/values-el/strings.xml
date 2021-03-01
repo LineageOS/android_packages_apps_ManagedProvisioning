@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Ο διαχειριστής IT μπορεί να επιτρέψει στις εφαρμογές να έχουν πρόσβαση στις ρυθμίσεις σε αυτήν τη συσκευή, συμπεριλαμβανομένου του μικροφώνου, της κάμερας και της τοποθεσίας."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Ρύθμιση της συσκευής σας…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Χρησιμοποιήστε αυτήν τη συσκευή για εύκολη πρόσβαση στις εφαρμογές εργασίας σας. Αυτή η συσκευή δεν είναι ιδιωτική, επομένως ο διαχειριστής IT σας μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας. Για να μάθετε περισσότερα, επικοινωνήστε με τον διαχειριστή IT σας."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Επιστρέψτε αυτήν τη συσκευή στον διαχειριστή IT"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Επιστρέψτε στην προηγούμενη οθόνη ή επαναφέρετε αυτήν τη συσκευή και επιστρέψτε την στον διαχειριστή IT."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Ακύρωση ρύθμισης"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Επαναφορά και επιστροφή συσκευής"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Οι εφαρ. είναι στο προφίλ σας και ελέγχ. από τον διαχ/στή."</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Οι προσωπ. εφαρ. είναι ξεχωριστά και μη ορατές σε εφαρ. εργ."</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Ο διαχ/στής ελέγχει τη συσκ. και αποκλείει ορισμένες εφαρ."</string>

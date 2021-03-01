@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Администратор может разрешить приложениям доступ к настройкам этого устройства: микрофону, камере и геоданным."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Настройка…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"С помощью этого устройства вы сможете быстро перейти ко всем рабочим приложениям. Системный администратор может получить доступ к вашим действиям и данным на этом устройстве. Чтобы узнать больше, свяжитесь с администратором."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Верните устройство администратору"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Перейдите к предыдущему экрану или сбросьте настройки устройства и верните его администратору."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Отменить настройку"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Сбросить настройки и вернуть устройство"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Рабочие приложения находятся в рабочем профиле и управляются администратором"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личные приложения скрыты и находятся отдельно от рабочих"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Администратор может управлять устройством и блокировать приложения"</string>

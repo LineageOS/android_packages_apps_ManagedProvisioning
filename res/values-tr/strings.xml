@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"BT yöneticiniz, bu cihazdaki uygulamaların mikrofon, kamera ve konum dahil olmak üzere ayarlara erişmesine izin verebilir."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Cihazınız ayarlanıyor…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"İş uygulamalarınıza kolayca erişmek için bu cihazı kullanın. Bu cihaz gizli olmadığından IT yöneticiniz verilerinizi ve etkinliklerinizi görebilir. Daha fazla bilgi edinmek için IT yöneticinizle iletişime geçin."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Bu cihazı BT yöneticinize iade edin"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Önceki ekrana dönün veya bu cihazı sıfırlayıp BT yöneticinize iade edin."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Kurulumu iptal et"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Cihazı sıfırla ve iade et"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"İş uygulamaları iş profilinizde tutulur ve BT yöneticiniz tarafından yönetilir"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Kişisel uygulamalar ayrı olup iş uygulamalarından gizlenir"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"BT yöneticiniz bu cihazı kontrol edebilir ve belirli uygulamaları engelleyebilir"</string>

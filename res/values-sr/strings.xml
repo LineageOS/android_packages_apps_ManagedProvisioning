@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"ИТ администратор може да дозвољава апликацијама да приступају подешавањима на овом уређају, укључујући микрофон, камеру и локацију."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Уређај се подешава…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Користите овај уређај да бисте једноставно приступали пословним апликацијама. Овај уређај није приватан, па ће ИД администратор моћи да види ваше податке и активности. Контактирајте ИТ администратора да бисте сазнали више."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Вратите овај уређај ИТ администратору"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Вратите се на претходни екран или ресетујте овај уређај и вратите га ИТ администратору."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Откажите подешавање"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Ресетуј и врати уређај"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Пословне апликације се чувају на пословном профилу и њима управља ИТ администратор"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личне апликације су одвојене и скривене када се приказују пословне апликације"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ИТ администратор може да контролише овај уређај и да блокира одређене апликације"</string>

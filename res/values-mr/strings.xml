@@ -166,15 +166,16 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"चला तुमचे कार्य डिव्हाइस सेट करू या"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"तुमची कार्य अ‍ॅप्स तुमच्या हाताशी ठेवा"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"हे डिव्हाइस खाजगी नाही"</string>
-    <!-- no translation found for fully_managed_device_provisioning_step_2_subheader_title (5417642884373347663) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"तुमची अ‍ॅक्टिव्हिटी आणि डेटा"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल."</string>
-    <!-- no translation found for fully_managed_device_provisioning_permissions_title (5887976804117387279) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_permissions_subheader (5851437453029164791) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"अ‍ॅप परवानग्या"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"तुमचा आयटी ॲडमिन मायक्रोफोन, कॅमेरा आणि स्थान यांच्या समावेशासह ॲप्सना तुमच्या डिव्हाइसवरील सेटिंग्ज अ‍ॅक्सेस करण्याची अनुमती देऊ शकतो."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"तुमचे डिव्हाइस सेट करत आहे…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"तुमची कार्य अ‍ॅप्स सहजपणे अ‍ॅक्सेस करण्यासाठी हे डिव्हाइस वापरा. हे डिव्हाइस खाजगी नाही, त्यामुळे तुमच्या IT अ‍ॅडमिनला कदाचित तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल. अधिक जाणून घेण्यासाठी, तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"हे डिव्हाइस तुमच्या आयटी ॲडमिन परत करा"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"मागील स्क्रीनवर जा किंवा हे डिव्हाइस रीसेट करा आणि ते तुमच्या आयटी ॲडमिनला परत करा."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"सेट करणे रद्द करा"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"डिव्हाइस रीसेट करा आणि परत करा"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कार्य प्रोफाइलमध्ये ठेवलेली तुमची कार्य अ‍ॅप्स आयटी ॲडमिन व्यवस्थापित करतात"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"वैयक्तिक अ‍ॅप्स कामासंबंधी अ‍ॅप्सहून वेगळी व लपवलेली असतात"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"तुमचा आयटी ॲडमिन हे डिव्हाइस नियंत्रित व काही ॲप्स ब्लॉक करू शकतो"</string>

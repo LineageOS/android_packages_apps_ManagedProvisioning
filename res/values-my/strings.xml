@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"သင့် IT စီမံခန့်ခွဲသူသည် မိုက်ခရိုဖုန်း၊ ကင်မရာနှင့် တည်နေရာ အပါအဝင် ဤစက်ပေါ်ရှိ ဆက်တင်များကို သုံးရန် အက်ပ်များကို ခွင့်ပြုနိုင်သည်။"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"သင့်စက်ပစ္စည်း စနစ်ထည့်သွင်းနေသည်…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"သင့်အလုပ်သုံးအက်ပ်များကို အလွယ်တကူ ဝင်သုံးရန် ဤစက်ပစ္စည်းကို အသုံးပြုပါ။ ဤစက်ပစ္စည်းသည် သီးသန့်မဟုတ်သဖြင့် သင့် IT စီမံခန့်ခွဲသူက သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။ ပိုမိုလေ့လာရန် သင့် IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ဤစက်ကို သင့် IT စီမံခန့်ခွဲသူထံသို့ ပြန်ပို့ခြင်း"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ယခင်စခရင်သို့ ပြန်သွားပါ (သို့) ဤစက်ကို ပြင်ဆင်သတ်မှတ်ပြီးနောက် သင့် IT စီမံခန့်ခွဲသူထံသို့ ပြန်ပို့ပါ။"</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"စနစ်ထည့်သွင်းမှု ပယ်ဖျက်ရန်"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"စက်ကို ပြင်ဆင်သတ်မှတ်ပြီး ပြန်ပို့ရန်"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"အလုပ်အက်ပ်များကို အလုပ်ပရိုဖိုင်တွင်သိမ်းထားပြီး IT စီမံသူက ထိန်းချုပ်သည်"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ကိုယ်ပိုင်အက်ပ်များကို အလုပ်အက်ပ်များမှ ခွဲပြီးဖျောက်ထားသည်"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"သင်၏ IT စီမံသူက ဤစက်ကိုထိန်းချုပ်ပြီး အချို့အက်ပ်များ ပိတ်ထားနိုင်သည်"</string>

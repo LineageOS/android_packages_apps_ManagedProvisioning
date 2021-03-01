@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Umlawuli wakho we-IT angavumela izinhlelo zokusebenza zifinyelele amasethingi akule divayisi, kuhlanganise nemakrofoni, ikhamera, nendawo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Isetha idivayisi yakho…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Sebenzisa le divayisi ukuze ufinyelele kalula kuzinhlelo zakho zokusebenza. Le divayisi ayiyona imfihlo, ngakho-ke umphathi wakho we-IT angakwazi ukubona idatha yakho nomsebenzi. Ukuze ufunde kabanzi, xhumana nomphathi wakho we-IT."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Phindisela le divayisi kumphathi wakho we-IT"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Iya emuva esikrinini sangaphambilini, noma usethe kabusha le divayisi bese uyibuyisela kumphathi wakho we-IT."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Khansela ukusetha"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Setha kabusha futhi ubuyisele idivayisi"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Ama-App akuphrofayela yomsebenzi alawulwa umphathi we-IT"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Ama-App akho ngqo afihliwe kuma-App omsebenzi"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Umphathi we-IT angalawula le divayisi avimbe amanye ama-App"</string>

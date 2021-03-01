@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Quản trị viên CNTT của bạn có thể cho phép ứng dụng truy cập vào các chế độ cài đặt trên thiết bị này, bao gồm cả micrô, máy ảnh và thông tin vị trí."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Đang thiết lập thiết bị của bạn..."</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Hãy sử dụng thiết bị này để dễ dàng truy cập vào ứng dụng công việc của bạn. Đây không phải là thiết bị riêng tư nên quản trị viên CNTT có thể xem được dữ liệu và hoạt động của bạn. Hãy liên hệ với quản trị viên CNTT để tìm hiểu thêm."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Trả lại thiết bị này cho quản trị viên CNTT của bạn"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Quay lại màn hình trước hoặc đặt lại thiết bị này rồi trả lại cho quản trị viên CNTT của bạn."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Hủy quá trình thiết lập"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Đặt lại rồi trả lại thiết bị"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Ứng dụng công việc được lưu giữ trong hồ sơ công việc và do quản trị viên CNTT quản lý"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Ứng ứng dụng cá nhân được lưu giữ riêng biệt và ẩn khỏi ứng dụng công việc"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Quản trị viên CNTT có thể kiểm soát thiết bị này và chặn một số ứng dụng"</string>

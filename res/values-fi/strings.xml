@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Järjestelmänvalvoja voi sallia sovelluksille pääsyn laitteen asetuksiin, esim. mikrofoniin, kameraan ja sijaintiin."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Määritetään laitetta…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Käytä työsovelluksia helposti tällä laitteella. Laite ei ole yksityinen, joten IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi. Pyydä lisätietoja IT-järjestelmänvalvojalta."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Palauta tämä laite järjestelmänvalvojalle"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Palaa edelliselle näytölle tai resetoi laite ja palauta se järjestelmänvalvojalle."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Peruuta käyttöönotto"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Resetoi ja palauta laite"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Työsovellukset ovat työprofiilissa ja ne ovat IT- järjestelmänvalvojan ylläpitämiä"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Omat sovellukset ovat erillisiä ja piilossa työsovelluksilta"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-järjestelmänvalvoja voi käyttää tätä laitetta ja estää sovelluksia"</string>

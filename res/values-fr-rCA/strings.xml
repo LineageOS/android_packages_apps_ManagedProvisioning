@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Votre administrateur informatique peut autoriser les applications à accéder aux paramètres de cet appareil, y compris le microphone, l\'appareil photo et la position."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configuration de votre appareil en cours…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utiliser cet appareil pour accéder facilement à vos applications professionnelles. Cet appareil n\'est pas privé, alors il se peut que votre administrateur informatique puisse voir vos données et votre activité. Communiquez avec votre administrateur informatique pour en savoir plus."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Retourner cet appareil à votre administrateur informatique"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Revenez à l\'écran précédent ou réinitialisez cet appareil et retournez-le à votre administrateur informatique."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Annuler la configuration"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Réinitialiser et retourner l\'appareil"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Les applis sont conservées dans votre profil professionnel et gérées par l\'administrateur"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applis personnelles sont distinctes des applis professionnelles et sont masquées"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applis"</string>

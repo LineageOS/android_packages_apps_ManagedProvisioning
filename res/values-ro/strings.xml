@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Administratorul IT poate permite aplicațiilor să acceseze setări de pe acest dispozitiv, inclusiv microfonul, camera și locația."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Se configurează dispozitivul…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Folosiți acest dispozitiv pentru a accesa cu ușurință aplicațiile de serviciu. Acest dispozitiv nu este privat, iar administratorul IT vă poate vedea datele și activitatea. Pentru a afla mai multe, contactați administratorul IT."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Returnați dispozitivul administratorului IT"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Reveniți la ecranul anterior sau resetați dispozitivul și returnați-l administratorului IT."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Anulați configurarea"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Resetați și returnați dispozitivul"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplicațiile de serviciu se află în profilul de serviciu, gestionate de administratorul IT"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplicațiile personale sunt izolate, ascunse de cele de serviciu"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Administratorul IT poate să controleze dispozitivul și să blocheze aplicații"</string>

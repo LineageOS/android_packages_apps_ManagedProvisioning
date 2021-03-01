@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Administrator IT może zezwolić na dostęp aplikacji do ustawień na tym urządzeniu, w tym do mikrofonu, aparatu i lokalizacji."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfiguruję urządzenie…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Użyj tego urządzenia, by łatwo korzystać z aplikacji służbowych. To urządzenie nie jest prywatne, więc Twój administrator IT może mieć podgląd Twoich danych i aktywności. Aby dowiedzieć się więcej, skontaktuj się z administratorem IT."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Oddaj urządzenie administratorowi IT"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Wróć na poprzedni ekran lub zresetuj urządzenie i oddaj je administratorowi IT."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Anuluj konfigurację"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Zresetuj i oddaj urządzenie"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplikacje służbowe znajdują się w profilu służbowym i zarządza nimi administrator"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplikacje osobiste znajdują się w innym miejscu i są niewidoczne dla aplikacji służbowych"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Administrator może zarządzać tym urządzeniem i blokować niektóre aplikacje"</string>

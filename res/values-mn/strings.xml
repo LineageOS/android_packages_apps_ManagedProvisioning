@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Таны IT админ аппуудад энэ төхөөрөмжийн микрофон, камер, байршил зэрэг тохиргоонд хандахыг зөвшөөрөх боломжтой."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Таны төхөөрөмжийг тохируулж байна…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Ажлын аппууддаа хялбар байдлаар хандахын тулд энэ төхөөрөмжийг ашиглана уу. Энэ төхөөрөмж хувийнх биш тул таны IT админ таны өгөгдөл болон үйл ажиллагааг харах боломжтой байж магадгүй. Нэмэлт мэдээлэл авахын тулд IT админтайгаа холбогдоно уу."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Энэ төхөөрөмжийг IT админ руугаа буцаана уу"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Өмнөх дэлгэц рүү буцах эсвэл энэ төхөөрөмжийг шинэчлээд, IT админ руугаа буцаана уу."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Тохиргоог цуцлах"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Төхөөрөмжийг шинэчлээд, буцаах"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Ажлын аппуудыг ажлын профайлд хадгалдаг ба танай мэдээлэл технологийн админ удирддаг."</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Хувийн аппууд нь тусдаа ба тэднийг ажлын аппуудаас нуудаг"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Танай мэдээлэл технологийн админ энэ төхөөрөмжийг удирдаж, тодорхой аппыг блоклох боломжтой"</string>

@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"ඔබගේ IT පරිපාලකට මයික්‍ර‍ෆෝනය, කැමරාව සහ ස්ථානය ඇතුළුව මෙම උපාංගයේ සැකසීම්වලට ප්‍රවේශ වීමට යෙදුම්වලට ඉඩ දිය හැකිය."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ඔබේ උපාංගය සැකසීම…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"පහසුවෙන් ඔබේ කාර්යා යෙදුම් වෙත ප්‍රවේශ වීමට මෙම උපාංගය භාවිත කරන්න. මෙම උපාංගය පුද්ගලික නොවේ, එබැවින් ඔබේ තොරතුරු තාක්‍ෂණ පරිපාලකයාට ඔබේ දත්ත සහ ක්‍රියාකාරකම බැලීමට හැකි වෙයි. තවත් දැන ගැනීමට, ඔබේ තොරතුරු තාක්‍ෂණ පරිපාලකයා සම්බන්ධ කර ගන්න."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"මෙම උපාංගය ඔබගේ IT පරිපාලකට ආපසු දෙන්න"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"පෙර තිරයට ආපසු යන්න, නැතහොත් මෙම උපාංගය නැවත සකසා එය IT පරිපාලකට ආපසු දෙන්න."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"පිහිටුවීම අවලංගු කරන්න"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"යළි සකසන්න &amp; උපාංගය ආපසු දෙන්න"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"කාර්යාල යෙදුම් කාර්යාල පැතිකඩේ ඇති අතර, IT පාලක කළමනා. කරයි"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"පෞද්ගලික යෙදුම් වෙන් කර කාර්යාල යෙදුම්වලින් සඟවා ඇත"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ඔබේ IT පරිපාලකට මෙම උපාංගය පාලනය කර යෙදුම් අවහිර කළ හැකිය"</string>

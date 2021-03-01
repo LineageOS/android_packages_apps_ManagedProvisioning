@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Вашиот IT-администратор може да им дозволи на апликациите да пристапуваат до поставките на уредов, вклучувајќи ги оние за микрофонот, камерата и локацијата."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Уредот се поставува…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Користете го уредов за лесен пристап до работните апликации. Уредов не е приватен, па затоа вашиот IT-администратор можеби ќе ги гледа вашите податоци и активноста. За да дознаете повеќе, контактирајте со вашиот IT-администратор."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Вратете го уредов кај администраторот"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Вратете се на претходниот екран или ресетирајте го уредов и вратете го кај администраторот."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Откажи поставување"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Ресетирајте и вратете го уредот"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Работните апликации се чуваат во работниот профил и со нив управува IT-администраторот"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личните апликации се одделни и сокриени од работните апликации"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-администраторот може да го контролира уредов и да блокира одредени апликации"</string>

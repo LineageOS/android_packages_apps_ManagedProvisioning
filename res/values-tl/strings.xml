@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Puwedeng pahintulutan ng iyong IT admin ang mga app na i-access ang mga setting sa device na ito, kabilang ang mikropono, camera, at lokasyon."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Sine-set up ang iyong device…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gamitin ang device na ito para madaling ma-access ang iyong mga app para sa trabaho. Hindi pribado ang device na ito, kaya baka makita ng iyong IT admin ang data at aktibidad mo. Para matuto pa, makipag-ugnayan sa iyong IT admin."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Ibalik ang device na ito sa iyong IT admin"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Bumalik sa nakaraang screen, o i-reset ang device na ito at ibalik ito sa iyong IT admin."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Kanselahin ang pag-set up"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"I-reset at ibalik ang device"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Nasa profile mo sa trabaho ang apps para sa trabaho at mina-manage ito ng IT admin mo"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Nakahiwalay ang mga personal na app at nakatago ito mula sa mga app para sa trabaho"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Makokontrol ng iyong IT admin ang device na ito at makakapag-block siya ng ilang apps"</string>

@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"您的 IT 管理员可允许应用访问此设备上的设置，包括麦克风、相机和位置信息设置。"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"正在设置您的设备…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"使用此设备可轻松访问您的工作应用。此设备并非私人设备，因此，您的 IT 管理员或许可以查看您的数据和活动。如需了解详情，请与您的 IT 管理员联系。"</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"将此设备交还给 IT 管理员"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"返回到上一屏幕，或重置此设备并将其交还给 IT 管理员。"</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"取消设置"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"重置并交还设备"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"工作应用会保存在您的工作资料中，并由您的 IT 管理员管理"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"个人应用与工作应用相互独立，两者不会同时显示"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"您的 IT 管理员可以控制此设备并屏蔽特定应用"</string>

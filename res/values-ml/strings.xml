@@ -166,15 +166,16 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"നിങ്ങളുടെ ഔദ്യോഗിക ഉപകരണം സജ്ജീകരിക്കാം"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾ വിരൽത്തുമ്പിൽ നിലനിർത്തുക"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ഈ ഉപകരണം സ്വകാര്യമല്ല"</string>
-    <!-- no translation found for fully_managed_device_provisioning_step_2_subheader_title (5417642884373347663) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"നിങ്ങളുടെ ആക്റ്റിവിറ്റിയും ഡാറ്റയും"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ഈ ഉപകരണത്തിലുള്ള നിങ്ങളുടെ ഡാറ്റയും ആക്‌റ്റിവിറ്റിയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം."</string>
-    <!-- no translation found for fully_managed_device_provisioning_permissions_title (5887976804117387279) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_permissions_subheader (5851437453029164791) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"ആപ്പ് അനുമതികൾ"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"മൈക്രോഫോൺ, ക്യാമറ, ലൊക്കേഷൻ എന്നിവ ഉൾപ്പെടെ ഈ ഉപകരണത്തിലെ ക്രമീകരണം ആക്സസ് ചെയ്യുന്നതിന് ആപ്പുകൾക്ക് അനുവാദം നൽകാൻ നിങ്ങളുടെ ഐടി അഡ്‌മിന് കഴിയും."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"നിങ്ങളുടെ ഉപകരണം സജ്ജമാക്കുന്നു…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾ എളുപ്പത്തിൽ ആക്‌സസ് ചെയ്യാൻ ഈ ഉപകരണം ഉപയോഗിക്കുക. ഈ ഉപകരണം സ്വകാര്യമല്ലാത്തതിനാൽ, നിങ്ങളുടെ ഡാറ്റയും ആക്റ്റിവിറ്റിയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം. കൂടുതലറിയാൻ, നിങ്ങളുടെ ഐടി അഡ്‌മിനെ ബന്ധപ്പെടുക."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ഈ ഉപകരണം നിങ്ങളുടെ ഐടി അഡ്‌മിന് മടക്കി നൽകുക"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"മുമ്പത്തെ സ്ക്രീനിലേക്ക് മടങ്ങുക അല്ലെങ്കിൽ ഈ ഉപകരണം റീസെറ്റ് ചെയ്‌ത് നിങ്ങളുടെ ഐടി അഡ്‌മിന് മടക്കി നൽകുക."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"സജ്ജീകരണം റദ്ദാക്കുക"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"റീസെറ്റ് ചെയ്‌ത് ഉപകരണം മടക്കി നൽകുക"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ഔദ്യോഗിക ആപ്പുകൾ ഔദ്യോഗിക പ്രൊഫൈലിലാണ്, അവ നിയന്ത്രിക്കുന്നത് ഐടി അഡ്‍മിനാണ്"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"വ്യക്തിപരമായ ആപ്പുകളും ഔദ്യോഗിക ആപ്പുകളും വെവ്വേറെയാണ് അവ പരസ്പരം മറച്ചിരിക്കുന്നു"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"നിങ്ങളുടെ ഐടി അഡ്‍മിന് ഈ ഉപകരണം നിയന്ത്രിക്കാനും ചില ആപ്പുകൾ ബ്ലോക്ക് ചെയ്യാനുമാകും"</string>

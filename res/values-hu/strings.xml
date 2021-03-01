@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"A rendszergazdája engedélyezheti az alkalmazások számára a beállításokhoz – köztük a mikrofon, a kamera és a hely beállításaihoz – való hozzáférést ezen az eszközön."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Az eszköz beállítása folyamatban van…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Ezzel az eszközzel könnyen hozzáférhet munkahelyi alkalmazásaihoz. Az eszköz nem privát, így a rendszergazdája láthatja az Ön adatait és tevékenységeit. További információért forduljon rendszergazdájához."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Küldje vissza az eszközt a rendszergazdájának"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Lépjen vissza az előző képernyőre, vagy állítsa vissza az eszköz gyári beállításait, és küldje vissza az eszközt a rendszergazdájának."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Beállítás leállítása"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Eszköz visszaállítása és visszaküldése"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"A munkahelyi appok a munkaprofilban vannak, rendszergazda kezeli őket"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"A személyes appok külön vannak a munkahelyi alkalmazásoktól"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"A rendszergazda kezeli ezt az eszközt, és letilthat appokat"</string>

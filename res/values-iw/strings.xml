@@ -166,15 +166,16 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"נתחיל להגדיר את מכשיר העבודה שלך"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"אפשר לשמור את אפליקציות העבודה במקום נגיש"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"המכשיר הזה אינו פרטי"</string>
-    <!-- no translation found for fully_managed_device_provisioning_step_2_subheader_title (5417642884373347663) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"הנתונים והפעילות שלך"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"‏ייתכן שמנהל ה-IT שלך יכול לראות את הנתונים והפעילות במכשיר הזה."</string>
-    <!-- no translation found for fully_managed_device_provisioning_permissions_title (5887976804117387279) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_permissions_subheader (5851437453029164791) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"הרשאות הניתנות לאפליקציות"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"‏מנהל ה-IT יכול לתת לאפליקציות גישה להגדרות במכשיר הזה, ביניהן הגדרות המיקרופון, המצלמה והמיקום."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"מגדיר את המכשיר שלך…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"‏אפשר להשתמש במכשיר הזה כדי לגשת בקלות אל אפליקציות העבודה. המכשיר הזה אינו פרטי, כך שייתכן כי מנהל ה-IT יכול לראות את הנתונים והפעילות שלך. כדי לקבל מידע נוסף יש לפנות אל מנהל ה-IT."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"‏יש להחזיר את המכשיר למנהל ה-IT"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"‏יש לחזור למסך הקודם או לאתחל את המכשיר הזה ולהחזיר אותו למנהל ה-IT."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ביטול ההגדרה"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"אתחול והחזרת המכשיר"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏אפליקציות לעבודה מאוחסנות בפרופיל שלך ומנוהלות על ידי מנהל ה-IT"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"אפליקציות אישיות מאוחסנות בנפרד ומוסתרות מאפליקציות לעבודה"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"‏מנהל ה-IT יכול לשלוט במכשיר הזה ולחסום אפליקציות מסוימות"</string>

@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Je IT-beheerder kan apps toegang geven tot instellingen op dit apparaat, waaronder de microfoon, camera en locatie."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Je apparaat instellen…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gebruik dit apparaat voor eenvoudige toegang tot je werk-apps. Dit is geen privéapparaat, dus je IT-beheerder kan mogelijk je gegevens en activiteit bekijken. Neem voor meer informatie contact op met je IT-beheerder."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Geef dit apparaat terug aan de IT-beheerder"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Ga terug naar het vorige scherm of reset dit apparaat en geef het terug aan je IT-beheerder."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Instellen annuleren"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Resetten en apparaat teruggeven"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Werk-apps worden in je werkprofiel bewaard en beheerd door je IT-beheerder"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Persoonlijke apps staan apart, verborgen voor werk-apps"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Je IT-beheerder kan dit apparaat beheren en apps blokkeren"</string>

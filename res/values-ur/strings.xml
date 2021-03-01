@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"‏آپ کا IT منتظم ایپس کو بشمول مائیکروفون، کیمرا اور مقام اس آلہ کی ترتیبات تک رسائی کی اجازت دے سکتا ہے۔"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"آپ کا آلہ سیٹ اپ کیا جا رہا ہے…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"‏اپنی دفتری ایپس تک آسانی سے رسائی حاصل کرنے کے لیے یہ آلہ استعمال کریں۔ یہ آلہ نجی نہیں ہے، اس لیے آپ کا IT منتظم آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے۔ مزید جاننے کے لیے، اپنے IT منتظم سے رابطہ کریں۔"</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"‏اس آلے کو اپنے IT منتظم کو واپس کریں"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"‏پچھلی اسکرین پر واپس جائیں یا اس آلہ کو دوبارہ ترتیب دیں اور اسے اپنے IT منتظم کو واپس کریں۔"</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"سیٹ اپ منسوخ کریں"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"ری سیٹ اور آلہ واپس کریں"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏دفتری ایپس آپکی دفتری پروفائل میں IT منتظم کے زیر انتظام ہوتی ہیں"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ذاتی ایپس دفتری ایپس سے پوشیدہ اور علیحدہ ہوتی ہیں"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"‏آپکا IT منتظم یہ آلہ کنٹرول اور کچھ ایپس مسدود کرسکتا ہے"</string>

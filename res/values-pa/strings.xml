@@ -166,15 +166,16 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ਚਲੋ ਤੁਹਾਡਾ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਾਲਾ ਡੀਵਾਈਸ ਸੈੱਟਅੱਪ ਕਰੀਏ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ਆਪਣੀਆਂ ਕਾਰਜ ਐਪਾਂ ਆਪਣੇ ਕੋਲ ਰੱਖੋ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ਇਹ ਡੀਵਾਈਸ ਨਿੱਜੀ ਨਹੀਂ ਹੈ"</string>
-    <!-- no translation found for fully_managed_device_provisioning_step_2_subheader_title (5417642884373347663) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"ਤੁਹਾਡੀ ਸਰਗਰਮੀ ਅਤੇ ਡਾਟਾ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ਸ਼ਾਇਦ ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਤੁਹਾਡਾ ਡਾਟਾ ਅਤੇ ਸਰਗਰਮੀ ਦੇਖ ਸਕਦਾ ਹੈ।"</string>
-    <!-- no translation found for fully_managed_device_provisioning_permissions_title (5887976804117387279) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_permissions_subheader (5851437453029164791) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"ਐਪ ਇਜਾਜ਼ਤਾਂ"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਐਪਾਂ ਨੂੰ ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਸੈਟਿੰਗਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਦੀ ਆਗਿਆ ਦੇ ਸਕਦਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਮਾਈਕ੍ਰੋਫ਼ੋਨ, ਕੈਮਰਾ ਅਤੇ ਟਿਕਾਣਾ ਸ਼ਾਮਲ ਹਨ।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਨੂੰ ਸੈੱਟਅੱਪ ਕਰ ਰਿਹਾ ਹੈ…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ਤੁਹਾਡੀਆਂ ਕਾਰਜ-ਸਥਾਨ ਐਪਾਂ ਤੱਕ ਆਸਾਨੀ ਨਾਲ ਪਹੁੰਚ ਕਰਨ ਲਈ ਇਹ ਡੀਵਾਈਸ ਵਰਤੋ। ਇਹ ਡੀਵਾਈਸ ਨਿੱਜੀ ਨਹੀਂ ਹੈ, ਇਸ ਲਈ ਸ਼ਾਇਦ ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਤੁਹਾਡਾ ਡਾਟਾ ਅਤੇ ਸਰਗਰਮੀ ਦੇਖ ਸਕਦਾ ਹੈ। ਹੋਰ ਜਾਣਨ ਲਈ, ਆਪਣੇ IT ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਵਾਪਸ ਕਰੋ"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ਪਿਛਲੀ ਸਕ੍ਰੀਨ \'ਤੇ ਵਾਪਸ ਜਾਓ, ਜਾਂ ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਰੀਸੈੱਟ ਕਰੋ ਅਤੇ ਇਸਨੂੰ ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਵਾਪਸ ਕਰੋ।"</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ਸੈੱਟਅੱਪ ਰੱਦ ਕਰੋ"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"ਡੀਵਾਈਸ ਨੂੰ ਰੀਸੈੱਟ ਕਰੋ ਅਤੇ ਵਾਪਸ ਕਰੋ"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਨੂੰ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਰੱਖਿਆ ਅਤੇ IT ਪ੍ਰਸ਼ਾਸਕ ਵੱਲੋਂ ਪ੍ਰਬੰਧਿਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ਨਿੱਜੀ ਐਪ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੋਂ ਵੱਖਰੀਆਂ ਅਤੇ ਲੁਕਵੀਆਂ ਹੁੰਦੀਆਂ ਹਨ"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ਤੁਹਾਡਾ IT ਪ੍ਰਸ਼ਾਸਕ ਡੀਵਾਈਸ ਕੰਟਰੋਲ ਅਤੇ ਕੁਝ ਐਪ ਬਲਾਕ ਕਰ ਸਕਦਾ ਹੈ"</string>

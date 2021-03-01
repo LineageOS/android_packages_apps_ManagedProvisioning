@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"თქვენს IT ადმინისტრატორს შეუძლია, დაუშვას აპებისთვის წვდომა ამ მოწყობილობის პარამეტრებზე, მათ შორის, მიკროფონზე, კამერასა და მდებარეობაზე."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"მიმდინარეობს თქვენი მოწყობილობის დაყენება…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"გამოიყენეთ ეს მოწყობილობა თქვენს სამუშაო აპებზე მარტივად წვდომისთვის. ეს მოწყობილობა არ არის პირადი, ამიტომ თქვენი IT ადმინისტრატორი შეიძლება ხედავდეს თქვენს მონაცემებს და აქტივობას. დამატებითი ინფორმაციისთვის დაუკავშირდით თქვენს IT ადმინისტრატორს."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"დაუბრუნეთ ეს მოწყობილობა თქვენს ITადმინისტრატორს"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"დაბრუნდით წინა ეკრანზე, ან გადააყენეთ ეს მოწყობილობა და დაუბრუნეთ ის თქვენს ITადმინისტრატორს."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"დაყენების გაუქმება"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"მოწყობილობის გადაყენება და დაბრუნება"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"სამსახურის აპები თქვენს სამსახურის პროფილში ინახება. მათ თქვენი IT ადმინისტრატორი მართავს"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"პერსონალური აპები განცალკევებულია და თქვენი სამსახურის აპებისთვის უხილავია"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"თქვენს IT ადმინისტრატორს შეუძლია ამ მოწყობილობის გაკონტროლება და გარკვეული აპების დაბლოკვა"</string>

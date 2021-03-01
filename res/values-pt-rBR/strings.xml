@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Seu administrador de TI pode permitir que apps acessem as configurações deste dispositivo, incluindo microfone, câmera e localização."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurando seu dispositivo…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Use este dispositivo para acessar seus apps de trabalho com facilidade. Ele não é privado e, portanto, o administrador de TI pode ver seus dados e atividade. Para saber mais, entre em contato com o administrador de TI."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Devolva o dispositivo para o administrador de TI"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Volte à tela anterior ou redefina o dispositivo e devolva-o para o administrador de TI."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Cancelar configuração"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Redefinir e devolver o dispositivo"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Os apps de trabalho estão no perfil de trabalho e são gerenciados pelo administrador de TI"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Os apps pessoais ficam separados e ocultos dos apps de trabalho"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"O administrador de TI pode controlar este dispositivo e bloquear alguns apps"</string>

@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"IT-administratören tillåter inte att appar får åtkomst till inställningar på den här enheten, till exempel för mikrofon, kamera och plats."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfigurerar enheten …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Få enkelt åtkomst till dina jobbappar på den här enheten. Enheten är inte privat, så IT-administratören kanske kan se din aktivitet och data på enheten. Kontakta IT-administratören om du vill veta mer."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Lämna tillbaka enheten till IT-administratören"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Återgå till föregående skärm eller återställ den här enheten och lämna tillbaka den till IT-administratören."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Avbryt konfigureringen"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Återställ och lämna tillbaka enheten"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Jobbappar i jobbprofilen hanteras av IT-administratören"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Privata appar lagras för sig och syns inte bland jobbapparna"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-administratören kan styra denna enhet och blockera appar"</string>

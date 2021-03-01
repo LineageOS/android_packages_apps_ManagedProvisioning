@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Teie IT-administraator võib anda rakendustele juurdepääsu selle seadme seadetele (sh mikrofoni, kaamera ja asukoha seadetele)."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Teie seadme seadistamine …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Kasutage seda seadet, et töörakendustele hõlpsasti juurde pääseda. Seade ei ole privaatne, nii et IT-administraator võib teie andmeid ja tegevusi näha. Lisateabe saamiseks võtke ühendust IT-administraatoriga."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Andke see oma IT-administraatorile tagasi"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Naaske eelmisele ekraanikuvale või lähtestage seade ja andke see oma IT-administraatorile tagasi."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Katkesta seadistamine"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Lähtestan ja tagastan seadme"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Töörakendused on tööprofiilil ja neid haldab IT-administraator."</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Isiklikke rakendusi hoitakse töörakendustest eraldi"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-administraator saab seda seadet juhtida ja rakendusi blokeerida"</string>

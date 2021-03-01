@@ -166,15 +166,16 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"మీ కార్యాలయ పరికరాన్ని సెటప్ చేయండి"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"మీ కార్యాలయ యాప్‌లు సత్వరం యాక్సెస్ చేయగలిగేలా అందుబాటులో ఉంచుకోండి"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ఈ పరికరం వ్యక్తిగతమైనది కాదు"</string>
-    <!-- no translation found for fully_managed_device_provisioning_step_2_subheader_title (5417642884373347663) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"మీ యాక్టివిటీ &amp; డేటా"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"మీ IT నిర్వాహకులు ఈ పరికరంలోని మీ డేటా, కార్యకలాపం చూడగలిగే అవకాశం ఉంటుంది."</string>
-    <!-- no translation found for fully_managed_device_provisioning_permissions_title (5887976804117387279) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_permissions_subheader (5851437453029164791) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"యాప్ అనుమతులు"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"మైక్రోఫోన్, కెమెరా, అలాగే లొకేషన్‌తో పాటు ఈ పరికరంలో సెట్టింగ్‌లను యాక్సెస్ చేయడానికి మీ IT అడ్మిన్, యాప్‌లను అనుమతించవచ్చు."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"మీ పరికరాన్ని సెటప్ చేస్తోంది…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"మీ కార్యాలయ యాప్‌లను సులభంగా యాక్సెస్ చేయడానికి ఈ పరికరాన్ని ఉపయోగించండి. ఈ పరికరం వ్యక్తిగతమైనది కాదు, కనుక మీ IT నిర్వాహకులు మీ డేటా, కార్యకలాపం చూడగలిగే అవకాశం ఉంటుంది. మరింత తెలుసుకోవడానికి, మీ IT నిర్వాహకులను సంప్రదించండి."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ఈ పరికరాన్ని మీ IT అడ్మిన్‌కు తిరిగి ఇవ్వండి"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"వెనుకకు మునుపటి స్క్రీన్‌కు వెళ్లండి లేదా ఈ పరికరాన్ని రీసెట్ చేసి, దీన్ని మీ IT అడ్మిన్‌కు తిరిగి ఇవ్వండి."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"సెటప్‌ను రద్దు చేయి"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"రీసెట్ చేయండి &amp; పరికరాన్ని తిరిగి ఇవ్వండి"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ఆఫీస్ యాప్‌లను అడ్మిన్ నిర్వహిస్తారు &amp; ఆఫీస్ ప్రొఫైల్‌లో ఉంటాయి"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"వ్యక్తిగత యాప్‌లు విడిగా ఉంటాయి &amp; ఆఫీస్ యాప్‌లకు కనిపించవు"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"మీ IT అడ్మిన్ ఈ పరికరాన్ని నియంత్రించగలరు &amp; కొన్ని యాప్‌లను బ్లాక్ చేయగలరు"</string>

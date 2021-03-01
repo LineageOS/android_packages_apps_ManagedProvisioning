@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"您的 IT 管理員可允許應用程式存取此裝置上的設定，包括麥克風、相機和位置。"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"正在設定您的裝置…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"用呢部裝置可以幫您輕鬆存取工作應用程式。呢部裝置唔係私人裝置，所以您嘅 IT 管理員可能會睇到您嘅資料同活動。如果需要瞭解詳情，請聯絡您嘅 IT 管理員。"</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"將此裝置交還給 IT 管理員"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"返回上一個畫面，或重設此裝置並將其交還給 IT 管理員。"</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"取消設定"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"重設並交還裝置"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"工作應用程式儲存於工作設定檔，並由 IT 管理員管理"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"個人應用程式會獨立儲存，兩者不會同時顯示"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT 管理員可控制此裝置並封鎖特定應用程式"</string>

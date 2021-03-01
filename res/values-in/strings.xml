@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Admin IT dapat mengizinkan aplikasi untuk mengakses setelan di perangkat ini, termasuk mikrofon, kamera, dan lokasi."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Menyiapkan perangkat…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gunakan perangkat ini untuk mengakses aplikasi kerja Anda dengan mudah. Perangkat ini tidak bersifat pribadi, jadi admin IT mungkin dapat melihat data dan aktivitas Anda. Untuk mempelajari lebih lanjut, hubungi admin IT Anda."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Kembalikan perangkat ini ke admin IT Anda"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Kembali ke layar sebelumnya, atau reset perangkat ini dan kembalikan ke admin IT Anda."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Batalkan penyiapan"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Reset &amp; kembalikan perangkat"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplikasi kerja ada di profil kerja Anda &amp; dikelola admin IT"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplikasi pribadi terpisah &amp; tersembunyi dari aplikasi kerja"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Admin IT dapat mengontrol perangkat &amp; memblokir aplikasi"</string>

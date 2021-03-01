@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"মাইক্রোফোন, ক্যামেরা এবং লোকেশন ছাড়াও আপনার আইটি অ্যাডমিন এই ডিভাইসের সেটিংস অ্যাক্সেস করার জন্য অ্যাপকে অনুমতি দিতে পারবেন।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"আপনার ডিভাইস সেট-আপ করা হচ্ছে…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"আপনার অফিসের অ্যাপ সহজে অ্যাক্সেস করতে এই ডিভাইস ব্যবহার করুন। এই ডিভাইস ব্যক্তিগত নয়, তাই আপনার আইটি অ্যাডমিন আপনার ডেটা ও অ্যাক্টিভিটি দেখতে পেতে পারেন। আরও জানতে আপনার আইটি অ্যাডমিনের সাথে যোগাযোগ করুন।"</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"আইটি অ্যাডমিনকে এই ডিভাইস ফেরত দিন"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"আগের স্ক্রিনে ফেরত যান বা এই ডিভাইস রিসেট করে আইটি অ্যাডমিনকে ফেরত দিন।"</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"সেটআপ বাতিল করুন"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"ডিভাইস রিসেট করুন ও ফেরত দিন"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"অফিস অ্যাপগুলিকে অফিস প্রোফাইলে রাখা হয় এবং তা আপনার আইটি অ্যাডমিন ম্যানেজ করে"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"অফিস অ্যাপের থেকে ব্যক্তিগত অ্যাপ আলাদা করে লুকিয়ে রাখা হয়"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"আপনার আইটি অ্যাডমিন এই ডিভাইস নিয়ন্ত্রণ করতে ও নির্দিষ্ট অ্যাপ ব্লক করতে পারেন"</string>

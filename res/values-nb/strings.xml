@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"IT-administratoren din kan gi apper tilgang til innstillinger på denne enheten, inkludert mikrofonen, kameraet og posisjonen."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfigurerer enheten din …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Bruk denne enheten for å få tilgang til jobbappene dine. Denne enheten er ikke privat, så IT-administratoren din kan se dataene dine og aktiviteten din. For å finne ut mer, kontakt IT-administratoren din."</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Returner denne enheten til ID-administratoren din"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Gå tilbake til den forrige skjermen, eller tilbakestill denne enheten og returner den til IT-administratoren din."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Avbryt konfigureringen"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Tilbakestill og returner enheten"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apper i jobbprofilen din administreres av IT-administratoren"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Personlige apper er atskilte og skjules fra jobbapper"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-administratoren kan sjekke enheten og blokkere noen apper"</string>

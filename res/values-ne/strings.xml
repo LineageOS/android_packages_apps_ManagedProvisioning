@@ -166,15 +166,20 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"तपाईंको कार्यस्थलको यन्त्र सेट अप गरौँ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"आफ्ना कार्यस्थलसम्बन्धी एपहरू सजिलै प्राप्त गर्नुहोस्"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"यो यन्त्र निजी होइन"</string>
-    <!-- no translation found for fully_managed_device_provisioning_step_2_subheader_title (5417642884373347663) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"तपाईंका क्रियाकलापसम्बन्धी डेटा"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"तपाईंका IT व्यवस्थापकले तपाईंको यस यन्त्रका डेटा र गतिविधि हेर्न सक्ने सम्भावना हुन्छ।"</string>
-    <!-- no translation found for fully_managed_device_provisioning_permissions_title (5887976804117387279) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_permissions_subheader (5851437453029164791) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"एपलाई दिइएका अनुमति"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"तपाईंका IT एड्मिनले एपहरूलाई माइक्रोफोन, क्यामेरा र स्थानसम्बन्धी सेटिङलगायतका यस यन्त्रका सेटिङ हेर्ने र बदल्ने अनुमति दिन सक्नुहुन्छ।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"तपाईंको यन्त्र सेटअप गर्दै…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"तपाईंका कार्यस्थलका एपमाथि सजिलै पहुँच गर्न यो यन्त्र प्रयोग गर्नुहोस्। यो यन्त्र निजी होइन त्यसैले तपाईंका IT व्यवस्थापक तपाईंको डेटा र क्रियाकलाप हेर्न सक्छन्। थप जानकारी प्राप्त गर्न आफ्ना IT व्यवस्थापकसँग सम्पर्क गर्नुहोस्।"</string>
+    <!-- no translation found for fully_managed_device_provisioning_return_device_title (8500829014794276683) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_return_device_subheader (6194410367910957686) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_cancel_setup_button (4910041382610777599) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_reset_and_return_button (6451125722998550681) -->
+    <skip />
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"IT एडमिन कार्य प्रोफाइलमा राखिने कार्य एप व्यवस्थित गर्छन्"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"छुट्टै राखिने व्यक्तिगत एप कामसम्बन्धी एपसँगै देखिँदैनन्"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT एडमिन यो यन्त्र र यसका केही एपहरू नियन्त्रण गर्न सक्छन्"</string>

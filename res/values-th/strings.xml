@@ -172,6 +172,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"ผู้ดูแลระบบไอทีอนุญาตให้แอปเข้าถึงการตั้งค่าในอุปกรณ์นี้ได้ ซึ่งรวมถึงไมโครโฟน กล้อง และตำแหน่ง"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"กำลังตั้งค่าอุปกรณ์…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ใช้อุปกรณ์นี้เพื่อเข้าถึงแอปการทำงานได้ง่ายๆ นี่ไม่ใช่อุปกรณ์ส่วนตัว ดังนั้นผู้ดูแลระบบไอทีจึงอาจดูข้อมูลและกิจกรรมของคุณได้ โปรดติดต่อผู้ดูแลระบบไอทีเพื่อดูข้อมูลเพิ่มเติม"</string>
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ส่งคืนอุปกรณ์นี้ให้กับผู้ดูแลระบบไอทีของคุณ"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"กลับไปยังหน้าจอก่อนหน้านี้ หรือรีเซ็ตอุปกรณ์นี้และส่งคืนให้กับผู้ดูแลระบบไอทีของคุณ"</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ยกเลิกการตั้งค่า"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"รีเซ็ตและส่งคืนอุปกรณ์"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"แอปงานเก็บอยู่ในโปรไฟล์งานและจัดการโดยผู้ดูแลระบบไอที"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"แอปส่วนตัวจะอยู่แยกต่างหากและซ่อนจากแอปงาน"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ผู้ดูแลระบบไอทีจะควบคุมอุปกรณ์นี้และบล็อกบางแอปได้"</string>
