@@ -24,6 +24,7 @@ import android.view.LayoutInflater;
 import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 
 import org.junit.Before;
@@ -42,6 +43,7 @@ public class TermsListAdapterTest {
 
     private List<TermsDocument> mDocs;
     private TermsListAdapter.GroupExpandedInfo mGroupInfoAlwaysCollapsed = i -> false;
+    private Utils mUtils = new Utils();
 
     @Before
     public void setUp() throws Exception {
@@ -57,7 +59,7 @@ public class TermsListAdapterTest {
     public void returnsCorrectDocument() {
         // given: an adapter
         TermsListAdapter adapter = new TermsListAdapter(mContext, mDocs, mLayoutInflater,
-                mContextMenuMaker, mGroupInfoAlwaysCollapsed);
+                mContextMenuMaker, mGroupInfoAlwaysCollapsed, mUtils);
 
         // when: asked for a document from the initially passed-in list
         for (int i = 0; i < mDocs.size(); i++) {

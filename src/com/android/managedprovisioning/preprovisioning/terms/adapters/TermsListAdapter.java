@@ -15,7 +15,7 @@
  */
 package com.android.managedprovisioning.preprovisioning.terms.adapters;
 
-import static com.android.internal.util.Preconditions.checkNotNull;
+import static java.util.Objects.requireNonNull;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 
 import java.util.List;
@@ -41,18 +42,20 @@ public class TermsListAdapter extends BaseExpandableListAdapter {
     private final AccessibilityContextMenuMaker mContextMenuMaker;
     private final GroupExpandedInfo mGroupExpandedInfo;
     private final Context mContext;
+    private final Utils mUtils;
 
     /**
      * Creates a new instance of the class.
      */
     public TermsListAdapter(Context context, List<TermsDocument> termsDocuments,
             LayoutInflater layoutInflater, AccessibilityContextMenuMaker
-            contextMenuMaker, GroupExpandedInfo groupExpandedInfo) {
-        mTermsDocuments = checkNotNull(termsDocuments);
-        mInflater = checkNotNull(layoutInflater);
-        mGroupExpandedInfo = checkNotNull(groupExpandedInfo);
-        mContextMenuMaker = checkNotNull(contextMenuMaker);
-        mContext = checkNotNull(context);
+            contextMenuMaker, GroupExpandedInfo groupExpandedInfo, Utils utils) {
+        mTermsDocuments = requireNonNull(termsDocuments);
+        mInflater = requireNonNull(layoutInflater);
+        mGroupExpandedInfo = requireNonNull(groupExpandedInfo);
+        mContextMenuMaker = requireNonNull(contextMenuMaker);
+        mContext = requireNonNull(context);
+        mUtils = requireNonNull(utils);
     }
 
     @Override
@@ -127,7 +130,8 @@ public class TermsListAdapter extends BaseExpandableListAdapter {
 
         TermsDocument disclaimer = getDisclaimer(groupPosition);
         TextView textView = view.findViewById(R.id.disclaimer_content);
-        TermsAdapterUtils.populateContentTextView(mContext, textView, disclaimer);
+        TermsAdapterUtils.populateContentTextView(
+                mContext, textView, disclaimer, mUtils.getAccentColor(mContext));
         mContextMenuMaker.registerWithActivity(textView);
         return view;
     }

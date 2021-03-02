@@ -15,6 +15,8 @@
  */
 package com.android.managedprovisioning.preprovisioning.terms.adapters;
 
+import static java.util.Objects.requireNonNull;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 
 import java.util.List;
@@ -36,10 +39,12 @@ public class TermsListAdapterCar extends RecyclerView.Adapter<TermsListAdapterCa
 
     private final List<TermsDocument> mTerms;
     private final Context mContext;
+    private final Utils mUtils;
 
-    public TermsListAdapterCar(Context context, List<TermsDocument> terms) {
-        mTerms = terms;
-        mContext = context;
+    public TermsListAdapterCar(Context context, List<TermsDocument> terms, Utils utils) {
+        mTerms = requireNonNull(terms);
+        mContext = requireNonNull(context);
+        mUtils = requireNonNull(utils);
     }
 
     @Override
@@ -58,7 +63,8 @@ public class TermsListAdapterCar extends RecyclerView.Adapter<TermsListAdapterCa
         holder.mHeaderTextView.setContentDescription(mContext.getResources()
                 .getString(R.string.section_heading, disclaimer.getHeading()));
 
-        TermsAdapterUtils.populateContentTextView(mContext, holder.mContentTextView, disclaimer);
+        TermsAdapterUtils.populateContentTextView(
+                mContext, holder.mContentTextView, disclaimer, mUtils.getAccentColor(mContext));
     }
 
     @Override
