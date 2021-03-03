@@ -266,7 +266,6 @@ class TransitionAnimationHelper {
                 .setSubHeader(R.string.fully_managed_device_provisioning_step_2_subheader)
                 .setSubHeaderIcon(R.drawable.ic_history)
                 .setShowContactAdmin(false)
-                .setAnimation(R.drawable.not_private_animation)
                 .setShouldLoop(true);
 
         final int provisioningSummaryId;
@@ -281,6 +280,7 @@ class TransitionAnimationHelper {
             provisioningSummaryId = R.string.fully_managed_device_provisioning_summary;
         } else {
             provisioningSummaryId = R.string.fully_managed_device_provisioning_summary;
+            secondScreenBuilder.setAnimation(R.drawable.not_private_animation);
         }
 
         TransitionScreenWrapper firstScreen = new TransitionScreenWrapper(

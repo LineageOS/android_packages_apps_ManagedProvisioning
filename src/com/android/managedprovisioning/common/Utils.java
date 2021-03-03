@@ -826,12 +826,19 @@ public class Utils {
             @NonNull OnClickListener listener) {
         final int buttonType = ButtonType.CANCEL;
         final int buttonLabel = R.string.fully_managed_device_cancel_setup_button;
+
+        return addSecondaryButton(layout, listener, buttonType, buttonLabel);
+    }
+
+    private static FooterButton addSecondaryButton(GlifLayout layout,
+            @NonNull OnClickListener listener,
+            @ButtonType int buttonType, @StringRes int buttonLabel) {
         final FooterBarMixin mixin = layout.getMixin(FooterBarMixin.class);
         final FooterButton secondaryButton = new FooterButton.Builder(layout.getContext())
                 .setText(buttonLabel)
                 .setListener(listener)
                 .setButtonType(buttonType)
-                .setTheme(R.style.SudGlifButton_Primary)
+                .setTheme(R.style.SudGlifButton_Secondary)
                 .build();
         mixin.setSecondaryButton(secondaryButton);
         return secondaryButton;
