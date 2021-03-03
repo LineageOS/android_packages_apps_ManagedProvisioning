@@ -26,8 +26,11 @@ import android.widget.TextView;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
-import com.android.managedprovisioning.common.ClickableSpanFactory;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
+import com.android.managedprovisioning.common.ThemeHelper;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -43,12 +46,14 @@ public class LandingActivity extends SetupGlifLayoutActivity {
     private final AccessibilityContextMenuMaker mContextMenuMaker;
 
     public LandingActivity() {
-        this(new Utils(), null);
+        this(new Utils(), /* contextMenuMaker */ null, new SettingsFacade(),
+                new ThemeHelper(new DefaultNightModeChecker(), new DefaultSetupWizardBridge()));
     }
 
     @VisibleForTesting
-    LandingActivity(Utils utils, AccessibilityContextMenuMaker contextMenuMaker) {
-        super(utils);
+    LandingActivity(Utils utils, AccessibilityContextMenuMaker contextMenuMaker,
+            SettingsFacade settingsFacade, ThemeHelper themeHelper) {
+        super(utils, settingsFacade, themeHelper);
         mContextMenuMaker = contextMenuMaker != null
                 ? contextMenuMaker
                 : new AccessibilityContextMenuMaker(this);
@@ -113,10 +118,8 @@ public class LandingActivity extends SetupGlifLayoutActivity {
         final String deviceProvider = getString(R.string.organization_admin);
         final String contactDeviceProvider =
                 getString(R.string.contact_device_provider, deviceProvider);
-        final ClickableSpanFactory clickableSpanFactory =
-                new ClickableSpanFactory(getColor(R.color.blue_text));
-        mUtils.handleSupportUrl(this, customizationParams, clickableSpanFactory,
-                mContextMenuMaker, info, deviceProvider, contactDeviceProvider);
+        mUtils.handleSupportUrl(this, customizationParams, mContextMenuMaker, info, deviceProvider,
+                contactDeviceProvider);
     }
 
     @Override

@@ -15,6 +15,8 @@
  */
 package com.android.managedprovisioning.preprovisioning.terms;
 
+import static android.view.View.TEXT_ALIGNMENT_TEXT_START;
+
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TERMS_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
@@ -25,11 +27,12 @@ import android.util.ArraySet;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.car.ui.core.CarUi;
 import com.android.car.ui.recyclerview.CarUiRecyclerView;
@@ -40,12 +43,17 @@ import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.SettingsFacade;
-import com.android.managedprovisioning.common.SetupLayoutActivity;
+import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.StoreUtils;
+import com.android.managedprovisioning.common.ThemeHelper;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.terms.adapters.TermsListAdapter;
 import com.android.managedprovisioning.preprovisioning.terms.adapters.TermsListAdapterCar;
+
+import com.google.android.setupdesign.GlifLayout;
 
 import java.util.List;
 import java.util.Set;
@@ -53,7 +61,7 @@ import java.util.Set;
 /**
  * Activity responsible for displaying the Terms screen
  */
-public class TermsActivity extends SetupLayoutActivity {
+public class TermsActivity extends SetupGlifLayoutActivity {
     private final TermsProvider mTermsProvider;
     private final AccessibilityContextMenuMaker mContextMenuMaker;
     private final Set<Integer> mExpandedGroupsPosition = new ArraySet<>();
@@ -68,7 +76,8 @@ public class TermsActivity extends SetupLayoutActivity {
     @VisibleForTesting
     TermsActivity(StoreUtils.TextFileReader textFileReader,
             AccessibilityContextMenuMaker contextMenuMaker, SettingsFacade settingsFacade) {
-        super(new Utils());
+        super(new Utils(), settingsFacade,
+                new ThemeHelper(new DefaultNightModeChecker(), new DefaultSetupWizardBridge()));
         mTermsProvider = new TermsProvider(this, textFileReader, mUtils);
         mContextMenuMaker =
                 contextMenuMaker != null ? contextMenuMaker : new AccessibilityContextMenuMaker(
@@ -84,28 +93,52 @@ public class TermsActivity extends SetupLayoutActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.terms_screen);
         setTitle(R.string.terms);
-        int statusBarColor = getColor(R.color.term_status_bar);
-        setStatusBarColor(statusBarColor);
 
         ProvisioningParams params = checkNotNull(
                 getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS));
-        List<TermsDocument> terms = mTermsProvider.getTerms(params, 0);
+        List<TermsDocument> terms = mTermsProvider.getTerms(params);
 
+        int statusBarColor = getColor(R.color.term_status_bar);
         setUpTermsList(terms, statusBarColor);
 
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) {
             ToolbarController toolbar = CarUi.requireToolbar(this);
             toolbar.setTitle(R.string.terms);
             toolbar.setState(com.android.car.ui.toolbar.Toolbar.State.SUBPAGE);
+            // TODO(b/181336374): Investigate whether this is still needed for Auto
+            setStatusBarColor(statusBarColor);
         } else {
-            Toolbar toolbar = findViewById(R.id.toolbar);
-            toolbar.setNavigationOnClickListener(v -> TermsActivity.this.finish());
+            initializeUiForHandhelds(params);
         }
 
         mProvisioningAnalyticsTracker = new ProvisioningAnalyticsTracker(
                 MetricsWriterFactory.getMetricsWriter(this, mSettingsFacade),
                 new ManagedProvisioningSharedPreferences(getApplicationContext()));
         mProvisioningAnalyticsTracker.logNumberOfTermsDisplayed(this, terms.size());
+    }
+
+    private void initializeUiForHandhelds(ProvisioningParams params) {
+        setupGlifLayout(params);
+        setupToolbar();
+    }
+
+    private void setupGlifLayout(ProvisioningParams params) {
+        GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+        layout.setDescriptionText(mTermsProvider.getGeneralDisclaimer(params).getContent());
+        layout.findViewById(R.id.suc_layout_title)
+                .setTextAlignment(TEXT_ALIGNMENT_TEXT_START);
+        layout.findViewById(R.id.sud_layout_subtitle)
+                .setTextAlignment(TEXT_ALIGNMENT_TEXT_START);
+        layout.setIcon(getDrawable(R.drawable.ic_enterprise_blue_24dp));
+        layout.findViewById(R.id.sud_layout_icon).setVisibility(View.INVISIBLE);
+    }
+
+    private void setupToolbar() {
+        ViewGroup viewGroup = (ViewGroup) findViewById(R.id.sud_scroll_view).getParent();
+        Toolbar toolbar = new Toolbar(this);
+        toolbar.setNavigationIcon(getDrawable(R.drawable.ic_arrow_back_24dp));
+        toolbar.setNavigationOnClickListener(v -> TermsActivity.this.finish());
+        viewGroup.addView(toolbar, /* index= */ 0);
     }
 
     private void setUpTermsList(List<TermsDocument> terms, @ColorInt int statusBarColor) {
@@ -121,8 +154,9 @@ public class TermsActivity extends SetupLayoutActivity {
                             getLayoutInflater(),
                             new AccessibilityContextMenuMaker(this),
                             container::isGroupExpanded, statusBarColor));
-            container.expandGroup(0); // expand the 'General' section
-
+            if (terms.size() > 0) {
+                container.expandGroup(/* groupPos= */ 0);
+            }
             // Add default open terms to the expanded groups set.
             for (int i = 0; i < terms.size(); i++) {
                 if (container.isGroupExpanded(i)) mExpandedGroupsPosition.add(i);

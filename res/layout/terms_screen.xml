@@ -16,27 +16,26 @@
  * limitations under the License.
  */
 -->
-<LinearLayout
+<com.google.android.setupdesign.GlifLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/setup_wizard_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <Toolbar
-        android:id="@+id/toolbar"
-        android:title="@string/terms"
+    app:sucHeaderText="@string/terms">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:theme="?actionBarTheme"/>
-
-    <ExpandableListView
-        android:id="@+id/terms_container"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:divider="@null"
-        android:groupIndicator="@null"
-        android:layout_marginLeft="@dimen/terms_screen_margin"
-        android:layout_marginRight="@dimen/terms_screen_margin"
-        android:paddingLeft="@dimen/terms_screen_padding"
-        android:paddingRight="@dimen/terms_screen_padding"/>
-</LinearLayout>
+        android:orientation="vertical">
+        <ExpandableListView
+            android:id="@+id/terms_container"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:divider="@null"
+            android:groupIndicator="@null"
+            android:layout_marginLeft="@dimen/terms_screen_margin"
+            android:layout_marginRight="@dimen/terms_screen_margin"
+            android:paddingLeft="@dimen/terms_screen_padding"
+            android:paddingRight="@dimen/terms_screen_padding"/>
+    </LinearLayout>
+</com.google.android.setupdesign.GlifLayout>

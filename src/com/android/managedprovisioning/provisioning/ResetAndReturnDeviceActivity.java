@@ -21,7 +21,9 @@ import android.os.Bundle;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
+import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -42,8 +44,9 @@ public class ResetAndReturnDeviceActivity extends SetupGlifLayoutActivity {
     }
 
     @VisibleForTesting
-    public ResetAndReturnDeviceActivity(Utils utils) {
-        super(utils);
+    public ResetAndReturnDeviceActivity(
+            Utils utils, SettingsFacade settingsFacade, ThemeHelper themeHelper) {
+        super(utils, settingsFacade, themeHelper);
     }
 
     @Override

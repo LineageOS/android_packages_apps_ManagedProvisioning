@@ -52,6 +52,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -103,6 +104,7 @@ public class TermsActivityTest {
         TestInstrumentationRunner.unregisterReplacedActivity(TermsActivity.class);
     }
 
+    @Ignore("b/181323689")
     // TODO(b/35613314): remove @FlakyTest once bug fixed
     @FlakyTest
     @Test
@@ -167,6 +169,7 @@ public class TermsActivityTest {
         onView(withId(R.id.disclaimer_content)).check(matches(withText("item1\nitem2\n")));
     }
 
+    @Ignore("b/181323689")
     // TODO(b/35613314): remove @FlakyTest once bug fixed
     @FlakyTest
     @Test

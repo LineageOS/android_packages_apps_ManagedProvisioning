@@ -86,18 +86,14 @@ import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferenc
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
-import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.ProvisioningParams.FlowType;
 import com.android.managedprovisioning.parser.MessageParser;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
-import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
-import com.android.managedprovisioning.preprovisioning.terms.TermsProvider;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class PreProvisioningController {
     private static final String EXTRA_IS_SETUP_FLOW = "isSetupFlow";
@@ -426,7 +422,6 @@ public class PreProvisioningController {
         final String packageName = mParams.inferDeviceAdminPackageName();
         final UiParams uiParams = new UiParams();
         uiParams.customization = customization;
-        uiParams.disclaimerHeadings = getDisclaimerHeadings();
         uiParams.provisioningAction = mParams.provisioningAction;
         uiParams.packageName = packageName;
         uiParams.isDeviceManaged = mDevicePolicyManager.isDeviceManaged();
@@ -581,15 +576,6 @@ public class PreProvisioningController {
     private boolean shouldPassPersonalDataToAdminApp() {
         return mParams.initiatorRequestedProvisioningModes == SUPPORTED_MODES_ORGANIZATION_OWNED
                 || mParams.initiatorRequestedProvisioningModes == SUPPORTED_MODES_DEVICE_OWNER;
-    }
-
-    private @NonNull List<String> getDisclaimerHeadings() {
-        // TODO: only fetch headings, no need to fetch content; now not fast, but at least correct
-        return new TermsProvider(mContext, StoreUtils::readString, mUtils)
-                .getTerms(mParams, TermsProvider.Flags.SKIP_GENERAL_DISCLAIMER)
-                .stream()
-                .map(TermsDocument::getHeading)
-                .collect(Collectors.toList());
     }
 
     private Intent createViewTermsIntent() {

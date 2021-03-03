@@ -43,12 +43,14 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
-import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.common.ThemeHelper;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.PreFinalizationController;
 import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
@@ -130,14 +132,19 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                 /* provisioningManager */ null, // defined in getProvisioningManager()
                 new Utils(),
                 /* userProvisioningStateHelper */ null, // defined in onCreate()
-                new PolicyComplianceUtils());
+                new PolicyComplianceUtils(),
+                new SettingsFacade(),
+                new ThemeHelper(new DefaultNightModeChecker(), new DefaultSetupWizardBridge()));
     }
 
     @VisibleForTesting
-    public ProvisioningActivity(ProvisioningManager provisioningManager, Utils utils,
+    public ProvisioningActivity(ProvisioningManager provisioningManager,
+            Utils utils,
             UserProvisioningStateHelper userProvisioningStateHelper,
-            PolicyComplianceUtils policyComplianceUtils) {
-        super(utils);
+            PolicyComplianceUtils policyComplianceUtils,
+            SettingsFacade settingsFacade,
+            ThemeHelper themeHelper) {
+        super(utils, settingsFacade, themeHelper);
         mProvisioningManager = provisioningManager;
         mUserProvisioningStateHelper = userProvisioningStateHelper;
         mPolicyComplianceUtils = checkNotNull(policyComplianceUtils);
@@ -361,13 +368,11 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     }
 
     private void setupEducationViews(GlifLayout layout) {
-        final TextView header = layout.findViewById(R.id.suc_layout_title);
-        header.setTextColor(getColorStateList(R.color.header_text_color));
-
         final int progressLabelResId =
                 PROVISIONING_MODE_TO_PROGRESS_LABEL.get(getProvisioningMode());
         final TextView progressLabel = layout.findViewById(R.id.provisioning_progress);
         if (shouldSkipEducationScreens()) {
+            final TextView header = layout.findViewById(R.id.suc_layout_title);
             header.setText(progressLabelResId);
             progressLabel.setVisibility(View.INVISIBLE);
             layout.findViewById(R.id.subheader_description).setVisibility(View.INVISIBLE);
@@ -426,11 +431,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         final String deviceProvider = getString(R.string.organization_admin);
         final String contactDeviceProvider =
                 getString(R.string.contact_device_provider, deviceProvider);
-        final ClickableSpanFactory spanFactory =
-                new ClickableSpanFactory(getColor(R.color.blue_text));
-        mUtils.handleSupportUrl(this, customization, spanFactory,
-                new AccessibilityContextMenuMaker(this), info, deviceProvider,
-                contactDeviceProvider);
+        mUtils.handleSupportUrl(this, customization, new AccessibilityContextMenuMaker(this), info,
+                deviceProvider, contactDeviceProvider);
     }
 
     private void startTransitionAnimation() {

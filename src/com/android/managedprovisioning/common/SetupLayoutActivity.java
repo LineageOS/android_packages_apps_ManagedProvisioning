@@ -20,7 +20,6 @@ import static android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
 
-import android.app.Activity;
 import android.app.ActivityManager.TaskDescription;
 import android.app.DialogFragment;
 import android.app.Fragment;
@@ -29,33 +28,44 @@ import android.app.FragmentTransaction;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.annotation.VisibleForTesting;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.TimeLogger;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
 
 /**
  * Base class for setting up the layout.
  */
-public abstract class SetupLayoutActivity extends Activity {
+public abstract class SetupLayoutActivity extends AppCompatActivity {
     protected final Utils mUtils;
+    protected final SettingsFacade mSettingsFacade;
+    private final ThemeHelper mThemeHelper;
 
     private TimeLogger mTimeLogger;
 
     public SetupLayoutActivity() {
-        this(new Utils());
+        this(new Utils(), new SettingsFacade(),
+                new ThemeHelper(new DefaultNightModeChecker(), new DefaultSetupWizardBridge()));
     }
 
     @VisibleForTesting
-    protected SetupLayoutActivity(Utils utils) {
+    protected SetupLayoutActivity(
+            Utils utils, SettingsFacade settingsFacade, ThemeHelper themeHelper) {
         mUtils = utils;
+        mSettingsFacade = settingsFacade;
+        mThemeHelper = themeHelper;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(mThemeHelper.inferThemeResId(this, getIntent()));
         super.onCreate(savedInstanceState);
         mTimeLogger = new TimeLogger(this, getMetricsCategory());
         mTimeLogger.start();

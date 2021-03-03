@@ -22,7 +22,11 @@ import android.widget.TextView;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
+import com.android.managedprovisioning.common.ThemeHelper;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -36,12 +40,14 @@ public final class FinancedDeviceLandingActivity extends SetupGlifLayoutActivity
     private final AccessibilityContextMenuMaker mContextMenuMaker;
 
     public FinancedDeviceLandingActivity() {
-        this(new Utils(), /* contextMenuMaker= */null);
+        this(new Utils(), /* contextMenuMaker= */null, new SettingsFacade(),
+                new ThemeHelper(new DefaultNightModeChecker(), new DefaultSetupWizardBridge()));
     }
 
     @VisibleForTesting
-    FinancedDeviceLandingActivity(Utils utils, AccessibilityContextMenuMaker contextMenuMaker) {
-        super(utils);
+    FinancedDeviceLandingActivity(Utils utils, AccessibilityContextMenuMaker contextMenuMaker,
+            SettingsFacade settingsFacade, ThemeHelper themeHelper) {
+        super(utils, settingsFacade, themeHelper);
         mContextMenuMaker = contextMenuMaker != null
                 ? contextMenuMaker
                 : new AccessibilityContextMenuMaker(this);

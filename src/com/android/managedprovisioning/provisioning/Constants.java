@@ -36,6 +36,8 @@ public final class Constants {
         return new File(context.getFilesDir(), "deferred_metrics");
     }
 
+    public static boolean FLAG_ENABLE_LIGHT_DARK_MODE = false;
+
     private Constants() {
         // Do not instantiate
     }

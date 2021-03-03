@@ -37,11 +37,11 @@
     <color name="gray2">#EEE</color>
     <color name="gray_button_focused">#c0c0c0</color>
     <color name="gray_button_text">#8A000000</color>
-    <color name="gray_divider">#DCDCDC</color>
     <color name="gray_status_bar">#BDBDBD</color>
     <color name="white">#FFF</color>
     <color name="teal2">#FF26A599</color>
     <color name="term_status_bar">#E8EAED</color>
     <color name="header_text_color">#000000</color>
     <color name="grey_text">#5F6368</color>
+    <color name="description_icon_color">?android:attr/textColorSecondary</color>
 </resources>

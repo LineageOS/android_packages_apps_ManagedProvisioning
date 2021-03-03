@@ -38,8 +38,12 @@ import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.GetProvisioningModeUtils;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
+import com.android.managedprovisioning.common.ThemeHelper;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
+import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -102,13 +106,16 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
 
     public PreProvisioningActivity() {
-        this(activity -> new PreProvisioningController(activity, activity), null, new Utils());
+        this(activity -> new PreProvisioningController(activity, activity), null, new Utils(),
+                new SettingsFacade(), new ThemeHelper(
+                        new DefaultNightModeChecker(), new DefaultSetupWizardBridge()));
     }
 
     @VisibleForTesting
     public PreProvisioningActivity(ControllerProvider controllerProvider,
-            AccessibilityContextMenuMaker contextMenuMaker, Utils utils) {
-        super(utils);
+            AccessibilityContextMenuMaker contextMenuMaker, Utils utils,
+            SettingsFacade settingsFacade, ThemeHelper themeHelper) {
+        super(utils, settingsFacade, themeHelper);
         mControllerProvider = controllerProvider;
         mContextMenuMaker =
                 contextMenuMaker != null ? contextMenuMaker : new AccessibilityContextMenuMaker(

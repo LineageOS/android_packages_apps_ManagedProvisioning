@@ -22,9 +22,6 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="vertical">
-    <View
-        android:id="@+id/divider"
-        style="@style/Provisioning2Theme.Divider"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,12 +31,13 @@
         android:layout_marginTop="@dimen/spacer_16"
         android:orientation="horizontal">
         <TextView
+            android:layout_marginLeft="@dimen/spacer_36"
             android:id="@+id/header_text"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
-            style="@style/Provisioning2Theme.Text.Primary"/>
+            style="@style/Provisioning2Theme.Text.Primary.Large"/>
         <ImageView
+            android:layout_marginLeft="@dimen/spacer_12"
             android:id="@+id/chevron"
             android:background="@null"
             android:clickable="false"
