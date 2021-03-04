@@ -57,6 +57,7 @@
 
     <!-- General -->
     <dimen name="spacer_0">0dp</dimen>
+    <dimen name="spacer_2">2dp</dimen>
     <dimen name="spacer_8">8dp</dimen>
     <dimen name="spacer_12">12dp</dimen>
     <dimen name="spacer_16">16dp</dimen>
@@ -88,4 +89,7 @@
 
     <!-- Provisioning -->
     <dimen name="animation_height">162dp</dimen>
+    <dimen name="description_icon_size">20dp</dimen>
+    <dimen name="subheader_description_margin_start">36dp</dimen>
+    <dimen name="subheader_description_margin_top">2dp</dimen>
 </resources>

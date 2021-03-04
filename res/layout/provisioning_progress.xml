@@ -28,55 +28,63 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
-            android:layout_marginLeft="?attr/sudMarginStart"
-            android:layout_marginRight="?attr/sudMarginEnd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/spacer_32">
             <ImageView
                 android:id="@+id/subheader_icon"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/info_text_title_size"
-                android:scaleType="centerCrop"/>
+                android:layout_width="@dimen/description_icon_size"
+                android:layout_height="@dimen/description_icon_size"
+                android:scaleType="centerInside"
+                android:layout_marginEnd="@dimen/spacer_16"/>
             <TextView
                 android:id="@+id/subheader_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:importantForAccessibility="no"
-                style="@style/SudDescription.Glif"/>
+                android:gravity="start"
+                style="@style/Provisioning2Theme.Text.Primary.Medium"/>
         </LinearLayout>
         <TextView
             android:id="@+id/subheader_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="start"
             android:importantForAccessibility="no"
-            style="@style/SudDescription.Glif"/>
+            android:layout_marginStart="@dimen/subheader_description_margin_start"
+            android:layout_marginTop="@dimen/subheader_description_margin_top"
+            style="@style/Provisioning2Theme.Text.Primary.Small" />
         <LinearLayout
-            android:layout_marginLeft="?attr/sudMarginStart"
-            android:layout_marginRight="?attr/sudMarginEnd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/spacer_32">
             <ImageView
                 android:id="@+id/secondary_subheader_icon"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/info_text_title_size"
-                android:scaleType="centerCrop"/>
+                android:layout_width="@dimen/description_icon_size"
+                android:layout_height="@dimen/description_icon_size"
+                android:scaleType="centerInside"
+                android:layout_marginEnd="@dimen/spacer_16"/>
             <TextView
                 android:id="@+id/secondary_subheader_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="start"
                 android:importantForAccessibility="no"
-                style="@style/SudDescription.Glif"/>
+                style="@style/Provisioning2Theme.Text.Primary.Medium"/>
         </LinearLayout>
         <TextView
             android:id="@+id/secondary_subheader_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="start"
             android:importantForAccessibility="no"
-            style="@style/SudDescription.Glif"/>
+            android:layout_marginStart="@dimen/subheader_description_margin_start"
+            android:layout_marginTop="@dimen/subheader_description_margin_top"
+            style="@style/Provisioning2Theme.Text.Primary.Small"/>
         <TextView
             android:id="@+id/provider_info"
             android:layout_width="match_parent"
