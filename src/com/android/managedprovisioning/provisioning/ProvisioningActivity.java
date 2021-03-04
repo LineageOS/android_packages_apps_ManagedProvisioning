@@ -59,7 +59,6 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.AnimationComponents;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationCallback;
 
-import com.google.android.setupcompat.template.FooterButton;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.GlifLayout;
 
@@ -122,8 +121,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
     private TransitionAnimationHelper mTransitionAnimationHelper;
     private RepeatingVectorAnimation mRepeatingVectorAnimation;
-    private FooterButton mNextButton;
-    private FooterButton mAbortButton;
     private UserProvisioningStateHelper mUserProvisioningStateHelper;
     private PolicyComplianceUtils mPolicyComplianceUtils;
 
@@ -208,8 +205,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         if (!shouldSkipEducationScreens()) {
             final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
             layout.findViewById(R.id.provisioning_progress).setVisibility(View.GONE);
-            mNextButton.setVisibility(View.VISIBLE);
-            mAbortButton.setVisibility(View.VISIBLE);
+            Utils.addNextButton(layout, v -> onNextButtonClicked());
+            Utils.addAbortAndResetButton(layout, v -> onAbortButtonClicked());
         }
 
         if (shouldSkipEducationScreens() || Utils.isSilentProvisioning(this, mParams)) {
@@ -359,10 +356,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             // make the icon invisible
             layout.findViewById(R.id.sud_layout_icon).setVisibility(View.INVISIBLE);
         }
-        mNextButton = Utils.addNextButton(layout, v -> onNextButtonClicked());
-        mNextButton.setVisibility(View.INVISIBLE);
-        mAbortButton = Utils.addAbortAndResetButton(layout, v -> onAbortButtonClicked());
-        mAbortButton.setVisibility(View.INVISIBLE);
 
         handleSupportUrl(layout, customizationParams);
     }
