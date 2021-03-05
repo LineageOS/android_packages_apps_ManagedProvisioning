@@ -28,6 +28,7 @@ import androidx.test.InstrumentationRegistry;
 import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 
 import org.junit.Before;
@@ -43,6 +44,7 @@ public class TermsListAdapterCarTest {
     @Mock private Context mContext;
     @Mock private Resources mResources;
     @Mock private View mView;
+    @Mock private Utils mUtils;
 
     private List<TermsDocument> mDocs;
 
@@ -66,7 +68,7 @@ public class TermsListAdapterCarTest {
     @Test
     public void returnsCorrectItemCount() {
         // given: an adapter
-        TermsListAdapterCar adapter = new TermsListAdapterCar(mContext, mDocs);
+        TermsListAdapterCar adapter = new TermsListAdapterCar(mContext, mDocs, mUtils);
 
         assertThat(adapter.getItemCount()).isEqualTo(mDocs.size());
     }
@@ -85,7 +87,7 @@ public class TermsListAdapterCarTest {
 
         TermsListAdapterCar.ViewHolder mViewHolder = new TermsListAdapterCar.ViewHolder(mView);
         // given: an adapter
-        TermsListAdapterCar adapter = new TermsListAdapterCar(mContext, mDocs);
+        TermsListAdapterCar adapter = new TermsListAdapterCar(mContext, mDocs, mUtils);
         // Check if information from doc2 is extracted and set in the view correctly
         adapter.onBindViewHolder(mViewHolder, /* position= */ 1);
 

@@ -139,7 +139,7 @@ public class TermsActivity extends SetupGlifLayoutActivity {
     private void setUpTermsList(List<TermsDocument> terms) {
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) {
             CarUiRecyclerView listView = findViewById(R.id.terms_container);
-            listView.setAdapter(new TermsListAdapterCar(getApplicationContext(), terms));
+            listView.setAdapter(new TermsListAdapterCar(getApplicationContext(), terms, mUtils));
 
         } else {
             ExpandableListView container = findViewById(R.id.terms_container);
@@ -147,7 +147,8 @@ public class TermsActivity extends SetupGlifLayoutActivity {
                     new TermsListAdapter(getApplicationContext(), terms,
                             getLayoutInflater(),
                             new AccessibilityContextMenuMaker(this),
-                            container::isGroupExpanded));
+                            container::isGroupExpanded,
+                            mUtils));
             if (terms.size() > 0) {
                 container.expandGroup(/* groupPos= */ 0);
             }
