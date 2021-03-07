@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Die volgende program sal jou toestel bestuur:"</string>
     <string name="next" msgid="1004321437324424398">"Volgende"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Stel tans werkprofiel op …"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Jou IT-administrateur kan instellings, korporatiewe toegang, programme, toestemmings en data wat met hierdie profiel geassosieer word, insluitend jou netwerkaktiwiteit, asook jou toestel se ligging, oproepgeskiedenis en kontaksoekgeskiedenis, monitor en bestuur.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Kontak jou IT-administrateur vir meer inligting, insluitend jou organisasie se privaatheidsbeleide."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Jou IT-administrateur kan instellings, korporatiewe toegang, programme, toestemmings en data wat met hierdie toestel geassosieer word, insluitend jou netwerkaktiwiteit, asook jou toestel se ligging, oproepgeskiedenis en kontaksoekgeskiedenis, monitor en bestuur.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Kontak jou IT-administrateur vir meer inligting, insluitend jou organisasie se privaatheidsbeleide."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Jou IT-administrateur kan instellings, korporatiewe toegang, programme, toestemmings en data wat met hierdie profiel geassosieer word, insluitend jou netwerkaktiwiteit, asook jou toestel se ligging, oproepgeskiedenis en kontaksoekgeskiedenis, monitor en bestuur.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Kontak jou IT-administrateur vir meer inligting, insluitend jou organisasie se privaatheidsbeleide."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Jou IT-administrateur kan instellings, korporatiewe toegang, programme, toestemmings en data wat met hierdie toestel geassosieer word, insluitend jou netwerkaktiwiteit, asook jou toestel se ligging, oproepgeskiedenis en kontaksoekgeskiedenis, monitor en bestuur.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Kontak jou IT-administrateur vir meer inligting, insluitend jou organisasie se privaatheidsbeleide."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Jy moet \'n wagwoordbeskermde skermslot vir jou toestel hê om diefstalbeskerming-kenmerke te gebruik."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Kontak jou IT-administrateur vir meer inligting, insluitend jou organisasie se privaatheidsbeleide."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Kom meer te wete"</string>

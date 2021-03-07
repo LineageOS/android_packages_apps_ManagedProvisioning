@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Enheten hanteras med följande app:"</string>
     <string name="next" msgid="1004321437324424398">"Nästa"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Konfigurerar jobbprofilen …"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"IT-administratören kan övervaka och hantera inställningar, företagsåtkomst, appar, data med koppling till profilen, inklusive nätverksaktivitet, samt plats, samtalshistorik och sökhistorik i kontakter för enheten.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Kontakta IT-administratören om du vill få mer information, till exempel om organisationens sekretesspolicy."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT-administratören kan övervaka och hantera inställningar, företagsåtkomst, appar, data med koppling till enheten, inklusive nätverksaktivitet, samt plats, samtalshistorik och sökhistorik i kontakter för enheten.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Kontakta IT-administratören om du vill få mer information, till exempel om organisationens sekretesspolicy."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"IT-administratören kan övervaka och hantera inställningar, företagsåtkomst, appar, data med koppling till profilen, inklusive nätverksaktivitet, samt plats, samtalshistorik och sökhistorik i kontakter för enheten.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Kontakta IT-administratören om du vill få mer information, till exempel om organisationens sekretesspolicy."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT-administratören kan övervaka och hantera inställningar, företagsåtkomst, appar, data med koppling till enheten, inklusive nätverksaktivitet, samt plats, samtalshistorik och sökhistorik i kontakter för enheten.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Kontakta IT-administratören om du vill få mer information, till exempel om organisationens sekretesspolicy."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Enheten måste ha ett lösenordsskyddat skärmlås för att du ska kunna använda stöldskyddsfunktioner."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Kontakta IT-administratören om du vill få mer information, till exempel om organisationens sekretesspolicy."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Läs mer"</string>

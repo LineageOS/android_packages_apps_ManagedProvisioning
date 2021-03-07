@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vaše zariadenie bude spravovať nasledujúca aplikácia:"</string>
     <string name="next" msgid="1004321437324424398">"Ďalej"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Nastavuje sa pracovný profil…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Správca IT môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia a údaje spojené s týmto zariadením vrátane aktivity v sieti a informácií o polohe zariadenia, histórie hovorov a histórie vyhľadávania kontaktov.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Ak potrebujete ďalšie informácie vrátane informácií o pravidlách ochrany súkromia svojej organizácie, kontaktujte správcu."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Správca IT môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia a údaje spojené s týmto profilom vrátane aktivity v sieti a informácií o polohe zariadenia, histórie hovorov a histórie vyhľadávania kontaktov.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Ak potrebujete ďalšie informácie vrátane informácií o pravidlách ochrany súkromia svojej organizácie, kontaktujte správcu."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Správca IT môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia a údaje spojené s týmto zariadením vrátane aktivity v sieti a informácií o polohe zariadenia, histórie hovorov a histórie vyhľadávania kontaktov.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Ak potrebujete ďalšie informácie vrátane informácií o pravidlách ochrany súkromia svojej organizácie, kontaktujte správcu."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Správca IT môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia a údaje spojené s týmto profilom vrátane aktivity v sieti a informácií o polohe zariadenia, histórie hovorov a histórie vyhľadávania kontaktov.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Ak potrebujete ďalšie informácie vrátane informácií o pravidlách ochrany súkromia svojej organizácie, kontaktujte správcu."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Ak chcete používať funkcie ochrany proti krádeži, musíte mať na zariadení zámku obrazovky chránenú heslom."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Ďalšie informácie (vrátane pravidiel ochrany súkromia vašej organizácie) vám poskytne správca IT."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Ďalšie informácie"</string>

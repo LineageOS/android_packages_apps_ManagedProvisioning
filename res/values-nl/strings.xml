@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Je apparaat wordt beheerd met de volgende app:"</string>
     <string name="next" msgid="1004321437324424398">"Volgende"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Werkprofiel instellen…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Je IT-beheerder kan instellingen, zakelijke toegang, apps, rechten en gegevens die zijn gekoppeld aan dit profiel (waaronder je netwerkactiviteit) bijhouden en beheren, evenals de locatie, gespreksgeschiedenis en zoekgeschiedenis voor contacten van je apparaat.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Neem contact op met je IT-beheerder voor meer informatie en bij vragen over het privacybeleid van je organisatie."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Je IT-beheerder kan instellingen, zakelijke toegang, apps, rechten en gegevens die zijn gekoppeld aan dit apparaat (waaronder je netwerkactiviteit) bijhouden en beheren, evenals de locatie, gespreksgeschiedenis en zoekgeschiedenis voor contacten van je apparaat.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Neem contact op met je IT-beheerder voor meer informatie en bij vragen over het privacybeleid van je organisatie."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Je IT-beheerder kan instellingen, zakelijke toegang, apps, rechten en gegevens die zijn gekoppeld aan dit profiel (waaronder je netwerkactiviteit) bijhouden en beheren, evenals de locatie, gespreksgeschiedenis en zoekgeschiedenis voor contacten van je apparaat.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Neem contact op met je IT-beheerder voor meer informatie en bij vragen over het privacybeleid van je organisatie."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Je IT-beheerder kan instellingen, zakelijke toegang, apps, rechten en gegevens die zijn gekoppeld aan dit apparaat (waaronder je netwerkactiviteit) bijhouden en beheren, evenals de locatie, gespreksgeschiedenis en zoekgeschiedenis voor contacten van je apparaat.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Neem contact op met je IT-beheerder voor meer informatie en bij vragen over het privacybeleid van je organisatie."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Als je diefstalbeveiligingsfuncties wilt gebruiken, moet je een met een wachtwoord beveiligde schermvergrendeling hebben ingesteld voor je apparaat."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Neem contact op met je IT-beheerder voor meer informatie, waaronder het privacybeleid van je organisatie."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Meer informatie"</string>

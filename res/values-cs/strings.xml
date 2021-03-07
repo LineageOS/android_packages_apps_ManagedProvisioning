@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vaše zařízení bude spravovat následující aplikace:"</string>
     <string name="next" msgid="1004321437324424398">"Další"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Nastavování pracovního profilu…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Administrátor IT může sledovat a spravovat nastavení, firemní přístup, aplikace, oprávnění a data přidružená k tomuto profilu, včetně síťové aktivity, polohy zařízení, historie volání a historie vyhledávání kontaktů.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Administrátor IT vám může poskytnout další informace, včetně zásad ochrany soukromí ve vaší organizaci."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Administrátor IT může sledovat a spravovat nastavení, firemní přístup, aplikace, oprávnění a data přidružená k tomuto zařízení, včetně síťové aktivity, polohy zařízení, historie volání a historie vyhledávání kontaktů.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Administrátor IT vám může poskytnout další informace, včetně zásad ochrany soukromí ve vaší organizaci."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Administrátor IT může sledovat a spravovat nastavení, firemní přístup, aplikace, oprávnění a data přidružená k tomuto profilu, včetně síťové aktivity, polohy zařízení, historie volání a historie vyhledávání kontaktů.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Administrátor IT vám může poskytnout další informace, včetně zásad ochrany soukromí ve vaší organizaci."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Administrátor IT může sledovat a spravovat nastavení, firemní přístup, aplikace, oprávnění a data přidružená k tomuto zařízení, včetně síťové aktivity, polohy zařízení, historie volání a historie vyhledávání kontaktů.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Administrátor IT vám může poskytnout další informace, včetně zásad ochrany soukromí ve vaší organizaci."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Chcete-li používat funkce ochrany proti krádeži, je nutné mít v zařízení nastaven zámek obrazovky chráněný heslem."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Další informace, včetně zásad ochrany soukromí vaší organizace, vám poskytne administrátor IT."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Další informace"</string>

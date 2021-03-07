@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Laitettasi hallinnoi seuraava sovellus:"</string>
     <string name="next" msgid="1004321437324424398">"Seuraava"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Työprofiilia luodaan…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"IT-järjestelmänvalvoja voi valvoa ja ylläpitää asetuksia, yrityskäyttöä, sovelluksia, käyttöoikeuksia ja tähän profiiliin liittyvää dataa (mukaan lukien verkkotoimintaa) sekä puheluhistoriaa ja yhteystietojen hakuhistoriaa.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Saat IT-järjestelmänvalvojalta lisätietoja esimerkiksi organisaation tietosuojakäytännöistä."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT-järjestelmänvalvoja voi valvoa ja ylläpitää asetuksia, yrityskäyttöä, sovelluksia, käyttöoikeuksia ja tähän laitteeseen liittyvää dataa (mukaan lukien verkkotoimintaa) sekä puheluhistoriaa ja yhteystietojen hakuhistoriaa.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Saat IT-järjestelmänvalvojalta lisätietoja esimerkiksi organisaation tietosuojakäytännöistä."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"IT-järjestelmänvalvoja voi valvoa ja ylläpitää asetuksia, yrityskäyttöä, sovelluksia, käyttöoikeuksia ja tähän profiiliin liittyvää dataa (mukaan lukien verkkotoimintaa) sekä puheluhistoriaa ja yhteystietojen hakuhistoriaa.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Saat IT-järjestelmänvalvojalta lisätietoja esimerkiksi organisaation tietosuojakäytännöistä."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT-järjestelmänvalvoja voi valvoa ja ylläpitää asetuksia, yrityskäyttöä, sovelluksia, käyttöoikeuksia ja tähän laitteeseen liittyvää dataa (mukaan lukien verkkotoimintaa) sekä puheluhistoriaa ja yhteystietojen hakuhistoriaa.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Saat IT-järjestelmänvalvojalta lisätietoja esimerkiksi organisaation tietosuojakäytännöistä."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Jotta voit käyttää varkaudenesto-ominaisuuksia, laitteesi täytyy käyttää salasanasuojattua näytön lukitusta."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Pyydä IT-järjestelmänvalvojalta lisätietoja esimerkiksi organisaation tietosuojakäytännöistä."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Lisätietoja"</string>

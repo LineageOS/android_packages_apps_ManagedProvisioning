@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aplikazio honek kudeatuko du zure gailua:"</string>
     <string name="next" msgid="1004321437324424398">"Hurrengoa"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Laneko profila konfiguratzen…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Administratzaileak gainbegiratu eta kudeatu egin ditzake ezarpenak, enpresa-sarbidea, aplikazioak, baimenak eta profilarekin erlazionatutako datuak (hala nola sareko jarduerak, gailuaren kokapena, deien historia eta kontaktuen bilaketa-historia).<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Informazio gehiago lortzeko (esaterako, erakundearen pribatutasun-gidalerroak), jarri IKT saileko administratzailearekin harremanetan."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IKT saileko administratzaileak gainbegiratu eta kudeatu egin ditzake ezarpenak, enpresa-sarbidea, aplikazioak, baimenak eta gailuarekin erlazionatutako datuak (hala nola sareko jarduerak, gailuaren kokapena, deien historia eta kontaktuen bilaketa-historia).<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Informazio gehiago lortzeko (esaterako, erakundearen pribatutasun-gidalerroak), jarri IKT saileko administratzailearekin harremanetan."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Administratzaileak gainbegiratu eta kudeatu egin ditzake ezarpenak, enpresa-sarbidea, aplikazioak, baimenak eta profilarekin erlazionatutako datuak (hala nola sareko jarduerak, gailuaren kokapena, deien historia eta kontaktuen bilaketa-historia).<xliff:g id="LINE_BREAK">
+
+</xliff:g>Informazio gehiago lortzeko (esaterako, erakundearen pribatutasun-gidalerroak), jarri IKT saileko administratzailearekin harremanetan."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IKT saileko administratzaileak gainbegiratu eta kudeatu egin ditzake ezarpenak, enpresa-sarbidea, aplikazioak, baimenak eta gailuarekin erlazionatutako datuak (hala nola sareko jarduerak, gailuaren kokapena, deien historia eta kontaktuen bilaketa-historia).<xliff:g id="LINE_BREAK">
+
+</xliff:g>Informazio gehiago lortzeko (esaterako, erakundearen pribatutasun-gidalerroak), jarri IKT saileko administratzailearekin harremanetan."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Lapurreten aurkako babesaren eginbideak erabiltzeko, pasahitzez babestutako pantaila-blokeoa izan behar duzu gailuan."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Informazio gehiago lortzeko (esaterako, erakundearen pribatutasun-gidalerroak), jarri IKT saileko administratzailearekin harremanetan."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Lortu informazio gehiago"</string>

@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aşağıdakı app sizin cihaz idarə edəcək:"</string>
     <string name="next" msgid="1004321437324424398">"Növbəti"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"İş profili quraşdırılır..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Şəbəkə fəaliyyəti, cihaz məkanı, zəng tarixçəsi və kontakt axtarış tarixçəsi daxil olmaqla bu profil ilə əlaqədar ayarlar, korporativ giriş, tətbiqlər, icazələr və dataya nəzarət edə və idarə edə bilər.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Təşkilatın məxfilik siyasətləri də daxil olmaqla ətraflı məlumat əldə etmək üçün IT admini ilə əlaqə saxlayın."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT admini cihaz məkanı, zəng tarixçəsi və kontakt axtarış tarixçəsi daxil olmaqla bu cihaz ilə əlaqədar ayarlar, korporativ giriş, tətbiqlər, icazələr və dataya nəzarət edə və idarə edə bilər.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Təşkilatın məxfilik siyasəti də daxil olmaqla ətraflı məlumat əldə etmək üçün IT admini ilə əlaqə saxlayın."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Şəbəkə fəaliyyəti, cihaz məkanı, zəng tarixçəsi və kontakt axtarış tarixçəsi daxil olmaqla bu profil ilə əlaqədar ayarlar, korporativ giriş, tətbiqlər, icazələr və dataya nəzarət edə və idarə edə bilər.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Təşkilatın məxfilik siyasətləri də daxil olmaqla ətraflı məlumat əldə etmək üçün IT admini ilə əlaqə saxlayın."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT admini cihaz məkanı, zəng tarixçəsi və kontakt axtarış tarixçəsi daxil olmaqla bu cihaz ilə əlaqədar ayarlar, korporativ giriş, tətbiqlər, icazələr və dataya nəzarət edə və idarə edə bilər.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Təşkilatın məxfilik siyasəti də daxil olmaqla ətraflı məlumat əldə etmək üçün IT admini ilə əlaqə saxlayın."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Oğurluğa qarşı qorunma xüsusiyyətlərini istifadə etmək üçün, cihazınızda parol ilə qorunan ekran kilidi olmalıdır."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Təşkilatın məxfilik siyasətləri daxil olmaq ətraflı məlumat əldə etmək üçün IT admini ilə əlaqə saxlayın."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Ətraflı öyrənin"</string>

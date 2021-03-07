@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Apl berikut akan mengurus peranti anda:"</string>
     <string name="next" msgid="1004321437324424398">"Seterusnya"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Menyediakan profil kerja…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Pentadbir IT anda berupaya memantau dan mengurus tetapan, akses korporat, apl, kebenaran dan data yang berkaitan dengan profil ini, termasuk aktiviti rangkaian anda serta lokasi, sejarah panggilan dan sejarah carian kenalan peranti anda.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Hubungi pentadbir anda untuk mendapatkan maklumat lanjut, termasuk dasar privasi organisasi anda."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Pentadbir IT anda berupaya memantau dan mengurus tetapan, akses korporat, apl, kebenaran dan data yang berkaitan dengan peranti ini, termasuk aktiviti rangkaian anda serta lokasi, sejarah panggilan dan sejarah carian kenalan peranti anda.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Hubungi pentadbir IT anda untuk mendapatkan maklumat lanjut, termasuk dasar privasi organisasi anda."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Pentadbir IT anda berupaya memantau dan mengurus tetapan, akses korporat, apl, kebenaran dan data yang berkaitan dengan profil ini, termasuk aktiviti rangkaian anda serta lokasi, sejarah panggilan dan sejarah carian kenalan peranti anda.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Hubungi pentadbir anda untuk mendapatkan maklumat lanjut, termasuk dasar privasi organisasi anda."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Pentadbir IT anda berupaya memantau dan mengurus tetapan, akses korporat, apl, kebenaran dan data yang berkaitan dengan peranti ini, termasuk aktiviti rangkaian anda serta lokasi, sejarah panggilan dan sejarah carian kenalan peranti anda.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Hubungi pentadbir IT anda untuk mendapatkan maklumat lanjut, termasuk dasar privasi organisasi anda."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Untuk menggunakan ciri perlindungan kecurian, anda mesti mempunyai kunci skrin yang dilindungi kata laluan untuk peranti anda."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Hubungi pentadbir IT anda untuk mendapatkan maklumat lanjut, termasuk dasar privasi organisasi anda."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Ketahui lebih lanjut"</string>

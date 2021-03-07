@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Den følgende app vil styre din enhed:"</string>
     <string name="next" msgid="1004321437324424398">"Næste"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Arbejdsprofilen konfigureres..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Din it-administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne profil, bl.a. din netværksaktivitet samt enhedens placering, opkaldshistorik og historik for søgning efter kontakter. <xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Kontakt din it-administrator for at få flere oplysninger, bl.a. om din organisations privatlivspolitik."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Din it-administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne enhed, bl.a. din netværksaktivitet samt enhedens placering, opkaldshistorik og historik for søgning efter kontakter. <xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Kontakt din it-administrator for at få flere oplysninger, bl.a. om din organisations privatlivspolitikker."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Din it-administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne profil, bl.a. din netværksaktivitet samt enhedens placering, opkaldshistorik og historik for søgning efter kontakter. <xliff:g id="LINE_BREAK">
+
+</xliff:g>Kontakt din it-administrator for at få flere oplysninger, bl.a. om din organisations privatlivspolitik."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Din it-administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne enhed, bl.a. din netværksaktivitet samt enhedens placering, opkaldshistorik og historik for søgning efter kontakter. <xliff:g id="LINE_BREAK">
+
+</xliff:g>Kontakt din it-administrator for at få flere oplysninger, bl.a. om din organisations privatlivspolitikker."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Hvis du vil bruge funktionen, der beskytter mod tyveri, skal din enhed have en skærmlås med en tilhørende adgangskode."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Kontakt din it-administrator for at få flere oplysninger, bl.a. om din organisations privatlivspolitikker."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Få flere oplysninger"</string>

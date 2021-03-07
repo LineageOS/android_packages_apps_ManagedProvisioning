@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Sljedeća aplikacija će upravljati vašim uređajem:"</string>
     <string name="next" msgid="1004321437324424398">"Naprijed"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Postavljanje radnog profila…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Vaš IT administrator može pratiti i upravljati postavkama, korporativnim pristupom, aplikacijama, odobrenjima i podacima povezanim s ovim profilom, uključujući vašu aktivnost na mreži kao i lokaciju vašeg uređaja, historiju poziva i historiju pretraživanja kontakata.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Za više informacija, uključujući i pravila privatnosti vaše organizacije, obratite se IT administratoru."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Vaš IT administrator može pratiti i upravljati postavkama, korporativnim pristupom, aplikacijama, odobrenjima i podacima povezanim s ovim uređajem, uključujući vašu aktivnost na mreži, kao i lokaciju vašeg uređaja, historiju poziva i historiju pretraživanja kontakata.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Za više informacija, uključujući i pravila privatnosti vaše organizacije, obratite se IT administratoru."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Vaš IT administrator može pratiti i upravljati postavkama, korporativnim pristupom, aplikacijama, odobrenjima i podacima povezanim s ovim profilom, uključujući vašu aktivnost na mreži kao i lokaciju vašeg uređaja, historiju poziva i historiju pretraživanja kontakata.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Za više informacija, uključujući i pravila privatnosti vaše organizacije, obratite se IT administratoru."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Vaš IT administrator može pratiti i upravljati postavkama, korporativnim pristupom, aplikacijama, odobrenjima i podacima povezanim s ovim uređajem, uključujući vašu aktivnost na mreži, kao i lokaciju vašeg uređaja, historiju poziva i historiju pretraživanja kontakata.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Za više informacija, uključujući i pravila privatnosti vaše organizacije, obratite se IT administratoru."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Da biste koristili funkciju za zaštitu od krađe, zaključani ekran vašeg uređaja mora biti zaštićen lozinkom."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Obratite se svom IT administratoru za više informacija, uključujući pravila privatnosti vaše organizacije."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Saznajte više"</string>

@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"以下应用将管理您的设备："</string>
     <string name="next" msgid="1004321437324424398">"下一步"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"正在设置工作资料…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"您的 IT 管理员可以监控和管理与此资料相关的设置、企业权限、应用、权限以及数据（其中包括您的网络活动以及您设备的位置信息、通话记录和联系人搜索记录）。<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>如需了解详情（包括贵组织的隐私权政策），请与您的 IT 管理员联系。"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"您的 IT 管理员可以监控和管理与此设备相关的设置、企业权限、应用、权限以及数据（其中包括您的网络活动以及您设备的位置信息、通话记录和联系人搜索记录）。<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>如需了解详情（包括贵组织的隐私权政策），请与您的 IT 管理员联系。"</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"您的 IT 管理员可以监控和管理与此资料相关的设置、企业权限、应用、权限以及数据（其中包括您的网络活动以及您设备的位置信息、通话记录和联系人搜索记录）。<xliff:g id="LINE_BREAK">
+
+</xliff:g>如需了解详情（包括贵组织的隐私权政策），请与您的 IT 管理员联系。"</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"您的 IT 管理员可以监控和管理与此设备相关的设置、企业权限、应用、权限以及数据（其中包括您的网络活动以及您设备的位置信息、通话记录和联系人搜索记录）。<xliff:g id="LINE_BREAK">
+
+</xliff:g>如需了解详情（包括贵组织的隐私权政策），请与您的 IT 管理员联系。"</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"要使用防盗保护功能，您必须为您的设备设置一种采用密码保护的屏幕锁定方式。"</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"如需了解详情（包括贵组织的隐私权政策），请与您的 IT 管理员联系。"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"了解详情"</string>

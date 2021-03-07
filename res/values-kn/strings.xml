@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮ್ಮ ಸಾಧನವನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ:"</string>
     <string name="next" msgid="1004321437324424398">"ಮುಂದೆ"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರು, ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಕಾರ್ಪೊರೇಟ್ ಪ್ರವೇಶ, ಆ್ಯಪ್‌ಗಳು, ಅನುಮತಿಗಳು ಮತ್ತು ನಿಮ್ಮ ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆ ಹಾಗೂ ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳ, ಕರೆ ಇತಿಹಾಸ ಮತ್ತು ಸಂಪರ್ಕ ಹುಡುಕಾಟ ಇತಿಹಾಸವನ್ನು ಸೇರಿದಂತೆ ಈ ಪ್ರೊಫೈಲ್ ಜೊತೆಗೆ ಸಂಯೋಜಿತವಾಗಿರುವ ಡೇಟಾವನ್ನು ನಿಯಂತ್ರಿಸುವ ಮತ್ತು ನಿರ್ವಹಿಸುವ ಸಾಮರ್ಥ್ಯವನ್ನು ಹೊಂದಿರುತ್ತಾರೆ.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಗೌಪ್ಯತೆ ನೀತಿಗಳೂ ಸೇರಿದಂತೆ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರು, ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಕಾರ್ಪೊರೇಟ್ ಪ್ರವೇಶ, ಆ್ಯಪ್‌ಗಳು, ಅನುಮತಿಗಳು ಮತ್ತು ನಿಮ್ಮ ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆ ಹಾಗೂ ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳ, ಕರೆ ಇತಿಹಾಸ ಮತ್ತು ಸಂಪರ್ಕ ಹುಡುಕಾಟ ಇತಿಹಾಸವನ್ನು ಸೇರಿದಂತೆ ಈ ಸಾಧನದ ಜೊತೆಗೆ ಸಂಯೋಜಿತವಾಗಿರುವ ಡೇಟಾವನ್ನು ನಿಯಂತ್ರಿಸುವ ಮತ್ತು ನಿರ್ವಹಿಸುವ ಸಾಮರ್ಥ್ಯವನ್ನು ಹೊಂದಿರುತ್ತಾರೆ.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಗೌಪ್ಯತೆ ನೀತಿಗಳೂ ಸೇರಿದಂತೆ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರು, ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಕಾರ್ಪೊರೇಟ್ ಪ್ರವೇಶ, ಆ್ಯಪ್‌ಗಳು, ಅನುಮತಿಗಳು ಮತ್ತು ನಿಮ್ಮ ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆ ಹಾಗೂ ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳ, ಕರೆ ಇತಿಹಾಸ ಮತ್ತು ಸಂಪರ್ಕ ಹುಡುಕಾಟ ಇತಿಹಾಸವನ್ನು ಸೇರಿದಂತೆ ಈ ಪ್ರೊಫೈಲ್ ಜೊತೆಗೆ ಸಂಯೋಜಿತವಾಗಿರುವ ಡೇಟಾವನ್ನು ನಿಯಂತ್ರಿಸುವ ಮತ್ತು ನಿರ್ವಹಿಸುವ ಸಾಮರ್ಥ್ಯವನ್ನು ಹೊಂದಿರುತ್ತಾರೆ.<xliff:g id="LINE_BREAK">
+
+</xliff:g>ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಗೌಪ್ಯತೆ ನೀತಿಗಳೂ ಸೇರಿದಂತೆ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರು, ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಕಾರ್ಪೊರೇಟ್ ಪ್ರವೇಶ, ಆ್ಯಪ್‌ಗಳು, ಅನುಮತಿಗಳು ಮತ್ತು ನಿಮ್ಮ ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆ ಹಾಗೂ ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳ, ಕರೆ ಇತಿಹಾಸ ಮತ್ತು ಸಂಪರ್ಕ ಹುಡುಕಾಟ ಇತಿಹಾಸವನ್ನು ಸೇರಿದಂತೆ ಈ ಸಾಧನದ ಜೊತೆಗೆ ಸಂಯೋಜಿತವಾಗಿರುವ ಡೇಟಾವನ್ನು ನಿಯಂತ್ರಿಸುವ ಮತ್ತು ನಿರ್ವಹಿಸುವ ಸಾಮರ್ಥ್ಯವನ್ನು ಹೊಂದಿರುತ್ತಾರೆ.<xliff:g id="LINE_BREAK">
+
+</xliff:g>ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಗೌಪ್ಯತೆ ನೀತಿಗಳೂ ಸೇರಿದಂತೆ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ಕಳವು ಸಂರಕ್ಷಣಾ ವೈಶಿಷ್ಟ್ಯತೆಗಳನ್ನು ಉಪಯೋಗಿಸಲು, ನಿಮ್ಮ ಸಾಧನವು ಪಾಸ್‌ವರ್ಡ್ ರಕ್ಷಣೆಯ ಸ್ಕ್ರೀನ್ ಲಾಕ್‌ ಅನ್ನು ಹೊಂದಿರಬೇಕು."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಗೌಪ್ಯತೆ ನೀತಿಗಳೂ ಸೇರಿದಂತೆ, ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
@@ -172,14 +176,10 @@
     <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"ನಿಮ್ಮ ಐಟಿ ನಿರ್ವಾಹಕರು ಈ ಸಾಧನದಲ್ಲಿ ಮೈಕ್ರೋಫೋನ್, ಕ್ಯಾಮರಾ ಮತ್ತು ಸ್ಥಳ ಒಳಗೊಂಡಂತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಪ್ರವೇಶಿಸಲು ಆ್ಯಪ್‌ಗಳಿಗೆ ಅನುಮತಿಸಬಹುದು."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ನಿಮ್ಮ ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ಸುಲಭವಾಗಿ ಪ್ರವೇಶಿಸಲು ಈ ಸಾಧನವನ್ನು ಬಳಸಿ. ಇದು ಖಾಸಗಿ ಸಾಧನವಲ್ಲ, ಆದ್ದರಿಂದ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ನಿಮ್ಮ ಡೇಟಾ ಮತ್ತು ಚಟುವಟಿಕೆಯನ್ನು ವೀಕ್ಷಿಸಲು ಸಾಧ್ಯವಾಗಬಹುದು ಇನ್ನಷ್ಟು ತಿಳಿಯಲು, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
-    <!-- no translation found for fully_managed_device_provisioning_return_device_title (8500829014794276683) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_provisioning_return_device_subheader (6194410367910957686) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_cancel_setup_button (4910041382610777599) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_reset_and_return_button (6451125722998550681) -->
-    <skip />
+    <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ಈ ಸಾಧನವನ್ನು ಹಿಂತಿರುಗಿಸಿ"</string>
+    <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ಹಿಂದಿನ ಸ್ಕ್ರೀನ್‌ಗೆ ಹಿಂತಿರುಗಿ ಅಥವಾ ಈ ಸಾಧನವನ್ನು ಮರುಹೊಂದಿಸಿ ಮತ್ತು ಅದನ್ನು ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ಹಿಂತಿರುಗಿಸಿ."</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ಸೆಟಪ್ ರದ್ದುಗೊಳಿಸಿ"</string>
+    <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"ಸಾಧನವನ್ನು ಮರುಹೊಂದಿಸಿ ಮತ್ತು ಹಿಂತಿರುಗಿಸಿ"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ವರ್ಕ್ ಆ್ಯಪ್ಸ್ ವರ್ಕ್ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿರುತ್ತವೆ. ಇವನ್ನು ಐಟಿ ಅಡ್ಮಿನ್ ನಿರ್ವಹಿಸುತ್ತಾರೆ"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ವರ್ಕ್ ಆ್ಯಪ್ಸ್‌ ಭಿನ್ನವಿರುತ್ತವೆ. ವೈಯಕ್ತಿಕ ಆ್ಯಪ್ಸ್‌ಗೆ ಕಾಣುವುದಿಲ್ಲ"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ಐಟಿ ಅಡ್ಮಿನ್ ಈ ಸಾಧನ ನಿಯಂತ್ರಿಸಬಹುದು. ಕೆಲವು ಆ್ಯಪ್ಸ್ ನಿರ್ಬಂಧಿಸಬಹುದು"</string>
