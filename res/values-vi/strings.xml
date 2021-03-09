@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ứng dụng sau sẽ quản lý thiết bị của bạn:"</string>
     <string name="next" msgid="1004321437324424398">"Tiếp theo"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Đang thiết lập hồ sơ công việc..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Quản trị viên CNTT của bạn có thể giám sát và quản lý tùy chọn cài đặt, quyền truy cập vào dữ liệu công ty, ứng dụng, quyền và dữ liệu liên kết với hồ sơ này, bao gồm cả hoạt động mạng cũng như vị trí của thiết bị, nhật ký cuộc gọi và lịch sử tìm kiếm liên hệ.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Hãy liên hệ với quản trị viên CNTT để biết thêm thông tin, kể cả chính sách quyền riêng tư của tổ chức bạn."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Quản trị viên CNTT của bạn có thể giám sát và quản lý tùy chọn cài đặt, quyền truy cập vào dữ liệu công ty, ứng dụng, quyền và dữ liệu liên kết với thiết bị này, bao gồm cả hoạt động mạng cũng như vị trí của thiết bị, nhật ký cuộc gọi và lịch sử tìm kiếm liên hệ.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Hãy liên hệ với quản trị viên CNTT để biết thêm thông tin, kể cả chính sách quyền riêng tư của tổ chức bạn."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Quản trị viên CNTT của bạn có thể giám sát và quản lý tùy chọn cài đặt, quyền truy cập vào dữ liệu công ty, ứng dụng, quyền và dữ liệu liên kết với hồ sơ này, bao gồm cả hoạt động mạng cũng như vị trí của thiết bị, nhật ký cuộc gọi và lịch sử tìm kiếm liên hệ.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Hãy liên hệ với quản trị viên CNTT để biết thêm thông tin, kể cả chính sách quyền riêng tư của tổ chức bạn."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Quản trị viên CNTT của bạn có thể giám sát và quản lý tùy chọn cài đặt, quyền truy cập vào dữ liệu công ty, ứng dụng, quyền và dữ liệu liên kết với thiết bị này, bao gồm cả hoạt động mạng cũng như vị trí của thiết bị, nhật ký cuộc gọi và lịch sử tìm kiếm liên hệ.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Hãy liên hệ với quản trị viên CNTT để biết thêm thông tin, kể cả chính sách quyền riêng tư của tổ chức bạn."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Để sử dụng tính năng chống trộm, bạn phải có một khóa màn hình được bảo vệ bằng mật khẩu cho thiết bị của mình."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Hãy liên hệ với quản trị viên CNTT của bạn để biết thêm thông tin, kể cả chính sách quyền riêng tư của tổ chức bạn."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Tìm hiểu thêm"</string>

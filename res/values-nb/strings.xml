@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Denne appen kommer til å administrere enheten din:"</string>
     <string name="next" msgid="1004321437324424398">"Neste"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Konfigurerer jobbprofilen …"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"IT-administratoren din har evnen til å overvåke og administrere innstillinger, bedriftstilgang, apper, tillatelser og data knyttet til denne profilen, inkludert nettverksaktiviteten din samt enhetens posisjon, samtalelogg og søkelogg for kontakter.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Ta kontakt med IT-administratoren din for å få mer informasjon, inkludert organisasjonens personvernregler."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT-administratoren din har evnen til å overvåke og administrere innstillinger, bedriftstilgang, apper, tillatelser og data knyttet til denne enheten, inkludert nettverksaktiviteten din samt enhetens posisjon, samtalelogg og søkelogg for kontakter.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Ta kontakt med IT-administratoren din for å få mer informasjon, inkludert organisasjonens personvernregler."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"IT-administratoren din har evnen til å overvåke og administrere innstillinger, bedriftstilgang, apper, tillatelser og data knyttet til denne profilen, inkludert nettverksaktiviteten din samt enhetens posisjon, samtalelogg og søkelogg for kontakter.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Ta kontakt med IT-administratoren din for å få mer informasjon, inkludert organisasjonens personvernregler."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT-administratoren din har evnen til å overvåke og administrere innstillinger, bedriftstilgang, apper, tillatelser og data knyttet til denne enheten, inkludert nettverksaktiviteten din samt enhetens posisjon, samtalelogg og søkelogg for kontakter.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Ta kontakt med IT-administratoren din for å få mer informasjon, inkludert organisasjonens personvernregler."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"For å bruke funksjoner for tyveribeskyttelse må du ha en passordbeskyttet skjermlås på enheten din."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Hvis du vil ha mer informasjon, inkludert organisasjonens personvernregler, kan du kontakte IT-administratoren din."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Finn ut mer"</string>

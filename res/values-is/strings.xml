@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Eftirfarandi forrit mun stjórna tækinu:"</string>
     <string name="next" msgid="1004321437324424398">"Áfram"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Setur upp vinnusnið…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Kerfisstjórinn þinn getur fylgst með og stjórnað stillingum, fyrirtækisaðgangi, forritum, heimildum og gögnum sem tengjast þessum prófíl, auk netnotkunar og staðsetningu tækis, símtalaferli og leit að tengiliðum.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Frekari upplýsingar fást hjá kerfisstjóranum, þar á meðal um persónuverndarstefnur fyrirtækisins þíns."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Kerfisstjórinn þinn getur fylgst með og stjórnað stillingum, fyrirtækisaðgangi, forritum, heimildum og gögnum sem tengjast þessu tæki, auk netnotkunar og staðsetningu tækis, símtalaferli og leit að tengiliðum.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Frekari upplýsingar fást hjá kerfisstjóranum, þar á meðal um persónuverndarstefnur fyrirtækisins þíns."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Kerfisstjórinn þinn getur fylgst með og stjórnað stillingum, fyrirtækisaðgangi, forritum, heimildum og gögnum sem tengjast þessum prófíl, auk netnotkunar og staðsetningu tækis, símtalaferli og leit að tengiliðum.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Frekari upplýsingar fást hjá kerfisstjóranum, þar á meðal um persónuverndarstefnur fyrirtækisins þíns."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Kerfisstjórinn þinn getur fylgst með og stjórnað stillingum, fyrirtækisaðgangi, forritum, heimildum og gögnum sem tengjast þessu tæki, auk netnotkunar og staðsetningu tækis, símtalaferli og leit að tengiliðum.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Frekari upplýsingar fást hjá kerfisstjóranum, þar á meðal um persónuverndarstefnur fyrirtækisins þíns."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Til að nota þjófavarnareiginleikana þarftu að vera með skjálás með aðgangsorði á tækinu."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Hafðu samband við kerfisstjórann til að fá frekari upplýsingar, þar á meðal um persónuverndarstefnu fyrirtækisins."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Frekari upplýsingar"</string>

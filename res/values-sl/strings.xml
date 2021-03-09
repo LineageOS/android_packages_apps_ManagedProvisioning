@@ -28,8 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ta aplikacija bo upravljala napravo:"</string>
     <string name="next" msgid="1004321437324424398">"Naprej"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Nastavljanje delovnega profila …"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Skrbnik za IT lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije, dovoljenja in podatke, povezane s tem profilom, vključno z omrežno dejavnostjo, podatki o lokaciji naprave, zgodovino klicev in zgodovino iskanja stikov.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika za IT."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Skrbnik za IT lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije, dovoljenja in podatke, povezane s to napravo, vključno z omrežno dejavnostjo, podatki o lokaciji naprave, zgodovino klicev in zgodovino iskanja stikov.<xliff:g id="LINE_BREAK">&lt;br&gt;&lt;br&gt;</xliff:g>Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika za IT."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Skrbnik za IT lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije, dovoljenja in podatke, povezane s tem profilom, vključno z omrežno dejavnostjo, podatki o lokaciji naprave, zgodovino klicev in zgodovino iskanja stikov.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika za IT."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Skrbnik za IT lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije, dovoljenja in podatke, povezane s to napravo, vključno z omrežno dejavnostjo, podatki o lokaciji naprave, zgodovino klicev in zgodovino iskanja stikov.<xliff:g id="LINE_BREAK">
+
+</xliff:g>Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika za IT."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Za uporabo funkcij za zaščito pred krajo morate imeti v napravi nastavljeno zaklepanje zaslona z geslom."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika za IT."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Več o tem"</string>
