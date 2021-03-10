@@ -17,12 +17,16 @@
 package com.android.managedprovisioning.provisioning;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TOTAL_TASK_TIME_MS;
-import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_DURING_PROVISIONING;
 
+import static java.util.Objects.requireNonNull;
+
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.annotations.VisibleForTesting;
@@ -33,10 +37,16 @@ import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferenc
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.provisioning.ProvisioningViewModel.ProvisioningViewModelFactory;
 
 /**
  * Singleton instance that provides communications between the ongoing provisioning process and the
  * UI layer.
+ * <p>{@link #setViewModelStoreOwner(ViewModelStoreOwner)} must be called when the view model store
+ * owner has been created (for example, {@link AppCompatActivity#onCreate(Bundle)}). In addition,
+ * to prevent memory leaks when the view model store owner is destroyed, {@link
+ * #clearViewModelStoreOwner()} must be called (for example, in {@link
+ * AppCompatActivity#onDestroy()} when {@link AppCompatActivity#isFinishing()} is {@code true}).
  */
 public class ProvisioningManager implements ProvisioningControllerCallback,
         ProvisioningManagerInterface {
@@ -48,6 +58,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback,
     private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
     private final TimeLogger mTimeLogger;
     private final ProvisioningManagerHelper mHelper;
+    private ProvisioningViewModel mViewModel;
 
     @GuardedBy("this")
     private AbstractProvisioningController mController;
@@ -62,7 +73,6 @@ public class ProvisioningManager implements ProvisioningControllerCallback,
     private ProvisioningManager(Context context) {
         this(
                 context,
-                new Handler(Looper.getMainLooper()),
                 new ProvisioningControllerFactory(),
                 new ProvisioningAnalyticsTracker(
                         MetricsWriterFactory.getMetricsWriter(context, new SettingsFacade()),
@@ -73,15 +83,35 @@ public class ProvisioningManager implements ProvisioningControllerCallback,
     @VisibleForTesting
     ProvisioningManager(
             Context context,
-            Handler uiHandler,
             ProvisioningControllerFactory factory,
             ProvisioningAnalyticsTracker analyticsTracker,
             TimeLogger timeLogger) {
-        mContext = checkNotNull(context);
-        mFactory = checkNotNull(factory);
-        mProvisioningAnalyticsTracker = checkNotNull(analyticsTracker);
-        mTimeLogger = checkNotNull(timeLogger);
+        mContext = requireNonNull(context);
+        mFactory = requireNonNull(factory);
+        mProvisioningAnalyticsTracker = requireNonNull(analyticsTracker);
+        mTimeLogger = requireNonNull(timeLogger);
         mHelper = new ProvisioningManagerHelper(context);
+    }
+
+    /**
+     * Sets the view model store owner.
+     * <p>Must be called when the view model store owner has been created (for example, {@link
+     * AppCompatActivity#onCreate(Bundle)}).
+     * @see #clearViewModelStoreOwner()
+     */
+    void setViewModelStoreOwner(ViewModelStoreOwner owner) {
+        mViewModel = new ViewModelProvider(owner, new ProvisioningViewModelFactory())
+                .get(ProvisioningViewModel.class);
+    }
+
+    /**
+     * Clears the view model store owner.
+     * <p>Must be called when the view model store owner is getting destroyed (for example, in
+     * {@link AppCompatActivity#onDestroy()} when {@link AppCompatActivity#isFinishing()} is {@code
+     * true}), in order to clean the reference and prevent memory leaks.
+     */
+    void clearViewModelStoreOwner() {
+        mViewModel = null;
     }
 
     @Override
@@ -147,6 +177,14 @@ public class ProvisioningManager implements ProvisioningControllerCallback,
     @Override
     public void error(int titleId, int messageId, boolean factoryResetRequired) {
         mHelper.error(titleId, messageId, factoryResetRequired);
+    }
+
+    void setCurrentTransitionAnimation(int currentTransitionAnimation) {
+        mViewModel.setCurrentTransitionScreen(currentTransitionAnimation);
+    }
+
+    int getCurrentTransitionAnimation() {
+        return mViewModel.getCurrentTransitionScreen();
     }
 
     private AbstractProvisioningController getController(ProvisioningParams params) {

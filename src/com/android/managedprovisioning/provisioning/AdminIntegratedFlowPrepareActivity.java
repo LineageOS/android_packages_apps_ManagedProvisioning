@@ -47,6 +47,7 @@ import com.google.android.setupdesign.GlifLayout;
 public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActivity {
 
     private RepeatingVectorAnimation mRepeatingVectorAnimation;
+    private AdminIntegratedFlowPrepareManager mProvisioningManager;
 
     public AdminIntegratedFlowPrepareActivity() {
         this(new Utils(), new SettingsFacade(),

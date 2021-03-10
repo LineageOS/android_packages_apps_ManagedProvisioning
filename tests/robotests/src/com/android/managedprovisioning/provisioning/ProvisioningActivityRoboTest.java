@@ -258,7 +258,7 @@ public class ProvisioningActivityRoboTest {
         final ProvisioningActivity activity =
                 Robolectric.buildActivity(ProvisioningActivity.class, PROFILE_OWNER_INTENT)
                         .setup().get();
-        activity.mProvisioningManager = mMockProvisioningManager;
+        activity.setProvisioningManager(mMockProvisioningManager);
 
         activity.onBackPressed();
         final Fragment dialog =
@@ -289,7 +289,7 @@ public class ProvisioningActivityRoboTest {
         final ProvisioningActivity activity =
                 Robolectric.buildActivity(ProvisioningActivity.class, PROFILE_OWNER_INTENT)
                         .setup().get();
-        activity.mProvisioningManager = mMockProvisioningManager;
+        activity.setProvisioningManager(mMockProvisioningManager);
 
         activity.onBackPressed();
         final Fragment dialog =

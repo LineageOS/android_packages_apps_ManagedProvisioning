@@ -47,6 +47,8 @@ class TransitionAnimationHelper {
 
     interface TransitionAnimationCallback {
         void onAllTransitionsShown();
+
+        void onTransitionStart(int screenIndex, AnimatedVectorDrawable animatedVectorDrawable);
     }
 
     @VisibleForTesting
@@ -90,13 +92,18 @@ class TransitionAnimationHelper {
 
     TransitionAnimationHelper(@ProvisioningMode int provisioningMode,
             boolean adminCanGrantSensorsPermissions,
-            AnimationComponents animationComponents, TransitionAnimationCallback callback) {
+            AnimationComponents animationComponents,
+            TransitionAnimationCallback callback,
+            int currentTransitionIndex) {
         mAnimationComponents = checkNotNull(animationComponents);
         mCallback = checkNotNull(callback);
         mProvisioningModeWrapper = getProvisioningModeWrapper(provisioningMode,
                 adminCanGrantSensorsPermissions);
         mCrossFadeHelper = getCrossFadeHelper();
         mShowAnimations = shouldShowAnimations();
+
+        // TODO(b/182824327): Gracefully pause/resume edu screen animations rather than restarting
+        mCurrentTransitionIndex = currentTransitionIndex;
 
         applyContentDescription();
         updateUiValues(mCurrentTransitionIndex);
@@ -166,6 +173,7 @@ class TransitionAnimationHelper {
         boolean shouldLoop = getTransitionForIndex(mCurrentTransitionIndex).shouldLoop;
         mRepeatingVectorAnimation = new RepeatingVectorAnimation(vectorDrawable, shouldLoop);
         mRepeatingVectorAnimation.start();
+        mCallback.onTransitionStart(mCurrentTransitionIndex, vectorDrawable);
     }
 
     @VisibleForTesting

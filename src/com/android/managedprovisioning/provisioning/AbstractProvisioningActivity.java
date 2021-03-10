@@ -50,11 +50,13 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
 
     static final int STATE_PROVISIONING_INTIIALIZING = 1;
     static final int STATE_PROVISIONING_STARTED = 2;
-    static final int STATE_PROVISIONING_FINALIZED = 3;
+    static final int STATE_PROVISIONING_COMPLETED = 3;
+    static final int STATE_PROVISIONING_FINALIZED = 4;
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({STATE_PROVISIONING_INTIIALIZING,
             STATE_PROVISIONING_STARTED,
+            STATE_PROVISIONING_COMPLETED,
             STATE_PROVISIONING_FINALIZED})
     private @interface ProvisioningState {}
 
@@ -65,7 +67,6 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
     @VisibleForTesting static final String CANCEL_PROVISIONING_DIALOG_RESET
             = "CancelProvisioningDialogReset";
 
-    protected ProvisioningManagerInterface mProvisioningManager;
     protected ProvisioningParams mParams;
     protected @ProvisioningState int mState;
 

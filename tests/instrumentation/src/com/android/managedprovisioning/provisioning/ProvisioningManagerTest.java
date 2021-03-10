@@ -91,7 +91,10 @@ public class ProvisioningManagerTest {
                     msg.getCallback().run();
                     return null;
                 });
-        mManager = new ProvisioningManager(mContext, mUiHandler, mFactory, mAnalyticsTracker,
+        mManager = new ProvisioningManager(
+                mContext,
+                mFactory,
+                mAnalyticsTracker,
                 mTimeLogger);
         when(mFactory.createProvisioningController(mContext, TEST_PARAMS, mManager))
                 .thenReturn(mController);

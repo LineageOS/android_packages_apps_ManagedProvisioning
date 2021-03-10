@@ -21,6 +21,8 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DE
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import static java.util.Objects.requireNonNull;
+
 import android.Manifest.permission;
 import android.annotation.IntDef;
 import android.app.Activity;
@@ -97,7 +99,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     static final int PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE = 3;
     static final int PROVISIONING_MODE_FINANCED_DEVICE = 4;
     static final int PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE = 5;
-
     @IntDef(prefix = { "PROVISIONING_MODE_" }, value = {
         PROVISIONING_MODE_WORK_PROFILE,
         PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
@@ -125,6 +126,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private RepeatingVectorAnimation mRepeatingVectorAnimation;
     private UserProvisioningStateHelper mUserProvisioningStateHelper;
     private PolicyComplianceUtils mPolicyComplianceUtils;
+    private ProvisioningManager mProvisioningManager;
 
     public ProvisioningActivity() {
         this(
@@ -153,22 +155,34 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // assign this Activity as the view store owner to access saved state and receive updates
+        getProvisioningManager().setViewModelStoreOwner(this);
+
         if (mUserProvisioningStateHelper == null) {
             mUserProvisioningStateHelper = new UserProvisioningStateHelper(this);
+        }
+
+        if (mState == STATE_PROVISIONING_FINALIZED) {
+            updateProvisioningFinalizedScreen();
         }
     }
 
     @Override
-    protected ProvisioningManagerInterface getProvisioningManager() {
+    protected ProvisioningManager getProvisioningManager() {
         if (mProvisioningManager == null) {
             mProvisioningManager = ProvisioningManager.getInstance(this);
         }
         return mProvisioningManager;
     }
 
+    @VisibleForTesting
+    protected void setProvisioningManager(ProvisioningManager provisioningManager) {
+        mProvisioningManager = requireNonNull(provisioningManager);
+    }
+
     @Override
     public void preFinalizationCompleted() {
-        if (mState == STATE_PROVISIONING_FINALIZED) {
+        if (mState == STATE_PROVISIONING_COMPLETED || mState == STATE_PROVISIONING_FINALIZED) {
             return;
         }
 
@@ -182,13 +196,12 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
         ProvisionLogger.logi("ProvisioningActivity pre-finalization completed");
 
-        // TODO: call this for the new flow after new NFC flow has been added
-        // maybeLaunchNfcUserSetupCompleteIntent();
+        // TODO(183094412): Decouple state from AbstractProvisioningActivity
+        mState = STATE_PROVISIONING_COMPLETED;
 
         if (shouldSkipEducationScreens() || mTransitionAnimationHelper.areAllTransitionsShown()) {
             updateProvisioningFinalizedScreen();
         }
-        mState = STATE_PROVISIONING_FINALIZED;
     }
 
     // Enforces DPCs to implement the POLICY_COMPLIANCE handler for NFC and financed device
@@ -218,6 +231,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         if (shouldSkipEducationScreens() || Utils.isSilentProvisioning(this, mParams)) {
             onNextButtonClicked();
         }
+
+        // TODO(183094412): Decouple state from AbstractProvisioningActivity
+        mState = STATE_PROVISIONING_FINALIZED;
     }
 
     @VisibleForTesting
@@ -306,7 +322,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
     @Override
     protected void decideCancelProvisioningDialog() {
-        if (mState == STATE_PROVISIONING_FINALIZED && !mParams.isOrganizationOwnedProvisioning) {
+        if ((mState == STATE_PROVISIONING_COMPLETED || mState == STATE_PROVISIONING_FINALIZED)
+                && !mParams.isOrganizationOwnedProvisioning) {
             return;
         }
 
@@ -336,13 +353,22 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         } else {
             endTransitionAnimation();
         }
+        // remove this Activity as the view store owner to avoid memory leaks
+        if (isFinishing()) {
+            getProvisioningManager().clearViewModelStoreOwner();
+        }
     }
 
     @Override
     public void onAllTransitionsShown() {
-        if (mState == STATE_PROVISIONING_FINALIZED) {
+        if (mState == STATE_PROVISIONING_COMPLETED) {
             updateProvisioningFinalizedScreen();
         }
+    }
+
+    @Override
+    public void onTransitionStart(int screenIndex, AnimatedVectorDrawable currentAnimation) {
+        getProvisioningManager().setCurrentTransitionAnimation(screenIndex);
     }
 
     @Override
@@ -405,7 +431,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                         drawable, providerInfo);
         mTransitionAnimationHelper = new TransitionAnimationHelper(provisioningMode,
                 /* adminCanGrantSensorsPermissions= */ !mParams.deviceOwnerPermissionGrantOptOut,
-                animationComponents, this);
+                animationComponents,
+                this,
+                getProvisioningManager().getCurrentTransitionAnimation());
     }
 
     private @ProvisioningMode int getProvisioningMode() {
