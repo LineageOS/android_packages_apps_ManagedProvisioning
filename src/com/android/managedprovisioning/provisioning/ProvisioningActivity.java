@@ -32,6 +32,7 @@ import android.content.pm.ResolveInfo;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
@@ -61,6 +62,7 @@ import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.Tr
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.GlifLayout;
+import com.google.android.setupdesign.util.DescriptionStyler;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -371,6 +373,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             layout.findViewById(R.id.subheader_description).setVisibility(View.INVISIBLE);
             layout.findViewById(R.id.provider_info).setVisibility(View.INVISIBLE);
         } else {
+            DescriptionStyler.applyPartnerCustomizationHeavyStyle(progressLabel);
+            progressLabel.setTextColor(mUtils.getAccentColor(this));
+            progressLabel.setGravity(Gravity.CENTER);
             progressLabel.setText(progressLabelResId);
             progressLabel.setVisibility(View.VISIBLE);
         }

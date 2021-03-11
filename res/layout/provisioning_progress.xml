@@ -100,7 +100,6 @@
             android:scaleType="centerCrop"/>
         <TextView
             android:id="@+id/provisioning_progress"
-            style="@style/ProvisioningProgressText"
             android:layout_marginBottom="@dimen/spacer_64"
             android:gravity="bottom|center_horizontal"
             android:layout_width="match_parent"
