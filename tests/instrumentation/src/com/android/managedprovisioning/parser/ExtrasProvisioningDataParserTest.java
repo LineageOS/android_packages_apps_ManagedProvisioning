@@ -881,8 +881,9 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         assertThat(params.returnBeforePolicyCompliance).isTrue();
     }
 
-    public void testParse_managedProfileWithReturnBeforePolicyComplianceTrue_isFalse()
+    public void testParse_managedProfileWithReturnBeforePolicyComplianceTrue_afterSetupWizard_isFalse()
             throws IllegalProvisioningArgumentException {
+        when(mSettingsFacade.isDuringSetupWizard(mContext)).thenReturn(false);
         Intent intent = buildTestManagedProfileIntent()
                 .putExtra(EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE, true);
         mockInstalledDeviceAdminForTestPackageName();
@@ -890,6 +891,18 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
 
         assertThat(params.returnBeforePolicyCompliance).isFalse();
+    }
+
+    public void testParse_managedProfileWithReturnBeforePolicyComplianceTrue_duringSetupWizard_isTrue()
+            throws IllegalProvisioningArgumentException {
+        when(mSettingsFacade.isDuringSetupWizard(mContext)).thenReturn(true);
+        Intent intent = buildTestManagedProfileIntent()
+                .putExtra(EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE, true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.returnBeforePolicyCompliance).isTrue();
     }
 
     public void testParse_managedProfileWithReturnBeforePolicyComplianceNotSet_isFalse()

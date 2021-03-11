@@ -624,7 +624,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
 
     private boolean getReturnBeforePolicyCompliance(Intent intent) {
         if (intent.getAction().equals(ACTION_PROVISION_MANAGED_PROFILE)) {
-            return false;
+            // TODO(b/182462297): Default to false after in-setup wizard is no longer supported
+            return mSettingsFacade.isDuringSetupWizard(mContext);
         }
         // TODO(b/177849035): Remove financed device-specific logic
         if (intent.getAction().equals(ACTION_PROVISION_FINANCED_DEVICE)) {
