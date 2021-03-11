@@ -39,7 +39,8 @@ class ProvisioningIntentProvider {
     void maybeLaunchDpc(ProvisioningParams params, int userId, Utils utils, Context context,
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
             PolicyComplianceUtils policyComplianceUtils) {
-        if (params.flowType == ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED) {
+        if (policyComplianceUtils.isPolicyComplianceActivityResolvableForUser(
+                context, params, utils, UserHandle.of(userId))) {
             launchPolicyComplianceDpcHandler(
                     context, params, utils, provisioningAnalyticsTracker, policyComplianceUtils);
         } else {

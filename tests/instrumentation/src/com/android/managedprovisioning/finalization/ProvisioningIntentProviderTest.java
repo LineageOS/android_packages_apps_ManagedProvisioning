@@ -35,6 +35,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PersistableBundle;
+import android.os.UserHandle;
 
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
@@ -58,6 +59,7 @@ public class ProvisioningIntentProviderTest {
             new ComponentName(DEVICE_ADMIN_PACKAGE_NAME, "com.android.AdminReceiver");
     private static final PersistableBundle ADMIN_EXTRAS_BUNDLE =
             PersistableBundle.forPair("test_key", "test_value");
+    private static final UserHandle WORK_PROFILE_USER_HANDLE = UserHandle.of(10);
 
     private ProvisioningIntentProvider mProvisioningIntentProvider;
     private ProvisioningParams mParams;
@@ -103,6 +105,27 @@ public class ProvisioningIntentProviderTest {
         PolicyComplianceUtils policyComplianceUtils = new PolicyComplianceUtils();
 
         mProvisioningIntentProvider.maybeLaunchDpc(params, 0, mUtils, mContext,
+                mProvisioningAnalyticsTracker, policyComplianceUtils);
+
+        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mContext).startActivityAsUser(intentCaptor.capture(), any());
+        verify(mProvisioningAnalyticsTracker).logDpcSetupStarted(any(), any());
+        assertThat(intentCaptor.getValue().getAction()).isEqualTo(ACTION_ADMIN_POLICY_COMPLIANCE);
+    }
+
+    @Test
+    public void maybeLaunchDpc_provisionManagedProfileAction_policyComplianceLaunched() {
+        when(mUtils.canResolveIntentAsUser(any(), any(), anyInt())).thenReturn(true);
+        when(mUtils.getManagedProfile(any())).thenReturn(WORK_PROFILE_USER_HANDLE);
+        ProvisioningParams params = new ProvisioningParams.Builder()
+                .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
+                .setDeviceAdminComponentName(DEVICE_ADMIN_COMPONENT_NAME)
+                .setFlowType(ProvisioningParams.FLOW_TYPE_LEGACY)
+                .build();
+        PolicyComplianceUtils policyComplianceUtils = new PolicyComplianceUtils();
+
+        mProvisioningIntentProvider.maybeLaunchDpc(
+                params, WORK_PROFILE_USER_HANDLE.getIdentifier(), mUtils, mContext,
                 mProvisioningAnalyticsTracker, policyComplianceUtils);
 
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
