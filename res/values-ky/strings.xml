@@ -45,7 +45,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"Учурдагы профиль жок кылынсынбы?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Жумуш профилиңиз мурунтан эле бар. Ал төмөнкү колдонмо аркылуу башкарылат:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Улантуудан мурун "<a href="#read_this_link">"муну окуп чыгыңыз"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Эгер улантсаңыз, бул профилдеги бардык колдонмолор жана дайындар өчүрүлөт."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Эгер улантсаңыз, бул профилдеги бардык колдонмолор жана маалыматтар өчүрүлөт."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Жок кылуу"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Жок"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Жумуш профилиңизди жөндөө үчүн түзмөгүңүздү шифрлеп алыш керек. Буга бир аз убакыт кетиши мүмкүн."</string>
