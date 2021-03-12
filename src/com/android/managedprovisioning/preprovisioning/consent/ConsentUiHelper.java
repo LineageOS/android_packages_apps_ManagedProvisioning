@@ -16,7 +16,8 @@
 package com.android.managedprovisioning.preprovisioning.consent;
 
 import android.app.Activity;
-import com.android.managedprovisioning.preprovisioning.PreProvisioningController.UiParams;
+
+import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityController.UiParams;
 
 /**
  * Contract for the consent screen.

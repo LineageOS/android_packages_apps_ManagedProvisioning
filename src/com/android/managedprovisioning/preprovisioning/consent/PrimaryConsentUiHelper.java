@@ -15,8 +15,6 @@
  */
 package com.android.managedprovisioning.preprovisioning.consent;
 
-import static com.android.internal.util.Preconditions.checkNotNull;
-
 import android.annotation.DrawableRes;
 import android.annotation.Nullable;
 import android.app.Activity;
@@ -24,13 +22,16 @@ import android.content.Intent;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.common.TouchTargetEnforcer;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
-import com.android.managedprovisioning.preprovisioning.PreProvisioningController.UiParams;
+import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityController.UiParams;
+
 import com.google.android.setupdesign.GlifLayout;
 
 /**
@@ -120,8 +121,11 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
     }
 
     private void setupViewTermsButton(Intent showTermsIntent) {
-        final View viewTermsButton = mActivity.findViewById(R.id.show_terms_button);
-        viewTermsButton.setOnClickListener(v -> mActivity.startActivity(showTermsIntent));
-        mTouchTargetEnforcer.enforce(viewTermsButton, (View) viewTermsButton.getParent());
+        final GlifLayout layout = mActivity.findViewById(R.id.setup_wizard_layout);
+        layout.setDescriptionText(R.string.view_terms);
+        TextView subtitle = layout.findViewById(R.id.sud_layout_subtitle);
+        subtitle.setTextColor(mUtils.getAccentColor(mActivity));
+        subtitle.setOnClickListener(v -> mActivity.startActivity(showTermsIntent));
+        mTouchTargetEnforcer.enforce(subtitle, (View) subtitle.getParent());
     }
 }

@@ -272,11 +272,10 @@ public class ProvisioningActivityTest {
             Bundle bundle = new Bundle();
             InstrumentationRegistry.getInstrumentation()
                     .callActivityOnSaveInstanceState(mActivityRule.getActivity(), bundle);
-            InstrumentationRegistry.getInstrumentation()
-                    .callActivityOnCreate(mActivityRule.getActivity(), bundle);
+            mActivityRule.getActivity().recreate();
         });
 
-        // THEN provisioning should not be initiated again
+        // THEN provisioning is attempted to be started again
         verify(mProvisioningManager).maybeStartProvisioning(PROFILE_OWNER_PARAMS);
     }
 

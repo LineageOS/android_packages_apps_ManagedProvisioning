@@ -21,16 +21,15 @@
     android:id="@+id/setup_wizard_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout
-        style="@style/SudContentFrame"
+    <com.google.android.setupdesign.view.FillContentLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/animation"
             android:src="@drawable/enterprise_wp_animation"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/animation_height"
-            android:scaleType="centerCrop"/>
-    </RelativeLayout>
+            style="@style/SudContentIllustration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.setupdesign.view.FillContentLayout>
 </com.google.android.setupdesign.GlifLayout>

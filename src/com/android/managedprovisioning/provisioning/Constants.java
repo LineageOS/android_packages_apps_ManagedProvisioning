@@ -38,6 +38,12 @@ public final class Constants {
 
     public static boolean FLAG_ENABLE_LIGHT_DARK_MODE = false;
 
+    /**
+     * A boolean flag to indicate whether to lock the orientation to portrait mode.
+     * <p>This is a temporary feature flag until the setup wizard library support is implemented.
+     */
+    public static final boolean LOCK_TO_PORTRAIT_MODE = true;
+
     private Constants() {
         // Do not instantiate
     }

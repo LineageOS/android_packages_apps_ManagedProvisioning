@@ -17,8 +17,9 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
+import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
+import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_SHOWING_USER_CONSENT;
 
-import android.annotation.IntDef;
 import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -47,7 +48,7 @@ import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBrid
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.preprovisioning.PreProvisioningController.UiParams;
+import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityController.UiParams;
 import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelper;
 import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelperCallback;
 import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelperFactory;
@@ -58,13 +59,9 @@ import com.android.managedprovisioning.provisioning.ProvisioningActivity;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-
 public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
-        SimpleDialog.SimpleDialogListener, PreProvisioningController.Ui, ConsentUiHelperCallback {
-
-    private static final String KEY_ACTIVITY_STATE = "activity-state";
+        SimpleDialog.SimpleDialogListener, PreProvisioningActivityController.Ui,
+        ConsentUiHelperCallback {
 
     private static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
     @VisibleForTesting
@@ -78,7 +75,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     // Note: must match the constant defined in HomeSettings
     private static final String EXTRA_SUPPORT_MANAGED_PROFILES = "support_managed_profiles";
-    private static final String SAVED_PROVISIONING_PARAMS = "saved_provisioning_params";
 
     private static final String ERROR_AND_CLOSE_DIALOG = "PreProvErrorAndCloseDialog";
     private static final String BACK_PRESSED_DIALOG_RESET = "PreProvBackPressedDialogReset";
@@ -86,29 +82,22 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             "PreProvBackPressedDialogCloseActivity";
     private static final String LAUNCHER_INVALID_DIALOG = "PreProvCurrentLauncherInvalidDialog";
 
-    private PreProvisioningController mController;
+    private PreProvisioningActivityController mController;
     private ControllerProvider mControllerProvider;
     private final AccessibilityContextMenuMaker mContextMenuMaker;
     private ConsentUiHelper mConsentUiHelper;
 
-    static final int STATE_PREPROVISIONING_INTIIALIZING = 1;
-    static final int STATE_PROVISIONING_STARTED = 2;
-    static final int STATE_PROVISIONING_FINALIZED = 3;
-
-    @Retention(RetentionPolicy.SOURCE)
-    @IntDef({STATE_PREPROVISIONING_INTIIALIZING,
-            STATE_PROVISIONING_STARTED,
-            STATE_PROVISIONING_FINALIZED})
-    private @interface PreProvisioningState {}
-
-    private @PreProvisioningState int mState;
-
     private static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
 
     public PreProvisioningActivity() {
-        this(activity -> new PreProvisioningController(activity, activity), null, new Utils(),
-                new SettingsFacade(), new ThemeHelper(
-                        new DefaultNightModeChecker(), new DefaultSetupWizardBridge()));
+        this(activity ->
+                new PreProvisioningActivityController(activity, activity),
+                null,
+                new Utils(),
+                new SettingsFacade(),
+                new ThemeHelper(
+                    new DefaultNightModeChecker(),
+                    new DefaultSetupWizardBridge()));
     }
 
     @VisibleForTesting
@@ -125,19 +114,21 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mState = savedInstanceState == null
-                ? STATE_PREPROVISIONING_INTIIALIZING
-                : savedInstanceState.getInt(KEY_ACTIVITY_STATE, STATE_PREPROVISIONING_INTIIALIZING);
-
         mController = mControllerProvider.getInstance(this);
         mConsentUiHelper = ConsentUiHelperFactory.getInstance(
                 /* activity */ this, /* contextMenuMaker */ mContextMenuMaker,
                 /* callback */ this, /* utils */ mUtils, mController.getSettingsFacade());
-        if (mState == STATE_PREPROVISIONING_INTIIALIZING) {
-            ProvisioningParams params = savedInstanceState == null ? null
-                    : savedInstanceState.getParcelable(SAVED_PROVISIONING_PARAMS);
-            mController.initiateProvisioning(getIntent(), params, getCallingPackage());
+        mController.getState().observe(this, this::onStateChanged);
+    }
+
+    private void onStateChanged(Integer state) {
+        switch (state) {
+            case STATE_PREPROVISIONING_INITIALIZING:
+                mController.initiateProvisioning(getIntent(), getCallingPackage());
+                break;
+            case STATE_SHOWING_USER_CONSENT:
+                mController.showUserConsentScreen();
+                break;
         }
     }
 
@@ -154,13 +145,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelable(SAVED_PROVISIONING_PARAMS, mController.getParams());
-        outState.putInt(KEY_ACTIVITY_STATE, mState);
-    }
-
-    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case ENCRYPT_DEVICE_REQUEST_CODE:
@@ -169,7 +153,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 }
                 break;
             case PROVISIONING_REQUEST_CODE:
-                mState = STATE_PROVISIONING_FINALIZED;
+                mController.onReturnFromProvisioning();
                 setResult(resultCode);
                 finish();
                 break;
@@ -185,8 +169,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                     if (resultCode == RESULT_OK) {
                         ProvisionLogger.logd("Wifi request result is OK");
                     }
-                    mController.initiateProvisioning(getIntent(), null /* cached params */,
-                            getCallingPackage());
+                    mController.initiateProvisioning(getIntent(), getCallingPackage());
                 }
                 break;
             case ORGANIZATION_OWNED_LANDING_PAGE_REQUEST_CODE:
@@ -383,7 +366,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     }
 
     public void startProvisioning(int userId, ProvisioningParams params) {
-        mState = STATE_PROVISIONING_STARTED;
         Intent intent = new Intent(this, ProvisioningActivity.class);
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
@@ -512,12 +494,14 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     }
 
     /**
-     * Constructs {@link PreProvisioningController} for a given {@link PreProvisioningActivity}
+     * Constructs {@link PreProvisioningActivityController} for a given {@link
+     * PreProvisioningActivity}
      */
     interface ControllerProvider {
         /**
-         * Constructs {@link PreProvisioningController} for a given {@link PreProvisioningActivity}
+         * Constructs {@link PreProvisioningActivityController} for a given {@link
+         * PreProvisioningActivity}
          */
-        PreProvisioningController getInstance(PreProvisioningActivity activity);
+        PreProvisioningActivityController getInstance(PreProvisioningActivity activity);
     }
 }

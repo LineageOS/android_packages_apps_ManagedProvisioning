@@ -76,17 +76,19 @@ public class PreProvisioningActivityTest {
 
         TestInstrumentationRunner.registerReplacedActivity(PreProvisioningActivity.class,
                 (classLoader, className, intent) -> new PreProvisioningActivity(
-                        activity -> new PreProvisioningController(
+                        activity -> new PreProvisioningActivityController(
                                 activity,
                                 activity,
-                                new TimeLogger(activity, 0 /* category */),
-                                new MessageParser(activity),
                                 mUtils,
                                 new SettingsFacade(),
-                                EncryptionController.getInstance(activity),
                                 new ManagedProvisioningSharedPreferences(activity),
                                 new PolicyComplianceUtils(),
-                                new GetProvisioningModeUtils()) {
+                                new GetProvisioningModeUtils(),
+                                new PreProvisioningViewModel(
+                                        new TimeLogger(activity, 0 /* category */),
+                                        new MessageParser(activity),
+                                        EncryptionController.getInstance(activity))
+                        ) {
                             @Override
                             protected boolean checkDevicePolicyPreconditions() {
                                 return true;
@@ -115,6 +117,7 @@ public class PreProvisioningActivityTest {
         Activity activity = mActivityRule.launchActivity(
                 createIntent(ACTION_PROVISION_MANAGED_DEVICE));
         CustomizationVerifier v = new CustomizationVerifier(activity);
+
         v.assertDefaultLogoCorrect(DEFAULT_LOGO_COLOR);
     }
 
@@ -124,9 +127,10 @@ public class PreProvisioningActivityTest {
         UriBitmap expectedLogo = UriBitmap.createSimpleInstance();
 
         Activity activity = mActivityRule.launchActivity(
-                createIntent(ACTION_PROVISION_MANAGED_DEVICE).putExtra(
-                        EXTRA_PROVISIONING_LOGO_URI, expectedLogo.getUri()));
+                createIntent(ACTION_PROVISION_MANAGED_DEVICE)
+                        .putExtra(EXTRA_PROVISIONING_LOGO_URI, expectedLogo.getUri()));
         CustomizationVerifier v = new CustomizationVerifier(activity);
+
         v.assertCustomLogoCorrect(expectedLogo.getBitmap());
     }
 

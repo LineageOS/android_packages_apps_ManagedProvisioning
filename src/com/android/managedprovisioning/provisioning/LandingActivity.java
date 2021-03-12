@@ -21,6 +21,7 @@ import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_O
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -80,18 +81,24 @@ public class LandingActivity extends SetupGlifLayoutActivity {
         initializeLayoutParams(R.layout.landing_screen, headerResId, customizationParams);
         setTitle(titleResId);
 
-        if (shouldShowAccountManagementDisclaimer(params.initiatorRequestedProvisioningModes)) {
-            ((TextView) findViewById(R.id.provider_info))
-                    .setText(R.string.account_management_disclaimer_subheader);
-        } else {
-            handleSupportUrl(customizationParams);
-        }
+        setupSubtitleText(params, customizationParams);
 
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
         Utils.addNextButton(layout, v -> onNextButtonClicked(params));
 
         if (Utils.isSilentProvisioning(this, params)) {
             onNextButtonClicked(params);
+        }
+    }
+
+    private void setupSubtitleText(ProvisioningParams params,
+            CustomizationParams customizationParams) {
+        final TextView info = findViewById(R.id.sud_layout_subtitle);
+        info.setVisibility(View.VISIBLE);
+        if (shouldShowAccountManagementDisclaimer(params.initiatorRequestedProvisioningModes)) {
+            info.setText(R.string.account_management_disclaimer_subheader);
+        } else {
+            handleSupportUrl(customizationParams, info);
         }
     }
 
@@ -113,8 +120,7 @@ public class LandingActivity extends SetupGlifLayoutActivity {
         }
     }
 
-    private void handleSupportUrl(CustomizationParams customizationParams) {
-        final TextView info = findViewById(R.id.provider_info);
+    private void handleSupportUrl(CustomizationParams customizationParams, TextView info) {
         final String deviceProvider = getString(R.string.organization_admin);
         final String contactDeviceProvider =
                 getString(R.string.contact_device_provider, deviceProvider);

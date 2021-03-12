@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.common;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
+import static com.android.managedprovisioning.provisioning.Constants.LOCK_TO_PORTRAIT_MODE;
 
 import android.app.DialogFragment;
 import android.app.Fragment;
@@ -63,8 +64,8 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
         mTimeLogger = new TimeLogger(this, getMetricsCategory());
         mTimeLogger.start();
 
-        // lock orientation to portrait on phones
-        if (getResources().getBoolean(R.bool.lock_to_portrait)) {
+        // lock orientation to portrait on phones if necessary
+        if (LOCK_TO_PORTRAIT_MODE && getResources().getBoolean(R.bool.lock_to_portrait)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
     }
