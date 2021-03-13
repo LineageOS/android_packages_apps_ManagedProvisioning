@@ -398,11 +398,11 @@
 
   <!-- Financed device provisioning landing screen -->
   <!-- Screen title in the device setup process. This is reminding the user that this device is provided by a creditor. This means the creditor can control the device, such as locking it if the user doesn't make payments. [CHAR LIMIT=NONE]-->
-  <string name="financed_device_screen_header">This device was purchased on credit from <xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g></string>
+  <string name="financed_device_screen_header">This device is provided by <xliff:g id="creditor_name" example="creditor_name">%s</xliff:g></string>
   <!-- Part of a device setup screen. This screen lets the user know that their device was purchased from a creditor, and the creditor can control parts of the device, such as locking it if the user doesn't make payments. [CHAR LIMIT=NONE]-->
   <string name="creditor_capabilities_header"><xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g> can:</string>
   <!-- Part of a device setup screen. This screen lets the user know that their device was purchased from a creditor, and the creditor can control parts of the device, such as installing their app so the user can make payments. [CHAR LIMIT=NONE]-->
-  <string name="install_creditor_app_description">Install the <xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g> app so you can make payments for this device</string>
+  <string name="install_creditor_app_description">Install the <xliff:g id="creditor_name" example="creditor_name">%s</xliff:g> app on this device</string>
   <!-- Part of a device setup screen. This screen lets the user know that their device was purchased from a creditor, and the creditor can control parts of the device, such as restricting access if the user doesn't make payments. [CHAR LIMIT=NONE]-->
-  <string name="lock_device_description">Restrict access to this device if you don\'t make payments</string>
+  <string name="lock_device_description">Lock this device if you don\'t make payments</string>
 </resources>
