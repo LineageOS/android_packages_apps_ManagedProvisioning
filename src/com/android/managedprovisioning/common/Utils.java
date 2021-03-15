@@ -683,6 +683,13 @@ public class Utils {
         return getAttrColor(context, android.R.attr.colorAccent);
     }
 
+    /**
+     * Returns the theme's text primary color.
+     */
+    public int getTextPrimaryColor(Context context) {
+        return getAttrColor(context, android.R.attr.textColorPrimary);
+    }
+
     private int getAttrColor(Context context, int attr) {
         TypedArray ta = context.obtainStyledAttributes(new int[]{attr});
         int attrColor = ta.getColor(0, 0);

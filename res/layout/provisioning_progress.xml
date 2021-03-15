@@ -28,6 +28,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
+            android:id="@+id/subheader_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -57,6 +58,7 @@
             android:layout_marginTop="@dimen/subheader_description_margin_top"
             style="@style/Provisioning2Theme.Text.Primary.Small" />
         <LinearLayout
+            android:id="@+id/secondary_subheader_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -92,18 +94,15 @@
             android:layout_marginTop="@dimen/spacer_24"
             android:importantForAccessibility="no"
             style="@style/SudDescription.Glif"/>
-        <ImageView
-            android:id="@+id/animation"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/animation_height"
-            android:scaleType="centerCrop"/>
-        <TextView
-            android:id="@+id/provisioning_progress"
-            android:layout_marginBottom="@dimen/spacer_64"
-            android:gravity="bottom|center_horizontal"
+        <com.google.android.setupdesign.view.FillContentLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/animation"
+                style="@style/SudContentIllustration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.setupdesign.view.FillContentLayout>
     </LinearLayout>
 </com.google.android.setupdesign.GlifLayout>

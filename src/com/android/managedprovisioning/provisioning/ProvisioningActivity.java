@@ -21,6 +21,8 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DE
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PROVISIONING_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import static com.google.android.setupdesign.util.ThemeHelper.shouldApplyExtendedPartnerConfig;
+
 import static java.util.Objects.requireNonNull;
 
 import android.Manifest.permission;
@@ -34,10 +36,11 @@ import android.content.pm.ResolveInfo;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
 import android.os.UserHandle;
-import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.VisibleForTesting;
@@ -219,7 +222,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private void updateProvisioningFinalizedScreen() {
         if (!shouldSkipEducationScreens()) {
             final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-            layout.findViewById(R.id.provisioning_progress).setVisibility(View.GONE);
+            getProvisioningProgressLabelContainer().setVisibility(View.GONE);
             Utils.addNextButton(layout, v -> onNextButtonClicked());
             //TODO(b/181323689): Add tests to ProvisioningActivityTest that the button is not
             // shown for non-DO provisioning flows.
@@ -395,20 +398,58 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private void setupEducationViews(GlifLayout layout) {
         final int progressLabelResId =
                 PROVISIONING_MODE_TO_PROGRESS_LABEL.get(getProvisioningMode());
-        final TextView progressLabel = layout.findViewById(R.id.provisioning_progress);
+        addProvisioningProgressLabel();
         if (shouldSkipEducationScreens()) {
             final TextView header = layout.findViewById(R.id.suc_layout_title);
             header.setText(progressLabelResId);
-            progressLabel.setVisibility(View.INVISIBLE);
+            getProvisioningProgressLabelContainer().setVisibility(View.GONE);
             layout.findViewById(R.id.subheader_description).setVisibility(View.INVISIBLE);
             layout.findViewById(R.id.provider_info).setVisibility(View.INVISIBLE);
         } else {
-            DescriptionStyler.applyPartnerCustomizationHeavyStyle(progressLabel);
-            progressLabel.setTextColor(mUtils.getAccentColor(this));
-            progressLabel.setGravity(Gravity.CENTER);
-            progressLabel.setText(progressLabelResId);
-            progressLabel.setVisibility(View.VISIBLE);
+            setupProgressLabel(progressLabelResId);
         }
+    }
+
+    private void addProvisioningProgressLabel() {
+        final LinearLayout parent = (LinearLayout) findViewById(R.id.suc_layout_footer).getParent();
+        getLayoutInflater().inflate(R.layout.label_provisioning_progress, parent, true);
+    }
+
+    private ViewGroup getProvisioningProgressLabelContainer() {
+        final LinearLayout parent = (LinearLayout) findViewById(R.id.suc_layout_footer).getParent();
+        return parent.findViewById(R.id.provisioning_progress_container);
+    }
+
+    /**
+     * Returns the relevant progress label and takes care of visibilities to show the correct one.
+     */
+    private void setupProgressLabel(@StringRes int progressLabelResId) {
+        TextView progressLabel = getRelevantProgressLabel();
+        DescriptionStyler.applyPartnerCustomizationHeavyStyle(progressLabel);
+        progressLabel.setTextColor(
+                shouldApplyExtendedPartnerConfig(this)
+                        ? mUtils.getTextPrimaryColor(this)
+                        : mUtils.getAccentColor(this));
+        progressLabel.setText(progressLabelResId);
+        getProvisioningProgressLabelContainer().setVisibility(View.VISIBLE);
+    }
+
+    private TextView getRelevantProgressLabel() {
+        ViewGroup parent = (ViewGroup) findViewById(R.id.suc_layout_footer).getParent();
+        TextView provisioningProgressLabel = parent.findViewById(R.id.provisioning_progress);
+        if (provisioningProgressLabel != null) {
+            return provisioningProgressLabel;
+        }
+        TextView leftProgress = parent.findViewById(R.id.provisioning_progress_left);
+        TextView rightProgress = parent.findViewById(R.id.provisioning_progress_right);
+        if (getResources().getBoolean(R.bool.show_progress_label_on_left_side)) {
+            leftProgress.setVisibility(View.VISIBLE);
+            rightProgress.setVisibility(View.INVISIBLE);
+            return leftProgress;
+        }
+        leftProgress.setVisibility(View.INVISIBLE);
+        rightProgress.setVisibility(View.VISIBLE);
+        return rightProgress;
     }
 
     private void setupTransitionAnimationHelper(GlifLayout layout) {
