@@ -27,6 +27,7 @@ import static java.util.Objects.requireNonNull;
 
 import android.Manifest.permission;
 import android.annotation.IntDef;
+import android.annotation.StringRes;
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
@@ -102,6 +103,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     static final int PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE = 3;
     static final int PROVISIONING_MODE_FINANCED_DEVICE = 4;
     static final int PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE = 5;
+    private CustomizationParams mCustomizationParams;
+
     @IntDef(prefix = { "PROVISIONING_MODE_" }, value = {
         PROVISIONING_MODE_WORK_PROFILE,
         PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
@@ -380,9 +383,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         final int titleResId =
             isPoProvisioning ? R.string.setup_profile_progress : R.string.setup_device_progress;
 
-        CustomizationParams customizationParams =
-                CustomizationParams.createInstance(mParams, this, mUtils);
-        initializeLayoutParams(R.layout.provisioning_progress, null, customizationParams);
+        mCustomizationParams = CustomizationParams.createInstance(mParams, this, mUtils);
+        initializeLayoutParams(R.layout.provisioning_progress, /* headerResourceId= */ null,
+                mCustomizationParams);
         setTitle(titleResId);
 
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
@@ -391,8 +394,20 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             // make the icon invisible
             layout.findViewById(R.id.sud_layout_icon).setVisibility(View.INVISIBLE);
         }
+    }
 
-        handleSupportUrl(layout, customizationParams);
+    @Override
+    public void onHandleSupportLink(
+            TextView textView, @StringRes int textResId, @StringRes int linkResId) {
+        String linkText = getString(linkResId);
+        String containerText = getString(textResId, linkText);
+        mUtils.handleSupportUrl(
+                this,
+                mCustomizationParams,
+                new AccessibilityContextMenuMaker(this),
+                textView,
+                linkText,
+                containerText);
     }
 
     private void setupEducationViews(GlifLayout layout) {
@@ -403,8 +418,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             final TextView header = layout.findViewById(R.id.suc_layout_title);
             header.setText(progressLabelResId);
             getProvisioningProgressLabelContainer().setVisibility(View.GONE);
-            layout.findViewById(R.id.subheader_description).setVisibility(View.INVISIBLE);
-            layout.findViewById(R.id.provider_info).setVisibility(View.INVISIBLE);
+            layout.findViewById(R.id.item1).setVisibility(View.GONE);
+            layout.findViewById(R.id.item2).setVisibility(View.GONE);
         } else {
             setupProgressLabel(progressLabelResId);
         }
@@ -454,22 +469,15 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
     private void setupTransitionAnimationHelper(GlifLayout layout) {
         final TextView header = layout.findViewById(R.id.suc_layout_title);
-        final ImageView subHeaderIcon = layout.findViewById(R.id.subheader_icon);
-        final TextView subHeaderTitle = layout.findViewById(R.id.subheader_title);
-        final TextView subHeader = layout.findViewById(R.id.subheader_description);
-        final ImageView secondarySubHeaderIcon = layout.findViewById(R.id.secondary_subheader_icon);
-        final TextView secondarySubHeaderTitle = layout.findViewById(
-                R.id.secondary_subheader_title);
-        final TextView secondarySubHeader = layout.findViewById(
-                R.id.secondary_subheader_description);
-
+        final TextView description = layout.findViewById(R.id.sud_layout_subtitle);
+        final ViewGroup item1 = layout.findViewById(R.id.item1);
+        final ViewGroup item2 = layout.findViewById(R.id.item2);
         final ImageView drawable = layout.findViewById(R.id.animation);
-        final TextView providerInfo = layout.findViewById(R.id.provider_info);
+        final ViewGroup drawableContainer = layout.findViewById(R.id.animation_container);
         final int provisioningMode = getProvisioningMode();
         final AnimationComponents animationComponents =
-                new AnimationComponents(header, subHeaderIcon, subHeaderTitle, subHeader,
-                        secondarySubHeaderIcon, secondarySubHeaderTitle, secondarySubHeader,
-                        drawable, providerInfo);
+                new AnimationComponents(
+                        header, description, item1, item2, drawable, drawableContainer);
         mTransitionAnimationHelper = new TransitionAnimationHelper(provisioningMode,
                 /* adminCanGrantSensorsPermissions= */ !mParams.deviceOwnerPermissionGrantOptOut,
                 animationComponents,
@@ -495,15 +503,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             provisioningMode = PROVISIONING_MODE_FINANCED_DEVICE;
         }
         return provisioningMode;
-    }
-
-    private void handleSupportUrl(GlifLayout layout, CustomizationParams customization) {
-        final TextView info = layout.findViewById(R.id.provider_info);
-        final String deviceProvider = getString(R.string.organization_admin);
-        final String contactDeviceProvider =
-                getString(R.string.contact_device_provider, deviceProvider);
-        mUtils.handleSupportUrl(this, customization, new AccessibilityContextMenuMaker(this), info,
-                deviceProvider, contactDeviceProvider);
     }
 
     private void startTransitionAnimation() {

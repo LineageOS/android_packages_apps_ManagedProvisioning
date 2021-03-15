@@ -355,14 +355,15 @@
   <string name="fully_managed_device_provisioning_step_1_header">Keep your work apps at your fingertips</string>
   <!-- Screen title. This is letting the user know that their entire device isn't private and can be accessed by their IT admin. [CHAR LIMIT=NONE]-->
   <string name="fully_managed_device_provisioning_step_2_header">This device isn\'t private</string>
-  <!-- Screen subtext title. This is letting the user know that their IT admin may be able to see their data and activity since the device isn't private. [CHAR LIMIT=NONE]-->
-  <string name="fully_managed_device_provisioning_step_2_subheader_title">Your activity &amp; data</string>
   <!-- Screen subtext. This is letting the user know that their IT admin may be able to see their data and activity since the device isn't private. [CHAR LIMIT=NONE]-->
-  <string name="fully_managed_device_provisioning_step_2_subheader">Your IT admin may be able to see your data and activity on this device.</string>
+  <string name="fully_managed_device_provisioning_step_2_subheader">Your IT admin may be able to see your data and activity on this device.\n\nTo learn more, contact your <xliff:g id="it_admin" example="it_admin">%1$s</xliff:g>.</string>
+  <!-- Screen subtext title. This is letting the user know that their IT admin may be able to see their data and activity since the device isn't private. [CHAR LIMIT=NONE]-->
+  <string name="fully_managed_device_provisioning_permissions_header">Your activity &amp; data</string>
+  <string name="fully_managed_device_provisioning_permissions_subheader">Your IT admin may be able to see your data and activity on this device.</string>
   <!-- Screen title. This is letting the user know that their IT admin can control permissions for apps on this device. [CHAR LIMIT=NONE]-->
-  <string name="fully_managed_device_provisioning_permissions_title">App permissions</string>
+  <string name="fully_managed_device_provisioning_permissions_secondary_header">App permissions</string>
   <!-- Screen subtext. This is letting the user know that their IT admin can control permissions for apps on this device. [CHAR LIMIT=NONE]-->
-  <string name="fully_managed_device_provisioning_permissions_subheader">Your IT admin can set permissions for apps on this device, such as microphone, camera, and location permissions.</string>
+  <string name="fully_managed_device_provisioning_permissions_secondary_subheader">Your IT admin can set permissions for apps on this device, such as microphone, camera, and location permissions.</string>
   <!-- In-progress text that's part of a full-screen message. This is letting the user know that their device is being set up. [CHAR LIMIT=NONE]-->
   <string name="fully_managed_device_provisioning_progress_label">Setting up your device\u2026</string>
   <!-- Spoken text for screen readers. This is summarizing the key features of their work device while it's being set up. [CHAR LIMIT=NONE]-->

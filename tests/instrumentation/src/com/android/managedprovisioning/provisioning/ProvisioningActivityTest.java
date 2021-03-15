@@ -30,6 +30,7 @@ import static androidx.test.espresso.intent.matcher.IntentMatchers.hasAction;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
@@ -444,12 +445,10 @@ public class ProvisioningActivityTest {
         onView(withId(R.id.animation)).check(matches(isDisplayed()));
         waitForFullyManagedDeviceHeader();
 
-        onView(withId(R.id.subheader_title)).check(matches(
-                withText(R.string.fully_managed_device_provisioning_step_2_subheader_title)));
-        onView(withId(R.id.subheader_description)).check(
-                matches(withText(R.string.fully_managed_device_provisioning_step_2_subheader)));
-        onView(withId(R.id.secondary_subheader_title)).check(matches(not(isDisplayed())));
-        onView(withId(R.id.secondary_subheader_description)).check(matches(not(isDisplayed())));
+        onView(withId(R.id.sud_layout_subtitle)).check(matches(
+                withText(R.string.fully_managed_device_provisioning_step_2_subheader)));
+        onView(withId(R.id.item1)).check(matches(not(isDisplayed())));
+        onView(withId(R.id.item2)).check(matches(not(isDisplayed())));
     }
 
     @Ignore("b/181323689")
@@ -466,14 +465,18 @@ public class ProvisioningActivityTest {
         onView(withId(R.id.animation)).check(matches(isDisplayed()));
         waitForFullyManagedDeviceHeader();
 
-        onView(withId(R.id.subheader_title)).check(matches(
-                withText(R.string.fully_managed_device_provisioning_step_2_subheader_title)));
-        onView(withId(R.id.subheader_description)).check(
-                matches(withText(R.string.fully_managed_device_provisioning_step_2_subheader)));
-        onView(withId(R.id.secondary_subheader_title)).check(
-                matches(withText(R.string.fully_managed_device_provisioning_permissions_title)));
-        onView(withId(R.id.secondary_subheader_description)).check(matches(withText(
-                R.string.fully_managed_device_provisioning_permissions_subheader)));
+        onView(allOf(withId(R.id.sud_items_title), withParent(withId(R.id.item1))))
+                .check(matches(
+                        withText(R.string.fully_managed_device_provisioning_permissions_header)));
+        onView(allOf(withId(R.id.sud_items_summary), withParent(withId(R.id.item1))))
+                .check(matches(withText(
+                        R.string.fully_managed_device_provisioning_permissions_subheader)));
+        onView(allOf(withId(R.id.sud_items_title), withParent(withId(R.id.item2))))
+                .check(matches(withText(
+                        R.string.fully_managed_device_provisioning_permissions_secondary_header)));
+        onView(allOf(withId(R.id.sud_items_summary), withParent(withId(R.id.item2))))
+                .check(matches(withText(R.string
+                        .fully_managed_device_provisioning_permissions_secondary_subheader)));
     }
 
     @Ignore("b/181323689")
@@ -555,8 +558,8 @@ public class ProvisioningActivityTest {
         int numAttempts = 0;
         while (numAttempts < 40) {
             try {
-                onView(withId(R.id.subheader_title)).check(matches(withText(
-                        R.string.fully_managed_device_provisioning_step_2_subheader_title)));
+                onView(withId(R.id.sud_layout_subtitle)).check(matches(
+                        withText(R.string.fully_managed_device_provisioning_step_2_subheader)));
                 break;
             } catch (AssertionFailedError e) {
                 numAttempts++;
