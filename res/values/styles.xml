@@ -166,7 +166,9 @@
 
     <style name="SetupWizardPartnerResource">
         <!-- Disable to use partner overlay theme for outside setupwizard flow. -->
-        <item name="sucUsePartnerResource">false</item>
+        <item name="sucUsePartnerResource">true</item>
+        <!-- Enable heavy theme style. -->
+        <item name="sudUsePartnerHeavyTheme">true</item>
     </style>
 </resources>
 
