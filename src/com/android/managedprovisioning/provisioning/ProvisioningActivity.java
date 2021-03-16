@@ -208,7 +208,11 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
             layout.findViewById(R.id.provisioning_progress).setVisibility(View.GONE);
             Utils.addNextButton(layout, v -> onNextButtonClicked());
-            Utils.addAbortAndResetButton(layout, v -> onAbortButtonClicked());
+            //TODO(b/181323689): Add tests to ProvisioningActivityTest that the button is not
+            // shown for non-DO provisioning flows.
+            if (mUtils.isDeviceOwnerAction(mParams.provisioningAction)) {
+                Utils.addAbortAndResetButton(layout, v -> onAbortButtonClicked());
+            }
         }
 
         if (shouldSkipEducationScreens() || Utils.isSilentProvisioning(this, mParams)) {
