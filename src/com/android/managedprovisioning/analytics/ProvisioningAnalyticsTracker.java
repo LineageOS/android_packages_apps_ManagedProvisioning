@@ -322,6 +322,27 @@ public class ProvisioningAnalyticsTracker {
     }
 
     /**
+     * Logs whether an {@link android.app.Activity} is in landscape mode, along with its name.
+     */
+    public void logIsLandscape(boolean isLandscape, String activityName) {
+        mMetricsWriter.write(DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_IS_LANDSCAPE)
+                .setBoolean(isLandscape)
+                .setStrings(activityName)
+                .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
+    }
+
+    /**
+     * Logs whether the app is in night mode.
+     */
+    public void logIsNightMode(boolean isNightMode) {
+        mMetricsWriter.write(DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PROVISIONING_IS_NIGHT_MODE)
+                .setBoolean(isNightMode)
+                .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
+    }
+
+    /**
      * Logs all the provisioning extras passed by the dpc.
      *
      * @param context Context passed to MetricsLogger
