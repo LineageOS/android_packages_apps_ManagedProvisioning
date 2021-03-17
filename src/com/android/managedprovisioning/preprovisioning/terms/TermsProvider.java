@@ -17,8 +17,8 @@ package com.android.managedprovisioning.preprovisioning.terms;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_CONTENT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_HEADER;
-import static android.content.pm.PackageManager.GET_META_DATA;
-import static android.content.pm.PackageManager.MATCH_SYSTEM_ONLY;
+
+import static java.util.Objects.requireNonNull;
 
 import android.annotation.IntDef;
 import android.content.Context;
@@ -53,7 +53,9 @@ import java.util.stream.Collectors;
 public class TermsProvider {
     private final Context mContext;
     private final StoreUtils.TextFileReader mTextFileReader;
+    private final ProvisioningParams mParams;
     private final Utils mUtils;
+    private final Injector mInjector;
 
     /**
      * Sources all available {@link TermsDocument}s:
@@ -63,10 +65,13 @@ public class TermsProvider {
      * <li> terms passed from DPC.
      * </ul>
      */
-    public TermsProvider(Context context, StoreUtils.TextFileReader textFileReader, Utils utils) {
-        mContext = context;
-        mTextFileReader = textFileReader;
-        mUtils = utils;
+    public TermsProvider(Context context, StoreUtils.TextFileReader textFileReader,
+            ProvisioningParams params, Utils utils, Injector injector) {
+        mContext = requireNonNull(context);
+        mTextFileReader = requireNonNull(textFileReader);
+        mParams = requireNonNull(params);
+        mUtils = requireNonNull(utils);
+        mInjector = requireNonNull(injector);
     }
 
     /**
@@ -77,15 +82,15 @@ public class TermsProvider {
      * <li> terms passed from DPC.
      * </ul>
      */
-    public List<TermsDocument> getTerms(ProvisioningParams params) {
+    public List<TermsDocument> getTerms() {
         List<TermsDocument> result = new ArrayList<>();
-        int provisioningCase = determineProvisioningCase(params);
+        int provisioningCase = determineProvisioningCase(mParams);
 
         if (provisioningCase == ProvisioningCase.DEVICE_OWNER) {
             result.addAll(getSystemAppTerms());
         }
 
-        result.addAll(getExtraDisclaimers(params));
+        result.addAll(getExtraDisclaimers(mParams));
 
         return result.stream().filter(Objects::nonNull).collect(Collectors.toList());
     }
@@ -93,8 +98,8 @@ public class TermsProvider {
     /**
      * Returns a generic disclaimer relative to the provisioning mode.
      */
-    public TermsDocument getGeneralDisclaimer(ProvisioningParams params) {
-        int provisioningCase = determineProvisioningCase(params);
+    public TermsDocument getGeneralDisclaimer() {
+        int provisioningCase = determineProvisioningCase(mParams);
         String heading = mContext.getString(provisioningCase == ProvisioningCase.PROFILE_OWNER
                 ? R.string.work_profile_info
                 : R.string.managed_device_info);
@@ -113,8 +118,7 @@ public class TermsProvider {
 
     private List<TermsDocument> getSystemAppTerms() {
         List<TermsDocument> terms = new ArrayList<>();
-        List<ApplicationInfo> appInfos = mContext.getPackageManager().getInstalledApplications(
-                MATCH_SYSTEM_ONLY | GET_META_DATA);
+        List<ApplicationInfo> appInfos = mInjector.getInstalledApplications();
         for (ApplicationInfo appInfo : appInfos) {
             String header = getStringMetaData(appInfo, EXTRA_PROVISIONING_DISCLAIMER_HEADER);
             String content = getStringMetaData(appInfo, EXTRA_PROVISIONING_DISCLAIMER_CONTENT);
@@ -169,5 +173,9 @@ public class TermsProvider {
     private @interface ProvisioningCase {
         int PROFILE_OWNER = 1;
         int DEVICE_OWNER = 2;
+    }
+
+    interface Injector {
+        List<ApplicationInfo> getInstalledApplications();
     }
 }

@@ -16,8 +16,12 @@
  * limitations under the License.
  */
 -->
-<com.google.android.setupdesign.GlifRecyclerLayout
+<TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/setup_wizard_layout"
+    android:layout_marginLeft="?attr/sudMarginStart"
+    android:layout_marginRight="?attr/sudMarginEnd"
+    android:paddingBottom="@dimen/spacer_24"
+    android:id="@+id/terms_disclaimer_general"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    style="@style/Provisioning2Theme.Text.Primary.Medium" />

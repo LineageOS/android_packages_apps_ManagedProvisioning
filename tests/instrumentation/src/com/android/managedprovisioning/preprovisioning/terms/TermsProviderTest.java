@@ -25,13 +25,17 @@ import static org.junit.Assume.assumeTrue;
 import android.content.Context;
 import android.content.pm.PackageManager;
 
+import androidx.annotation.NonNull;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.model.ProvisioningParams;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 @SmallTest
 public class TermsProviderTest {
@@ -41,12 +45,12 @@ public class TermsProviderTest {
     private final String mStringAdminDisclaimerDo = mContext.getString(R.string.admin_has_ability_to_monitor_device);
     private final String mStringAdminDisclaimerPo = mContext.getString(R.string.admin_has_ability_to_monitor_profile);
 
-    private final TermsProvider mTermsProvider = new TermsProvider(mContext, s -> "", new Utils());
-
     @Test
     public void getGeneralDisclaimer_presentAsFirst_profileOwner() {
         assumeHasManagedUsersFeature();
-        TermsDocument terms = mTermsProvider.getGeneralDisclaimer(PROFILE_OWNER_PARAMS);
+        final TermsDocument terms =
+                createTermsProvider(PROFILE_OWNER_PARAMS).getGeneralDisclaimer();
+
         assertThat(terms.getHeading(), equalTo(mStringGeneralPo));
         assertThat(terms.getContent(), equalTo(mStringAdminDisclaimerPo));
     }
@@ -54,9 +58,15 @@ public class TermsProviderTest {
     @Test
     public void getGeneralDisclaimer_presentAsFirst_deviceOwner() {
         assumeHasDeviceAdminFeature();
-        TermsDocument terms = mTermsProvider.getGeneralDisclaimer(DEVICE_OWNER_PARAMS);
+        TermsDocument terms = createTermsProvider(DEVICE_OWNER_PARAMS).getGeneralDisclaimer();
+
         assertThat(terms.getHeading(), equalTo(mStringGeneralDo));
         assertThat(terms.getContent(), equalTo(mStringAdminDisclaimerDo));
+    }
+
+    @NonNull
+    private TermsProvider createTermsProvider(ProvisioningParams params) {
+        return new TermsProvider(mContext, s -> "", params, new Utils(), ArrayList::new);
     }
 
     private void assumeHasManagedUsersFeature() {

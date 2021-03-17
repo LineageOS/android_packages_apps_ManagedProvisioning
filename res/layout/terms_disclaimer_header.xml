@@ -21,21 +21,21 @@
     android:descendantFocusability="blocksDescendants"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginLeft="?attr/sudMarginStart"
+    android:layout_marginRight="?attr/sudMarginEnd"
+    android:background="?android:attr/selectableItemBackground">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacer_16"
-        android:layout_marginLeft="@dimen/spacer_16"
-        android:layout_marginRight="@dimen/spacer_16"
-        android:layout_marginTop="@dimen/spacer_16"
+        android:layout_marginBottom="@dimen/terms_disclaimer_header_vertical_margin"
+        android:layout_marginTop="@dimen/terms_disclaimer_header_vertical_margin"
         android:orientation="horizontal">
         <TextView
-            android:layout_marginLeft="@dimen/spacer_36"
-            android:id="@+id/header_text"
+            android:id="@+id/sud_items_title"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            style="@style/Provisioning2Theme.Text.Primary.Large"/>
+            style="@style/Provisioning2Theme.Text.Primary.Large" />
         <ImageView
             android:layout_marginLeft="@dimen/spacer_12"
             android:id="@+id/chevron"
@@ -47,6 +47,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:src="@drawable/chevron"/>
+            android:src="@drawable/chevron" />
     </LinearLayout>
+    <TextView
+        android:id="@+id/sud_items_summary"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:visibility="gone" />
+    <include layout="@layout/terms_disclaimer_content" />
 </LinearLayout>
