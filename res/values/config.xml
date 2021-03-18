@@ -16,9 +16,14 @@
 
 <resources>
     <!-- Provisioning screens -->
-    <dimen name="description_icon_size">20dp</dimen>
-    <dimen name="subheader_description_margin_start">36dp</dimen>
-    <dimen name="subheader_description_margin_top">2dp</dimen>
+    <dimen name="sud_items_icon_size">20dp</dimen>
+    <dimen name="sud_items_summary_margin_start">36dp</dimen>
+    <dimen name="sud_items_summary_margin_top">2dp</dimen>
+    <dimen name="sud_items_margin_top">32dp</dimen>
+    <dimen name="sud_items_margin_inbetween">24dp</dimen>
     <dimen name="terms_disclaimer_header_vertical_margin">16dp</dimen>
-    <dimen name="terms_disclaimer_content_vertical_margin">16dp</dimen>
+    <dimen name="terms_disclaimer_content_margin_top">16dp</dimen>
+    <dimen name="terms_disclaimer_content_margin_bottom">16dp</dimen>
+    <dimen name="terms_header_height">40dp</dimen>
+    <bool name="show_progress_label_on_left_side">false</bool>
 </resources>

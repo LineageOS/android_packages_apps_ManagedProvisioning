@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:paddingStart="@dimen/spacer_32"
-        android:paddingTop="@dimen/terms_disclaimer_content_vertical_margin"
-        android:paddingBottom="@dimen/terms_disclaimer_content_vertical_margin"
+        android:paddingTop="@dimen/terms_disclaimer_content_margin_top"
+        android:paddingBottom="@dimen/terms_disclaimer_content_margin_bottom"
         style="@style/Provisioning2Theme.Text.Primary.Medium"/>
 </LinearLayout>

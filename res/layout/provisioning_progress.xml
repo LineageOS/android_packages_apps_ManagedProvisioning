@@ -29,10 +29,16 @@
         android:orientation="vertical">
         <include
             android:id="@+id/item1"
-            layout="@layout/icon_with_label_item" />
+            layout="@layout/icon_with_label_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sud_items_margin_top" />
         <include
             android:id="@+id/item2"
-            layout="@layout/icon_with_label_item" />
+            layout="@layout/icon_with_label_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sud_items_margin_inbetween" />
         <com.google.android.setupdesign.view.FillContentLayout
             android:id="@+id/animation_container"
             android:orientation="vertical"
