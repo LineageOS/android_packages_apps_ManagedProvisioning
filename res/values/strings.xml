@@ -362,11 +362,13 @@
   <!-- Screen title. This is letting the user know that their IT admin can control permissions for apps on this device. [CHAR LIMIT=NONE]-->
   <string name="fully_managed_device_provisioning_permissions_title">App permissions</string>
   <!-- Screen subtext. This is letting the user know that their IT admin can control permissions for apps on this device. [CHAR LIMIT=NONE]-->
-  <string name="fully_managed_device_provisioning_permissions_subheader">Your IT admin can allow apps to access settings on this device, including the microphone, camera, and location.</string>
+  <string name="fully_managed_device_provisioning_permissions_subheader">Your IT admin can set permissions for apps on this device, such as microphone, camera, and location permissions.</string>
   <!-- In-progress text that's part of a full-screen message. This is letting the user know that their device is being set up. [CHAR LIMIT=NONE]-->
   <string name="fully_managed_device_provisioning_progress_label">Setting up your device\u2026</string>
   <!-- Spoken text for screen readers. This is summarizing the key features of their work device while it's being set up. [CHAR LIMIT=NONE]-->
-  <string name="fully_managed_device_provisioning_summary">Use this device to easily access your work apps. This device isn\'t private, so your IT admin may be able to see your data and activity. To learn more, contact your IT admin.</string>
+  <string name="fully_managed_device_provisioning_summary">Use this device to easily access your work apps. This device isn\'t private, so your IT admin may be able to see your data and activity.</string>
+  <!-- Spoken text for screen readers. This is summarizing the key features of their work device, including their admin's ability to control permissions, while it's being set up. [CHAR LIMIT=NONE]-->
+  <string name="fully_managed_device_with_permission_control_provisioning_summary">Use this device to easily access your work apps. This device isn’t private, so your IT admin may be able to see your activity and data. Your IT admin can also set permissions for apps on this device, such as microphone, camera, and location permissions.</string>
   <!-- Screen title. This is letting the user know they should return the device to their IT admin if they do not want to finish set-up. [CHAR LIMIT=NONE]-->
   <string name="fully_managed_device_provisioning_return_device_title">Return this device to your IT admin</string>
   <!-- Screen subtext. This tells the user they should either go back to the previous screen to complete set-up, or abort set-up by resetting the device. [CHAR LIMIT=NONE]-->
