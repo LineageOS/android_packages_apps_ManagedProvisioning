@@ -36,7 +36,7 @@ public final class Constants {
         return new File(context.getFilesDir(), "deferred_metrics");
     }
 
-    public static boolean FLAG_ENABLE_LIGHT_DARK_MODE = false;
+    public static boolean FLAG_ENABLE_LIGHT_DARK_MODE = true;
 
     /**
      * A boolean flag to indicate whether to lock the orientation to portrait mode.
