@@ -88,7 +88,7 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
                 customization);
 
         setupAnimation(animationResId);
-        setupAcceptAndContinueButton(uiParams.isSilentProvisioning);
+        setupAcceptAndContinueButton();
 
         // set the activity title
         mActivity.setTitle(titleResId);
@@ -107,12 +107,9 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         mRepeatingVectorAnimation.start();
     }
 
-    private void setupAcceptAndContinueButton(boolean isSilentProvisioning) {
+    private void setupAcceptAndContinueButton() {
         final GlifLayout layout = mActivity.findViewById(R.id.setup_wizard_layout);
         Utils.addAcceptAndContinueButton(layout, v -> onNextButtonClicked());
-        if (isSilentProvisioning) {
-            onNextButtonClicked();
-        }
     }
 
     private void onNextButtonClicked() {

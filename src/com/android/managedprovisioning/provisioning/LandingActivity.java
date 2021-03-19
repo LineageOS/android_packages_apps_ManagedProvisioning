@@ -85,10 +85,6 @@ public class LandingActivity extends SetupGlifLayoutActivity {
 
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
         Utils.addNextButton(layout, v -> onNextButtonClicked(params));
-
-        if (Utils.isSilentProvisioning(this, params)) {
-            onNextButtonClicked(params);
-        }
     }
 
     private void setupSubtitleText(ProvisioningParams params,

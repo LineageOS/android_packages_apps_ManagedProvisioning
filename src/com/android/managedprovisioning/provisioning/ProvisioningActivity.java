@@ -233,7 +233,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             }
         }
 
-        if (shouldSkipEducationScreens() || Utils.isSilentProvisioning(this, mParams)) {
+        if (shouldSkipEducationScreens()) {
             onNextButtonClicked();
         }
 

@@ -244,7 +244,6 @@ public class PreProvisioningActivityController {
          * {@link Intent} to launch the view terms screen.
          */
         public Intent viewTermsIntent;
-        public boolean isSilentProvisioning;
         public boolean isOrganizationOwnedProvisioning;
     }
 
@@ -334,7 +333,7 @@ public class PreProvisioningActivityController {
         ProvisionLogger.logi("Starting the NFC provisioning flow.");
         addAdditionalNfcProvisioningExtras(intent);
         updateProvisioningFlowState(FLOW_TYPE_LEGACY);
-        maybeShowUserConsentScreen();
+        showUserConsentScreen();
     }
 
     // TODO(178822333): Remove NFC-specific logic after adding support for the admin-integrated flow
@@ -344,24 +343,16 @@ public class PreProvisioningActivityController {
 
     private void startManagedProfileFlow() {
         ProvisionLogger.logi("Starting the managed profile flow.");
-        maybeShowUserConsentScreen();
+        showUserConsentScreen();
     }
 
     private void startManagedDeviceFlow() {
         ProvisionLogger.logi("Starting the legacy managed device flow.");
-        maybeShowUserConsentScreen();
+        showUserConsentScreen();
     }
 
     private boolean isDpcTriggeredManagedDeviceProvisioning(Intent intent) {
         return ACTION_PROVISION_MANAGED_DEVICE.equals(intent.getAction());
-    }
-
-    private void maybeShowUserConsentScreen() {
-        if (Utils.isSilentProvisioning(mContext, mViewModel.getParams())) {
-            continueProvisioningAfterUserConsent();
-        } else {
-            showUserConsentScreen();
-        }
     }
 
     private boolean isNfcProvisioning(Intent intent) {
@@ -423,8 +414,6 @@ public class PreProvisioningActivityController {
         uiParams.packageName = packageName;
         uiParams.isDeviceManaged = mDevicePolicyManager.isDeviceManaged();
         uiParams.viewTermsIntent = createViewTermsIntent();
-        uiParams.isSilentProvisioning =
-                Utils.isSilentProvisioning(mContext, mViewModel.getParams());
         uiParams.isOrganizationOwnedProvisioning =
                 mViewModel.getParams().isOrganizationOwnedProvisioning;
 
@@ -678,14 +667,7 @@ public class PreProvisioningActivityController {
 
     /** @return False if condition preventing further provisioning */
     @VisibleForTesting protected boolean checkDevicePolicyPreconditions() {
-        // If isSilentProvisioningForTestingDeviceOwner returns true, the component must be
-        // current device owner, and we can safely ignore isProvisioningAllowed as we don't call
-        // setDeviceOwner.
         ProvisioningParams params = mViewModel.getParams();
-        if (Utils.isSilentProvisioningForTestingDeviceOwner(mContext, params)) {
-            return true;
-        }
-
         int provisioningPreCondition = mDevicePolicyManager.checkProvisioningPreCondition(
                 params.provisioningAction,
                 params.inferDeviceAdminPackageName());
