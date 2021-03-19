@@ -356,10 +356,10 @@
   <!-- Screen title. This is letting the user know that their entire device isn't private and can be accessed by their IT admin. [CHAR LIMIT=NONE]-->
   <string name="fully_managed_device_provisioning_step_2_header">This device isn\'t private</string>
   <!-- Screen subtext. This is letting the user know that their IT admin may be able to see their data and activity since the device isn't private. [CHAR LIMIT=NONE]-->
-  <string name="fully_managed_device_provisioning_step_2_subheader">Your IT admin may be able to see your data and activity on this device.\n\nTo learn more, contact your <xliff:g id="it_admin" example="it_admin">%1$s</xliff:g>.</string>
+  <string name="fully_managed_device_provisioning_step_2_subheader">Your IT admin may be able to see your data and activity on this device.</string>
   <!-- Screen subtext title. This is letting the user know that their IT admin may be able to see their data and activity since the device isn't private. [CHAR LIMIT=NONE]-->
   <string name="fully_managed_device_provisioning_permissions_header">Your activity &amp; data</string>
-  <string name="fully_managed_device_provisioning_permissions_subheader">Your IT admin may be able to see your data and activity on this device.</string>
+  <string name="fully_managed_device_provisioning_permissions_subheader" translatable="false">@string/fully_managed_device_provisioning_step_2_subheader</string>
   <!-- Screen title. This is letting the user know that their IT admin can control permissions for apps on this device. [CHAR LIMIT=NONE]-->
   <string name="fully_managed_device_provisioning_permissions_secondary_header">App permissions</string>
   <!-- Screen subtext. This is letting the user know that their IT admin can control permissions for apps on this device. [CHAR LIMIT=NONE]-->

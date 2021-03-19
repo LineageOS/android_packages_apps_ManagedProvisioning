@@ -49,7 +49,6 @@ import androidx.annotation.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
-import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
@@ -394,20 +393,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             // make the icon invisible
             layout.findViewById(R.id.sud_layout_icon).setVisibility(View.INVISIBLE);
         }
-    }
-
-    @Override
-    public void onHandleSupportLink(
-            TextView textView, @StringRes int textResId, @StringRes int linkResId) {
-        String linkText = getString(linkResId);
-        String containerText = getString(textResId, linkText);
-        mUtils.handleSupportUrl(
-                this,
-                mCustomizationParams,
-                new AccessibilityContextMenuMaker(this),
-                textView,
-                linkText,
-                containerText);
     }
 
     private void setupEducationViews(GlifLayout layout) {
