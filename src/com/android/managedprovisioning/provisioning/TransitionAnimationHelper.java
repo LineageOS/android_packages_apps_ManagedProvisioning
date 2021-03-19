@@ -276,8 +276,8 @@ class TransitionAnimationHelper {
                     .setSecondarySubHeader(
                             R.string.fully_managed_device_provisioning_permissions_subheader)
                     .setSecondarySubHeaderIcon(R.drawable.ic_perm_device_information);
-            //TODO(b/180386738): Change to new summary.
-            provisioningSummaryId = R.string.fully_managed_device_provisioning_summary;
+            provisioningSummaryId =
+                    R.string.fully_managed_device_with_permission_control_provisioning_summary;
         } else {
             provisioningSummaryId = R.string.fully_managed_device_provisioning_summary;
             secondScreenBuilder.setAnimation(R.drawable.not_private_animation);
