@@ -16,7 +16,11 @@
 
 package com.android.managedprovisioning.provisioning;
 
+import android.annotation.DrawableRes;
+import android.annotation.StringRes;
 import android.os.Bundle;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -30,6 +34,8 @@ import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBrid
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import com.google.android.setupcompat.template.FooterBarMixin;
+import com.google.android.setupcompat.template.FooterButton;
 import com.google.android.setupdesign.GlifLayout;
 
 /**
@@ -69,17 +75,44 @@ public final class FinancedDeviceLandingActivity extends SetupGlifLayoutActivity
                 params.organizationName);
         layout.setHeaderText(headerString);
         layout.setIcon(getDrawable(R.drawable.ic_info_outline_24px));
-        Utils.addAcceptAndContinueButton(layout, v -> onNextButtonClicked());
+        setupFooterBar(layout);
 
-        final TextView headerTextView = findViewById(R.id.creditor_capabilities_header);
-        final String creditorHeaderString = getString(R.string.creditor_capabilities_header,
+        final ViewGroup item1 = layout.findViewById(R.id.item1);
+        final String makePaymentsSubheaderSummary = getString(
+                R.string.financed_make_payments_subheader_description, params.organizationName,
                 params.organizationName);
-        headerTextView.setText(creditorHeaderString);
+        setupItem(item1, R.string.financed_make_payments_subheader_title,
+                makePaymentsSubheaderSummary, R.drawable.ic_file_download_24px,
+                params.organizationName);
 
-        final TextView installCreditorAppTextView = findViewById(R.id.install_creditor_app);
-        final String installCreditorAppString = getString(R.string.install_creditor_app_description,
-                params.organizationName);
-        installCreditorAppTextView.setText(installCreditorAppString);
+        final ViewGroup item2 = layout.findViewById(R.id.item2);
+        final String restrictDeviceSubheaderSummary = getString(
+                R.string.financed_restrict_device_subheader_description, params.organizationName);
+        setupItem(item2, R.string.financed_restrict_device_subheader_title,
+                restrictDeviceSubheaderSummary, R.drawable.ic_lock, params.organizationName);
+    }
+
+    private void setupFooterBar(GlifLayout layout) {
+        final FooterBarMixin footerBarMixin = layout.getMixin(FooterBarMixin.class);
+        footerBarMixin.setPrimaryButton(
+                new FooterButton.Builder(this)
+                        .setText(R.string.next)
+                        .setListener(view -> onNextButtonClicked())
+                        .setButtonType(FooterButton.ButtonType.NEXT)
+                        .setTheme(R.style.SudGlifButton_Primary)
+                        .build());
+    }
+
+    private void setupItem(ViewGroup item, @StringRes int title, String summary,
+            @DrawableRes int icon, String organizationName) {
+        final ImageView makePaymentsSubHeaderImage = item.findViewById(R.id.sud_items_icon);
+        makePaymentsSubHeaderImage.setImageDrawable(getDrawable(icon));
+
+        final TextView makePaymentsSubHeaderTitle = item.findViewById(R.id.sud_items_title);
+        makePaymentsSubHeaderTitle.setText(getString(title, organizationName));
+
+        final TextView makePaymentsSubHeaderDescription = item.findViewById(R.id.sud_items_summary);
+        makePaymentsSubHeaderDescription.setText(summary);
     }
 
     private void onNextButtonClicked() {
