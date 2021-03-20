@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Секунду…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Напамін аб прыватнасці"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Ваш IT-адміністратар можа праглядаць вашы даныя і дзеянні на гэтай прыладзе"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Гэта прылада куплена ў крэдыт у крэдытора \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\""</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Гэта прылада належыць кампаніі \"<xliff:g id="CREDITOR_NAME">%s</xliff:g>\""</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"Крэдытор \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\" можа:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Усталяваць праграму \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\", каб вы маглі ажыццяўляць плацяжы"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Калі вы не робіце плацяжоў, абмяжоўваць доступ да гэтай прылады"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Усталюйце на гэту прыладу праграму кампаніі \"<xliff:g id="CREDITOR_NAME">%s</xliff:g>\""</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Блакіроўка гэтай прылады пры адсутнасці вашых плацяжоў"</string>
 </resources>

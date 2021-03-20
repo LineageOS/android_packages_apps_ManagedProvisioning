@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Түр хүлээнэ үү…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Нууцлалын сануулагч"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Таны IT админ таны энэ төхөөрөмж дээрх өгөгдөл болон үйл ажиллагааг харах боломжтой байж магадгүй"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Энэ төхөөрөмжийг <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-с нэгжээр авсан"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Энэ төхөөрөмжийг <xliff:g id="CREDITOR_NAME">%s</xliff:g>-с нийлүүлдэг"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> дараахыг хийх боломжтой:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Та <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-н аппыг суулгаснаар энэ төхөөрөмжийн төлбөрийг төлөх боломжтой"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Та төлбөрөө төлөөгүй тохиолдолд энэ төхөөрөмжид хандах эрхийг хязгаарлана"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> аппыг энэ төхөөрөмжид суулгах"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Таныг төлбөрөө төлөөгүй тохиолдолд энэ төхөөрөмжийг түгжих"</string>
 </resources>

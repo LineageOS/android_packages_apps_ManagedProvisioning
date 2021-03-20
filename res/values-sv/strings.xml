@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Ett ögonblick …"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Sekretesspåminnelse"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT-administratören kanske kan se din aktivitet och data på enheten"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Den här enheten köptes från <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> på avbetalning"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Den här enheten tillhandahålls av <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan göra följande:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"installera <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-appen så att du kan göra betalningar för enheten"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"begränsa åtkomsten till enheten om du inte gör betalningar."</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Installera <xliff:g id="CREDITOR_NAME">%s</xliff:g>-appen på den här enheten"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Lås enheten om du inte gör betalningar"</string>
 </resources>

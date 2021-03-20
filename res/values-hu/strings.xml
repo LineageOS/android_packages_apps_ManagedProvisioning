@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Egy pillanat…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Adatvédelmi emlékeztető"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Rendszergazdája láthatja az eszközön végzett tevékenységeit és a rajta tárolt adatait"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Ezt az eszközt hitelre vásárolta meg innen: <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Ezt az eszközt a(z) <xliff:g id="CREDITOR_NAME">%s</xliff:g> szervezet biztosítja"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"A(z) <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> jogosult a következőkre:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Telepítheti a(z) <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> alkalmazást annak érdekében, hogy Ön kifizethesse a tartozását"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Korlátozhatja az Ön eszközhöz való hozzáférését, ha nem fizet"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Telepítheti a(z) <xliff:g id="CREDITOR_NAME">%s</xliff:g> alkalmazást erre az eszközre"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Zárolhatja az eszközt, ha Ön nem fizet"</string>
 </resources>

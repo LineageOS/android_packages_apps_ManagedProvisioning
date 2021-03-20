@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Само тренутак…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Подсетник о приватности"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ИТ администратор можда може да види податке или активности на овом уређају"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Овај уређај је купљен на кредит који пружа <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Овај уређај пружа <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> може:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"да инсталира апликацију кредитора <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> како бисте могли да плаћате за овај уређај"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"да ограничи приступ овом уређају ако не платите"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"да инсталира апликацију организације <xliff:g id="CREDITOR_NAME">%s</xliff:g> на овом уређају"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"да закључа овај уређај ако не извршите плаћања"</string>
 </resources>

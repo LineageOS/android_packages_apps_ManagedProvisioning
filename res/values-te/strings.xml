@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"ఒక్క క్షణం ఆగండి…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"గోప్యతా రిమైండర్"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"మీ IT నిర్వాహకులు ఈ పరికరంలోని మీ డేటా, కార్యకలాపం చూడగలిగే అవకాశం ఉంటుంది"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"ఈ పరికరం <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> నుండి క్రెడిట్ రూపంలో కొనుగోలు చేయబడింది"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"ఈ పరికరం <xliff:g id="CREDITOR_NAME">%s</xliff:g> ద్వారా అందించబడింది"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> వీటిని చేయగలదు:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> యాప్‌ను ఇన్‌స్టాల్ చేస్తే, దాని ద్వారా ఈ పరికర చెల్లింపులను చేయవచ్చు"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"మీరు చెల్లింపు చేయకపోతే, ఈ పరికరానికి యాక్సెస్‌ను పరిమితం చేయండి"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"ఈ పరికరంలో <xliff:g id="CREDITOR_NAME">%s</xliff:g> యాప్‌ను ఇన్‌స్టాల్ చేయండి"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"ఒకవేళ మీరు పేమెంట్‌లు చేయకపోతే, ఈ పరికరాన్ని లాక్ చేయండి"</string>
 </resources>

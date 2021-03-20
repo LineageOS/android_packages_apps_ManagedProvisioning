@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"기다려 주세요…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"개인정보 보호 알림"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT 관리자가 이 기기의 내 데이터와 활동을 볼 수 있습니다."</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"이 기기는 <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>에서 할부로 구매했습니다"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"이 기기는 <xliff:g id="CREDITOR_NAME">%s</xliff:g>에서 제공합니다"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> 권한:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> 앱을 설치하면 기기 값을 결제할 수 있습니다."</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"결제하지 않으면 이 기기에 대한 액세스가 제한됩니다."</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"기기에 <xliff:g id="CREDITOR_NAME">%s</xliff:g> 앱 설치"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"결제하지 않은 콘텐츠인 경우 기기 잠금"</string>
 </resources>

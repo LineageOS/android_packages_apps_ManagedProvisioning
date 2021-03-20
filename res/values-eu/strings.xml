@@ -28,7 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aplikazio honek kudeatuko du zure gailua:"</string>
     <string name="next" msgid="1004321437324424398">"Hurrengoa"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Laneko profila konfiguratzen…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Administratzaileak gainbegiratu eta kudeatu egin ditzake ezarpenak, enpresa-sarbidea, aplikazioak, baimenak eta profilarekin erlazionatutako datuak (hala nola sareko jarduerak, gailuaren kokapena, deien historia eta kontaktuen bilaketa-historia).<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"IKT saileko dministratzaileak gainbegiratu eta kudeatu egin ditzake ezarpenak, enpresa-sarbidea, aplikazioak, baimenak eta profilarekin erlazionatutako datuak (hala nola sareko jarduerak, gailuaren kokapena, deien historia eta kontaktuen bilaketa-historia).<xliff:g id="LINE_BREAK">
 
 </xliff:g>Informazio gehiago lortzeko (esaterako, erakundearen pribatutasun-gidalerroak), jarri IKT saileko administratzailearekin harremanetan."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IKT saileko administratzaileak gainbegiratu eta kudeatu egin ditzake ezarpenak, enpresa-sarbidea, aplikazioak, baimenak eta gailuarekin erlazionatutako datuak (hala nola sareko jarduerak, gailuaren kokapena, deien historia eta kontaktuen bilaketa-historia).<xliff:g id="LINE_BREAK">
@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Itxaron unetxo batean…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pribatutasun-abisua"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Baliteke IKT saileko administratzaileak gailu honetan dituzun datuak eta egiten dituzun jarduerak ikusi ahal izatea"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> erakundearen maileguarekin erosi da gailu hau"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> erakundeak eman du gailu hau"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"Hauek egiteko gai da <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> erakundearen aplikazioa instalatu, gailuari dagozkion ordainketak egin ahal izan ditzazun."</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Gailurako sarbidea mugatu ordainketaren bat egiten ez baduzu."</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Instalatu <xliff:g id="CREDITOR_NAME">%s</xliff:g> aplikazioa gailu honetan"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Gailua blokeatu ordainketarik egiten ez baduzu"</string>
 </resources>

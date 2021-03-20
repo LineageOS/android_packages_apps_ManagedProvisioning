@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Зачекайте…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Нагадування про конфіденційність"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ІТ-адміністратор може бачити ваші дані й активність на цьому пристрої"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Пристрій придбано в кредит у компанії \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\""</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Цей пристрій надала організація <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> може:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Установити додаток від компанії \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\", щоб ви могли вносити платежі за пристрій"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Обмежити доступ до пристрою, якщо ви не вноситимете платежі"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"На пристрої буде встановлено додаток <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Якщо ви не платитимете, цей пристрій може бути заблоковано"</string>
 </resources>

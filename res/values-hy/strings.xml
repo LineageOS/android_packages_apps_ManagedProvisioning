@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Սպասեք մի փոքր…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Գաղտնիության վերաբերյալ հիշեցում"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողություններն այս սարքում"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Այս սարքը ձեռք է բերվել <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-ից ապառիկ կարգով"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Այս սարքը տրամադրվել է <xliff:g id="CREDITOR_NAME">%s</xliff:g>-ի կողմից"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"Վարկատուն (<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>) կարող է՝"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Տեղադրել <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-ի հավելվածը, որպեսզի կարողանաք վճարումներ կատարել"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Արգելափակել այս սարքը, եթե վճարումներ չկատարեք"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Տեղադրել <xliff:g id="CREDITOR_NAME">%s</xliff:g>-ի հավելվածն այս սարքում"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Կողպել այս սարքը, եթե վճարումներ չկատարեք"</string>
 </resources>

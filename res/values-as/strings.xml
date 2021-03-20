@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"এক ছেকেণ্ড ৰ\'ব…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"গোপনীয়তা সম্পৰ্কীয় ৰিমাইণ্ডাৰ"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"আপোনাৰ আইটি প্ৰশাসকে হয়তো এই ডিভাইচত আপোনাৰ ডেটা আৰু কাৰ্যকলাপ চাব পাৰিব"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"এই ডিভাইচটো <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>ৰ পৰা ধাৰত কিনা হৈছিল"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"এই ডিভাইচটো <xliff:g id="CREDITOR_NAME">%s</xliff:g>এ প্ৰদান কৰিছে"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>এ এই কার্যসমূহ কৰিব পাৰে:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"আপুনি যাতে এই ডিভাইচটোৰ বাবে পৰিশোধসমূহ কৰিব পাৰে, তাৰবাবে <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> এপ্‌টো ইনষ্টল কৰা"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"আপুনি পৰিশোধসমূহ নকৰিলে এই ডিভাইচটোলৈ এক্সেছ সীমাবদ্ধ কৰা"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"এই ডিভাইচটোত <xliff:g id="CREDITOR_NAME">%s</xliff:g> এপ্‌টো ইনষ্টল কৰক"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"যদি আপুনি পৰিশোধ নকৰে তেন্তে এই ডিভাইচটো লক কৰক"</string>
 </resources>

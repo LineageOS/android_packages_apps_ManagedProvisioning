@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Bir soniya…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Maxfiylik eslatmasi"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"AT administratoringiz bu qurilmadagi maʼlumotlaringiz va harakatlaringizni koʻra olishi mumkin"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Bu qurilma <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> doʻkonidan kreditga olingan"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Bu qurilma <xliff:g id="CREDITOR_NAME">%s</xliff:g> tomonidan berilgan."</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> quyidagilarni bajara oladi:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Toʻlovlarni amalga oshirishingiz uchun <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ilovasini oʻrnatish"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Toʻlovlar vaqtida bajarilmasa, qurilmani bloklash"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Bu qurilmada <xliff:g id="CREDITOR_NAME">%s</xliff:g> ailovasini oʻrnating"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Toʻlovni amalga oshirmasangiz, bu qurilmani qulflang"</string>
 </resources>

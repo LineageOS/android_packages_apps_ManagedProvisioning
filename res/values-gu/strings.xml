@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"માત્ર એક સેકન્ડ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"પ્રાઇવસી રિમાઇન્ડર"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"તમારા IT વ્યવસ્થાપક આ ડિવાઇસ પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"આ ડિવાઇસને <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>માંથી ક્રેડિટ પર ખરીદ્યું હતું"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"આ ડિવાઇસ <xliff:g id="CREDITOR_NAME">%s</xliff:g> દ્વારા પ્રદાન કરવામાં આવેલું છે"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> આ કરી શકે છે:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ઍપ ઇન્સ્ટૉલ કરો જેથી તમે આ ડિવાઇસ માટે ચુકવણીઓ કરી શકો"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"જો તમે ચુકવણીઓ ન કરો, તો આ ડિવાઇસનો ઍક્સેસ પ્રતિબંધિત કરી શકે છે"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"આ ડિવાઇસ પર <xliff:g id="CREDITOR_NAME">%s</xliff:g> ઍપ ઇન્સ્ટૉલ કરો"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"જો તમે ચુકવણીઓ ન કરો, તો આ ડિવાઇસ લૉક કરો"</string>
 </resources>

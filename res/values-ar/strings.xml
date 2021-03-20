@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"لحظة من فضلك…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"تذكير الخصوصية"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على هذا الجهاز."</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"تم شراء هذا الجهاز بالائتمان من <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"توفر مؤسسة \"<xliff:g id="CREDITOR_NAME">%s</xliff:g>\" هذا الجهاز."</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"بإمكان <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> تنفيذ ما يلي:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"تثبيت تطبيق <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> لتسديد الدفعات مقابل شراء هذا الجهاز."</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"تقييد الوصول إلى هذا الجهاز إذا لم تسدد الدفعات"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"تثبيت تطبيق <xliff:g id="CREDITOR_NAME">%s</xliff:g> على هذا الجهاز"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"قفل هذا الجهاز إذا لم تسدد الدفعات"</string>
 </resources>

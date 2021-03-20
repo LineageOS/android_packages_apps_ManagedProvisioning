@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Üks hetk …"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privaatsuse meeldetuletus"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Teie IT-administraator võib selles seadmes teie andmeid ja tegevusi näha"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"See seade osteti krediitori <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> antud krediidiga"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Selle seadme on andnud <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> saab teha järgmist:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Installida krediitori <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> rakenduse, et saaksite selle seadme eest makseid teha"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Piirata juurdepääsu sellele seadmele, kui te makseid ei tee"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Installige seadmesse kreeditori <xliff:g id="CREDITOR_NAME">%s</xliff:g> rakendus"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Lukustage seade, kui te ei tee makseid"</string>
 </resources>

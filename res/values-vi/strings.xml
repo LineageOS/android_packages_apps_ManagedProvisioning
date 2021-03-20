@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Hãy đợi giây lát…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Lời nhắc về quyền riêng tư"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Quản trị viên CNTT có thể sẽ xem được dữ liệu và hoạt động của bạn trên thiết bị này"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Bạn đã mua thiết bị này của <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> bằng phương thức mua trước trả sau"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Thiết bị này do <xliff:g id="CREDITOR_NAME">%s</xliff:g> cung cấp"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> có thể:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Cài đặt ứng dụng của <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> để bạn có thể thanh toán cho thiết bị này"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Hạn chế quyền truy cập vào thiết bị này nếu bạn không thanh toán"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Cài đặt ứng dụng <xliff:g id="CREDITOR_NAME">%s</xliff:g> trên thiết bị này"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Khóa thiết bị này nếu bạn không thanh toán"</string>
 </resources>

@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Just a sec…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privacy reminder"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Your IT admin may be able to see your data and activity on this device"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"This device was purchased on credit from <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"This device is provided by <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> can:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Install the <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> app so that you can make payments for this device"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Restrict access to this device if you don\'t make payments"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Install the <xliff:g id="CREDITOR_NAME">%s</xliff:g> app on this device"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Lock this device if you don\'t make payments"</string>
 </resources>

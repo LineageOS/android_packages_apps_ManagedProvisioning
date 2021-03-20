@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Un moment…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatori de privadesa"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"L\'administrador de TI podrà veure les teves dades i la teva activitat en aquest dispositiu"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Aquest dispositiu s\'ha comprat a crèdit a <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> proporciona aquest dispositiu"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> pot fer el següent:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Instal·lar l\'aplicació <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> per poder fer pagaments per a aquest dispositiu"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Restringir l\'accés a aquest dispositiu si no fas cap pagament"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Instal·la l\'aplicació <xliff:g id="CREDITOR_NAME">%s</xliff:g> en aquest dispositiu"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Bloqueja aquest dispositiu si no fas cap pagament"</string>
 </resources>
