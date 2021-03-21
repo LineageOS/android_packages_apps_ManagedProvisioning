@@ -128,10 +128,10 @@
     <string name="profile_benefits_description" msgid="758432985984252636">"Met een werkprofiel kun je je werkgegevens scheiden van je persoonsgegevens"</string>
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"Met een werkprofiel heb je op één centrale locatie toegang tot je werk-apps"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Je profiel instellen. Versleuteling"</string>
-    <string name="setup_profile_progress" msgid="7742718527853325656">"Je profiel instelling. Voortgang weergeven"</string>
+    <string name="setup_profile_progress" msgid="7742718527853325656">"Stel je profiel in. Voortgang tonen"</string>
     <string name="setup_device" msgid="6725265673245816366">"Je apparaat instellen"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"Je apparaat instellen. Versleuteling"</string>
-    <string name="setup_device_progress" msgid="7035335208571175393">"Je apparaat instellen. Voortgang weergeven"</string>
+    <string name="setup_device_progress" msgid="7035335208571175393">"Stel je apparaat in. Voortgang tonen"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Knop \'Meer informatie\'"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Icoon <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="section_heading" msgid="3924666803774291908">"Kop van sectie <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Een ogenblik geduld…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privacyherinnering"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Je IT-beheerder kan mogelijk je gegevens en activiteit op dit apparaat zien"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Dit apparaat is gekocht op krediet van <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Dit apparaat wordt geleverd door <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"De <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-app installeren zodat je betalingen kunt doen voor dit apparaat"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"De toegang tot dit apparaat beperken als je geen betalingen doet"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Installeer de <xliff:g id="CREDITOR_NAME">%s</xliff:g>-app op dit apparaat"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Vergrendel dit apparaat als je geen betalingen doet"</string>
 </resources>

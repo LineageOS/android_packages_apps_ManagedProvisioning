@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"একটু অপেক্ষা করুন…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"গোপনীয়তা সংক্রান্ত রিমাইন্ডার"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"আপনার আইটি অ্যাডমিন এই ডিভাইসে আপনার ডেটা ও অ্যাক্টিভিটি দেখতে পেতে পারেন"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"এই ডিভাইসটি <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-এর কাছ থেকে ক্রেডিটে কেনা হয়েছিল"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"এই ডিভাইস <xliff:g id="CREDITOR_NAME">%s</xliff:g> দিয়েছে"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> করতে পারবেন:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"এই ডিভাইসের জন্য পেমেন্ট করতে <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ইনস্টল করুন"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"আপনি পেমেন্ট না করে থাকলে এই ডিভাইসে অ্যাক্সেস সীমাবদ্ধ করুন"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"এই ডিভাইসে <xliff:g id="CREDITOR_NAME">%s</xliff:g> অ্যাপ ইনস্টল করুন"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"আপনি পেমেন্ট না করলে এই ডিভাইসটি লক করে দিন"</string>
 </resources>

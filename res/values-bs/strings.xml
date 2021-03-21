@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Samo trenutak…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Podsjetnik o privatnosti"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Vaš IT administrator može vidjeti vaše podatke i aktivnost na ovom uređaju"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Ovaj uređaj je kupljen na kredit od preduzeća <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Ovaj uređaj pruža kompanija <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> može:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Instalirati aplikaciju <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> da možete vršiti plaćanje za ovaj uređaj"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Ograničiti pristup uređaju ako ne izvršite plaćanje"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Instalirajte aplikaciju kompanije <xliff:g id="CREDITOR_NAME">%s</xliff:g> na ovom uređaju"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Ovaj uređaj se zaključava ako ne izvršite plaćanja"</string>
 </resources>

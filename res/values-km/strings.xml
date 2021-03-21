@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"ចាំ​មួយ​ភ្លែត…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ការរំលឹកអំពីឯកជនភាព"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"អ្នក​គ្រប់គ្រងផ្នែក​ព័ត៌មាន​វិទ្យា​របស់អ្នក​ប្រហែលជាអាច​មើលឃើញទិន្នន័យ និងសកម្មភាព​របស់អ្នក​នៅលើ​ឧបករណ៍​នេះ"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"ឧបករណ៍នេះ​ត្រូវបានទិញ​ដោយប្រើ​ទឹកប្រាក់​ពី <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"ឧបករណ៍នេះត្រូវបានផ្ដល់ដោយ <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> អាច៖"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"ដំឡើង​កម្មវិធី <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ដើម្បីឱ្យ​អ្នក​អាចធ្វើការ​បង់ប្រាក់​សម្រាប់​ឧបករណ៍នេះ​បាន"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"ដាក់កំហិត​លើការចូលប្រើ​ឧបករណ៍​នេះ ប្រសិនបើ​អ្នក​មិនធ្វើការ​បង់ប្រាក់​ទេ"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"ដំឡើងកម្មវិធី <xliff:g id="CREDITOR_NAME">%s</xliff:g> នៅលើឧបករណ៍នេះ"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"ចាក់សោឧបករណ៍នេះ ប្រសិនបើអ្នកមិនធ្វើការបង់ប្រាក់ទេ"</string>
 </resources>

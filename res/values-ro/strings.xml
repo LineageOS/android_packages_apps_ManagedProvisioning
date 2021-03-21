@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"O secundă…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Memento privind confidențialitatea"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Administratorul IT vă poate vedea datele și activitatea pe acest dispozitiv"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Acest dispozitiv a fost cumpărat folosind credit de la <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Acest dispozitiv este oferit de <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> poate să:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Instalați aplicația <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ca să puteți face plăți pentru acest dispozitiv"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Restricționați accesul la acest dispozitiv dacă nu faceți plăți"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Instalați aplicația <xliff:g id="CREDITOR_NAME">%s</xliff:g> pe dispozitiv"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Blocați dispozitivul dacă nu faceți plăți"</string>
 </resources>

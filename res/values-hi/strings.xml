@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"बस एक सेकंड…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"निजता रिमाइंडर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"आपके आईटी एडमिन इस डिवाइस पर आपका डेटा और गतिविधि देख सकते हैं"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"इस डिवाइस को <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> से क्रेडिट पर खरीदा गया है"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"यह डिवाइस, <xliff:g id="CREDITOR_NAME">%s</xliff:g> ने दिया है"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> यह कर सकता है:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ऐप्लिकेशन इंस्टॉल करें, ताकि आप इस डिवाइस के लिए पैसे चुका सकें"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"अगर आप पैसे नहीं चुकाते, तो डिवाइस के ऐक्सेस पर रोक लगा दी जाएगी"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"इस डिवाइस में, <xliff:g id="CREDITOR_NAME">%s</xliff:g> ऐप्लिकेशन इंस्टॉल करें"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"अगर आप पैसे नहीं चुकाते हैं, तो यह डिवाइस लॉक हो जाएगा"</string>
 </resources>

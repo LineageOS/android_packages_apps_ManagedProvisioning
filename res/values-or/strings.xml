@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"ଟିକେ ରୁହନ୍ତୁ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ଗୋପନୀୟତା ରିମାଇଣ୍ଡର୍‍"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକ ବୋଧହୁଏ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିପାରିବେ"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"ଏହି ଡିଭାଇସ୍ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>ରୁ କ୍ରେଡିଟରେ କିଣା ଯାଇଥିଲା"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"ଏହି ଡିଭାଇସ୍ <xliff:g id="CREDITOR_NAME">%s</xliff:g> ଦ୍ୱାରା ପ୍ରଦାନ କରାଯାଇଛି"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଏହା କରିପାରିବ:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଆପ୍ ଇନଷ୍ଟଲ୍ କରିପାରିବ, ଫଳରେ ଆପଣ ଏହି ଡିଭାଇସ୍ ପାଇଁ ପେମେଣ୍ଟଗୁଡ଼ିକ କରିପାରିବେ"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"ଯଦି ଆପଣ କୌଣସି ପେମେଣ୍ଟ କରିବେ ନାହିଁ, ତେବେ ଏହି ଡିଭାଇସକୁ ଆକ୍ସେସ୍ ପ୍ରତିବନ୍ଧିତ କରିପାରିବ"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"ଏହି ଡିଭାଇସରେ <xliff:g id="CREDITOR_NAME">%s</xliff:g> ଆପ୍ ଇନଷ୍ଟଲ୍ କରନ୍ତୁ"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"ଯଦି ଆପଣ ପେମେଣ୍ଟ କରୁନାହାଁନ୍ତି, ତେବେ ଏହି ଡିଭାଇସକୁ ଲକ୍ କରନ୍ତୁ"</string>
 </resources>

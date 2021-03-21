@@ -48,7 +48,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"Учурдагы профиль жок кылынсынбы?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Жумуш профилиңиз мурунтан эле бар. Ал төмөнкү колдонмо аркылуу башкарылат:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Улантуудан мурун "<a href="#read_this_link">"муну окуп чыгыңыз"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Эгер улантсаңыз, бул профилдеги бардык колдонмолор жана дайындар өчүрүлөт."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Эгер улантсаңыз, бул профилдеги бардык колдонмолор жана маалыматтар өчүрүлөт."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Жок кылуу"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Жок"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Жумуш профилиңизди жөндөө үчүн түзмөгүңүздү шифрлеп алыш керек. Буга бир аз убакыт кетиши мүмкүн."</string>
@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Бир секунд…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Купуялык жөнүндө эстеткич"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT администраторуңуз бул түзмөктөгү дайын-даректериңизди жана аракеттериңизди көрө алат"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Бул түзмөк <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> компаниясынан насыяга алынган"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Бул түзмөктү <xliff:g id="CREDITOR_NAME">%s</xliff:g> камсыздады."</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Кандайдыр бир нерселердин акысын төлөй алышыңыз үчүн, <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> колдонмосун орнотуп берет."</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Насыяны төлөп турбасаңыз, түзмөктү бөгөттөп салат"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> колдонмосун ушул түзмөккө орнотуу"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Төлөм кылбасаңыз, түзмөктү кулпулоо"</string>
 </resources>

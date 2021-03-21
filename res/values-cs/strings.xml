@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"Chviličku…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Připomenutí ohledně ochrany soukromí"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Administrátor IT může zobrazit vaše data a aktivitu v tomto zařízení"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"Toto zařízení bylo zakoupeno na úvěr od věřitele <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"Toto zařízení poskytuje organizace <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> může:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"Nainstalovat aplikaci společnosti <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, abyste zařízení mohli začít splácet"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"Omezit přístup k zařízení, pokud nebudete splácet"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"Nainstalovat aplikaci <xliff:g id="CREDITOR_NAME">%s</xliff:g> do tohoto zařízení"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"Zamknout zařízení, když nesplácíte"</string>
 </resources>

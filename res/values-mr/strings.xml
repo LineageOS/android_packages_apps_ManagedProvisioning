@@ -187,8 +187,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"फक्त एक सेकंद…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"गोपनीयता रिमाइंडर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"हे डिव्हाइस <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> कडून क्रेडिटवर खरेदी केले आहे"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"हे डिव्हाइस <xliff:g id="CREDITOR_NAME">%s</xliff:g> द्वारे पुरवले गेले आहे"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> करू शकते:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ॲप इंस्टॉल करू शकते जेणेकरून तुम्ही या डिव्हाइसचे पेमेंट करू शकाल"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"तुम्ही पेमेंट केली नाहीत तर या डिव्हाइसचा अ‍ॅक्सेस प्रतिबंधित करू शकते"</string>
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"या डिव्हाइसवर <xliff:g id="CREDITOR_NAME">%s</xliff:g> चे ॲप इंस्टॉल करा"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"तुम्ही पेमेंट करत नसल्यास हे डिव्हाइस लॉक करा"</string>
 </resources>

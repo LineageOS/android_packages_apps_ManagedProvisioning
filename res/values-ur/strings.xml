@@ -187,8 +187,11 @@
     <string name="just_a_sec" msgid="6244676028626237220">"بس ایک سیکنڈ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"رازداری کی یاد دہانی"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"‏آپ کا IT منتظم اس آلہ پر آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے"</string>
-    <string name="financed_device_screen_header" msgid="7890706080917322376">"یہ آلہ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> سے کریڈٹ پر خریدا گیا تھا"</string>
+    <!-- no translation found for financed_device_screen_header (6875169548352717124) -->
+    <skip />
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"‏<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> کر سکتا ہے:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ایپ انسٹال کریں تاکہ آپ اس آلہ کے لیے ادائیگی کر سکیں"</string>
-    <string name="lock_device_description" msgid="2940362560732989166">"اگر آپ ادائیگی نہیں کرتے ہیں تو اس آلے تک رسائی کو محدود کریں"</string>
+    <!-- no translation found for install_creditor_app_description (6056052518227986620) -->
+    <skip />
+    <!-- no translation found for lock_device_description (9198967942380649144) -->
+    <skip />
 </resources>
