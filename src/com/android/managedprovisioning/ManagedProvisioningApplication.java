@@ -16,8 +16,14 @@
 
 package com.android.managedprovisioning;
 
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
+
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
 import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
@@ -28,9 +34,18 @@ import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBrid
 public class ManagedProvisioningApplication extends android.app.Application {
     @Override
     public void onCreate() {
-        AppCompatDelegate.setDefaultNightMode(
-                new ThemeHelper(new DefaultNightModeChecker(), new DefaultSetupWizardBridge())
-                        .getDefaultNightMode(this));
+        final int defaultNightMode = new ThemeHelper(new DefaultNightModeChecker(),
+                new DefaultSetupWizardBridge()).getDefaultNightMode(this);
+        AppCompatDelegate.setDefaultNightMode(defaultNightMode);
         super.onCreate();
+        logMetrics(defaultNightMode);
+    }
+
+    private void logMetrics(int defaultNightMode) {
+        final ProvisioningAnalyticsTracker analyticsTracker =
+                new ProvisioningAnalyticsTracker(
+                        MetricsWriterFactory.getMetricsWriter(this, new SettingsFacade()),
+                        new ManagedProvisioningSharedPreferences(this));
+        analyticsTracker.logIsNightMode(defaultNightMode == MODE_NIGHT_YES);
     }
 }

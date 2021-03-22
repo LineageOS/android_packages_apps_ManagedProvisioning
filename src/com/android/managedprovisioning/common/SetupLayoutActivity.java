@@ -24,12 +24,15 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
 import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
@@ -41,7 +44,6 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
     protected final Utils mUtils;
     protected final SettingsFacade mSettingsFacade;
     private final ThemeHelper mThemeHelper;
-
     private TimeLogger mTimeLogger;
 
     public SetupLayoutActivity() {
@@ -68,6 +70,18 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
         if (LOCK_TO_PORTRAIT_MODE && getResources().getBoolean(R.bool.lock_to_portrait)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
+        logMetrics();
+    }
+
+    private void logMetrics() {
+        // TODO(b/183036855): Add dependency injection in ManagedProvisioning
+        ProvisioningAnalyticsTracker analyticsTracker = new ProvisioningAnalyticsTracker(
+                MetricsWriterFactory.getMetricsWriter(this, new SettingsFacade()),
+                new ManagedProvisioningSharedPreferences(this));
+        final int orientation = getResources().getConfiguration().orientation;
+        analyticsTracker.logIsLandscape(
+                orientation == Configuration.ORIENTATION_LANDSCAPE,
+                getLocalClassName());
     }
 
     @Override
