@@ -54,9 +54,6 @@ class TransitionAnimationHelper {
         void onAllTransitionsShown();
 
         void onTransitionStart(int screenIndex, AnimatedVectorDrawable animatedVectorDrawable);
-
-        void onHandleSupportLink(
-                TextView textView, @StringRes int textResId, @StringRes int linkResId);
     }
 
     @VisibleForTesting
@@ -78,7 +75,6 @@ class TransitionAnimationHelper {
         new TransitionScreenWrapper(R.string.cope_provisioning_step_2_header,
                 /* description= */ 0,
                 R.drawable.personal_apps_separate_hidden_from_work_animation,
-                /* link */ 0,
                 /* shouldLoop */ false),
         new TransitionScreenWrapper(R.string.cope_provisioning_step_3_header,
                 R.drawable.it_admin_control_device_block_apps_animation)
@@ -225,14 +221,7 @@ class TransitionAnimationHelper {
 
     private void setupDescriptionText(TransitionScreenWrapper transition) {
         if (transition.description != 0) {
-            if (transition.link != 0) {
-                mCallback.onHandleSupportLink(
-                        mAnimationComponents.mDescription,
-                        transition.description,
-                        transition.link);
-            } else {
-                mAnimationComponents.mDescription.setText(transition.description);
-            }
+            mAnimationComponents.mDescription.setText(transition.description);
             mAnimationComponents.mDescription.setVisibility(View.VISIBLE);
         } else {
             mAnimationComponents.mDescription.setVisibility(View.GONE);
@@ -299,7 +288,6 @@ class TransitionAnimationHelper {
             provisioningSummaryId = R.string.fully_managed_device_provisioning_summary;
             secondScreenBuilder
                     .setDescription(R.string.fully_managed_device_provisioning_step_2_subheader)
-                    .setLink(R.string.organization_admin)
                     .setAnimation(R.drawable.not_private_animation);
         }
 
