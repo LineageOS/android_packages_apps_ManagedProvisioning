@@ -44,6 +44,7 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
     protected final Utils mUtils;
     protected final SettingsFacade mSettingsFacade;
     private final ThemeHelper mThemeHelper;
+    private final TransitionHelper mTransitionHelper;
     private TimeLogger mTimeLogger;
 
     public SetupLayoutActivity() {
@@ -57,10 +58,13 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
         mUtils = utils;
         mSettingsFacade = settingsFacade;
         mThemeHelper = themeHelper;
+        // TODO(b/183036855): Add dependency injection in ManagedProvisioning
+        mTransitionHelper = new TransitionHelper();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mTransitionHelper.applyTransitions(this);
         setTheme(mThemeHelper.inferThemeResId(this, getIntent()));
         super.onCreate(savedInstanceState);
         mTimeLogger = new TimeLogger(this, getMetricsCategory());
@@ -96,6 +100,10 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
 
     protected Utils getUtils() {
         return mUtils;
+    }
+
+    protected TransitionHelper getTransitionHelper() {
+        return mTransitionHelper;
     }
 
     /**

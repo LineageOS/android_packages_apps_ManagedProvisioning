@@ -117,6 +117,6 @@ public final class FinancedDeviceLandingActivity extends SetupGlifLayoutActivity
 
     private void onNextButtonClicked() {
         setResult(RESULT_OK);
-        finish();
+        getTransitionHelper().finishActivity(this);
     }
 }

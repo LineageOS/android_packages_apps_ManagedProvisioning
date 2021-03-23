@@ -31,6 +31,7 @@ import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.StartDpcInsideSuwServiceConnection;
+import com.android.managedprovisioning.common.TransitionHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -45,6 +46,7 @@ public class FinalizationInsideSuwControllerLogic implements FinalizationControl
     private final Utils mUtils;
     private final PolicyComplianceUtils mPolicyComplianceUtils;
     private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
+    private final TransitionHelper mTransitionHelper;
     private StartDpcInsideSuwServiceConnection mStartDpcInsideSuwServiceConnection;
     private int mLastRequestCode = 0;
 
@@ -52,16 +54,19 @@ public class FinalizationInsideSuwControllerLogic implements FinalizationControl
         this(activity, new Utils(), new PolicyComplianceUtils(),
                 new ProvisioningAnalyticsTracker(
                         MetricsWriterFactory.getMetricsWriter(activity, new SettingsFacade()),
-                        new ManagedProvisioningSharedPreferences(activity)));
+                        new ManagedProvisioningSharedPreferences(activity)),
+                new TransitionHelper());
     }
 
     public FinalizationInsideSuwControllerLogic(Activity activity, Utils utils,
             PolicyComplianceUtils policyComplianceUtils,
-            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
+            TransitionHelper transitionHelper) {
         mActivity = activity;
         mUtils = utils;
         mPolicyComplianceUtils = policyComplianceUtils;
         mProvisioningAnalyticsTracker = provisioningAnalyticsTracker;
+        mTransitionHelper = transitionHelper;
     }
 
     @Override
@@ -147,6 +152,7 @@ public class FinalizationInsideSuwControllerLogic implements FinalizationControl
     private Runnable getDpcIntentSender(ProvisioningParams params, int requestCode) {
         return () ->
                 mPolicyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
-                        mActivity, params, requestCode, mUtils, mProvisioningAnalyticsTracker);
+                        mActivity, params, requestCode, mUtils, mProvisioningAnalyticsTracker,
+                        mTransitionHelper);
     }
 }

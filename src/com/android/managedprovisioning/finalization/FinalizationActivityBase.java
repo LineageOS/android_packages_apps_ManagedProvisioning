@@ -31,6 +31,8 @@ import android.os.StrictMode;
 import android.os.UserHandle;
 import android.os.UserManager;
 
+import com.android.managedprovisioning.common.TransitionHelper;
+
 /**
  * Instances of this base class manage interactions with a Device Policy Controller app after it has
  * been set up as either a Device Owner or a Profile Owner.
@@ -45,6 +47,7 @@ public abstract class FinalizationActivityBase extends Activity {
 
     private static final String CONTROLLER_STATE_KEY = "controller_state";
 
+    private final TransitionHelper mTransitionHelper;
     private FinalizationController mFinalizationController;
     private boolean mIsReceiverRegistered;
 
@@ -64,13 +67,17 @@ public abstract class FinalizationActivityBase extends Activity {
         }
     };
 
+    FinalizationActivityBase(TransitionHelper transitionHelper) {
+        mTransitionHelper = transitionHelper;
+    }
+
     @Override
     public final void onCreate(Bundle savedInstanceState) {
         // TODO(b/123987694): Investigate use of buffered i/o for provisioning params file
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                 .permitUnbufferedIo()
                 .build());
-
+        mTransitionHelper.applyTransitions(this);
         super.onCreate(savedInstanceState);
         mFinalizationController = createFinalizationController();
 
@@ -89,6 +96,10 @@ public abstract class FinalizationActivityBase extends Activity {
         tryFinalizeProvisioning();
     }
 
+    protected TransitionHelper getTransitionHelper() {
+        return mTransitionHelper;
+    }
+
     private void tryFinalizeProvisioning() {
         // Register receiver first to avoid race condition when user becomes unlocked after
         // the user unlocked check. This will be unregistered if we don't need it
@@ -103,7 +114,7 @@ public abstract class FinalizationActivityBase extends Activity {
                 mFinalizationController.commitFinalizedState();
             }
             setResult(RESULT_OK);
-            finish();
+            getTransitionHelper().finishActivity(this);
         }
 
         if (PROVISIONING_FINALIZED_RESULT_WAIT_FOR_WORK_PROFILE_AVAILABLE != result) {

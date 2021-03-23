@@ -19,6 +19,8 @@ package com.android.managedprovisioning.preprovisioning;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.android.managedprovisioning.common.TransitionHelper;
+
 /**
  * This activity is started via the HOME intent if provisioning was interrupted by an encryption
  * reboot. It resumes provisioning via the intent that was previously in
@@ -29,7 +31,7 @@ public class PostEncryptionActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        EncryptionController.getInstance(this).resumeProvisioning();
+        EncryptionController.getInstance(this).resumeProvisioning(this, new TransitionHelper());
         finish();
     }
 }

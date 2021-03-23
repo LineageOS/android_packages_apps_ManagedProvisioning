@@ -112,7 +112,7 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
     public void preFinalizationCompleted() {
         ProvisionLogger.logi("AdminIntegratedFlowPrepareActivity pre-finalization completed");
         setResult(Activity.RESULT_OK);
-        finish();
+        getTransitionHelper().finishActivity(this);
     }
 
     @Override

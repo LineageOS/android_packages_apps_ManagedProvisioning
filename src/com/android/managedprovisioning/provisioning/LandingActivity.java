@@ -109,10 +109,11 @@ public class LandingActivity extends SetupGlifLayoutActivity {
             final Intent intent = new Intent(this, AdminIntegratedFlowPrepareActivity.class);
             WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
             intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-            startActivityForResult(intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
+            getTransitionHelper().startActivityForResultWithTransition(
+                    this, intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
         } else {
             setResult(Activity.RESULT_OK);
-            finish();
+            getTransitionHelper().finishActivity(this);
         }
     }
 
@@ -121,14 +122,16 @@ public class LandingActivity extends SetupGlifLayoutActivity {
         final String contactDeviceProvider =
                 getString(R.string.contact_device_provider, deviceProvider);
         mUtils.handleSupportUrl(this, customizationParams, mContextMenuMaker, info, deviceProvider,
-                contactDeviceProvider);
+                contactDeviceProvider, intent ->
+                        getTransitionHelper().startActivityWithTransition(
+                                LandingActivity.this, intent));
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE) {
             setResult(resultCode);
-            finish();
+            getTransitionHelper().finishActivity(this);
         }
     }
 }

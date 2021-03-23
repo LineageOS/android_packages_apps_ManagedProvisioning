@@ -65,6 +65,6 @@ public class ResetAndReturnDeviceActivity extends SetupGlifLayoutActivity {
 
     private void onResetButtonClicked() {
         getUtils().factoryReset(this, "User chose to abort setup.");
-        finish();
+        getTransitionHelper().finishActivity(this);
     }
 }

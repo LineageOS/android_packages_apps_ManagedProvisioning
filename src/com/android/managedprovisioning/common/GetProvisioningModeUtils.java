@@ -54,13 +54,14 @@ public class GetProvisioningModeUtils {
      */
     public boolean startGetProvisioningModeActivityIfResolved(
             Activity parentActivity, ProvisioningParams params, Bundle additionalExtras,
-            int requestCode) {
+            int requestCode, TransitionHelper transitionHelper) {
         if (!isGetProvisioningModeActivityResolvable(parentActivity, params)) {
             return false;
         }
         Intent getProvisioningModeIntent = getGetProvisioningModeIntent(params);
         getProvisioningModeIntent.putExtras(additionalExtras);
-        parentActivity.startActivityForResult(getProvisioningModeIntent, requestCode);
+        transitionHelper.startActivityForResultWithTransition(
+                parentActivity, getProvisioningModeIntent, requestCode);
         return true;
     }
 

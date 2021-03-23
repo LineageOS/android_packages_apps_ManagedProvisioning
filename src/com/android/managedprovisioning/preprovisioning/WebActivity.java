@@ -37,6 +37,7 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupLayoutActivity;
+import com.android.managedprovisioning.common.TransitionHelper;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 
 /**
@@ -52,7 +53,8 @@ public class WebActivity extends SetupLayoutActivity {
     private static final String EXTRA_URL = "extra_url";
 
     private WebView mWebView;
-    private SettingsFacade mSettingsFacade = new SettingsFacade();
+    private final SettingsFacade mSettingsFacade = new SettingsFacade();
+    private final TransitionHelper mTransitionHelper = new TransitionHelper();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,7 @@ public class WebActivity extends SetupLayoutActivity {
         if (extraUrl == null) {
             Toast.makeText(this, R.string.url_error, Toast.LENGTH_SHORT).show();
             ProvisionLogger.loge("No url provided to WebActivity.");
-            finish();
+            mTransitionHelper.finishActivity(this);
         }
 
         mWebView = new WebView(this);

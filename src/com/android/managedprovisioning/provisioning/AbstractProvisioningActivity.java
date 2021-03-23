@@ -166,7 +166,7 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
 
     private void onProvisioningAborted() {
         setResult(Activity.RESULT_CANCELED);
-        finish();
+        getTransitionHelper().finishActivity(this);
     }
 
     @Override

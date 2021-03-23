@@ -251,7 +251,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         final Intent intent = new Intent(this, ResetAndReturnDeviceActivity.class);
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
-        startActivity(intent);
+        getTransitionHelper().startActivityWithTransition(this, intent);
     }
 
     private void finishActivity() {
@@ -261,7 +261,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             setResult(Activity.RESULT_OK);
         }
         maybeLaunchNfcUserSetupCompleteIntent();
-        finish();
+        getTransitionHelper().finishActivity(this);
     }
 
     private void markDeviceManagementEstablishedAndFinish() {
@@ -275,7 +275,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             } else if (mUtils.isFinancedDeviceAction(mParams.provisioningAction)) {
                 setResult(RESULT_CODE_COMPLETE_DEVICE_FINANCE);
             }
-            finish();
+            getTransitionHelper().finishActivity(this);
         } else {
             finishActivity();
         }
@@ -314,7 +314,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             }
 
             intent.setComponent(targetComponent);
-            startActivity(intent);
+            getTransitionHelper().startActivityWithTransition(this, intent);
             ProvisionLogger.logi("Launched ACTION_STATE_USER_SETUP_COMPLETE with component "
                     + targetComponent);
         }

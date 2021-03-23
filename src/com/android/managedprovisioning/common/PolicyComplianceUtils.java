@@ -48,11 +48,12 @@ public class PolicyComplianceUtils {
      */
     public boolean startPolicyComplianceActivityForResultIfResolved(Activity parentActivity,
             ProvisioningParams params, int requestCode, Utils utils,
-            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
+            TransitionHelper transitionHelper) {
         return startPolicyComplianceActivityIfResolvedInternal(parentActivity, params, utils,
                 provisioningAnalyticsTracker, (Intent intent, UserHandle userHandle) ->
-                        parentActivity.startActivityForResultAsUser(
-                                intent, requestCode, userHandle));
+                        transitionHelper.startActivityForResultAsUserWithTransition(
+                                parentActivity, intent, requestCode, userHandle));
     }
 
     /**
@@ -62,8 +63,12 @@ public class PolicyComplianceUtils {
     public boolean startPolicyComplianceActivityIfResolved(Context context,
             ProvisioningParams params, Utils utils,
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
-        return startPolicyComplianceActivityIfResolvedInternal(context, params, utils,
-                provisioningAnalyticsTracker, context::startActivityAsUser);
+        return startPolicyComplianceActivityIfResolvedInternal(
+                context,
+                params,
+                utils,
+                provisioningAnalyticsTracker,
+                context::startActivityAsUser);
     }
 
     private boolean startPolicyComplianceActivityIfResolvedInternal(

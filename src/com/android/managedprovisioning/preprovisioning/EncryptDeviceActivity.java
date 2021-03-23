@@ -52,7 +52,7 @@ public class EncryptDeviceActivity extends SetupGlifLayoutActivity {
         mParams = getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
         if (mParams == null) {
             ProvisionLogger.loge("Missing params in EncryptDeviceActivity activity");
-            finish();
+            getTransitionHelper().finishActivity(this);
             return;
         }
 
@@ -66,7 +66,7 @@ public class EncryptDeviceActivity extends SetupGlifLayoutActivity {
                     R.string.encrypt_device_text_for_device_owner_setup);
         } else {
             ProvisionLogger.loge("Unknown provisioning action: " + mParams.provisioningAction);
-            finish();
+            getTransitionHelper().finishActivity(this);
         }
     }
 
@@ -86,7 +86,8 @@ public class EncryptDeviceActivity extends SetupGlifLayoutActivity {
             getEncryptionController().setEncryptionReminder(mParams);
             // Use settings so user confirms password/pattern and its passed
             // to encryption tool.
-            startActivity(new Intent(ACTION_START_ENCRYPTION));
+            getTransitionHelper().startActivityWithTransition(
+                    EncryptDeviceActivity.this, new Intent(ACTION_START_ENCRYPTION));
         });
     }
 }

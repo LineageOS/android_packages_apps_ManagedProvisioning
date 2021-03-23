@@ -23,6 +23,7 @@ import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.common.TransitionHelper;
 
 /**
  * This class is used to start the Device Policy Controller app while the Setup Wizard is still
@@ -33,6 +34,10 @@ public class FinalizationInsideSuwActivity extends FinalizationActivityBase {
 
     private static final int DPC_SETUP_REQUEST_CODE = 1;
     private static final int FINAL_SCREEN_REQUEST_CODE = 2;
+
+    public FinalizationInsideSuwActivity() {
+        super(new TransitionHelper());
+    }
 
     @Override
     protected FinalizationController createFinalizationController() {
@@ -65,7 +70,7 @@ public class FinalizationInsideSuwActivity extends FinalizationActivityBase {
                     getFinalizationController().commitFinalizedState();
                 }
                 setResult(resultCode);
-                finish();
+                getTransitionHelper().finishActivity(this);
                 break;
             default:
                 ProvisionLogger.logw("onActivityResult: Unknown request code: " + requestCode);
