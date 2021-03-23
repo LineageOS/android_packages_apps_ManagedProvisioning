@@ -44,6 +44,11 @@ public final class Constants {
      */
     public static final boolean LOCK_TO_PORTRAIT_MODE = true;
 
+    /**
+     * A boolean flag to indicate whether to enable custom activity start gestures.
+     */
+    public static boolean ENABLE_CUSTOM_TRANSITIONS = false;
+
     private Constants() {
         // Do not instantiate
     }
