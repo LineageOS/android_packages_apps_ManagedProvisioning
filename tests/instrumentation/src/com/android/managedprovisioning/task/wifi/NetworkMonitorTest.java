@@ -16,7 +16,11 @@
 
 package com.android.managedprovisioning.task.wifi;
 
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.doCallRealMethod;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
@@ -25,6 +29,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.ConnectivityManager.NetworkCallback;
+import android.net.Network;
 
 import androidx.test.filters.SmallTest;
 
@@ -43,15 +49,18 @@ import org.mockito.MockitoAnnotations;
 public class NetworkMonitorTest {
 
     @Mock private Context mContext;
-    @Mock private Utils mUtils;
+    @Mock private ConnectivityManager mConnManager;
     @Mock private NetworkMonitor.NetworkConnectedCallback mCallback;
     private NetworkMonitor mNetworkMonitor;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+        doReturn(mConnManager).when(mContext).getSystemService(Context.CONNECTIVITY_SERVICE);
+        doReturn(Context.CONNECTIVITY_SERVICE).when(mContext).getSystemServiceName(
+                ConnectivityManager.class);
 
-        mNetworkMonitor = new NetworkMonitor(mContext, mUtils);
+        mNetworkMonitor = new NetworkMonitor(mContext);
     }
 
     @Test
@@ -59,24 +68,13 @@ public class NetworkMonitorTest {
         // WHEN starting to listen for connectivity changes
         mNetworkMonitor.startListening(mCallback);
 
-        // THEN a broadcast receiver should be registered
-        ArgumentCaptor<BroadcastReceiver> receiverCaptor =
-                ArgumentCaptor.forClass(BroadcastReceiver.class);
-        verify(mContext).registerReceiver(receiverCaptor.capture(), eq(NetworkMonitor.FILTER));
+        // THEN a callback should be registered
+        final ArgumentCaptor<NetworkCallback> cbCaptor =
+                ArgumentCaptor.forClass(NetworkCallback.class);
+        verify(mConnManager).registerDefaultNetworkCallback(cbCaptor.capture());
 
-        // WHEN connectivity is not obtained and a broadcast is received
-        when(mUtils.isNetworkTypeConnected(mContext, ConnectivityManager.TYPE_WIFI)).thenReturn(
-                false);
-        receiverCaptor.getValue().onReceive(mContext,
-                new Intent(ConnectivityManager.CONNECTIVITY_ACTION));
-
-        // THEN no callback should be given
-        verifyZeroInteractions(mCallback);
-
-        // WHEN connectivity is obtained and a broadcast is received
-        when(mUtils.isConnectedToNetwork(mContext)).thenReturn(true);
-        receiverCaptor.getValue().onReceive(mContext,
-                new Intent(ConnectivityManager.CONNECTIVITY_ACTION));
+        // WHEN the network connects and a callback is received
+        cbCaptor.getValue().onBlockedStatusChanged(mock(Network.class), false);
 
         // THEN a callback should be given
         verify(mCallback).onNetworkConnected();
@@ -88,25 +86,14 @@ public class NetworkMonitorTest {
         mNetworkMonitor.startListening(mCallback);
         mNetworkMonitor.stopListening();
 
-        // THEN a broadcast receiver should be registered and later unregistered
-        ArgumentCaptor<BroadcastReceiver> receiverCaptor =
-                ArgumentCaptor.forClass(BroadcastReceiver.class);
-        verify(mContext).registerReceiver(receiverCaptor.capture(), eq(NetworkMonitor.FILTER));
-        verify(mContext).unregisterReceiver(receiverCaptor.getValue());
+        // THEN a callback should be registered and later unregistered
+        final ArgumentCaptor<NetworkCallback> cbCaptor =
+                ArgumentCaptor.forClass(NetworkCallback.class);
+        verify(mConnManager).registerDefaultNetworkCallback(cbCaptor.capture());
+        verify(mConnManager).unregisterNetworkCallback(cbCaptor.getValue());
 
-        // WHEN connectivity is not obtained and a broadcast is received
-        when(mUtils.isConnectedToNetwork(mContext)).thenReturn(false);
-        receiverCaptor.getValue().onReceive(mContext,
-                new Intent(ConnectivityManager.CONNECTIVITY_ACTION));
-
-        // THEN no callback should be given
-        verifyZeroInteractions(mCallback);
-
-        // WHEN connectivity is obtained and a broadcast is received
-        when(mUtils.isNetworkTypeConnected(mContext, ConnectivityManager.TYPE_WIFI)).thenReturn(
-                true);
-        receiverCaptor.getValue().onReceive(mContext,
-                new Intent(ConnectivityManager.CONNECTIVITY_ACTION));
+        // Even if an unexpected callback is received after unregistering
+        cbCaptor.getValue().onBlockedStatusChanged(mock(Network.class), false);
 
         // THEN no callback should be given
         verifyZeroInteractions(mCallback);
