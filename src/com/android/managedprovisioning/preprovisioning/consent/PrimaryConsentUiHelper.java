@@ -18,7 +18,6 @@ package com.android.managedprovisioning.preprovisioning.consent;
 import android.annotation.DrawableRes;
 import android.annotation.Nullable;
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.view.View;
 import android.widget.ImageView;
@@ -94,7 +93,7 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         mActivity.setTitle(titleResId);
 
         // set up terms headers
-        setupViewTermsButton(uiParams.viewTermsIntent);
+        setupViewTermsButton();
     }
 
     private void setupAnimation(@DrawableRes int animationResId) {
@@ -117,12 +116,12 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         mCallback.nextAfterUserConsent();
     }
 
-    private void setupViewTermsButton(Intent showTermsIntent) {
+    private void setupViewTermsButton() {
         final GlifLayout layout = mActivity.findViewById(R.id.setup_wizard_layout);
         layout.setDescriptionText(R.string.view_terms);
         TextView subtitle = layout.findViewById(R.id.sud_layout_subtitle);
         subtitle.setTextColor(mUtils.getAccentColor(mActivity));
-        subtitle.setOnClickListener(v -> mActivity.startActivity(showTermsIntent));
+        subtitle.setOnClickListener(v -> mCallback.onTermsButtonClicked());
         mTouchTargetEnforcer.enforce(subtitle, (View) subtitle.getParent());
     }
 }

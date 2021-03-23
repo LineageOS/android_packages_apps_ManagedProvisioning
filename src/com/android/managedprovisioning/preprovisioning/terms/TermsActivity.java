@@ -22,6 +22,7 @@ import static com.android.internal.util.Preconditions.checkNotNull;
 
 import static java.util.Objects.requireNonNull;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -151,14 +152,17 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
     private void setupToolbar() {
         Toolbar toolbar = new Toolbar(this);
         toolbar.setNavigationIcon(getDrawable(R.drawable.ic_arrow_back_24dp));
-        toolbar.setNavigationOnClickListener(v -> TermsActivity.this.finish());
+        toolbar.setNavigationOnClickListener(v ->
+                getTransitionHelper().finishActivity(TermsActivity.this));
         LinearLayout parent = (LinearLayout) findViewById(R.id.suc_layout_footer).getParent();
         parent.addView(toolbar, /* index= */ 0);
     }
 
     private void setUpTermsListForAuto(List<TermsDocument> terms) {
         CarUiRecyclerView listView = findViewById(R.id.terms_container);
-        listView.setAdapter(new TermsListAdapterCar(getApplicationContext(), terms, mUtils));
+        listView.setAdapter(new TermsListAdapterCar(getApplicationContext(), terms, mUtils,
+                intent -> getTransitionHelper().startActivityWithTransition(
+                        TermsActivity.this, intent)));
     }
 
     private void setupTermsListForHandhelds(List<TermsDocument> terms) {
@@ -211,5 +215,10 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
     @Override
     public void onTermExpanded(int groupPosition, boolean expanded) {
         mViewModel.setTermExpanded(groupPosition, expanded);
+    }
+
+    @Override
+    public void onLinkClicked(Intent intent) {
+        getTransitionHelper().startActivityWithTransition(this, intent);
     }
 }

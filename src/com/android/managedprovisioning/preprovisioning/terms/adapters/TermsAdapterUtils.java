@@ -39,9 +39,9 @@ final class TermsAdapterUtils {
      * @param disclaimer the term document that contains the contents
      */
     public static void populateContentTextView(Context context, TextView contentTextView,
-            TermsDocument disclaimer, int linkColor) {
+            TermsDocument disclaimer, ClickableSpanFactory clickableSpanFactory) {
         HtmlToSpannedParser htmlToSpannedParser = new HtmlToSpannedParser(
-                new ClickableSpanFactory(linkColor),
+                clickableSpanFactory,
                 url -> WebActivity.createIntent(context, url));
         Spanned content = htmlToSpannedParser.parseHtml(disclaimer.getContent());
         contentTextView.setText(content);
