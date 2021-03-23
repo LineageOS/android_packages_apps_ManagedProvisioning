@@ -233,7 +233,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 mController.continueProvisioningAfterUserConsent());
         // THEN start profile provisioning
-        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
+        verify(mUi).startProvisioning(mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
@@ -303,7 +303,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 mController.continueProvisioningAfterUserConsent());
         // THEN start profile provisioning
-        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
+        verify(mUi).startProvisioning(mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
     }
@@ -389,7 +389,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 mController.continueProvisioningAfterUserConsent());
         // THEN start profile provisioning
-        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
+        verify(mUi).startProvisioning(mParams);
         verify(mUi, never()).requestEncryption(any(ProvisioningParams.class));
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);

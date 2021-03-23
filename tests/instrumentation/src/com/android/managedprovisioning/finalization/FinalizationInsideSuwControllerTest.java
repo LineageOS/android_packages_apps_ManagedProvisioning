@@ -57,6 +57,7 @@ import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.NotificationHelper;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.common.TransitionHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -89,6 +90,7 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
 
     private PreFinalizationController mPreFinalizationController;
     private FinalizationController mFinalizationController;
+    @Mock private TransitionHelper mTransitionHelper;
 
     @Override
     public void setUp() throws Exception {
@@ -114,8 +116,11 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         mFinalizationController = new FinalizationController(
                 mActivity,
                 new FinalizationInsideSuwControllerLogic(
-                        mActivity, mUtils, new PolicyComplianceUtils(),
-                        mProvisioningAnalyticsTracker),
+                        mActivity,
+                        mUtils,
+                        new PolicyComplianceUtils(),
+                        mProvisioningAnalyticsTracker,
+                        mTransitionHelper),
                 mUtils, mSettingsFacade, mHelper, mNotificationHelper, mDeferredMetricsReader,
                 provisioningParamsUtils);
     }
@@ -186,8 +191,8 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         verify(mHelper, never()).markUserProvisioningStateFinalized(params);
 
         // THEN no intent should be sent to the dpc.
-        verify(mActivity, never()).startActivityForResultAsUser(
-                any(Intent.class), anyInt(), eq(MANAGED_PROFILE_USER_HANDLE));
+        verify(mTransitionHelper, never()).startActivityForResultAsUserWithTransition(
+                eq(mActivity), any(Intent.class), anyInt(), eq(MANAGED_PROFILE_USER_HANDLE));
 
         // WHEN calling provisioningFinalized
         mFinalizationController.provisioningFinalized();
@@ -269,8 +274,9 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         verify(mHelper, never()).markUserProvisioningStateFinalized(params);
 
         // THEN no intent should be sent to the dpc.
-        verify(mActivity, never()).startActivityForResultAsUser(
-                any(Intent.class), anyInt(), eq(UserHandle.of(UserHandle.myUserId())));
+        verify(mTransitionHelper, never()).startActivityForResultAsUserWithTransition(
+                eq(mActivity), any(Intent.class), anyInt(),
+                        eq(UserHandle.of(UserHandle.myUserId())));
 
         // WHEN calling provisioningFinalized
         mFinalizationController.provisioningFinalized();
@@ -380,8 +386,8 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
 
         // THEN the DPC policy compliance screen should be shown on the work profile.
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
-        verify(mActivity).startActivityForResultAsUser(
-                intentCaptor.capture(), anyInt(), eq(MANAGED_PROFILE_USER_HANDLE));
+        verify(mTransitionHelper).startActivityForResultAsUserWithTransition(
+                eq(mActivity), intentCaptor.capture(), anyInt(), eq(MANAGED_PROFILE_USER_HANDLE));
         assertThat(intentCaptor.getValue().getAction())
                 .isEqualTo(DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE);
 
@@ -393,8 +399,8 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
 
         // THEN the DPC policy compliance screen should be shown on the work profile.
         intentCaptor = ArgumentCaptor.forClass(Intent.class);
-        verify(mActivity).startActivityForResultAsUser(
-                intentCaptor.capture(), anyInt(), eq(MANAGED_PROFILE_USER_HANDLE));
+        verify(mTransitionHelper).startActivityForResultAsUserWithTransition(
+                eq(mActivity), intentCaptor.capture(), anyInt(), eq(MANAGED_PROFILE_USER_HANDLE));
         assertThat(intentCaptor.getValue().getAction())
                 .isEqualTo(DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE);
 
@@ -411,8 +417,8 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
 
     private void verifyDpcLaunchedForUser(UserHandle userHandle, int numTimes) {
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
-        verify(mActivity, times(numTimes)).startActivityForResultAsUser(
-                intentCaptor.capture(), anyInt(), eq(userHandle));
+        verify(mTransitionHelper, times(numTimes)).startActivityForResultAsUserWithTransition(
+                eq(mActivity), intentCaptor.capture(), anyInt(), eq(userHandle));
         final String intentAction = intentCaptor.getValue().getAction();
         // THEN the intent should be ACTION_PROVISIONING_SUCCESSFUL
         assertEquals(ACTION_ADMIN_POLICY_COMPLIANCE, intentAction);

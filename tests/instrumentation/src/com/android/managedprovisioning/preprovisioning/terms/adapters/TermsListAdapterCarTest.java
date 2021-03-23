@@ -68,7 +68,9 @@ public class TermsListAdapterCarTest {
     @Test
     public void returnsCorrectItemCount() {
         // given: an adapter
-        TermsListAdapterCar adapter = new TermsListAdapterCar(mContext, mDocs, mUtils);
+        TermsListAdapterCar adapter =
+                new TermsListAdapterCar(mContext, mDocs, mUtils,
+                        /* onLinkClickedHandler= */ intent -> {});
 
         assertThat(adapter.getItemCount()).isEqualTo(mDocs.size());
     }
@@ -87,7 +89,9 @@ public class TermsListAdapterCarTest {
 
         TermsListAdapterCar.ViewHolder mViewHolder = new TermsListAdapterCar.ViewHolder(mView);
         // given: an adapter
-        TermsListAdapterCar adapter = new TermsListAdapterCar(mContext, mDocs, mUtils);
+        TermsListAdapterCar adapter =
+                new TermsListAdapterCar(mContext, mDocs, mUtils,
+                        /* onLinkClickedHandler= */ intent -> {});
         // Check if information from doc2 is extracted and set in the view correctly
         adapter.onBindViewHolder(mViewHolder, /* position= */ 1);
 

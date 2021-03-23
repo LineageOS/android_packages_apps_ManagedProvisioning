@@ -43,6 +43,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.provisioning.Constants;
 
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
@@ -64,6 +65,7 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
     @Mock private Activity mRestoredActivity;
     @Mock private Utils mUtils;
     @Mock private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
+    @Mock private TransitionHelper mTransitionHelper;
 
     private StartDpcInsideSuwServiceConnection mStartDpcInsideSuwServiceConnection;
     private Runnable mDpcIntentSender;
@@ -84,10 +86,11 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
                 .build();
 
         mStartDpcInsideSuwServiceConnection = new StartDpcInsideSuwServiceConnection();
+        Constants.ENABLE_CUSTOM_TRANSITIONS = true;
         mDpcIntentSender = () ->
                 policyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
                         mActivity, mParams, TEST_REQUEST_CODE, mUtils,
-                        mProvisioningAnalyticsTracker);
+                        mProvisioningAnalyticsTracker, mTransitionHelper);
     }
 
     @SmallTest
@@ -552,8 +555,8 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
 
     private void verifyDpcLaunched(Activity activity) {
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
-        verify(activity).startActivityForResultAsUser(intentCaptor.capture(), anyInt(),
-                any(UserHandle.class));
+        verify(mTransitionHelper).startActivityForResultAsUserWithTransition(
+                eq(activity), intentCaptor.capture(), anyInt(), any(UserHandle.class));
         final String intentAction = intentCaptor.getValue().getAction();
         // THEN the intent should be ACTION_PROVISIONING_SUCCESSFUL
         assertEquals(ACTION_ADMIN_POLICY_COMPLIANCE, intentAction);
@@ -588,7 +591,7 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
         final Runnable dpcIntentSenderForRestoredActivity = () ->
                 policyComplianceUtils.startPolicyComplianceActivityForResultIfResolved(
                         mRestoredActivity, mParams, TEST_REQUEST_CODE,
-                        mUtils, mProvisioningAnalyticsTracker);
+                        mUtils, mProvisioningAnalyticsTracker, mTransitionHelper);
 
         return new StartDpcInsideSuwServiceConnection(mRestoredActivity, savedInstanceState,
                 dpcIntentSenderForRestoredActivity);
