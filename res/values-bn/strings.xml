@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"আপনার অফিসের ডিভাইস সেট-আপ করা যাক"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"অফিসের অ্যাপ আপনার হাতের কাছে রাখুন"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"এই ডিভাইস ব্যক্তিগত নয়"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"আপনার অ্যাক্টিভিটি এবং ডেটা"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"আপনার আইটি অ্যাডমিন এই ডিভাইসে আপনার ডেটা ও অ্যাক্টিভিটি দেখতে পেতে পারেন।"</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"অ্যাপকে দেওয়া অনুমতি"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"মাইক্রোফোন, ক্যামেরা এবং লোকেশন ছাড়াও আপনার আইটি অ্যাডমিন এই ডিভাইসের সেটিংস অ্যাক্সেস করার জন্য অ্যাপকে অনুমতি দিতে পারবেন।"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"আপনার আইটি অ্যাডমিন এই ডিভাইসে আপনার ডেটা ও অ্যাক্টিভিটি দেখতে পেতে পারেন।\n\nআরও জানতে, আপনার <xliff:g id="IT_ADMIN">%1$s</xliff:g>-এর সাথে যোগাযোগ করুন।"</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"আপনার অ্যাক্টিভিটি এবং ডেটা"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"আপনার আইটি অ্যাডমিন এই ডিভাইসে আপনার ডেটা ও অ্যাক্টিভিটি দেখতে পেতে পারেন।"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"অ্যাপকে দেওয়া অনুমতি"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"আপনার আইটি অ্যাডমিন এই ডিভাইসে থাকা বিভিন্ন অ্যাপের জন্য মাইক্রোফোন, ক্যামেরা এবং লোকেশন ব্যবহারের অনুমতি সেট করতে পারবে।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"আপনার ডিভাইস সেট-আপ করা হচ্ছে…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"আপনার অফিসের অ্যাপ সহজে অ্যাক্সেস করতে এই ডিভাইস ব্যবহার করুন। এই ডিভাইস ব্যক্তিগত নয়, তাই আপনার আইটি অ্যাডমিন আপনার ডেটা ও অ্যাক্টিভিটি দেখতে পেতে পারেন। আরও জানতে আপনার আইটি অ্যাডমিনের সাথে যোগাযোগ করুন।"</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"আপনার অফিসের অ্যাপ সহজে অ্যাক্সেস করতে এই ডিভাইস ব্যবহার করুন। এই ডিভাইস ব্যক্তিগত নয়, তাই আইটি অ্যাডমিন আপনার ডেটা ও অ্যাক্টিভিটি দেখতে পেতে পারেন।"</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"আপনার অফিসের অ্যাপ সহজে অ্যাক্সেস করতে এই ডিভাইস ব্যবহার করুন। এই ডিভাইস ব্যক্তিগত নয়, তাই আইটি অ্যাডমিন আপনার অ্যাক্টিভিটি ও ডেটা দেখতে পেতে পারেন। এছাড়াও, আপনার আইটি অ্যাডমিন এই ডিভাইসে থাকা বিভিন্ন অ্যাপের জন্য মাইক্রোফোন, ক্যামেরা এবং লোকেশন ব্যবহারের অনুমতি সেট করতে পারে।"</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"আইটি অ্যাডমিনকে এই ডিভাইস ফেরত দিন"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"আগের স্ক্রিনে ফেরত যান বা এই ডিভাইস রিসেট করে আইটি অ্যাডমিনকে ফেরত দিন।"</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"সেটআপ বাতিল করুন"</string>

@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Vamos configurar seu dispositivo de trabalho"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Tenha os apps de trabalho na palma da sua mão"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Este dispositivo não é privado"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Seus dados e atividades"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"O administrador de TI pode ver seus dados e atividade neste dispositivo."</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Permissões de apps"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Seu administrador de TI pode permitir que apps acessem as configurações deste dispositivo, incluindo microfone, câmera e localização."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"O administrador de TI pode ver seus dados e suas atividades neste dispositivo.\n\nPara saber mais, entre em contato com <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Seus dados e suas atividades"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"O administrador de TI pode ver seus dados e suas atividades neste dispositivo."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Permissões do app"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"O administrador de TI pode definir as permissões para apps neste dispositivo, como as de microfone, câmera e localização."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurando seu dispositivo…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Use este dispositivo para acessar seus apps de trabalho com facilidade. Ele não é privado e, portanto, o administrador de TI pode ver seus dados e atividade. Para saber mais, entre em contato com o administrador de TI."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Use este dispositivo para acessar seus apps de trabalho com facilidade. Ele não é particular e, portanto, o administrador de TI pode ver seus dados e suas atividades."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Use este dispositivo para acessar seus apps de trabalho com facilidade. Ele não é particular e, portanto, o administrador de TI pode ver suas atividades e seus dados. Ele também pode definir as permissões de apps no dispositivo, como as de microfone, câmera e localização."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Devolva o dispositivo para o administrador de TI"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Volte à tela anterior ou redefina o dispositivo e devolva-o para o administrador de TI."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Cancelar configuração"</string>

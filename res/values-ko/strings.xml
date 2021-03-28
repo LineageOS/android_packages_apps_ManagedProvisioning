@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"직장 기기 설정하기"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"간편하게 업무용 앱 사용"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"비공개 기기가 아님"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"활동 및 데이터"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT 관리자가 이 기기의 내 데이터와 활동을 볼 수 있습니다."</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"앱 권한"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"IT 관리자가 앱에서 마이크, 카메라, 위치를 비롯한 기기 설정에 액세스하도록 허용할 수 있습니다."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"IT 관리자가 이 기기의 데이터와 활동을 볼 수 있습니다.\n\n자세히 알아보려면 <xliff:g id="IT_ADMIN">%1$s</xliff:g>에 문의하세요."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"활동 및 데이터"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"IT 관리자가 이 기기의 데이터와 활동을 볼 수 있습니다."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"앱 권한"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT 관리자가 이 기기에 있는 앱에서 마이크, 카메라, 위치 등에 대한 권한을 설정할 수 있습니다."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"기기 설정 중…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"이 기기를 사용하여 업무용 앱에 간편하게 액세스하세요. 이 기기는 비공개 기기가 아니므로 IT 관리자가 내 데이터와 활동을 볼 수 있습니다. 자세히 알아보려면 IT 관리자에게 문의하세요."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"이 기기를 사용하여 직장 앱에 간편하게 액세스하세요. 이 기기는 비공개 기기가 아니므로 IT 관리자가 내 데이터와 활동을 볼 수 있습니다."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"이 기기를 사용하여 직장 앱에 간편하게 액세스하세요. 이 기기는 개인 기기가 아니므로 IT 관리자가 활동 및 데이터를 볼 수 있습니다. IT 관리자는 이 기기에 있는 앱에서 마이크, 카메라, 위치 등에 대한 권한을 설정할 수도 있습니다."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"IT 관리자에게 기기 반품"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"이전 화면으로 돌아가거나 기기를 재설정하고 IT 관리자에게 기기를 반품합니다."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"설정 취소"</string>

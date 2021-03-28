@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"آئیے آپ کا دفتری آلہ سیٹ اپ کریں"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"اپنی دفتری ایپس کو اپنے لیے بآسانی قابل رسائی بنائيں"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"یہ آلہ نجی نہیں ہے"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"آپ کی سرگرمی اور ڈیٹا"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"‏آپ کا IT منتظم اس آلہ پر آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے۔"</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"ایپ کی اجازتیں"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"‏آپ کا IT منتظم ایپس کو بشمول مائیکروفون، کیمرا اور مقام اس آلہ کی ترتیبات تک رسائی کی اجازت دے سکتا ہے۔"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"‏آپ کا IT منتظم اس آلہ پر آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے۔\n\nمزید جاننے کے لیے، اپنے <xliff:g id="IT_ADMIN">%1$s</xliff:g> سے رابطہ کریں۔"</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"آپ کی سرگرمی اور ڈیٹا"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"‏آپ کا IT منتظم اس آلہ پر آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے۔"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ایپ کی اجازتیں"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"‏آپ کا IT منتظم اس آلہ پر موجود ایپس کے لیے اجازتوں کو سیٹ کر سکتا ہے جیسے کہ مائیکروفون، کیمرا اور مقام کی اجازتیں۔"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"آپ کا آلہ سیٹ اپ کیا جا رہا ہے…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"‏اپنی دفتری ایپس تک آسانی سے رسائی حاصل کرنے کے لیے یہ آلہ استعمال کریں۔ یہ آلہ نجی نہیں ہے، اس لیے آپ کا IT منتظم آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے۔ مزید جاننے کے لیے، اپنے IT منتظم سے رابطہ کریں۔"</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"‏اپنی ورک ایپس تک آسانی سے رسائی حاصل کرنے کے لیے اس آلے کا استعمال کریں۔ یہ آلہ ذاتی نہیں ہے اس لیے آپ کا IT منتظم آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے۔"</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"‏اپنی ورک ایپس تک آسانی سے رسائی حاصل کرنے کے لیے اس آلے کا استعمال کریں۔ یہ آلہ ذاتی نہیں ہے، اس لیے آپ کا IT منتظم آپ کی سرگرمی اور ڈیٹا دیکھنے کا اہل ہو سکتا ہے۔ آپ کا IT منتظم اس آلے پر موجود ایپس کے لیے اجازتوں کو بھی سیٹ کر سکتا ہے جیسے مائیکروفون، کیمرا اور مقام کی اجازتیں۔"</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"‏اس آلے کو اپنے IT منتظم کو واپس کریں"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"‏پچھلی اسکرین پر واپس جائیں یا اس آلہ کو دوبارہ ترتیب دیں اور اسے اپنے IT منتظم کو واپس کریں۔"</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"سیٹ اپ منسوخ کریں"</string>
@@ -187,11 +189,8 @@
     <string name="just_a_sec" msgid="6244676028626237220">"بس ایک سیکنڈ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"رازداری کی یاد دہانی"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"‏آپ کا IT منتظم اس آلہ پر آپ کا ڈیٹا اور سرگرمی دیکھنے کا اہل ہو سکتا ہے"</string>
-    <!-- no translation found for financed_device_screen_header (6875169548352717124) -->
-    <skip />
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"یہ آلہ <xliff:g id="CREDITOR_NAME">%s</xliff:g> نے فراہم کیا ہے"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"‏<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> کر سکتا ہے:"</string>
-    <!-- no translation found for install_creditor_app_description (6056052518227986620) -->
-    <skip />
-    <!-- no translation found for lock_device_description (9198967942380649144) -->
-    <skip />
+    <string name="install_creditor_app_description" msgid="6056052518227986620">"اس آلے پر <xliff:g id="CREDITOR_NAME">%s</xliff:g> ایپ انسٹال کریں"</string>
+    <string name="lock_device_description" msgid="9198967942380649144">"اگر آپ ادائیگیاں نہیں کرتے ہیں تو اس آلے کو مقفل کریں"</string>
 </resources>

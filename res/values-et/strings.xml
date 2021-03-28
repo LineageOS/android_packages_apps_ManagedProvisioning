@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Seadistame teie tööseadme"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Hoidke töörakendused käeulatuses"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Seade ei ole privaatne"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Teie tegevused ja andmed"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Teie IT-administraator võib selles seadmes teie andmeid ja tegevusi näha."</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Rakenduste load"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Teie IT-administraator võib anda rakendustele juurdepääsu selle seadme seadetele (sh mikrofoni, kaamera ja asukoha seadetele)."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"Teie IT-administraator võib selles seadmes teie andmeid ja tegevusi näha.\n\nLisateabe saamiseks võtke ühendust järgmise isikuga: <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Teie tegevused ja andmed"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"Teie IT-administraator võib selles seadmes teie andmeid ja tegevusi näha."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Rakenduse load"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Teie IT-administraator võib seadistada selle seadme rakenduste lubasid, näiteks mikrofoni, kaamera ja asukohale juurdepääsu lubasid."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Teie seadme seadistamine …"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Kasutage seda seadet, et töörakendustele hõlpsasti juurde pääseda. Seade ei ole privaatne, nii et IT-administraator võib teie andmeid ja tegevusi näha. Lisateabe saamiseks võtke ühendust IT-administraatoriga."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Kasutage seda seadet, et töörakendustele hõlpsasti juurde pääseda. Seade ei ole privaatne, nii et IT-administraator võib teie andmeid ja tegevusi näha."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Kasutage seda seadet, et töörakendustele hõlpsasti juurde pääseda. Seade ei ole privaatne, nii et IT-administraator võib teie tegevusi ja andmeid näha. Samuti võib teie IT-administraator seadistada selle seadme rakenduste lubasid, näiteks mikrofoni, kaamera ja asukohale juurdepääsu lubasid."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Andke see oma IT-administraatorile tagasi"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Naaske eelmisele ekraanikuvale või lähtestage seade ja andke see oma IT-administraatorile tagasi."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Katkesta seadistamine"</string>

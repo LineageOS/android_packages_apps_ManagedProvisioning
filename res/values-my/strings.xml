@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"သင့်အလုပ်သုံး စက်ပစ္စည်းကို စနစ်ထည့်သွင်းရအောင်"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"သင့်အလုပ်သုံးအက်ပ်များကို အလွယ်တကူသုံးနိုင်အောင် ပြုလုပ်ပါ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ဤစက်ပစ္စည်းသည် သီးသန့်မဟုတ်ပါ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"သင့်လုပ်ဆောင်ချက်နှင့် ဒေတာ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"သင်၏ IT စီမံခန့်ခွဲသူက ဤစက်ပစ္စည်းပေါ်ရှိ သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။"</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"အက်ပ်ခွင့်ပြုချက်များ"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"သင့် IT စီမံခန့်ခွဲသူသည် မိုက်ခရိုဖုန်း၊ ကင်မရာနှင့် တည်နေရာ အပါအဝင် ဤစက်ပေါ်ရှိ ဆက်တင်များကို သုံးရန် အက်ပ်များကို ခွင့်ပြုနိုင်သည်။"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"သင်၏ IT စီမံခန့်ခွဲသူက ဤစက်ပစ္စည်းပေါ်ရှိ သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။\n\nပိုမိုလေ့လာရန် သင်၏ <xliff:g id="IT_ADMIN">%1$s</xliff:g> ကို ဆက်သွယ်ပါ။"</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"သင့်လုပ်ဆောင်ချက်နှင့် ဒေတာ"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"သင်၏ IT စီမံခန့်ခွဲသူက ဤစက်ပစ္စည်းပေါ်ရှိ သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"အက်ပ်ခွင့်ပြုချက်များ"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"သင့် IT စီမံခန့်ခွဲသူသည် မိုက်ခရိုဖုန်း၊ ကင်မရာနှင့် တည်နေရာခွင့်ပြုချက်များကဲ့သို့ ဤစက်ပစ္စည်းရှိ အက်ပ်များအတွက် ခွင့်ပြုချက်များကို သတ်မှတ်နိုင်သည်။"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"သင့်စက်ပစ္စည်း စနစ်ထည့်သွင်းနေသည်…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"သင့်အလုပ်သုံးအက်ပ်များကို အလွယ်တကူ ဝင်သုံးရန် ဤစက်ပစ္စည်းကို အသုံးပြုပါ။ ဤစက်ပစ္စည်းသည် သီးသန့်မဟုတ်သဖြင့် သင့် IT စီမံခန့်ခွဲသူက သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။ ပိုမိုလေ့လာရန် သင့် IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"သင့်အလုပ်သုံးအက်ပ်များကို အလွယ်တကူ ဝင်သုံးရန် ဤစက်ပစ္စည်းကို အသုံးပြုပါ။ ဤစက်ပစ္စည်းသည် သီးသန့်မဟုတ်သဖြင့် သင့် IT စီမံခန့်ခွဲသူက သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။"</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"သင့်အလုပ်သုံးအက်ပ်များကို အလွယ်တကူ ဝင်သုံးရန် ဤစက်ပစ္စည်းကို အသုံးပြုပါ။ ဤစက်ပစ္စည်းသည် သီးသန့်မဟုတ်သဖြင့် သင့် IT စီမံခန့်ခွဲသူက သင့်လုပ်ဆောင်ချက်နှင့် ဒေတာကို မြင်နိုင်ပါသည်။ သင့် IT စီမံခန့်ခွဲသူသည် မိုက်ခရိုဖုန်း၊ ကင်မရာနှင့် တည်နေရာခွင့်ပြုချက်များကဲ့သို့ ဤစက်ပစ္စည်းရှိ အက်ပ်များအတွက် ခွင့်ပြုချက်များကိုလည်း သတ်မှတ်နိုင်သည်။"</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ဤစက်ကို သင့် IT စီမံခန့်ခွဲသူထံသို့ ပြန်ပို့ခြင်း"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ယခင်စခရင်သို့ ပြန်သွားပါ (သို့) ဤစက်ကို ပြင်ဆင်သတ်မှတ်ပြီးနောက် သင့် IT စီမံခန့်ခွဲသူထံသို့ ပြန်ပို့ပါ။"</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"စနစ်ထည့်သွင်းမှု ပယ်ဖျက်ရန်"</string>

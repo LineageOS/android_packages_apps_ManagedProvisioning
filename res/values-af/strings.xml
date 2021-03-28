@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Kom ons stel jou werktoestel op"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Hou jou werkprogramme binne jou bereik"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Hierdie toestel is nie privaat nie"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Jou aktiwiteit en data"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Jou IT-administrateur kan dalk jou data en aktiwiteit op hierdie toestel sien."</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Programtoestemmings"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Jou IT-admin kan programme toegang tot instellings op hierdie toestel gee, insluitend die mikrofoon, kamera en ligging."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"Jou IT-administrateur kan dalk jou data en aktiwiteit op hierdie toestel sien.\n\nKontak jou <xliff:g id="IT_ADMIN">%1$s</xliff:g> om meer te wete te kom."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Jou aktiwiteit en data"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"Jou IT-administrateur kan dalk jou data en aktiwiteit op hierdie toestel sien."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Programtoestemmings"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Jou IT-administrateur kan toestemmings vir programme op hierdie toestel stel, soos mikrofoon-, kamera- en liggingtoestemmings."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Stel tans jou toestel op …"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gebruik hierdie toestel om maklik toegang tot jou werkprogramme te kry. Hierdie toestel is nie privaat nie en jou IT-administrateur kan dalk jou data en aktiwiteit sien. Kontak jou IT-administrateur om meer te wete te kom."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Gebruik hierdie toestel om maklik toegang tot jou werkprogramme te kry. Hierdie toestel is nie privaat nie en jou IT-administrateur kan dalk jou data en aktiwiteit sien."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Gebruik hierdie toestel om maklik toegang tot jou werkprogramme te kry. Hierdie toestel is nie privaat nie en jou IT-administrateur kan dalk jou aktiwiteit en data sien. Jou IT-administrateur kan ook toestemmings vir programme op hierdie toestel stel, soos mikrofoon-, kamera- en liggingtoestemmings."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Gee hierdie toestel terug vir jou IT-administrateur."</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Gaan terug na die vorige skerm of stel hierdie toestel terug en gee dit terug vir jou IT-administrateur."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Kanselleer opstelling"</string>
