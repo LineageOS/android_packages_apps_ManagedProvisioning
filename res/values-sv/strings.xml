@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Sätt igång att konfigurera jobbenheten"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Ha jobbapparna nära till hands"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Enheten är inte privat"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Din aktivitet och data"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT-administratören kanske kan visa din aktivitet och data på enheten."</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Appbehörigheter"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"IT-administratören tillåter inte att appar får åtkomst till inställningar på den här enheten, till exempel för mikrofon, kamera och plats."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"IT-administratören kanske kan visa din aktivitet och data på enheten.\n\nKontakta din <xliff:g id="IT_ADMIN">%1$s</xliff:g> om du vill veta mer."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Din aktivitet och data"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"IT-administratören kanske kan visa din aktivitet och data på enheten."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Appbehörigheter"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT-administratören kan ange behörigheter för appar på den här enheten, till exempel för mikrofon, kamera och plats."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfigurerar enheten …"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Få enkelt åtkomst till dina jobbappar på den här enheten. Enheten är inte privat, så IT-administratören kanske kan se din aktivitet och data på enheten. Kontakta IT-administratören om du vill veta mer."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Få enkelt åtkomst till dina jobbappar på den här enheten. Enheten är inte privat, så IT-administratören kanske kan se din data och aktivitet."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Få enkelt åtkomst till dina jobbappar på den här enheten. Enheten är inte privat, så IT-administratören kanske kan se din aktivitet och data. IT-administratören kan även ange behörigheter för appar på den här enheten, till exempel för mikrofon, kamera och plats."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Lämna tillbaka enheten till IT-administratören"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Återgå till föregående skärm eller återställ den här enheten och lämna tillbaka den till IT-administratören."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Avbryt konfigureringen"</string>

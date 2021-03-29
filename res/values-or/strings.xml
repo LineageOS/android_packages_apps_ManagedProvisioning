@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ଆସନ୍ତୁ ଆପଣଙ୍କ ୱର୍କ ଡିଭାଇସ୍‌କୁ ସେଟ୍ ଅପ୍ କରିବା"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ଆପଣଙ୍କର ଆଙ୍ଗୁଠି ଟିପରେ ନିଜର ୱର୍କ ଆପ୍ସ ରଖନ୍ତୁ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ଏହି ଡିଭାଇସ୍‌ ବ୍ୟକ୍ତିଗତ ନୁହେଁ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"ଆପଣଙ୍କ କାର୍ଯ୍ୟକଳାପ ଏବଂ ଡାଟା"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକ ବୋଧହୁଏ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିପାରିବେ।"</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"ଆପ୍ ଅନୁମତିଗୁଡ଼ିକ"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ମାଇକ୍ରୋଫୋନ୍, କ୍ୟାମେରା ଏବଂ ଲୋକେସନ୍ ସମେତ ଏହି ଡିଭାଇସରେ ସେଟିଂସକୁ ଆକ୍ସେସ୍ କରିବା ପାଇଁ ଆପଗୁଡ଼ିକୁ ଅନୁମତି ଦେଇପାରିବେ।"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ଏହି ଡିଭାଇସରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି।\n\nଅଧିକ ଜାଣିବା ପାଇଁ ଆପଣଙ୍କ <xliff:g id="IT_ADMIN">%1$s</xliff:g>ଙ୍କୁ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"ଆପଣଙ୍କ କାର୍ଯ୍ୟକଳାପ ଏବଂ ଡାଟା"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ଏହି ଡିଭାଇସରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି।"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ଆପ୍ ଅନୁମତିଗୁଡ଼ିକ"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ମାଇକ୍ରୋଫୋନ୍, କ୍ୟାମେରା ଏବଂ ଲୋକେସନ୍ ଅନୁମତି ପରି ଏହି ଡିଭାଇସରେ ଥିବା ଆପଗୁଡ଼ିକ ପାଇଁ ଅନୁମତିଗୁଡ଼ିକୁ ସେଟ୍ କରିପାରିବେ।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌କୁ ସେଟ୍ ଅପ୍ କରାଯାଉଛି…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ଆପଣଙ୍କ ୱର୍କ ଆପ୍ସକୁ ସହଜରେ ଆକ୍ସେସ୍ କରିବାକୁ ଏହି ଡିଭାଇସ୍ ବ୍ୟବହାର କରନ୍ତୁ। ଏହି ଡିଭାଇସ୍ ବ୍ୟକ୍ତିଗତ ନୁହେଁ, ତେଣୁ ବୋଧହୁଏ ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିପାରିବେ। ଅଧିକ ଜାଣିବାକୁ, ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"ଆପଣଙ୍କ ୱାର୍କ ଆପଗୁଡ଼ିକୁ ସହଜରେ ଆକ୍ସେସ୍ କରିବା ପାଇଁ ଏହି ଡିଭାଇସକୁ ବ୍ୟବହାର କରନ୍ତୁ। ଏହି ଡିଭାଇସ୍ ବ୍ୟକ୍ତିଗତ ନୁହେଁ, ତେଣୁ ଆପଣଙ୍କ IT ଆଡମିନ୍ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି।"</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"ଆପଣଙ୍କ ୱାର୍କ ଆପଗୁଡ଼ିକୁ ସହଜରେ ଆକ୍ସେସ୍ କରିବା ପାଇଁ ଏହି ଡିଭାଇସକୁ ବ୍ୟବହାର କରନ୍ତୁ। ଏହି ଡିଭାଇସ୍ ବ୍ୟକ୍ତିଗତ ନୁହେଁ, ତେଣୁ ଆପଣଙ୍କ IT ଆଡମିନ୍ ଆପଣଙ୍କ କାର୍ଯ୍ୟକଳାପ ଏବଂ ଡାଟା ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି। ଆପଣଙ୍କ IT ଆଡମିନ୍ ମାଇକ୍ରୋଫୋନ୍, କ୍ୟାମେରା ଏବଂ ଲୋକେସନ୍ ଅନୁମତି ପରି ଏହି ଡିଭାଇସରେ ଥିବା ଆପଗୁଡ଼ିକ ପାଇଁ ଅନୁମତିଗୁଡ଼ିକୁ ମଧ୍ୟ ସେଟ୍ କରିପାରିବେ।"</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ଏହି ଡିଭାଇସକୁ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ ଫେରାନ୍ତୁ"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ପୂର୍ବବର୍ତ୍ତୀ ସ୍କ୍ରିନକୁ ଫେରନ୍ତୁ କିମ୍ବା ଏହି ଡିଭାଇସ୍ ରିସେଟ୍ କରନ୍ତୁ ଏବଂ ଏହାକୁ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ ଫେରାନ୍ତୁ।"</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ସେଟଅପ୍ ବାତିଲ୍ କରନ୍ତୁ"</string>

@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ನಿಮ್ಮ ಕೆಲಸದ ಸಾಧನವನ್ನು ಸೆಟಪ್ ಮಾಡೋಣ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ನಿಮ್ಮ ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ಸುಲಭವಾಗಿ ಪ್ರವೇಶಿಸುವಂತೆ ಇರಿಸಿಕೊಳ್ಳಿ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ಇದು ಖಾಸಗಿ ಸಾಧನವಲ್ಲ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"ನಿಮ್ಮ ಚಟುವಟಿಕೆ &amp; ಡೇಟಾ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ಈ ಸಾಧನದಲ್ಲಿರುವ ನಿಮ್ಮ ಡೇಟಾ ಮತ್ತು ಚಟುವಟಿಕೆಯನ್ನು ವೀಕ್ಷಿಸಲು ಸಾಧ್ಯವಾಗಬಹುದು."</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"ಆ್ಯಪ್ ಅನುಮತಿಗಳು"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"ನಿಮ್ಮ ಐಟಿ ನಿರ್ವಾಹಕರು ಈ ಸಾಧನದಲ್ಲಿ ಮೈಕ್ರೋಫೋನ್, ಕ್ಯಾಮರಾ ಮತ್ತು ಸ್ಥಳ ಒಳಗೊಂಡಂತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಪ್ರವೇಶಿಸಲು ಆ್ಯಪ್‌ಗಳಿಗೆ ಅನುಮತಿಸಬಹುದು."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರು ನಿಮ್ಮ ಡೇಟಾ ಮತ್ತು ಚಟುವಟಿಕೆಯನ್ನು ಈ ಸಾಧನದಲ್ಲಿ ನೋಡಲು ಸಾಧ್ಯವಾಗಬಹುದು.\n\nಇನ್ನಷ್ಟು ತಿಳಿಯಲು, ನಿಮ್ಮ <xliff:g id="IT_ADMIN">%1$s</xliff:g> ಅವರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"ನಿಮ್ಮ ಚಟುವಟಿಕೆ &amp; ಡೇಟಾ"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ಈ ಸಾಧನದಲ್ಲಿರುವ ನಿಮ್ಮ ಡೇಟಾ ಮತ್ತು ಚಟುವಟಿಕೆಯನ್ನು ವೀಕ್ಷಿಸಲು ಸಾಧ್ಯವಾಗಬಹುದು."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ಆ್ಯಪ್ ಅನುಮತಿಗಳು"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರು ಈ ಸಾಧನದಲ್ಲಿರುವ ಆ್ಯಪ್‌ಗಳಿಗಾಗಿ, ಮೈಕ್ರೋಫೋನ್ ಮತ್ತು ಕ್ಯಾಮರಾ ಮತ್ತು ಸ್ಥಳದಂತಹ ಅನುಮತಿಗಳನ್ನು ಸೆಟ್ ಮಾಡಬಹುದು."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ನಿಮ್ಮ ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ಸುಲಭವಾಗಿ ಪ್ರವೇಶಿಸಲು ಈ ಸಾಧನವನ್ನು ಬಳಸಿ. ಇದು ಖಾಸಗಿ ಸಾಧನವಲ್ಲ, ಆದ್ದರಿಂದ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ನಿಮ್ಮ ಡೇಟಾ ಮತ್ತು ಚಟುವಟಿಕೆಯನ್ನು ವೀಕ್ಷಿಸಲು ಸಾಧ್ಯವಾಗಬಹುದು ಇನ್ನಷ್ಟು ತಿಳಿಯಲು, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"ನಿಮ್ಮ ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ಸುಲಭವಾಗಿ ಪ್ರವೇಶಿಸಲು ಈ ಸಾಧನವನ್ನು ಬಳಸಿ. ಇದು ಖಾಸಗಿ ಸಾಧನವಲ್ಲ, ಹಾಗಾಗಿ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರು ನಿಮ್ಮ ಡೇಟಾ ಮತ್ತು ಚಟುವಟಿಕೆಯನ್ನು ವೀಕ್ಷಿಸಲು ಸಾಧ್ಯವಾಗಬಹುದು."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"ನಿಮ್ಮ ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ಸುಲಭವಾಗಿ ಪ್ರವೇಶಿಸಲು ಈ ಸಾಧನವನ್ನು ಬಳಸಿ. ಇದು ಖಾಸಗಿ ಸಾಧನವಲ್ಲ, ಆದ್ದರಿಂದ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ನಿಮ್ಮ ಚಟುವಟಿಕೆ ಮತ್ತು ಡೇಟಾವನ್ನು ವೀಕ್ಷಿಸಲು ಸಾಧ್ಯವಾಗಬಹುದು. ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರು ಈ ಸಾಧನದಲ್ಲಿರುವ ಆ್ಯಪ್‌ಗಳಿಗಾಗಿ, ಮೈಕ್ರೋಫೋನ್ ಮತ್ತು ಕ್ಯಾಮರಾ ಮತ್ತು ಸ್ಥಳದಂತಹ ಅನುಮತಿಗಳನ್ನು ಸಹ ಹೊಂದಿಸಬಹುದು."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ಈ ಸಾಧನವನ್ನು ಹಿಂತಿರುಗಿಸಿ"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ಹಿಂದಿನ ಸ್ಕ್ರೀನ್‌ಗೆ ಹಿಂತಿರುಗಿ ಅಥವಾ ಈ ಸಾಧನವನ್ನು ಮರುಹೊಂದಿಸಿ ಮತ್ತು ಅದನ್ನು ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ಹಿಂತಿರುಗಿಸಿ."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ಸೆಟಪ್ ರದ್ದುಗೊಳಿಸಿ"</string>

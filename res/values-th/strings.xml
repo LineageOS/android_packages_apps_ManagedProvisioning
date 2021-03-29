@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"มาตั้งค่าอุปกรณ์สำหรับการทำงานกัน"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"เข้าถึงแอปการทำงานได้ด้วยปลายนิ้ว"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"อุปกรณ์นี้ไม่เป็นส่วนตัว"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"กิจกรรมและข้อมูลของคุณ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ผู้ดูแลระบบไอทีอาจดูข้อมูลและกิจกรรมของคุณในอุปกรณ์เครื่องนี้ได้"</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"สิทธิ์ของแอป"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"ผู้ดูแลระบบไอทีอนุญาตให้แอปเข้าถึงการตั้งค่าในอุปกรณ์นี้ได้ ซึ่งรวมถึงไมโครโฟน กล้อง และตำแหน่ง"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"ผู้ดูแลระบบไอทีอาจดูข้อมูลและกิจกรรมของคุณในอุปกรณ์เครื่องนี้ได้\n\nโปรดสอบถามข้อมูลเพิ่มเติมจาก <xliff:g id="IT_ADMIN">%1$s</xliff:g>"</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"กิจกรรมและข้อมูลของคุณ"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"ผู้ดูแลระบบไอทีอาจดูข้อมูลและกิจกรรมของคุณในอุปกรณ์เครื่องนี้ได้"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"สิทธิ์ของแอป"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"ผู้ดูแลระบบไอทีตั้งค่าสิทธิ์สำหรับแอปต่างๆ ในอุปกรณ์นี้ได้ เช่น สิทธิ์เข้าถึงไมโครโฟน กล้อง และตำแหน่ง"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"กำลังตั้งค่าอุปกรณ์…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ใช้อุปกรณ์นี้เพื่อเข้าถึงแอปการทำงานได้ง่ายๆ นี่ไม่ใช่อุปกรณ์ส่วนตัว ดังนั้นผู้ดูแลระบบไอทีจึงอาจดูข้อมูลและกิจกรรมของคุณได้ โปรดติดต่อผู้ดูแลระบบไอทีเพื่อดูข้อมูลเพิ่มเติม"</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"ใช้อุปกรณ์นี้เพื่อเข้าถึงแอปงานได้ง่ายๆ นี่ไม่ใช่อุปกรณ์ส่วนตัว ผู้ดูแลระบบไอทีจึงอาจดูข้อมูลและกิจกรรมของคุณได้"</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"ใช้อุปกรณ์นี้เพื่อเข้าถึงแอปงานได้ง่ายๆ นี่ไม่ใช่อุปกรณ์ส่วนตัว ผู้ดูแลระบบไอทีจึงอาจดูกิจกรรมและข้อมูลของคุณได้ ผู้ดูแลระบบไอทีตั้งค่าสิทธิ์สำหรับแอปต่างๆ ในอุปกรณ์นี้ได้ด้วย เช่น สิทธิ์เข้าถึงไมโครโฟน กล้อง และตำแหน่ง"</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ส่งคืนอุปกรณ์นี้ให้กับผู้ดูแลระบบไอทีของคุณ"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"กลับไปยังหน้าจอก่อนหน้านี้ หรือรีเซ็ตอุปกรณ์นี้และส่งคืนให้กับผู้ดูแลระบบไอทีของคุณ"</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ยกเลิกการตั้งค่า"</string>

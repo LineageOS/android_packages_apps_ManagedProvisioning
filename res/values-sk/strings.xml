@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Poďme nastaviť vaše pracovné zariadenie"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Majte svoje pracovné aplikácie poruke"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Toto zariadenie nie je súkromné"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Vaša aktivita a údaje"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Správca IT si môže zobraziť vaše údaje a aktivitu v tomto zariadení."</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Povolenia aplikácie"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Správca IT môže povoliť aplikáciám prístup k nastaveniam v tomto zariadení vrátane mikrofónu, fotoaparátu a polohy."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"Správca IT si môže zobraziť vaše údaje a aktivitu v tomto zariadení.\n\nViac sa dozviete od <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Vaša aktivita a údaje"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"Správca IT si môže zobraziť vaše údaje a aktivitu v tomto zariadení."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Povolenia aplikácií"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Správca IT môže nastaviť povolenia pre aplikácie v tomto zariadení, napríklad povolenia na použitie mikrofónu, kamery a polohy."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Zariadenie sa nastavuje…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Toto zariadenie vám poskytuje jednoduchý prístup k pracovným aplikáciám. Nie je súkromné, takže správa IT si môže zobraziť vaše údaje a aktivitu. Ďalšie informácie vám poskytne správca IT."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Toto zariadenie vám poskytuje jednoduchý prístup k pracovným aplikáciám. Nie je súkromné, takže správca IT si môže zobraziť vaše údaje a aktivitu."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Toto zariadenie vám poskytuje jednoduchý prístup k pracovným aplikáciám. Nie je súkromné, takže správca IT si môže zobraziť vašu aktivitu a údaje. Správca IT môže nastaviť povolenia pre aplikácie v tomto zariadení, napríklad povolenia na použitie mikrofónu, kamery a polohy."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Vrátenie zariadenia správcovi IT"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Prejdite späť na predchádzajúcu obrazovku alebo toto zariadenie resetujte a vráťte správcovi IT."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Zrušiť nastavenie"</string>

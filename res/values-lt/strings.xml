@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Nustatykime jūsų darbo įrenginį"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Lengvai pasiekite savo darbo programas"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Šis įrenginys nėra privatus"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Jūsų aktyvumas ir duomenys"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Jūsų IT administratorius gali peržiūrėti jūsų duomenis ir veiklą šiame įrenginyje."</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"Programos leidimai"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"IT administratorius gali leisti programoms pasiekti šio įrenginio nustatymus, įskaitant mikrofono, fotoaparato ir vietovės."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"Jūsų IT administratorius gali peržiūrėti jūsų duomenis ir veiklą šiame įrenginyje.\n\nJei norite sužinoti daugiau, susisiekite su <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Jūsų veikla ir duomenys"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"Jūsų IT administratorius gali peržiūrėti jūsų duomenis ir veiklą šiame įrenginyje."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Programos leidimai"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT administratorius gali nustatyti programų leidimus šiame įrenginyje, pvz., leidimus pasiekti mikrofoną, fotoaparatą ir vietovės duomenis."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Nustatomas įrenginys…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Naudokite šį įrenginį, kad lengvai pasiektumėte darbo programas. Šis įrenginys nėra privatus, todėl IT administratorius gali peržiūrėti jūsų duomenis ir veiklą. Jei norite sužinoti daugiau, susisiekite su savo IT administratoriumi."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Naudodami šį įrenginį lengvai pasieksite darbo programas. Šis įrenginys nėra privatus, todėl IT administratorius gali peržiūrėti jūsų duomenis ir veiklą."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Naudodami šį įrenginį lengvai pasieksite darbo programas. Šis įrenginys nėra privatus, todėl IT administratorius gali peržiūrėti jūsų veiklą ir duomenis. IT administratorius taip pat gali nustatyti programų leidimus šiame įrenginyje, pvz., leidimus pasiekti mikrofoną, Fotoaparatą ir vietovės duomenis."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Grąžinkite šį įrenginį IT administratoriui"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Grįžkite į ankstesnį ekraną arba nustatykite šį įrenginį iš naujo ir grąžinkite jį IT administratoriui."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Atšaukti sąranką"</string>

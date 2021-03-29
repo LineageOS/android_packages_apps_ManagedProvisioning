@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Let\'s set up your work device"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Keep your work apps at your fingertips"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"This device isn\'t private"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"Your activity &amp; data"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Your IT admin may be able to see your data and activity on this device."</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"App permissions"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"Your IT admin can allow apps to access settings on this device, including the microphone, camera and location."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"Your IT admin may be able to see your data and activity on this device.\n\nTo learn more, contact your <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Your activity &amp; data"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"Your IT admin may be able to see your data and activity on this device."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"App permissions"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Your IT admin can set permissions for apps on this device, such as microphone, camera and location permissions."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Setting up your device…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Use this device to easily access your work apps. This device isn\'t private, so your IT admin may be able to see your data and activity. To learn more, contact your IT admin."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Use this device to easily access your work apps. This device isn\'t private, so your IT admin may be able to see your data and activity."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Use this device to easily access your work apps. This device isn’t private, so your IT admin may be able to see your activity and data. Your IT admin can also set permissions for apps on this device, such as microphone, camera and location permissions."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Return this device to your IT admin"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Go back to the previous screen, or reset this device and return it to your IT admin."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Cancel setup"</string>

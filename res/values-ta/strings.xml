@@ -170,12 +170,14 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"பணி மொபைலை அமைத்தல்"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"பணிக் கணக்கிற்கான ஆப்ஸை உபயோகிக்கத் தயாராக வைக்கவும்"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"இந்தச் சாதனம் தனிப்பட்டது இல்லை"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader_title" msgid="5417642884373347663">"உங்கள் செயல்பாடு &amp; தரவு"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"இந்தச் சாதனத்தில் உள்ள தரவையும் செயல்பாட்டையும் உங்கள் IT நிர்வாகி பார்க்கக்கூடும்."</string>
-    <string name="fully_managed_device_provisioning_permissions_title" msgid="5887976804117387279">"ஆப்ஸ் அனுமதிகள்"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="5851437453029164791">"இந்தச் சாதனத்திலுள்ள மைக்ரோஃபோன், கேமரா, இருப்பிடம் உள்ளிட்ட அமைப்புகளை அணுகுவதற்கான அனுமதியை உங்கள் IT நிர்வாகியால் ஆப்ஸிற்கு வழங்க முடியும்."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"இந்தச் சாதனத்தில் உள்ள தரவையும் செயல்பாட்டையும் உங்கள் IT நிர்வாகி பார்க்கக்கூடும்.\n\nமேலும் அறிய <xliff:g id="IT_ADMIN">%1$s</xliff:g> ஐத் தொடர்பு கொள்ளவும்."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"உங்கள் செயல்பாடு &amp; தரவு"</string>
+    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"இந்தச் சாதனத்தில் உள்ள தரவையும் செயல்பாட்டையும் உங்கள் IT நிர்வாகி பார்க்கக்கூடும்."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ஆப்ஸ் அனுமதிகள்"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"இந்தச் சாதனத்தில் உள்ள மைக்ரோஃபோன், கேமரா, இருப்பிடத் தகவல் போன்றவற்றை ஆப்ஸ் பயன்படுத்துவதற்கான அனுமதிகளை உங்கள் IT நிர்வாகி அமைக்க முடியும்."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"உங்கள் சாதனத்தை அமைக்கிறது…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"உங்கள் பணிக்கான ஆப்ஸை எளிதாக அணுக இந்தச் சாதனத்தைப் பயன்படுத்துங்கள். இந்தச் சாதனம் தனிப்பட்டதில்லை என்பதால் இதிலுள்ள உங்கள் தரவையும் செயல்பாட்டையும் IT நிர்வாகி பார்க்கக்கூடும். மேலும் அறிய IT நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"உங்கள் பணி ஆப்ஸை எளிதாக அணுக இந்தச் சாதனத்தைப் பயன்படுத்துங்கள். இந்தச் சாதனம் தனிப்பட்டதில்லை என்பதால் இதிலுள்ள உங்கள் தரவையும் செயல்பாட்டையும் IT நிர்வாகி பார்க்கக்கூடும்."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"உங்கள் பணி ஆப்ஸை எளிதாக அணுக இந்தச் சாதனத்தைப் பயன்படுத்துங்கள். இந்தச் சாதனம் தனிப்பட்டதில்லை என்பதால் இதிலுள்ள உங்கள் செயல்பாட்டையும் தரவையும் IT நிர்வாகி பார்க்கக்கூடும். இந்தச் சாதனத்திலுள்ள ஆப்ஸுக்கான அனுமதிகளை (மைக்ரோஃபோன், கேமரா, இருப்பிடம் போன்றவை) உங்கள் IT நிர்வாகியால் அமைக்கவும் முடியும்."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"இந்தச் சாதனத்தை உங்கள் IT நிர்வாகியிடம் திருப்பியளியுங்கள்"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"முந்தைய திரைக்குச் செல்லவும் அல்லது இந்தச் சாதனத்தை மீட்டமைத்து உங்கள் IT நிர்வாகியிடம் திருப்பியளிக்கவும்."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"அமைவை ரத்துசெய்"</string>
