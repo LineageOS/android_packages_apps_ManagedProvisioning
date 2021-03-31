@@ -27,4 +27,9 @@ public interface ConsentUiHelperCallback {
 
     void initializeLayoutParams(int layoutResourceId, @Nullable Integer headerResourceId,
             CustomizationParams params);
+
+    /**
+     * Callback invoked when the terms button was tapped.
+     */
+    void onTermsButtonClicked();
 }

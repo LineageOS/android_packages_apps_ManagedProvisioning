@@ -25,7 +25,6 @@ import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.provider.Settings;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -155,7 +154,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             case PROVISIONING_REQUEST_CODE:
                 mController.onReturnFromProvisioning();
                 setResult(resultCode);
-                finish();
+                getTransitionHelper().finishActivity(this);
                 break;
             case CHANGE_LAUNCHER_REQUEST_CODE:
                 mController.continueProvisioningAfterUserConsent();
@@ -164,7 +163,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 if (resultCode == RESULT_CANCELED) {
                     ProvisionLogger.loge("User canceled wifi picking.");
                     setResult(resultCode);
-                    finish();
+                    getTransitionHelper().finishActivity(this);
                 } else {
                     if (resultCode == RESULT_OK) {
                         ProvisionLogger.logd("Wifi request result is OK");
@@ -233,7 +232,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                     startFinancedDeviceFlow();
                 } else {
                     setResult(resultCode);
-                    finish();
+                    getTransitionHelper().finishActivity(this);
                 }
                 break;
             default:
@@ -303,7 +302,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             case ERROR_DIALOG_RESET:
                 getUtils().factoryReset(this, "Error during preprovisioning");
                 setResult(Activity.RESULT_CANCELED);
-                finish();
+                getTransitionHelper().finishActivity(this);
                 break;
             default:
                 SimpleDialog.throwButtonClickHandlerNotImplemented(dialog);
@@ -313,7 +312,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private void onProvisioningAborted() {
         setResult(Activity.RESULT_CANCELED);
         mController.logPreProvisioningCancelled();
-        finish();
+        getTransitionHelper().finishActivity(this);
     }
 
     @Override
@@ -321,14 +320,16 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class);
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), encryptIntent);
         encryptIntent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-        startActivityForResult(encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
+        getTransitionHelper().startActivityForResultWithTransition(
+                this, encryptIntent, ENCRYPT_DEVICE_REQUEST_CODE);
     }
 
     @Override
     public void requestWifiPick() {
         final Intent intent = mUtils.getWifiPickIntent();
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
-        startActivityForResult(intent, WIFI_REQUEST_CODE);
+        getTransitionHelper()
+                .startActivityForResultWithTransition(this, intent, WIFI_REQUEST_CODE);
     }
 
     @Override
@@ -353,7 +354,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             final Intent intent = new Intent(this, AdminIntegratedFlowPrepareActivity.class);
             WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
             intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-            startActivityForResult(intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
+            getTransitionHelper().startActivityForResultWithTransition(
+                    this, intent, ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE);
         } else {
             handleAdminIntegratedFlowPreparerResult();
         }
@@ -362,15 +364,19 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private void requestLauncherPick() {
         Intent changeLauncherIntent = new Intent(Settings.ACTION_HOME_SETTINGS);
         changeLauncherIntent.putExtra(EXTRA_SUPPORT_MANAGED_PROFILES, true);
-        startActivityForResult(changeLauncherIntent, CHANGE_LAUNCHER_REQUEST_CODE);
+        getTransitionHelper().startActivityForResultWithTransition(
+                this, changeLauncherIntent, CHANGE_LAUNCHER_REQUEST_CODE);
     }
 
-    public void startProvisioning(int userId, ProvisioningParams params) {
+    /**
+     * Starts {@link ProvisioningActivity}.
+     */
+    public void startProvisioning(ProvisioningParams params) {
         Intent intent = new Intent(this, ProvisioningActivity.class);
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-        startActivityForResultAsUser(intent, PROVISIONING_REQUEST_CODE, new UserHandle(userId));
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        getTransitionHelper().startActivityForResultWithTransition(
+                this, intent, PROVISIONING_REQUEST_CODE);
     }
 
     // TODO: The below group of methods do not belong in the activity.
@@ -410,7 +416,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         Bundle additionalExtras = mController.getAdditionalExtrasForGetProvisioningModeIntent();
         provisioningModeUtils.startGetProvisioningModeActivityIfResolved(
                 this, mController.getParams(), additionalExtras,
-                GET_PROVISIONING_MODE_REQUEST_CODE);
+                GET_PROVISIONING_MODE_REQUEST_CODE, getTransitionHelper());
     }
 
     private void startFinancedDeviceFlow() {
@@ -440,7 +446,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         Intent intent = new Intent(this, LandingActivity.class);
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-        startActivityForResult(intent, ORGANIZATION_OWNED_LANDING_PAGE_REQUEST_CODE);
+        getTransitionHelper().startActivityForResultWithTransition(
+                this, intent, ORGANIZATION_OWNED_LANDING_PAGE_REQUEST_CODE);
     }
 
     @Override
@@ -448,7 +455,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         Intent intent = new Intent(this, FinancedDeviceLandingActivity.class);
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-        startActivityForResult(intent, FINANCED_DEVICE_PREPARE_REQUEST_CODE);
+        getTransitionHelper().startActivityForResultWithTransition(
+                this, intent, FINANCED_DEVICE_PREPARE_REQUEST_CODE);
     }
 
     @Override
@@ -485,6 +493,12 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     @Override
     public void nextAfterUserConsent() {
         mController.continueProvisioningAfterUserConsent();
+    }
+
+    @Override
+    public void onTermsButtonClicked() {
+        getTransitionHelper()
+                .startActivityWithTransition(this, mController.createViewTermsIntent());
     }
 
     @Override

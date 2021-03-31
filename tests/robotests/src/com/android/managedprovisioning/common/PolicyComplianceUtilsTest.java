@@ -62,6 +62,7 @@ public class PolicyComplianceUtilsTest {
             new ProvisioningAnalyticsTracker(
                     MetricsWriterFactory.getMetricsWriter(mContext, new SettingsFacade()),
                     mManagedProvisioningSharedPreferences);
+    private final TransitionHelper mTransitionHelper = new TransitionHelper();
 
     @Test
     public void isPolicyComplianceActivityResolvableForSystemUser_activityExists_returnsTrue() {
@@ -99,7 +100,8 @@ public class PolicyComplianceUtilsTest {
                 createTrustedSourceParamsBuilder().build(),
                 POLICY_COMPLIANCE_ACTIVITY_REQUEST_CODE,
                 mUtils,
-                mProvisioningAnalyticsTracker);
+                mProvisioningAnalyticsTracker,
+                mTransitionHelper);
 
         Intent startedIntent = shadowOf(parentActivity).peekNextStartedActivity();
         assertThat(startedIntent.getAction()).isEqualTo(ACTION_ADMIN_POLICY_COMPLIANCE);
@@ -117,7 +119,8 @@ public class PolicyComplianceUtilsTest {
                 createTrustedSourceParamsBuilder().build(),
                 POLICY_COMPLIANCE_ACTIVITY_REQUEST_CODE,
                 mUtils,
-                mProvisioningAnalyticsTracker);
+                mProvisioningAnalyticsTracker,
+                mTransitionHelper);
 
         Intent startedIntent = shadowOf(parentActivity).peekNextStartedActivity();
         assertThat(startedIntent).isNull();

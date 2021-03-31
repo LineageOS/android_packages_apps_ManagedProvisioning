@@ -18,6 +18,7 @@ package com.android.managedprovisioning.preprovisioning.terms.adapters;
 import static java.util.Objects.requireNonNull;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,10 +27,12 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * Allows for displaying {@link TermsDocument} objects in an
@@ -40,11 +43,14 @@ public class TermsListAdapterCar extends RecyclerView.Adapter<TermsListAdapterCa
     private final List<TermsDocument> mTerms;
     private final Context mContext;
     private final Utils mUtils;
+    private final Consumer<Intent> mOnLinkClickedHandler;
 
-    public TermsListAdapterCar(Context context, List<TermsDocument> terms, Utils utils) {
+    public TermsListAdapterCar(Context context, List<TermsDocument> terms, Utils utils,
+            Consumer<Intent> onLinkClickedHandler) {
         mTerms = requireNonNull(terms);
         mContext = requireNonNull(context);
         mUtils = requireNonNull(utils);
+        mOnLinkClickedHandler = requireNonNull(onLinkClickedHandler);
     }
 
     @Override
@@ -64,7 +70,8 @@ public class TermsListAdapterCar extends RecyclerView.Adapter<TermsListAdapterCa
                 .getString(R.string.section_heading, disclaimer.getHeading()));
 
         TermsAdapterUtils.populateContentTextView(
-                mContext, holder.mContentTextView, disclaimer, mUtils.getAccentColor(mContext));
+                mContext, holder.mContentTextView, disclaimer, new ClickableSpanFactory(
+                        mUtils.getAccentColor(mContext), mOnLinkClickedHandler));
     }
 
     @Override

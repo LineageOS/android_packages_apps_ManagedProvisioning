@@ -85,6 +85,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Consumer;
 
 /**
  * Class containing various auxiliary methods.
@@ -698,8 +699,9 @@ public class Utils {
     }
 
     public void handleSupportUrl(Context context, CustomizationParams customizationParams,
-                AccessibilityContextMenuMaker contextMenuMaker, TextView textView,
-                String deviceProvider, String contactDeviceProvider) {
+            AccessibilityContextMenuMaker contextMenuMaker, TextView textView,
+            String deviceProvider, String contactDeviceProvider,
+            Consumer<Intent> clickHandler) {
         if (customizationParams.supportUrl == null) {
             textView.setText(contactDeviceProvider);
             return;
@@ -707,7 +709,8 @@ public class Utils {
         final Intent intent = WebActivity.createIntent(
                 context, customizationParams.supportUrl);
 
-        final ClickableSpanFactory spanFactory = new ClickableSpanFactory(getAccentColor(context));
+        final ClickableSpanFactory spanFactory =
+                new ClickableSpanFactory(getAccentColor(context), clickHandler);
         handlePartialClickableTextView(
                 textView, contactDeviceProvider, deviceProvider, intent, spanFactory);
 

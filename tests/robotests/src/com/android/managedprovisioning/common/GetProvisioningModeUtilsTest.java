@@ -62,6 +62,7 @@ public class GetProvisioningModeUtilsTest {
 
     private final Context mContext = ApplicationProvider.getApplicationContext();
     private final GetProvisioningModeUtils mProvisioningModeUtils = new GetProvisioningModeUtils();
+    private final TransitionHelper mTransitionHelper = new TransitionHelper();
 
     @Test
     public void isGetProvisioningModeActivityResolvable_resolvableActivity_returnsTrue() {
@@ -94,7 +95,7 @@ public class GetProvisioningModeUtilsTest {
 
         assertThat(mProvisioningModeUtils
                 .startGetProvisioningModeActivityIfResolved(
-                parentActivity, PARAMS, new Bundle(), requestCode)).isTrue();
+                parentActivity, PARAMS, new Bundle(), requestCode, mTransitionHelper)).isTrue();
     }
 
     @Test
@@ -107,7 +108,7 @@ public class GetProvisioningModeUtilsTest {
         Activity parentActivity = Robolectric.buildActivity(Activity.class).create().get();
 
         mProvisioningModeUtils.startGetProvisioningModeActivityIfResolved(
-                parentActivity, PARAMS, new Bundle(), requestCode);
+                parentActivity, PARAMS, new Bundle(), requestCode, mTransitionHelper);
 
         Intent startedIntent = shadowOf(parentActivity).peekNextStartedActivity();
         assertThat(startedIntent.getAction())
@@ -130,7 +131,7 @@ public class GetProvisioningModeUtilsTest {
         additionalExtras.putString(STRING_EXTRA_KEY, STRING_EXTRA_VALUE);
 
         mProvisioningModeUtils.startGetProvisioningModeActivityIfResolved(
-                parentActivity, PARAMS, additionalExtras, requestCode);
+                parentActivity, PARAMS, additionalExtras, requestCode, mTransitionHelper);
 
         Bundle extras = shadowOf(parentActivity).peekNextStartedActivity().getExtras();
         assertThat(extras.getInt(INT_EXTRA_KEY)).isEqualTo(INT_EXTRA_VALUE);

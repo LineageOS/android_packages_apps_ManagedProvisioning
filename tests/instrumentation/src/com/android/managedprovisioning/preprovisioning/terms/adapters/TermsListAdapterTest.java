@@ -18,6 +18,7 @@ package com.android.managedprovisioning.preprovisioning.terms.adapters;
 import static com.google.common.truth.Truth.assertThat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 
 import androidx.test.filters.SmallTest;
@@ -56,6 +57,9 @@ public class TermsListAdapterTest {
 
                 @Override
                 public void onTermExpanded(int groupPosition, boolean expanded) {}
+
+                @Override
+                public void onLinkClicked(Intent intent) {}
             };
     private final Utils mUtils = new Utils();
 

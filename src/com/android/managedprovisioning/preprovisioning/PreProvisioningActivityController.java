@@ -190,10 +190,9 @@ public class PreProvisioningActivityController {
 
         /**
          * Start provisioning.
-         * @param userId the id of the user we want to start provisioning on
          * @param params the {@link ProvisioningParams} object related to the ongoing provisioning
          */
-        void startProvisioning(int userId, ProvisioningParams params);
+        void startProvisioning(ProvisioningParams params);
 
         /**
          * Show an error dialog indicating that the current launcher does not support managed
@@ -240,10 +239,6 @@ public class PreProvisioningActivityController {
          * The original provisioning action, kept for backwards compatibility.
          */
         public String provisioningAction;
-        /**
-         * {@link Intent} to launch the view terms screen.
-         */
-        public Intent viewTermsIntent;
         public boolean isOrganizationOwnedProvisioning;
     }
 
@@ -413,7 +408,6 @@ public class PreProvisioningActivityController {
         uiParams.provisioningAction = mViewModel.getParams().provisioningAction;
         uiParams.packageName = packageName;
         uiParams.isDeviceManaged = mDevicePolicyManager.isDeviceManaged();
-        uiParams.viewTermsIntent = createViewTermsIntent();
         uiParams.isOrganizationOwnedProvisioning =
                 mViewModel.getParams().isOrganizationOwnedProvisioning;
 
@@ -572,7 +566,7 @@ public class PreProvisioningActivityController {
                 || params.initiatorRequestedProvisioningModes == SUPPORTED_MODES_DEVICE_OWNER;
     }
 
-    private Intent createViewTermsIntent() {
+    protected Intent createViewTermsIntent() {
         return new Intent(mContext, TermsActivity.class).putExtra(
             ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mViewModel.getParams());
     }
@@ -614,13 +608,13 @@ public class PreProvisioningActivityController {
                 // Cancel the boot reminder as provisioning has now started.
                 mViewModel.getEncryptionController().cancelEncryptionReminder();
                 stopTimeLogger();
-                mUi.startProvisioning(mUserManager.getUserHandle(), mViewModel.getParams());
+                mUi.startProvisioning(mViewModel.getParams());
             }
         } else { // DO case
             // Cancel the boot reminder as provisioning has now started.
             mViewModel.getEncryptionController().cancelEncryptionReminder();
             stopTimeLogger();
-            mUi.startProvisioning(mUserManager.getUserHandle(), mViewModel.getParams());
+            mUi.startProvisioning(mViewModel.getParams());
         }
 
         mViewModel.onProvisioningStartedAfterUserConsent();

@@ -20,6 +20,7 @@ import static android.view.View.TEXT_ALIGNMENT_TEXT_START;
 import static java.util.Objects.requireNonNull;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 
@@ -143,7 +145,9 @@ public class TermsListAdapter extends RecyclerView.Adapter<TermsListAdapter.Term
     private void setupDisclaimerContent(TermsDocument disclaimer, TermsViewHolder viewHolder) {
         TextView disclaimerContent = viewHolder.mDisclaimerContent;
         TermsAdapterUtils.populateContentTextView(
-                mContext, disclaimerContent, disclaimer, mUtils.getAccentColor(mContext));
+                mContext, disclaimerContent, disclaimer, new ClickableSpanFactory(
+                        mUtils.getAccentColor(mContext),
+                        mTermsBridge::onLinkClicked));
         mContextMenuMaker.registerWithActivity(disclaimerContent);
     }
 
@@ -185,6 +189,12 @@ public class TermsListAdapter extends RecyclerView.Adapter<TermsListAdapter.Term
          * otherwise collapses it.
          */
         void onTermExpanded(int position, boolean expanded);
+
+        /**
+         * Callback invoked when a link is tapped from the terms content text.
+         * @param intent a web intent ready to be launched.
+         */
+        void onLinkClicked(Intent intent);
     }
 
     static class TermsViewHolder extends RecyclerView.ViewHolder {
