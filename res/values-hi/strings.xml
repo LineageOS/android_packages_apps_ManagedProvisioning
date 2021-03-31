@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"चलिए आपके काम से जुड़ा फ़ोन सेट अप करते हैं"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"काम के लिए इस्तेमाल किए जाने वाले ऐप्लिकेशन अपनी उंगली की नोक पर रखें"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"यह डिवाइस निजी नहीं है"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"आपका आईटी एडमिन, इस डिवाइस पर आपका डेटा और गतिविधि देख सकता है.\n\nइस बारे में ज़्यादा जानने के लिए, अपने <xliff:g id="IT_ADMIN">%1$s</xliff:g> से संपर्क करें."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"आपका आईटी एडमिन इस डिवाइस पर आपका डेटा और गतिविधि देख सकता है."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"आपकी गतिविधि और डेटा"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"आपका आईटी एडमिन, इस डिवाइस पर आपका डेटा और गतिविधि देख सकता है."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ऐप्लिकेशन की अनुमतियां"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"आपका आईटी एडमिन, इस डिवाइस में मौजूद ऐप्लिकेशन को दी जाने वाली अनुमतियां सेट कर सकता है. इसमें, माइक्रोफ़ोन, कैमरा, और जगह की जानकारी से जुड़ी अनुमतियां शामिल हैं."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"आपका डिवाइस सेट किया जा रहा है…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"निजता रिमाइंडर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"आपके आईटी एडमिन इस डिवाइस पर आपका डेटा और गतिविधि देख सकते हैं"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"यह डिवाइस, <xliff:g id="CREDITOR_NAME">%s</xliff:g> ने दिया है"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> यह कर सकता है:"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"इस डिवाइस में, <xliff:g id="CREDITOR_NAME">%s</xliff:g> ऐप्लिकेशन इंस्टॉल करें"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"अगर आप पैसे नहीं चुकाते हैं, तो यह डिवाइस लॉक हो जाएगा"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ऐप्लिकेशन से पैसे चुकाएं"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>, <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ऐप्लिकेशन को इंस्टॉल कर सकता है, ताकि आप इस डिवाइस के लिए पैसे चुका सकें."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g>, इस डिवाइस पर पाबंदी लगा सकता है"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"अगर आप पैसे नहीं चुकाते, तो <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, डिवाइस को ऐक्सेस करने पर पाबंदी लगा सकता है."</string>
 </resources>

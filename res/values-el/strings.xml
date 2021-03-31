@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Ας ρυθμίσουμε τη συσκευή εργασίας σας"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Διατηρήσετε στη διάθεσή σας τις εφαρμογές εργασίας σας"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Αυτή η συσκευή δεν είναι ιδιωτική"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"Ο διαχειριστής IT σας μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας σε αυτήν τη συσκευή.\n\nΓια να μάθετε περισσότερα, επικοινωνήστε με τον διαχειριστή <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Ο διαχειριστής IT σας μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας σε αυτήν τη συσκευή."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Η δραστηριότητα και τα δεδομένα σας"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"Ο διαχειριστής IT σας μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας σε αυτήν τη συσκευή."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Άδειες εφαρμογών"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Ο διαχειριστής IT σας μπορεί να ορίσει άδειες για εφαρμογές σε αυτήν τη συσκευή, όπως άδειες τοποθεσίας, μικροφώνου και κάμερας."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Ρύθμιση της συσκευής σας…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Υπενθύμιση απορρήτου"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Ο διαχειριστής IT σας μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας σε αυτήν τη συσκευή"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Αυτή η συσκευή παρέχεται από τον οργανισμό <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"Ο πιστωτής <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> μπορεί:"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"Εγκατάσταση της εφαρμογής <xliff:g id="CREDITOR_NAME">%s</xliff:g> σε αυτήν τη συσκευή"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"Κλείδωμα αυτής της συσκευής εάν δεν πραγματοποιείτε πληρωμές"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Πραγματοποιήστε πληρωμές με την εφαρμογή <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"Ο πιστωτής <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> μπορεί να εγκαταστήσει την εφαρμογή <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>, έτσι ώστε να μπορείτε να πραγματοποιείτε πληρωμές για αυτήν τη συσκευή."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"Ο πιστωτής <xliff:g id="CREDITOR_NAME">%s</xliff:g> μπορεί να περιορίσει αυτήν τη συσκευή"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"Ο πιστωτής <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> μπορεί να περιορίσει την πρόσβαση σε αυτήν τη συσκευή, στην περίπτωση που δεν πραγματοποιήσετε πληρωμές."</string>
 </resources>

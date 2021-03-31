@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"มาตั้งค่าอุปกรณ์สำหรับการทำงานกัน"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"เข้าถึงแอปการทำงานได้ด้วยปลายนิ้ว"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"อุปกรณ์นี้ไม่เป็นส่วนตัว"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"ผู้ดูแลระบบไอทีอาจดูข้อมูลและกิจกรรมของคุณในอุปกรณ์เครื่องนี้ได้\n\nโปรดสอบถามข้อมูลเพิ่มเติมจาก <xliff:g id="IT_ADMIN">%1$s</xliff:g>"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ผู้ดูแลระบบไอทีอาจดูข้อมูลและกิจกรรมของคุณในอุปกรณ์เครื่องนี้ได้"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"กิจกรรมและข้อมูลของคุณ"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"ผู้ดูแลระบบไอทีอาจดูข้อมูลและกิจกรรมของคุณในอุปกรณ์เครื่องนี้ได้"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"สิทธิ์ของแอป"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"ผู้ดูแลระบบไอทีตั้งค่าสิทธิ์สำหรับแอปต่างๆ ในอุปกรณ์นี้ได้ เช่น สิทธิ์เข้าถึงไมโครโฟน กล้อง และตำแหน่ง"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"กำลังตั้งค่าอุปกรณ์…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"การช่วยเตือนความเป็นส่วนตัว"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ผู้ดูแลระบบไอทีอาจดูข้อมูลและกิจกรรมของคุณในอุปกรณ์เครื่องนี้ได้"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"อุปกรณ์นี้ให้บริการโดย <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ดำเนินการต่อไปนี้ได้"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"ติดตั้งแอป <xliff:g id="CREDITOR_NAME">%s</xliff:g> ในอุปกรณ์นี้"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"ล็อกอุปกรณ์นี้หากคุณไม่ได้จะชำระเงิน"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"ชำระเงินด้วยแอป <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> ติดตั้งแอป <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> เพื่อให้ดำเนินการชำระเงินสำหรับอุปกรณ์นี้ได้"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> จำกัดอุปกรณ์นี้ได้"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> จำกัดการเข้าถึงอุปกรณ์นี้ได้หากคุณไม่ชำระเงิน"</string>
 </resources>

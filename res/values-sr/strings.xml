@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Хајде да подесимо пословни уређај"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Нека вам пословне апликације буду надохват руке"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Овај уређај није приватан"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"ИТ администратор можда може да види податке и активности на овом уређају.\n\nДа бисте сазнали више, обратите се ИТ администратору <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ИТ администратор можда може да види податке или активности на овом уређају."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Активности и подаци"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"ИТ администратор можда може да види податке или активности на овом уређају."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Дозволе за апликације"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"ИТ администратор може да подешава дозволе за апликације на овом уређају, као што су дозволе за микрофон, камеру и локацију."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Уређај се подешава…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Подсетник о приватности"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ИТ администратор можда може да види податке или активности на овом уређају"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Овај уређај пружа <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> може:"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"да инсталира апликацију организације <xliff:g id="CREDITOR_NAME">%s</xliff:g> на овом уређају"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"да закључа овај уређај ако не извршите плаћања"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Плаћајте помоћу апликације кредитора <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>може да инсталира апликацију кредитора <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> како бисте могли да плаћате за овај уређај"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> може да ограничава приступ овом уређају"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> може да ограничава приступ овом уређају ако не обављате плаћања."</string>
 </resources>

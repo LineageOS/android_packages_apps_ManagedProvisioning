@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ચાલો, તમારો કાર્યાલયનો ફોન સેટ કરીએ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"તમારી કાર્ય સંબંધી ઍપને તમારી આંગળીના ટેરવે રાખો"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"આ ડિવાઇસ ખાનગી નથી"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"તમારા IT વ્યવસ્થાપક આ ડિવાઇસ પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકે.\n\nવધુ જાણવા માટે, તમારા <xliff:g id="IT_ADMIN">%1$s</xliff:g>નો સંપર્ક કરો."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"તમારા IT વ્યવસ્થાપક આ ડિવાઇસ પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"તમારી પ્રવૃત્તિ અને ડેટા"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"તમારા IT વ્યવસ્થાપક આ ડિવાઇસ પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકે."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ઍપની પરવાનગીઓ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"તમારા IT વ્યવસ્થાપક, આ ડિવાઇસ પર ઍપ માટેની પરવાનગીઓ સેટ કરી શકે છે, જેમ કે માઇક્રોફોન, કૅમેરા અને સ્થાનની પરવાનગીઓ."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"તમારું ઉપકરણ સેટ થઈ રહ્યું છે…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"પ્રાઇવસી રિમાઇન્ડર"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"તમારા IT વ્યવસ્થાપક આ ડિવાઇસ પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"આ ડિવાઇસ <xliff:g id="CREDITOR_NAME">%s</xliff:g> દ્વારા પ્રદાન કરવામાં આવેલું છે"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> આ કરી શકે છે:"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"આ ડિવાઇસ પર <xliff:g id="CREDITOR_NAME">%s</xliff:g> ઍપ ઇન્સ્ટૉલ કરો"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"જો તમે ચુકવણીઓ ન કરો, તો આ ડિવાઇસ લૉક કરો"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ઍપ વડે ચુકવણી કરો"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ઍપ ઇન્સ્ટૉલ કરી શકે છે જેથી તમે આ ડિવાઇસ માટે ચુકવણીઓ કરી શકો."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> આ ડિવાઇસને પ્રતિબંધિત કરી શકે છે"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"જો તમે ચુકવણી નથી કરતા, તો <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> આ ડિવાઇસનો ઍક્સેસ પ્રતિબંધિત કરી શકે છે."</string>
 </resources>

@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Darba ierīces iestatīšana"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Ērti piekļūstiet darba lietotnēm"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Šī ierīce nav privāta"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"Iespējams, jūsu IT administrators varēs skatīt jūsu datus un darbības šajā ierīcē.\n\nLai uzzinātu vairāk sazinieties ar: <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Iespējams, jūsu IT administrators varēs skatīt jūsu datus un darbības šajā ierīcē."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Jūsu darbības un dati"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"Iespējams, jūsu IT administrators varēs skatīt jūsu datus un darbības šajā ierīcē."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Lietotņu atļaujas"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Jūsu IT administrators var iestatīt atļaujas lietotnēm šajā ierīcē, piemēram, mikrofona, kameras un atrašanās vietas atļaujas."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Notiek jūsu ierīces iestatīšana…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Atgādinājums par konfidencialitāti"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Iespējams, jūsu IT administrators varēs skatīt jūsu datus un darbības šajā ierīcē"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Šo ierīci nodrošina <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> var veikt tālāk norādītās darbības."</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"Instalēt <xliff:g id="CREDITOR_NAME">%s</xliff:g> lietotni šajā ierīcē"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"Bloķēt šo ierīci, ja jūs neveiksiet maksājumus"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Maksājumu veikšana, izmantojot lietotni <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> var instalēt lietotni <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>, lai jūs varētu veikt maksājumus par šo ierīci."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> var ierobežot piekļuvi šai ierīcei"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> var ierobežot piekļuvi šai ierīcei, ja jūs neveicat maksājumus."</string>
 </resources>

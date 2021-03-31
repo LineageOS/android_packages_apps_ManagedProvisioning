@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"សូម​រៀបចំ​ឧបករណ៍​​ការងារ​របស់អ្នក"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"រក្សាកម្មវិធី​ការងារ​របស់អ្នកនៅចុងម្រាមដៃ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ឧបករណ៍​នេះ​មិនមាន​លក្ខណៈឯកជនទេ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"អ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មានវិទ្យារបស់អ្នកប្រហែលជាអាចមើលឃើញទិន្នន័យ និងសកម្មភាពរបស់អ្នកនៅលើឧបករណ៍នេះ។\n\nដើម្បីស្វែងយល់បន្ថែម សូមទាក់ទង <xliff:g id="IT_ADMIN">%1$s</xliff:g> របស់អ្នក។"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"អ្នក​គ្រប់គ្រងផ្នែក​ព័ត៌មាន​វិទ្យា​របស់អ្នក​ប្រហែលជាអាច​មើលឃើញទិន្នន័យ និងសកម្មភាព​របស់អ្នក​នៅលើ​ឧបករណ៍​នេះ។"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"ទិន្នន័យ និងសកម្មភាព​របស់អ្នក"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"អ្នក​គ្រប់គ្រងផ្នែក​ព័ត៌មាន​វិទ្យា​របស់អ្នក​ប្រហែលជាអាច​មើលឃើញទិន្នន័យ និងសកម្មភាព​របស់អ្នក​នៅលើ​ឧបករណ៍​នេះ។"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ការអនុញ្ញាតកម្មវិធី"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"អ្នកគ្រប់គ្រងផ្នែក​ព័ត៌មានវិទ្យារបស់អ្នក​អាចកំណត់​ការអនុញ្ញាតសម្រាប់​កម្មវិធីនៅលើឧបករណ៍​នេះដូចជា ការអនុញ្ញាតឱ្យ​ប្រើទីតាំង មីក្រូហ្វូន និងកាមេរ៉ាជាដើម។"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"កំពុងរៀបចំឧបករណ៍របស់អ្នក…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ការរំលឹកអំពីឯកជនភាព"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"អ្នក​គ្រប់គ្រងផ្នែក​ព័ត៌មាន​វិទ្យា​របស់អ្នក​ប្រហែលជាអាច​មើលឃើញទិន្នន័យ និងសកម្មភាព​របស់អ្នក​នៅលើ​ឧបករណ៍​នេះ"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"ឧបករណ៍នេះត្រូវបានផ្ដល់ដោយ <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> អាច៖"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"ដំឡើងកម្មវិធី <xliff:g id="CREDITOR_NAME">%s</xliff:g> នៅលើឧបករណ៍នេះ"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"ចាក់សោឧបករណ៍នេះ ប្រសិនបើអ្នកមិនធ្វើការបង់ប្រាក់ទេ"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"ធ្វើការបង់ប្រាក់​ដោយប្រើកម្មវិធី <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> អាចដំឡើង​កម្មវិធី <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ដើម្បីឱ្យអ្នកអាច​ធ្វើការបង់ប្រាក់​សម្រាប់ឧបករណ៍នេះ។"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> អាចដាក់កំហិតឧបករណ៍នេះ"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> អាចដាក់កំហិតការចូលប្រើឧបករណ៍នេះ ប្រសិនបើអ្នកមិនធ្វើការបង់ប្រាក់។"</string>
 </resources>

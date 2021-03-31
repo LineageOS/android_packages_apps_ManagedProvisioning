@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ඔබේ කාර්යාල උපාංගය සකසමු"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ඔබේ කාර්යා යෙදුම් ඔබේ ඇඟිලි තුඩුවල තබා ගන්න"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"මෙම උපාංගය පුද්ගලික නොවේ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"ඔබගේ IT පරිපාලකට මෙම උපාංගයේ ඔබගේ දත්ත සහ ක්‍රියාකාරකම් බැලීමට හැකි විය හැකිය.\n\nතව දැන ගැනීමට ඔබගේ <xliff:g id="IT_ADMIN">%1$s</xliff:g> හා සම්බන්ධ වන්න."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ඔබේ තොරතුරු තාක්‍ෂණ පරිපාලකයාට මෙම උපාංගය මත ඔබේ දත්ත සහ ක්‍රියාකාරකම බැලිය හැකි වීමට ඉඩ ඇත."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"ඔබගේ ක්‍රියාකාරකම් සහ දත්ත"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"ඔබගේ IT පරිපාලකට මෙම උපාංගය මත ඔබගේ දත්ත සහ ක්‍රියාකාරකම් බැලීමට හැකි විය හැකිය."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"යෙදුම් අවසර"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"ඔබගේ IT පරිපාලකට මයික්‍ර‍ෆෝනය, කැමරාව සහ ස්ථාන අවසර වැනි මෙම උපාංගයේ යෙදුම් සඳහා අවසර සැකසිය හැකිය."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ඔබේ උපාංගය සැකසීම…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"පෞද්ගලිකත්ව සිහි කැඳවීම"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ඔබේ තොරතුරු තාක්‍ෂණ පරිපාලකයාට මෙම උපාංගය මත ඔබේ දත්ත සහ ක්‍රියාකාරකම බැලිය හැකි වීමට ඉඩ ඇත"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"මෙම උපාංගය <xliff:g id="CREDITOR_NAME">%s</xliff:g> මගින් සැපයේ"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> හට මේවා කළ හැකිය:"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"මෙම උපාංගයෙහි <xliff:g id="CREDITOR_NAME">%s</xliff:g> යෙදුම ස්ථාපනය කරන්න"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"ඔබ ගෙවීම් නොකරන්නේ නම් මෙම උපාංගය අගුලු දමන්න"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> යෙදුම සමගින් ගෙවීම් සිදු කරන්න"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> හට මෙම උපාංගය සඳහා ඔබට ගෙවීම් කළ හැකි වන ලෙස <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> යෙදුම ස්ථාපනය කළ හැකිය."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> හට මෙම උපාංගය සීමා කළ හැකිය"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"ඔබ ගෙවීම් සිදු නොකරන්නේ නම් <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> හට මෙම උපාංගයට ඔබට ප්‍රවේශය සීමා කළ හැකිය."</string>
 </resources>
