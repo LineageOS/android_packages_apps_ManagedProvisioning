@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"仕事用のデバイスをセットアップしましょう"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"簡単に仕事用アプリにアクセス"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"このデバイスは非公開ではありません"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります。\n\n詳しくは、<xliff:g id="IT_ADMIN">%1$s</xliff:g> にお問い合わせください。"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります。"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"あなたのアクティビティとデータ"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります。"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"アプリの権限"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT 管理者はこのデバイスのアプリに権限を設定できます（マイク、カメラ、位置情報の利用許可など）。"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"デバイスをセットアップしています…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"プライバシーに関するお知らせ"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"このデバイスは <xliff:g id="CREDITOR_NAME">%s</xliff:g> から提供されています"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> は以下を行えます。"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"このデバイスに <xliff:g id="CREDITOR_NAME">%s</xliff:g> アプリをインストールします"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"お支払いが行われなかった場合、このデバイスをロックします"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> アプリでお支払いください"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> によってインストールされる <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> アプリで、このデバイスのお支払いを行えます。"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> はこのデバイスを制限することがあります"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> は、お支払いが行われなかった場合、このデバイスへのアクセスを制限することがあります。"</string>
 </resources>

@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Configurez votre appareil professionnel"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Gardez vos applications professionnelles à portée de main"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Cet appareil n\'est pas privé"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"Il est possible que votre administrateur informatique puisse voir vos données et votre activité sur cet appareil.\n\nPour en savoir plus, contactez votre <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Votre administrateur informatique peut voir vos données et votre activité sur cet appareil."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Votre activité et vos données"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"Votre administrateur informatique peut voir vos données et votre activité sur cet appareil."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Autorisations des applications"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Votre administrateur informatique peut définir des autorisations pour les applis sur cet appareil, par exemple concernant le micro, l\'appareil photo et la position."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configuration de votre appareil…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Rappel concernant les règles de confidentialité"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Votre administrateur informatique peut voir vos données et votre activité sur cet appareil"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Cet appareil est fourni par <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> peut prendre les mesures suivantes :"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"Installer l\'appli <xliff:g id="CREDITOR_NAME">%s</xliff:g> sur cet appareil"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"Verrouiller cet appareil si vous n\'effectuez pas de paiements"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Payer avec <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> peut installer <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> afin que vous puissiez effectuer des paiements sur cet appareil."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> peut limiter cet appareil"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> peut limiter l\'accès à cet appareil si vous n\'effectuez pas de paiements."</string>
 </resources>

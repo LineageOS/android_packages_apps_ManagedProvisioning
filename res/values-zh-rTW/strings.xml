@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"設定你的工作用裝置"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"輕鬆存取工作應用程式"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"這不是私人裝置"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"IT 管理員或許可以查看你在這部裝置上的資料和活動。\n\n如要瞭解詳情，請與 <xliff:g id="IT_ADMIN">%1$s</xliff:g>聯絡。"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"你的 IT 管理員或許可以查看你在這個裝置的資料和活動。"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"你的活動和資料"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"IT 管理員或許可以查看你在這部裝置上的資料和活動。"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"應用程式權限"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT 管理員可以設定這部裝置上的應用程式權限，例如麥克風、相機和位置存取權。"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"正在設定你的裝置…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"隱私權提醒"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"你的 IT 管理員或許可以查看你在這個裝置的資料和活動"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"這部裝置是由「<xliff:g id="CREDITOR_NAME">%s</xliff:g>」提供"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"「<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>」可以執行以下動作："</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"在這部裝置上安裝「<xliff:g id="CREDITOR_NAME">%s</xliff:g>」應用程式"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"如果你未付款，對方就可以鎖定這部裝置"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"透過「<xliff:g id="CREDITOR_NAME">%s</xliff:g>」應用程式支付裝置費用"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"「<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>」可在這部裝置上安裝「<xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>」應用程式，以便你支付這部裝置的費用。"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"「<xliff:g id="CREDITOR_NAME">%s</xliff:g>」可以限制你使用這部裝置"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"如果你未支付費用，「<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>」可以限制你使用這部裝置。"</string>
 </resources>

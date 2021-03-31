@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"حان وقت إعداد جهاز العمل."</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"التحكم بسهولة في تطبيقات العمل"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"هذا الجهاز ليس خاصًا."</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"قد يتمكن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على هذا الجهاز.\n\nللتعرّف على مزيد من المعلومات، يُرجى التواصل مع <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على هذا الجهاز."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"النشاط والبيانات"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على هذا الجهاز."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"أذونات التطبيقات"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"يمكن لمشرف تكنولوجيا المعلومات ضبط أذونات التطبيقات على هذا الجهاز، مثلاً أذونات الميكروفون والكاميرا والموقع الجغرافي."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"جارٍ إعداد جهازك…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"تذكير الخصوصية"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على هذا الجهاز."</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"توفر مؤسسة \"<xliff:g id="CREDITOR_NAME">%s</xliff:g>\" هذا الجهاز."</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"بإمكان <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> تنفيذ ما يلي:"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"تثبيت تطبيق <xliff:g id="CREDITOR_NAME">%s</xliff:g> على هذا الجهاز"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"قفل هذا الجهاز إذا لم تسدد الدفعات"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"تسديد الدفعات باستخدام تطبيق <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"يمكن لموفّر الائتمان <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> تثبيت تطبيق <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> لتتمكن من تسديد الدفعات مقابل شراء هذا الجهاز."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"يمكن لموفّر الائتمان <xliff:g id="CREDITOR_NAME">%s</xliff:g> حظر الوصول إلى هذا الجهاز."</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"يمكن لموفّر الائتمان <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> حظر الوصول إلى هذا الجهاز إذا لم تسدد الدفعات."</string>
 </resources>

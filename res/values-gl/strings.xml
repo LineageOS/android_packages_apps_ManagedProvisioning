@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Configuremos o dispositivo do traballo"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Accede facilmente ás túas aplicacións do traballo"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Este dispositivo non é privado"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"O teu administrador de TI pode ter acceso aos teus datos e á actividade deste dispositivo.\n\nPara obter máis información, ponte en contacto con el (<xliff:g id="IT_ADMIN">%1$s</xliff:g>)."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"O teu administrador de TI pode ter acceso aos teus datos e á actividade deste dispositivo."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"A túa actividade e os teus datos"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"O teu administrador de TI pode ter acceso aos teus datos e á actividade deste dispositivo."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Permisos de aplicacións"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"O teu administrador de TI pode definir permisos (por exemplo, de acceso ao micrófono, á cámara e á localización) para as aplicacións deste dispositivo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurando o teu dispositivo…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatorio de privacidade"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"O teu administrador de TI pode ter acceso aos teus datos e á actividade deste dispositivo"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> proporciona este dispositivo"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> pode facer o seguinte:"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"Instala a aplicación de <xliff:g id="CREDITOR_NAME">%s</xliff:g> neste dispositivo"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"Bloquea este dispositivo se non fas pagos"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Facer pagos coa aplicación de <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> pode instalar a aplicación de <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> para que poidas facer pagos con este dispositivo."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> pode restrinxir este dispositivo"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> pode restrinxir o acceso a este dispositivo se non fas pagos."</string>
 </resources>

@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Կարգավորեք աշխատանքային սարքը"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Աշխատանքային հավելվածները՝ ձեր գրպանում"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Այս սարքն անձնական չէ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն այս սարքում։\n\nՄանրամասների համար դիմեք <xliff:g id="IT_ADMIN">%1$s</xliff:g>ին։"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողություններն այս սարքում։"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Ձեր գործողություններն ու տվյալները"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողություններն այս սարքում։"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Հավելվածների թույլտվություններ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Ձեր ՏՏ ադմինիստրատորը կարող է այս սարքի հավելվածների համար սահմանել թույլտվություններ (օր․՝ տեղորոշման կամ խոսափողն ու տեսախցիկն օգտագործելու համար)։"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Սարքը կարգավորվում է…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Գաղտնիության վերաբերյալ հիշեցում"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողություններն այս սարքում"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Այս սարքը տրամադրվել է <xliff:g id="CREDITOR_NAME">%s</xliff:g>-ի կողմից"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"Վարկատուն (<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>) կարող է՝"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"Տեղադրել <xliff:g id="CREDITOR_NAME">%s</xliff:g>-ի հավելվածն այս սարքում"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"Կողպել այս սարքը, եթե վճարումներ չկատարեք"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Վճարումներ կատարեք <xliff:g id="CREDITOR_NAME">%s</xliff:g> հավելվածի միջոցով"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"«<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>» ընկերությունը կարող է տեղադրել <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> հավելվածը, որպեսզի դուք կարողանաք վճարումներ կատարել։"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"«<xliff:g id="CREDITOR_NAME">%s</xliff:g>» ընկերությունը կարող է արգելափակել այս սարքը"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"«<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>» ընկերությունը կարող է արգելափակել այս սարքը, եթե վճարումներ չկատարեք։"</string>
 </resources>

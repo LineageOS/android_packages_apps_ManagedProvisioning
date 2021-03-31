@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ଆସନ୍ତୁ ଆପଣଙ୍କ ୱର୍କ ଡିଭାଇସ୍‌କୁ ସେଟ୍ ଅପ୍ କରିବା"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ଆପଣଙ୍କର ଆଙ୍ଗୁଠି ଟିପରେ ନିଜର ୱର୍କ ଆପ୍ସ ରଖନ୍ତୁ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ଏହି ଡିଭାଇସ୍‌ ବ୍ୟକ୍ତିଗତ ନୁହେଁ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ଏହି ଡିଭାଇସରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି।\n\nଅଧିକ ଜାଣିବା ପାଇଁ ଆପଣଙ୍କ <xliff:g id="IT_ADMIN">%1$s</xliff:g>ଙ୍କୁ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକ ବୋଧହୁଏ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିପାରିବେ।"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"ଆପଣଙ୍କ କାର୍ଯ୍ୟକଳାପ ଏବଂ ଡାଟା"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ଏହି ଡିଭାଇସରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି।"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ଆପ୍ ଅନୁମତିଗୁଡ଼ିକ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ମାଇକ୍ରୋଫୋନ୍, କ୍ୟାମେରା ଏବଂ ଲୋକେସନ୍ ଅନୁମତି ପରି ଏହି ଡିଭାଇସରେ ଥିବା ଆପଗୁଡ଼ିକ ପାଇଁ ଅନୁମତିଗୁଡ଼ିକୁ ସେଟ୍ କରିପାରିବେ।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌କୁ ସେଟ୍ ଅପ୍ କରାଯାଉଛି…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ଗୋପନୀୟତା ରିମାଇଣ୍ଡର୍‍"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକ ବୋଧହୁଏ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିପାରିବେ"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"ଏହି ଡିଭାଇସ୍ <xliff:g id="CREDITOR_NAME">%s</xliff:g> ଦ୍ୱାରା ପ୍ରଦାନ କରାଯାଇଛି"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଏହା କରିପାରିବ:"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"ଏହି ଡିଭାଇସରେ <xliff:g id="CREDITOR_NAME">%s</xliff:g> ଆପ୍ ଇନଷ୍ଟଲ୍ କରନ୍ତୁ"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"ଯଦି ଆପଣ ପେମେଣ୍ଟ କରୁନାହାଁନ୍ତି, ତେବେ ଏହି ଡିଭାଇସକୁ ଲକ୍ କରନ୍ତୁ"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ଆପ୍ ମାଧ୍ୟମରେ ପେମେଣ୍ଟ କରନ୍ତୁ"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ଆପକୁ ଇନଷ୍ଟଲ୍ କରିପାରିବ ଯାହା ଫଳରେ ଆପଣ ଏହି ଡିଭାଇସ୍ ପାଇଁ ପେମେଣ୍ଟ କରିପାରିବେ।"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ଏହି ଡିଭାଇସକୁ ପ୍ରତିବନ୍ଧିତ କରିପାରିବ"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"ଯଦି ଆପଣ ପେମେଣ୍ଟ କରୁନାହାଁନ୍ତି, ତେବେ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଏହି ଡିଭାଇସକୁ ଆକ୍ସେସ୍ ପ୍ରତିବନ୍ଧିତ କରିପାରିବ।"</string>
 </resources>

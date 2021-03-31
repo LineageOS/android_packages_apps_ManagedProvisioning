@@ -49,7 +49,7 @@
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"כבר הגדרת פרופיל עבודה. הוא מנוהל דרך האפליקציה הבאה:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"יש לקרוא את המידע שכאן"</a>" לפני שממשיכים."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"אם תמשיך, כל האפליקציות והנתונים בפרופיל זה יימחקו."</string>
-    <string name="delete_profile" msgid="2299218578684663459">"מחק"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"מחיקה"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ביטול"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"כדי להגדיר את פרופיל העבודה, עליך להצפין את המכשיר. הפעולה הזו עשויה להימשך זמן מה."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"כדי להגדיר את המכשיר, עליך להצפין אותו. הפעולה הזו עשויה להימשך זמן מה."</string>
@@ -71,7 +71,7 @@
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"‏המכשיר הזה לא מתיר הצפנה, והיא נחוצה להגדרה. לקבלת עזרה כדאי ליצור קשר עם מנהל ה-IT."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"להפסיק את ההגדרה ולאפס את המכשיר?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"פעולה זו תאפס את המכשיר להגדרות היצרן ותחזיר אותך למסך הראשון"</string>
-    <string name="device_owner_cancel_message" msgid="2529288571742712065">"האם להפסיק את ההגדרה ולמחוק את נתוני המכשיר?"</string>
+    <string name="device_owner_cancel_message" msgid="2529288571742712065">"להפסיק את תהליך ההגדרה ולמחוק את נתוני המכשיר?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ביטול"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"אישור"</string>
     <string name="reset" msgid="6467204151306265796">"אפס את המכשיר"</string>
@@ -84,7 +84,7 @@
     <string name="device_already_set_up" msgid="507881934487140294">"המכשיר כבר הוגדר"</string>
     <string name="error_wifi" msgid="1850288843966836571">"‏לא ניתן היה להתחבר לרשת Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"‏במכשיר שלך הופעלה הגנה מפני איפוס. לקבלת עזרה כדאי ליצור קשר עם מנהל ה-IT."</string>
-    <string name="frp_clear_progress_title" msgid="8628074089458234965">"מוחק"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"מתבצעת מחיקה"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"רק רגע..."</string>
     <string name="error_hash_mismatch" msgid="1145488923243178454">"‏לא ניתן להשתמש באפליקציית הניהול עקב שגיאה בסיכום הביקורת. לקבלת עזרה יש לפנות למנהל ה-IT."</string>
     <string name="error_download_failed" msgid="3274283629837019452">"לא ניתן להוריד את אפליקציית הניהול"</string>
@@ -123,7 +123,7 @@
     <string name="one_place_for_work_apps" msgid="2595597562302953960">"מקום אחד לכל אפליקציות העבודה"</string>
     <string name="info_anim_title_2" msgid="4629781398620470204">"כבה את העבודה כשתסיים"</string>
     <string name="provisioning" msgid="4512493827019163451">"קובע את התצורה"</string>
-    <string name="copying_certs" msgid="5697938664953550881">"‏מגדיר אישורי CA"</string>
+    <string name="copying_certs" msgid="5697938664953550881">"‏בתהליך הגדרת אישורי CA"</string>
     <string name="setup_profile" msgid="5573950582159698549">"הגדרת הפרופיל שלך"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"פרופיל העבודה מאפשר לך להפריד בין נתוני עבודה לנתונים האישיים"</string>
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"פרופיל עבודה מאפשר לך לגשת לכל אפליקציות העבודה שלך ממקום אחד"</string>
@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"נתחיל להגדיר את מכשיר העבודה שלך"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"אפשר לשמור את אפליקציות העבודה במקום נגיש"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"המכשיר הזה אינו פרטי"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"‏ייתכן שמנהל ה-IT שלך יכול לראות את הנתונים והפעילות במכשיר הזה.\n\nלמידע נוסף, יש לפנות אל <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"‏ייתכן שמנהל ה-IT שלך יכול לראות את הנתונים והפעילות במכשיר הזה."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"הנתונים והפעילות שלך"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"‏ייתכן שמנהל ה-IT שלך יכול לראות את הנתונים והפעילות במכשיר הזה."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"הרשאות הניתנות לאפליקציות"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"‏מנהל ה-IT יכול להגדיר הרשאות לאפליקציות במכשיר הזה, כגון הרשאות לשימוש במיקרופון, במצלמה ובמיקום."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"מגדיר את המכשיר שלך…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"תזכורת פרטיות"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"‏ייתכן שמנהל ה-IT שלך יכול לראות את הנתונים והפעילות במכשיר הזה"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"המכשיר הזה התקבל מ-<xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"ל-<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> יש אפשרות:"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"התקנת האפליקציה של <xliff:g id="CREDITOR_NAME">%s</xliff:g> במכשיר הזה"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"נעילת המכשיר הזה אם לא מתבצעים תשלומים"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"ביצוע תשלומים באמצעות האפליקציה <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"ספק האשראי <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> יכול להתקין את האפליקציה <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> כדי לבצע תשלומים עבור המכשיר הזה."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"ספק האשראי <xliff:g id="CREDITOR_NAME">%s</xliff:g> יכול להגביל את המכשיר הזה"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"ספק האשראי <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> יכול להגביל את הגישה למכשיר הזה אם לא מתבצעים תשלומים."</string>
 </resources>

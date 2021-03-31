@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Arbeitsgerät einrichten"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Deine Apps für die Arbeit – jederzeit zur Hand"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Dieses Gerät ist nicht privat"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"Dein IT-Administrator kann deine Daten und deine Geräteaktivitäten möglicherweise sehen.\n\nWende dich an deinen <xliff:g id="IT_ADMIN">%1$s</xliff:g>, um mehr zu erfahren."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Dein IT-Administrator kann deine Daten und deine Geräteaktivitäten möglicherweise sehen."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Deine Aktivitäten und Daten"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"Dein IT-Administrator kann deine Daten und deine Geräteaktivitäten möglicherweise sehen."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"App-Berechtigungen"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Dein IT-Administrator kann auf diesem Gerät Berechtigungen für Apps einrichten, beispielsweise den Zugriff auf das Mikrofon, die Kamera oder den Standort."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Gerät wird eingerichtet…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Hinweise zum Datenschutz"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Dein IT-Administrator kann deine Daten und deine Geräteaktivitäten möglicherweise sehen"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Dieses Gerät wird von <xliff:g id="CREDITOR_NAME">%s</xliff:g> zur Verfügung gestellt"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> hat folgende Möglichkeiten:"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"Die App von <xliff:g id="CREDITOR_NAME">%s</xliff:g> auf diesem Gerät installieren"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"Gerät sperren, wenn keine Zahlungen vorgenommen werden"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Zahlungen mit der <xliff:g id="CREDITOR_NAME">%s</xliff:g>-App vornehmen"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> kann die <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>-App installieren, damit du Zahlungen für dieses Gerät vornehmen kannst."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> kann dieses Gerät einschränken"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kann den Zugriff auf das Gerät einschränken, wenn keine Zahlungen vorgenommen werden."</string>
 </resources>

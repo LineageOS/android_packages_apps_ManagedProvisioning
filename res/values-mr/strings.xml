@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"चला तुमचे कार्य डिव्हाइस सेट करू या"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"तुमची कार्य अ‍ॅप्स तुमच्या हाताशी ठेवा"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"हे डिव्हाइस खाजगी नाही"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल.\n\nअधिक जाणून घेण्यासाठी, तुमच्या <xliff:g id="IT_ADMIN">%1$s</xliff:g> शी संपर्क साधा."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"तुमची अ‍ॅक्टिव्हिटी आणि डेटा"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"अ‍ॅप परवानग्या"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"तुमचा IT ॲडमिन या डिव्हाइसवर मायक्रोफोन, कॅमेरा यांसारख्या ॲप्सच्या आणि स्थानासंबंधित परवानग्या सेट करू शकतो."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"तुमचे डिव्हाइस सेट करत आहे…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"गोपनीयता रिमाइंडर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"हे डिव्हाइस <xliff:g id="CREDITOR_NAME">%s</xliff:g> द्वारे पुरवले गेले आहे"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> करू शकते:"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"या डिव्हाइसवर <xliff:g id="CREDITOR_NAME">%s</xliff:g> चे ॲप इंस्टॉल करा"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"तुम्ही पेमेंट करत नसल्यास हे डिव्हाइस लॉक करा"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ॲप वापरून पेमेंट करा"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g><xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ॲप इंस्टॉल करू शकतो जेणेकरून, तुम्ही हे डिव्हाइस वापरून पेमेंट करू शकता."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> या डिव्हाइसवरील अ‍ॅक्सेस मर्यादित करू शकतो"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"तुम्ही पेमेंट न केल्यास, <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> या डिव्हाइसवरील अ‍ॅक्सेस मर्यादित करू शकतो."</string>
 </resources>

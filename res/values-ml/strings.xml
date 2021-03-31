@@ -170,9 +170,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"നിങ്ങളുടെ ഔദ്യോഗിക ഉപകരണം സജ്ജീകരിക്കാം"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾ വിരൽത്തുമ്പിൽ നിലനിർത്തുക"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ഈ ഉപകരണം സ്വകാര്യമല്ല"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="9114358756158824064">"ഈ ഫോണിലെ നിങ്ങളുടെ ഡാറ്റയും ആക്‌റ്റിവിറ്റിയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം.\n\nകൂടുതലറിയാൻ നിങ്ങളുടെ <xliff:g id="IT_ADMIN">%1$s</xliff:g>-മായി ബന്ധപ്പെടുക."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ഈ ഉപകരണത്തിലുള്ള നിങ്ങളുടെ ഡാറ്റയും ആക്‌റ്റിവിറ്റിയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"നിങ്ങളുടെ ആക്റ്റിവിറ്റിയും ഡാറ്റയും"</string>
-    <string name="fully_managed_device_provisioning_permissions_subheader" msgid="4019030073535269884">"ഈ ഉപകരണത്തിലെ നിങ്ങളുടെ ഡാറ്റയും ആക്‌റ്റിവിറ്റിയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം."</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ആപ്പ് അനുമതികൾ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"മെെക്രോഫോൺ, ക്യാമറ, ലൊക്കേഷൻ അനുമതികൾ എന്നിവ പോലുള്ള, ഈ ഉപകരണത്തിലെ ആപ്പുകൾക്കുള്ള അനുമതികൾ സജ്ജീകരിക്കാൻ നിങ്ങളുടെ ഐടി അഡ്‌മിന് കഴിയും."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"നിങ്ങളുടെ ഉപകരണം സജ്ജമാക്കുന്നു…"</string>
@@ -190,7 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"സ്വകാര്യതാ റിമൈൻഡർ"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ഈ ഉപകരണത്തിലുള്ള നിങ്ങളുടെ ഡാറ്റയും ആക്‌റ്റിവിറ്റിയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> നൽകിയ ഉപകരണമാണിത്"</string>
-    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> എന്നതിന് ഇനിപ്പറയുന്നവ ചെയ്യാനാകും:"</string>
-    <string name="install_creditor_app_description" msgid="6056052518227986620">"ഈ ഉപകരണത്തിൽ <xliff:g id="CREDITOR_NAME">%s</xliff:g> ആപ്പ് ഇൻസ്‌റ്റാൾ ചെയ്യുക"</string>
-    <string name="lock_device_description" msgid="9198967942380649144">"നിങ്ങൾ പേയ്മെന്റുകളൊന്നും നടത്തുന്നില്ലെങ്കിൽ ഈ ഉപകരണം ലോക്ക് ചെയ്യുക"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ആപ്പ് മുഖേന പേയ്മെന്റുകൾ നടത്താം"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> എന്നയാൾക്ക് <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ഇൻസ്‌റ്റാൾ ചെയ്യാനാകും, അതുവഴി നിങ്ങൾക്ക് ഈ ഉപകരണത്തിനുള്ള പേയ്‌മെന്റ് നടത്താം."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> എന്നതിന് ഈ ഉപകരണത്തെ നിയന്ത്രിക്കാനാകും"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"നിങ്ങൾ പേയ്മെന്റുകൾ നടത്തിയില്ലെങ്കിൽ ഈ ഉപകരണത്തിലേക്കുള്ള ആക്‌സസ് നിയന്ത്രിക്കാൻ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> എന്നതിനാകും."</string>
 </resources>
