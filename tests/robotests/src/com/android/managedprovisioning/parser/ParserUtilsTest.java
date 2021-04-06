@@ -21,6 +21,9 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
@@ -29,10 +32,6 @@ import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_E
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 import static android.provider.Settings.Secure.USER_SETUP_COMPLETE;
 
@@ -51,7 +50,7 @@ import android.provider.Settings;
 
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.SettingsFacade;
-import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.common.Utils;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -66,9 +65,12 @@ import org.robolectric.RuntimeEnvironment;
 public class ParserUtilsTest {
 
     private static final int INVALID_PROVISIONING_MODES = -1;
+    private static final int  INVALID_PROVISIONING_MODE_COMBINATION =
+            FLAG_SUPPORTED_MODES_PERSONALLY_OWNED | FLAG_SUPPORTED_MODES_DEVICE_OWNER;
     private final ParserUtils mParserUtils = new ParserUtils();
     private final SettingsFacade mSettingsFacade = new SettingsFacade();
     private final Context mContext = RuntimeEnvironment.application;
+    private final Utils mUtils = new Utils();
 
     @Before
     public void setUp() {
@@ -213,7 +215,7 @@ public class ParserUtilsTest {
     public void
             getAllowedProvisioningModes_organizationOwned_returnsManagedProfileAndManagedDevice() {
         assertThat(mParserUtils.getAllowedProvisioningModes(mContext,
-                SUPPORTED_MODES_ORGANIZATION_OWNED)).containsExactly(
+                FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED, mUtils)).containsExactly(
                         PROVISIONING_MODE_MANAGED_PROFILE,
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
     }
@@ -222,14 +224,15 @@ public class ParserUtilsTest {
     public void
             getAllowedProvisioningModes_personallyOwned_returnsManagedProfileOnly() {
         assertThat(mParserUtils.getAllowedProvisioningModes(mContext,
-                SUPPORTED_MODES_PERSONALLY_OWNED)).containsExactly(
+                FLAG_SUPPORTED_MODES_PERSONALLY_OWNED, mUtils)).containsExactly(
                         PROVISIONING_MODE_MANAGED_PROFILE);
     }
 
     @Test
     public void getAllowedProvisioningModes_organizationAndPersonallyOwned_returnsManagedProfileManagedDevicePersonalManagedProfile() {
         assertThat(mParserUtils.getAllowedProvisioningModes(mContext,
-                SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED)).containsExactly(
+                FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED
+                        | FLAG_SUPPORTED_MODES_PERSONALLY_OWNED, mUtils)).containsExactly(
                         PROVISIONING_MODE_MANAGED_PROFILE,
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
                         PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE);
@@ -238,7 +241,7 @@ public class ParserUtilsTest {
     @Test
     public void getAllowedProvisioningModes_deviceOwner_returnsManagedDevice() {
         assertThat(mParserUtils.getAllowedProvisioningModes(mContext,
-                SUPPORTED_MODES_DEVICE_OWNER)).containsExactly(
+                FLAG_SUPPORTED_MODES_DEVICE_OWNER, mUtils)).containsExactly(
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
     }
 
@@ -247,7 +250,15 @@ public class ParserUtilsTest {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> mParserUtils
-                        .getAllowedProvisioningModes(mContext, INVALID_PROVISIONING_MODES));
+                        .getAllowedProvisioningModes(mContext, INVALID_PROVISIONING_MODES, mUtils));
+    }
+
+    @Test
+    public void getAllowedProvisioningModes_invalidBinaryCombination_throwsException() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> mParserUtils.getAllowedProvisioningModes(mContext,
+                        INVALID_PROVISIONING_MODE_COMBINATION, mUtils));
     }
 
     @Test
@@ -257,7 +268,7 @@ public class ParserUtilsTest {
                 .setSystemFeature(PackageManager.FEATURE_MANAGED_USERS, /* supported = */ false);
 
         assertThat(mParserUtils.getAllowedProvisioningModes(mContext,
-                SUPPORTED_MODES_ORGANIZATION_OWNED)).containsExactly(
+                FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED, mUtils)).containsExactly(
                 PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
     }
 
@@ -270,13 +281,55 @@ public class ParserUtilsTest {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> mParserUtils
-                        .getAllowedProvisioningModes(mContext, SUPPORTED_MODES_PERSONALLY_OWNED));
+                        .getAllowedProvisioningModes(mContext,
+                                FLAG_SUPPORTED_MODES_PERSONALLY_OWNED, mUtils));
     }
 
     @Test
     public void getAllowedProvisioningModes_defaultValue_returnsEmptyArray() {
         assertThat(mParserUtils.getAllowedProvisioningModes(mContext,
-                DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES)).isEmpty();
+                DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES, mUtils)).isEmpty();
+    }
+
+    @Test
+    public void validateSupportedModes_personallyOwned_doesNothing() {
+        mParserUtils.getAllowedProvisioningModes(
+                mContext, FLAG_SUPPORTED_MODES_PERSONALLY_OWNED, mUtils);
+    }
+
+    @Test
+    public void validateSupportedModes_organizationOwned_doesNothing() {
+        mParserUtils.getAllowedProvisioningModes(
+                mContext, FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED, mUtils);
+    }
+
+    @Test
+    public void validateSupportedModes_deviceOwner_doesNothing() {
+        mParserUtils.getAllowedProvisioningModes(
+                mContext, FLAG_SUPPORTED_MODES_DEVICE_OWNER, mUtils);
+    }
+
+    @Test
+    public void validateSupportedModes_personalAndOrganizationOwned_doesNothing() {
+        mParserUtils.getAllowedProvisioningModes(
+                mContext,
+                FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED | FLAG_SUPPORTED_MODES_PERSONALLY_OWNED,
+                mUtils);
+    }
+
+    @Test
+    public void validateSupportedModes_invalidValue_throwsException() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> mParserUtils
+                        .getAllowedProvisioningModes(mContext, INVALID_PROVISIONING_MODES, mUtils));
+    }
+
+    @Test
+    public void validateSupportedModes_invalidBinaryCombination_throwsException() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> mParserUtils.validateSupportedModes(INVALID_PROVISIONING_MODE_COMBINATION));
     }
 
     private boolean markDuringSetupWizard() {

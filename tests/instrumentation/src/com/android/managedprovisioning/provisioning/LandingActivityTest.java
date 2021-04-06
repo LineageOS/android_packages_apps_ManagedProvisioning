@@ -16,10 +16,9 @@
 
 package com.android.managedprovisioning.provisioning;
 
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_PERSONALLY_OWNED;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -101,7 +100,7 @@ public class LandingActivityTest {
     @Test
     public void onCreate_personallyOwned_showsAccountManagementDisclaimer() {
         ProvisioningParams params = generateProvisioningParamsWithRequestedProvisioningModes(
-                SUPPORTED_MODES_PERSONALLY_OWNED);
+                FLAG_SUPPORTED_MODES_PERSONALLY_OWNED);
         launchLandingActivityWithParams(params);
 
         assertAccountManagementDisclaimerShown();
@@ -111,7 +110,7 @@ public class LandingActivityTest {
     @Test
     public void onCreate_organizationAndPersonallyOwned_showsAccountManagementDisclaimer() {
         ProvisioningParams params = generateProvisioningParamsWithRequestedProvisioningModes(
-                SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED);
+                FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED | FLAG_SUPPORTED_MODES_PERSONALLY_OWNED);
         launchLandingActivityWithParams(params);
 
         assertAccountManagementDisclaimerShown();
@@ -121,7 +120,7 @@ public class LandingActivityTest {
     @Test
     public void onCreate_organizationOwned_showsOwnershipDisclaimer() {
         ProvisioningParams params = generateProvisioningParamsWithRequestedProvisioningModes(
-                SUPPORTED_MODES_ORGANIZATION_OWNED);
+                FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED);
         launchLandingActivityWithParams(params);
 
         assertOwnershipDisclaimerShown();
@@ -131,7 +130,7 @@ public class LandingActivityTest {
     @Test
     public void onCreate_deviceOwner_showsOwnershipDisclaimer() {
         ProvisioningParams params = generateProvisioningParamsWithRequestedProvisioningModes(
-                SUPPORTED_MODES_DEVICE_OWNER);
+                FLAG_SUPPORTED_MODES_DEVICE_OWNER);
         launchLandingActivityWithParams(params);
 
         assertOwnershipDisclaimerShown();

@@ -21,15 +21,14 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.app.admin.DevicePolicyManager.MIME_TYPE_PROVISIONING_NFC;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.managedprovisioning.common.Globals.ACTION_PROVISION_MANAGED_DEVICE_SILENTLY;
@@ -39,10 +38,12 @@ import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.util.ArraySet;
 
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.common.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,15 @@ import java.util.List;
  * A utility class with methods related to parsing the provisioning extras
  */
 public class ParserUtils {
+
+    private static final ArraySet<Integer> ALLOWED_COMBINATIONS = new ArraySet<>();
+    {
+        ALLOWED_COMBINATIONS.add(FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED);
+        ALLOWED_COMBINATIONS.add(FLAG_SUPPORTED_MODES_PERSONALLY_OWNED);
+        ALLOWED_COMBINATIONS.add(FLAG_SUPPORTED_MODES_DEVICE_OWNER);
+        ALLOWED_COMBINATIONS.add(
+                FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED | FLAG_SUPPORTED_MODES_PERSONALLY_OWNED);
+    }
 
     /**
      * Returns the provisioning trigger supplied in the provisioning extras only if it was supplied
@@ -133,12 +143,12 @@ public class ParserUtils {
      * DevicePolicyManager#PROVISIONING_MODE_FULLY_MANAGED_DEVICE}, {@link
      * DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE}}.
      *
-     * {@code initiatorRequestedSupportedModes} is a validated value passed by the provisioning
+     * {@code supportedModes} is a validated value passed by the provisioning
      * initiator via the {@link DevicePolicyManager#EXTRA_PROVISIONING_SUPPORTED_MODES} extra.
-     * Its value can be one of {@link DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_OWNED},
-     * {@link DevicePolicyManager#SUPPORTED_MODES_PERSONALLY_OWNED}, {@link
-     * DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED}, {@link
-     * DevicePolicyManager#SUPPORTED_MODES_DEVICE_OWNER} or {@link
+     * Its value can be a combination of {@link
+     * DevicePolicyManager#FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED}, {@link
+     * DevicePolicyManager#FLAG_SUPPORTED_MODES_PERSONALLY_OWNED}, {@link
+     * DevicePolicyManager#FLAG_SUPPORTED_MODES_DEVICE_OWNER} or {@link
      * com.android.managedprovisioning.model.ProvisioningParams
      * #DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES} if the value is not passed
      * as part of {@link DevicePolicyManager#ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE}.
@@ -148,7 +158,7 @@ public class ParserUtils {
      * is returned, since the result is only relevant to the admin-integrated flow.
      *
      * <p>If {@link DevicePolicyManager#EXTRA_PROVISIONING_SUPPORTED_MODES} is not provided,
-     * {@link DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_OWNED} is used as default.
+     * {@link DevicePolicyManager#FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED} is used as default.
      *
      * <ul>
      *     <li>
@@ -171,14 +181,14 @@ public class ParserUtils {
      *          managed profile on a personally-owned device.
      *     </li>
      *     <li>
-     *         If {@link DevicePolicyManager#SUPPORTED_MODES_DEVICE_OWNER} is used, allow just
+     *         If {@link DevicePolicyManager#FLAG_SUPPORTED_MODES_DEVICE_OWNER} is used, allow just
      *         {@link DevicePolicyManager#PROVISIONING_MODE_FULLY_MANAGED_DEVICE}.
      *     </li>
      * </ul>
      *
      * <p>The device serial number and IMEI wil be sent to the DPC with the
      * {@link DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE} and
-     * {@link DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE} extras
+     * {@link DevicePolicyManager#PROVISIONING_MODE_FULLY_MANAGED_DEVICE} extras
      * only in the first case when organization-owned provisioning is the only ownership model
      * supported.
      */
@@ -188,33 +198,28 @@ public class ParserUtils {
      HashSet which is not recommended.
      */
     public ArrayList<Integer> getAllowedProvisioningModes(Context context,
-            int initiatorRequestedSupportedModes) {
-        if (initiatorRequestedSupportedModes == DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES) {
+            int supportedModes, Utils utils) {
+        if (supportedModes == DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES) {
             ProvisionLogger.logi("Not admin-integrated flow, "
                     + "no allowed provisioning modes necessary.");
             return new ArrayList<>();
         }
+        validateSupportedModes(supportedModes);
         ArrayList<Integer> result = new ArrayList<>();
-        switch (initiatorRequestedSupportedModes) {
-            case SUPPORTED_MODES_ORGANIZATION_OWNED:
-                result.addAll(List.of(
-                        PROVISIONING_MODE_MANAGED_PROFILE,
-                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE));
-                break;
-            case SUPPORTED_MODES_PERSONALLY_OWNED:
-                result.addAll(List.of(
-                        PROVISIONING_MODE_MANAGED_PROFILE));
-                break;
-            case SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED:
-                result.addAll(List.of(
-                        PROVISIONING_MODE_MANAGED_PROFILE,
-                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
-                        PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE));
-                break;
-            case SUPPORTED_MODES_DEVICE_OWNER:
-                result.addAll(List.of(
-                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE));
-                break;
+        if (utils.containsBinaryFlags(supportedModes, FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED)) {
+            result.addAll(List.of(
+                    PROVISIONING_MODE_MANAGED_PROFILE,
+                    PROVISIONING_MODE_FULLY_MANAGED_DEVICE));
+            if (utils.containsBinaryFlags(supportedModes, FLAG_SUPPORTED_MODES_PERSONALLY_OWNED)) {
+                result.add(PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE);
+            }
+        } else if (utils.containsBinaryFlags(
+                supportedModes, FLAG_SUPPORTED_MODES_PERSONALLY_OWNED)) {
+            result.addAll(List.of(
+                    PROVISIONING_MODE_MANAGED_PROFILE));
+        } else if (utils.containsBinaryFlags(supportedModes, FLAG_SUPPORTED_MODES_DEVICE_OWNER)) {
+            result.addAll(List.of(
+                    PROVISIONING_MODE_FULLY_MANAGED_DEVICE));
         }
         ProvisionLogger.logi("Allowed provisioning modes before checking for managed users "
                 + "support: " + result);
@@ -228,10 +233,26 @@ public class ParserUtils {
         if (result.isEmpty()) {
             throw new IllegalArgumentException(
                     "No available supported provisioning modes. Requested support mode was "
-                            + initiatorRequestedSupportedModes);
+                            + supportedModes);
         }
         ProvisionLogger.logi("Allowed provisioning modes: " + result);
         return result;
+    }
+
+    /**
+     * Throws {@link IllegalArgumentException} if {@code supportedModes} contains an
+     * unsupported binary flag combination.
+     *
+     * @see DevicePolicyManager#FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED
+     * @see DevicePolicyManager#FLAG_SUPPORTED_MODES_PERSONALLY_OWNED
+     * @see DevicePolicyManager#FLAG_SUPPORTED_MODES_DEVICE_OWNER
+     */
+    public void validateSupportedModes(int supportedModes) {
+        if (!ALLOWED_COMBINATIONS.contains(supportedModes)) {
+            throw new IllegalArgumentException(
+                    "Supported modes flag combination not supported. Supported modes: "
+                            + supportedModes);
+        }
     }
 
     private boolean supportsManagedUsers(Context context) {

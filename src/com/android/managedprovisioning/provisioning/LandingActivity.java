@@ -15,8 +15,7 @@
  */
 package com.android.managedprovisioning.provisioning;
 
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_PERSONALLY_OWNED;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -98,10 +97,8 @@ public class LandingActivity extends SetupGlifLayoutActivity {
         }
     }
 
-    private boolean shouldShowAccountManagementDisclaimer(int initiatorRequestedProvisioningModes) {
-        return initiatorRequestedProvisioningModes
-                        == SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED
-                || initiatorRequestedProvisioningModes == SUPPORTED_MODES_PERSONALLY_OWNED;
+    private boolean shouldShowAccountManagementDisclaimer(int provisioningModes) {
+        return mUtils.containsBinaryFlags(provisioningModes, FLAG_SUPPORTED_MODES_PERSONALLY_OWNED);
     }
 
     private void onNextButtonClicked(ProvisioningParams params) {

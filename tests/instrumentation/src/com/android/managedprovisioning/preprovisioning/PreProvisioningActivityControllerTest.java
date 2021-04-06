@@ -28,12 +28,12 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MODE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
@@ -732,7 +732,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                         PROVISIONING_MODE_MANAGED_PROFILE,
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE
                 )))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -749,7 +749,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                         PROVISIONING_MODE_MANAGED_PROFILE,
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE
                 )))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -766,7 +766,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                         PROVISIONING_MODE_MANAGED_PROFILE,
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE
                 )))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -782,7 +782,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
                 .setAllowedProvisioningModes(
                         new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_PERSONALLY_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -800,7 +800,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
                 .setAllowedProvisioningModes(
                         new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_PERSONALLY_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -817,7 +817,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
                 .setAllowedProvisioningModes(
                         new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_PERSONALLY_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -846,7 +846,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
                 .setAllowedProvisioningModes(
                         new ArrayList<>(List.of(PROVISIONING_MODE_FULLY_MANAGED_DEVICE)))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_DEVICE_OWNER)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_DEVICE_OWNER)
                 .build();
         initiateProvisioning(params);
 
@@ -865,7 +865,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAllowedProvisioningModes(new ArrayList<>(List.of(
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE
                 )))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_DEVICE_OWNER)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_DEVICE_OWNER)
                 .build();
         initiateProvisioning(params);
 
@@ -881,7 +881,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAllowedProvisioningModes(new ArrayList<>(List.of(
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE
                 )))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_DEVICE_OWNER)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_DEVICE_OWNER)
                 .build();
         initiateProvisioning(params);
 
@@ -897,7 +897,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAllowedProvisioningModes(new ArrayList<>(List.of(
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE
                 )))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_DEVICE_OWNER)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_DEVICE_OWNER)
                 .build();
         initiateProvisioning(params);
 
@@ -915,7 +915,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                         PROVISIONING_MODE_MANAGED_PROFILE,
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE
                 )))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -933,7 +933,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAllowedProvisioningModes(new ArrayList<>(List.of(
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE
                 )))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_DEVICE_OWNER)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_DEVICE_OWNER)
                 .setDeviceOwnerPermissionGrantOptOut(true)
                 .build();
         initiateProvisioning(params);
@@ -951,7 +951,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
                 .setAllowedProvisioningModes(
                         new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_PERSONALLY_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -969,7 +969,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAllowedProvisioningModes(new ArrayList<>(List.of(
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE
                 )))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_DEVICE_OWNER)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_DEVICE_OWNER)
                 .setDeviceOwnerPermissionGrantOptOut(false)
                 .build();
         initiateProvisioning(params);
@@ -988,7 +988,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAllowedProvisioningModes(
                         new ArrayList<>(
                                 List.of(PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE)))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_PERSONALLY_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -1005,7 +1005,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
                 .setAllowedProvisioningModes(
                         new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_PERSONALLY_OWNED)
                 .setDeviceOwnerPermissionGrantOptOut(true)
                 .build();
         initiateProvisioning(params);
@@ -1024,7 +1024,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setAllowedProvisioningModes(
                         new ArrayList<>(
                                 List.of(PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE)))
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_PERSONALLY_OWNED)
                 .setDeviceOwnerPermissionGrantOptOut(true)
                 .build();
         initiateProvisioning(params);
