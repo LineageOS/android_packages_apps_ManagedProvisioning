@@ -38,8 +38,8 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORTED_MODES;
@@ -242,7 +242,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     static final String EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT = "a.a.e.PUMD";
 
     @VisibleForTesting
-    static final String EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT_SHORT = "a.a.e.PPGOO";
+    static final String EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT_SHORT = "a.a.e.PPSGOO";
 
     private static final Map<String, String> SHORTER_EXTRAS = buildShorterExtrasMap();
 
@@ -345,8 +345,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS_SHORT);
         shorterExtras.put(
                 EXTRA_PROVISIONING_USE_MOBILE_DATA, EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT);
-        shorterExtras.put(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT,
-                EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT_SHORT);
+        shorterExtras.put(EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT,
+                EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT_SHORT);
         return shorterExtras;
     }
 
@@ -572,7 +572,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
 
             final boolean adminOptedOutOfSensorsPermissionGrants =
                     getBooleanExtraFromLongName(intent,
-                            EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT,
+                            EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT,
                             ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT);
             return ProvisioningParams.Builder.builder()
                     .setProvisioningId(provisioningId)

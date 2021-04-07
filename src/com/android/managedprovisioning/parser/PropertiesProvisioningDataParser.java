@@ -27,7 +27,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_AD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_USE_MOBILE_DATA;
@@ -188,7 +188,7 @@ public class PropertiesProvisioningDataParser implements ProvisioningDataParser 
                     builder.setUseMobileData(Boolean.parseBoolean(s));
                 }
                 if ((s = getPropertyFromLongName(
-                        props, EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT)) != null) {
+                        props, EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT)) != null) {
                     builder.setDeviceOwnerPermissionGrantOptOut(Boolean.parseBoolean(s));
                 }
                 builder.setIsOrganizationOwnedProvisioning(true);
