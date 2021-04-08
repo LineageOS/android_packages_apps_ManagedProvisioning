@@ -18,6 +18,9 @@ package com.android.managedprovisioning;
 
 import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 
+import android.content.res.Configuration;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
@@ -32,13 +35,28 @@ import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBrid
  * {@link android.app.Application} for ManagedProvisioning.
  */
 public class ManagedProvisioningApplication extends android.app.Application {
+
+    private final ThemeHelper mThemeHelper = new ThemeHelper(
+            new DefaultNightModeChecker(),
+            new DefaultSetupWizardBridge());
+
     @Override
     public void onCreate() {
-        final int defaultNightMode = new ThemeHelper(new DefaultNightModeChecker(),
-                new DefaultSetupWizardBridge()).getDefaultNightMode(this);
-        AppCompatDelegate.setDefaultNightMode(defaultNightMode);
+        int defaultNightMode = updateDefaultNightMode();
         super.onCreate();
         logMetrics(defaultNightMode);
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        updateDefaultNightMode();
+    }
+
+    private int updateDefaultNightMode() {
+        int defaultNightMode = mThemeHelper.getDefaultNightMode(this);
+        AppCompatDelegate.setDefaultNightMode(defaultNightMode);
+        return defaultNightMode;
     }
 
     private void logMetrics(int defaultNightMode) {
