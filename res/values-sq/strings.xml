@@ -34,7 +34,7 @@
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Administratori i teknologjisë së informacionit ka aftësinë e monitorimit dhe menaxhimit të cilësimeve, të qasjes së korporatës, të aplikacioneve, të autorizimeve dhe të të dhënave të lidhura me këtë pajisje, duke përfshirë aktivitetin e rrjetit si dhe vendndodhjen e pajisjes, historikun e telefonatave dhe historikun e kërkimit të kontakteve.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Kontakto me administratorin e teknologjisë së informacionit për më shumë informacione, duke përfshirë politikat e privatësisë së organizatës sate."</string>
-    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Për të përdorur funksionet kundër vjedhjes, duhet të kesh ekran të mbrojtur me fjalëkalim për pajisjen tënde."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Për të përdorur veçoritë kundër vjedhjes, duhet të kesh ekran të mbrojtur me fjalëkalim për pajisjen tënde."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Kontakto me administratorin tënd të teknologjisë së informacionit për më shumë informacione, duke përfshirë politikat e privatësisë së organizatës sate."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Mëso më shumë"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Anulo"</string>
@@ -86,10 +86,10 @@
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Pajisja ka të aktivizuar mbrojtjen kundër rivendosjes. Për ndihmë, kontakto me administratorin e teknologjisë së informacionit."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Po spastron"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Qëndro në pritje..."</string>
-    <string name="error_hash_mismatch" msgid="1145488923243178454">"Aplikacioni i administratorit nuk mund të përdorej për shkak të gabimit të shumës së kontrollit. Për ndihmë, kontakto me administratorin e teknologjisë së informacionit."</string>
-    <string name="error_download_failed" msgid="3274283629837019452">"Aplikacioni i administratorit nuk mund të shkarkohej"</string>
-    <string name="error_package_invalid" msgid="555402554502033988">"Aplikacioni i administratorit nuk mund të përdoret pasi i mungojnë përbërësit ose është i dëmtuar. Për ndihmë, kontakto me administratorin e teknologjisë së informacionit."</string>
-    <string name="error_installation_failed" msgid="2282903750318407285">"Nuk mundi ta instalonte aplikacionin e administratorit"</string>
+    <string name="error_hash_mismatch" msgid="1145488923243178454">"Aplikacioni i administrimit nuk mund të përdorej për shkak të gabimit të shumës së kontrollit. Për ndihmë, kontakto me administratorin e TI-së."</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"Aplikacioni i administrimit nuk mund të shkarkohej"</string>
+    <string name="error_package_invalid" msgid="555402554502033988">"Aplikacioni i administrimit nuk mund të përdoret pasi i mungojnë përbërësit ose është i dëmtuar. Për ndihmë, kontakto me administratorin e TI-së."</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"Aplikacioni i administrimit nuk mund të instalohej"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Ndalo konfigurimin?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Jo"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Po"</string>
@@ -155,7 +155,7 @@
     <string name="work_profile_description" msgid="8524116010729569213">"Aplikacionet e tua të punës do të mbahen në këtë profil dhe do të menaxhohen nga organizata jote"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Kjo pajisje do të mbahet e sigurt dhe do të menaxhohet nga organizata jote"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Po përgatitet konfigurimi i pajisjes së punës…"</string>
-    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Konfigurimi i aplikacionit të administratorit"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Konfigurimi i aplikacionit të administrimit"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Kjo pajisje i përket organizatës sate"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Aplikacioni i mëposhtëm do të përdoret për të menaxhuar dhe monitoruar këtë telefon"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Llogaria jote po menaxhohet"</string>
