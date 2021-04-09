@@ -160,7 +160,8 @@ public class ConnectMobileNetworkTaskRoboTest {
     }
 
     private void sendConnectionBroadcast() {
-        mContext.sendBroadcast(new Intent(ConnectivityManager.INET_CONDITION_ACTION));
+        // TODO: Test itself does not really expect an INET_CONDITION_ACTION. Correct the logic.
+        mContext.sendBroadcast(new Intent("android.net.conn.INET_CONDITION_ACTION"));
     }
 
     // TODO(http://b/110676015): Turn into the official supported fake for
