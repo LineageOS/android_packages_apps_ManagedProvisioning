@@ -19,6 +19,9 @@ package com.android.managedprovisioning.finalization;
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISIONING_SUCCESSFUL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
+
+import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED;
 
 import android.annotation.NonNull;
 import android.content.Context;
@@ -29,6 +32,7 @@ import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -38,15 +42,38 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 class ProvisioningIntentProvider {
     void maybeLaunchDpc(ProvisioningParams params, int userId, Utils utils, Context context,
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
-            PolicyComplianceUtils policyComplianceUtils) {
-        if (policyComplianceUtils.isPolicyComplianceActivityResolvableForUser(
-                context, params, utils, UserHandle.of(userId))) {
+            PolicyComplianceUtils policyComplianceUtils,
+            SettingsFacade settingsFacade) {
+        if (shouldLaunchPolicyCompliance(
+                context, settingsFacade, params, policyComplianceUtils, utils, userId)) {
             launchPolicyComplianceDpcHandler(
                     context, params, utils, provisioningAnalyticsTracker, policyComplianceUtils);
         } else {
             launchProvisioningSuccessfulDpcHandler(
                     params, userId, utils, context, provisioningAnalyticsTracker);
         }
+    }
+
+    // TODO(b/184855881): Make manually-installed-and-started-DPC provisioning use the
+    // policy compliance screen. Then here we will only check if we're doing the admin-integrated
+    // flow.
+    private boolean shouldLaunchPolicyCompliance(
+            Context context, SettingsFacade settingsFacade, ProvisioningParams params,
+            PolicyComplianceUtils policyComplianceUtils, Utils utils, int userId) {
+        // If we're performing the admin-integrated flow, we've already validated that
+        // the policy compliance handler exists.
+        if (params.flowType == FLOW_TYPE_ADMIN_INTEGRATED) {
+            return true;
+        }
+        if (!policyComplianceUtils.isPolicyComplianceActivityResolvableForUser(
+                context, params, utils, UserHandle.of(userId))) {
+            return false;
+        }
+        // TODO(b/184933215): Remove logic specific to legacy managed account provisioning
+        if (params.provisioningTrigger != PROVISIONING_TRIGGER_UNSPECIFIED) {
+            return false;
+        }
+        return settingsFacade.isDuringSetupWizard(context);
     }
 
     private void launchPolicyComplianceDpcHandler(

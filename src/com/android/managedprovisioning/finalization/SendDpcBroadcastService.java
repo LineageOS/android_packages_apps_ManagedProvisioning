@@ -43,6 +43,7 @@ public class SendDpcBroadcastService extends Service implements Callback {
 
     public static String EXTRA_PROVISIONING_PARAMS =
             "com.android.managedprovisioning.PROVISIONING_PARAMS";
+    private SettingsFacade mSettingsFacade = new SettingsFacade();
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -69,13 +70,14 @@ public class SendDpcBroadcastService extends Service implements Callback {
             ProvisioningIntentProvider helper, UserHandle managedProfileUserHandle) {
         final ProvisioningAnalyticsTracker provisioningAnalyticsTracker =
                 new ProvisioningAnalyticsTracker(
-                        MetricsWriterFactory.getMetricsWriter(context, new SettingsFacade()),
+                        MetricsWriterFactory.getMetricsWriter(context, mSettingsFacade),
                         new ManagedProvisioningSharedPreferences(context));
 
         PolicyComplianceUtils policyComplianceUtils = new PolicyComplianceUtils();
         helper.maybeLaunchDpc(
                 params, managedProfileUserHandle.getIdentifier(),
-                utils, context, provisioningAnalyticsTracker, policyComplianceUtils);
+                utils, context, provisioningAnalyticsTracker, policyComplianceUtils,
+                mSettingsFacade);
     }
 
     private void sendDpcReceivedSuccessReceiver(Context context, ProvisioningParams params,
