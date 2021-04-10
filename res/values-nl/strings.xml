@@ -89,7 +89,7 @@
     <string name="reset_device" msgid="5483853913241939262">"Reset dit apparaat en probeer het opnieuw in te stellen"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Apparaat is al ingesteld"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Kan geen verbinding maken met wifi"</string>
-    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Bescherming tegen resetten is ingeschakeld voor je apparaat. Neem contact op met je beheerder voor hulp."</string>
+    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Je apparaat is beveiligd tegen resetten. Neem contact op met je beheerder voor hulp."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Wissen"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Even geduld..."</string>
     <string name="error_hash_mismatch" msgid="1145488923243178454">"Kan de beheer-app niet gebruiken vanwege een controlesomfout. Neem contact op met je IT-beheerder voor hulp."</string>
@@ -127,7 +127,7 @@
     <string name="info_anim_title_0" msgid="3285414600215959704">"Wijzig je manier van werken"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Scheid werkgegevens van persoonsgegevens"</string>
     <string name="one_place_for_work_apps" msgid="2595597562302953960">"Eén plaats voor werk-apps"</string>
-    <string name="info_anim_title_2" msgid="4629781398620470204">"Schakel het werkgedeelte uit wanneer je klaar bent"</string>
+    <string name="info_anim_title_2" msgid="4629781398620470204">"Zet het werkgedeelte uit wanneer je klaar bent"</string>
     <string name="provisioning" msgid="4512493827019163451">"Registreren"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA-certificaten instellen"</string>
     <string name="setup_profile" msgid="5573950582159698549">"Je profiel instellen"</string>
