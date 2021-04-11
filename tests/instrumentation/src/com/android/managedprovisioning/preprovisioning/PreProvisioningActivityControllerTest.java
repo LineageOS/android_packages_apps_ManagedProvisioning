@@ -26,7 +26,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MODE;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
@@ -921,7 +921,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.getBoolean(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+        assertThat(bundle.getBoolean(EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT))
                 .isEqualTo(false);
     }
 
@@ -940,7 +940,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.getBoolean(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+        assertThat(bundle.getBoolean(EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT))
                 .isEqualTo(true);
     }
 
@@ -957,7 +957,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.containsKey(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+        assertThat(bundle.containsKey(EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT))
                 .isEqualTo(false);
     }
 
@@ -976,7 +976,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.getBoolean(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+        assertThat(bundle.getBoolean(EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT))
                 .isEqualTo(false);
     }
 
@@ -994,7 +994,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.containsKey(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+        assertThat(bundle.containsKey(EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT))
                 .isEqualTo(false);
     }
 
@@ -1012,7 +1012,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.containsKey(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+        assertThat(bundle.containsKey(EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT))
                 .isEqualTo(false);
     }
 
@@ -1031,7 +1031,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.containsKey(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT))
+        assertThat(bundle.containsKey(EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT))
                 .isEqualTo(false);
     }
 

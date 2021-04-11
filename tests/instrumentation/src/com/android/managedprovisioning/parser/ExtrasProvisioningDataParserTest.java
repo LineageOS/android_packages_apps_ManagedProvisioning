@@ -37,8 +37,8 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER;
@@ -93,7 +93,7 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCAL_TIME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOGO_URI_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT;
-import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SUPPORT_URL_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_TIME_ZONE_SHORT;
@@ -659,7 +659,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         Intent provisionIntent = new Intent(ACTION_PROVISION_MANAGED_PROFILE)
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME, TEST_PACKAGE_NAME)
                 .putExtra(EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME, TEST_COMPONENT_NAME)
-                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT, true);
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT,
+                        true);
         mockInstalledDeviceAdminForTestPackageName();
 
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(provisionIntent);
@@ -987,7 +988,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         TEST_USE_MOBILE_DATA)
                 .putExtra(EXTRA_PROVISIONING_LOGO_URI_SHORT, TEST_URI)
                 .putExtra(EXTRA_PROVISIONING_DISCLAIMERS_SHORT, parcelablesShort)
-                .putExtra(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT_SHORT, true);
+                .putExtra(EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT_SHORT, true);
     }
 
     private Intent buildIntentWithAllLongExtras() {
@@ -1012,7 +1013,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_USE_MOBILE_DATA, TEST_USE_MOBILE_DATA)
                 .putExtra(EXTRA_PROVISIONING_LOGO_URI, TEST_URI)
                 .putExtra(EXTRA_PROVISIONING_DISCLAIMERS, parcelablesLong)
-                .putExtra(EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT, true);
+                .putExtra(EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT, true);
     }
 
     private static Intent buildTestManagedProfileIntent() {
