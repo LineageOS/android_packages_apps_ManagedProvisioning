@@ -299,6 +299,7 @@ public class PreProvisioningActivityController {
 
         mViewModel.getTimeLogger().start();
         mProvisioningAnalyticsTracker.logPreProvisioningStarted(mContext, intent);
+        mViewModel.onProvisioningInitiated();
 
         if (mUtils.checkAdminIntegratedFlowPreconditions(params)) {
             if (mUtils.shouldShowOwnershipDisclaimerScreen(params)) {

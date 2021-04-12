@@ -43,10 +43,11 @@ import java.util.Objects;
  */
 public final class PreProvisioningViewModel extends ViewModel {
     static final int STATE_PREPROVISIONING_INITIALIZING = 1;
-    static final int STATE_GETTING_PROVISIONING_MODE = 2;
-    static final int STATE_SHOWING_USER_CONSENT = 3;
-    static final int STATE_PROVISIONING_STARTED = 4;
-    static final int STATE_PROVISIONING_FINALIZED = 5;
+    static final int STATE_PREPROVISIONING_INITIALIZED = 2;
+    static final int STATE_GETTING_PROVISIONING_MODE = 3;
+    static final int STATE_SHOWING_USER_CONSENT = 4;
+    static final int STATE_PROVISIONING_STARTED = 5;
+    static final int STATE_PROVISIONING_FINALIZED = 6;
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({STATE_PREPROVISIONING_INITIALIZING,
@@ -102,6 +103,14 @@ public final class PreProvisioningViewModel extends ViewModel {
     @MainThread
     public void onProvisioningStartedAfterUserConsent() {
         setState(STATE_PROVISIONING_STARTED);
+    }
+
+    /**
+     * Handles state when provisioning has initiated
+     */
+    @MainThread
+    public void onProvisioningInitiated() {
+        setState(STATE_PREPROVISIONING_INITIALIZED);
     }
 
     /**
