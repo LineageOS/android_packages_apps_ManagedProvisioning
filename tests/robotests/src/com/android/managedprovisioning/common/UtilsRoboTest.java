@@ -20,10 +20,9 @@ import static android.app.admin.DevicePolicyManager.ACTION_GET_PROVISIONING_MODE
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_PERSONALLY_OWNED;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -150,7 +149,7 @@ public class UtilsRoboTest {
     public void isOrganizationOwnedAllowed_personallyOwnedProvisioning_returnsFalse() {
         ProvisioningParams params = createTrustedSourceParamsBuilder()
                 .setInitiatorRequestedProvisioningModes(
-                        SUPPORTED_MODES_PERSONALLY_OWNED)
+                        FLAG_SUPPORTED_MODES_PERSONALLY_OWNED)
                 .build();
 
         assertThat(mUtils.isOrganizationOwnedAllowed(params)).isFalse();
@@ -160,7 +159,7 @@ public class UtilsRoboTest {
     public void isOrganizationOwnedAllowed_organizationOwnedProvisioning_returnsTrue() {
         ProvisioningParams params = createTrustedSourceParamsBuilder()
                 .setInitiatorRequestedProvisioningModes(
-                        SUPPORTED_MODES_ORGANIZATION_OWNED)
+                        FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED)
                 .build();
 
         assertThat(mUtils.isOrganizationOwnedAllowed(params)).isTrue();
@@ -171,7 +170,8 @@ public class UtilsRoboTest {
             isOrganizationOwnedAllowed_organizationAndPersonallyOwnedProvisioning_returnsTrue() {
         ProvisioningParams params = createTrustedSourceParamsBuilder()
                 .setInitiatorRequestedProvisioningModes(
-                        SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED)
+                        FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED
+                                | FLAG_SUPPORTED_MODES_PERSONALLY_OWNED)
                 .build();
 
         assertThat(mUtils.isOrganizationOwnedAllowed(params)).isTrue();
@@ -181,7 +181,7 @@ public class UtilsRoboTest {
     public void isOrganizationOwnedAllowed_deviceOwnerProvisioning_returnsTrue() {
         ProvisioningParams params = createTrustedSourceParamsBuilder()
                 .setInitiatorRequestedProvisioningModes(
-                        SUPPORTED_MODES_DEVICE_OWNER)
+                        FLAG_SUPPORTED_MODES_DEVICE_OWNER)
                 .build();
 
         assertThat(mUtils.isOrganizationOwnedAllowed(params)).isTrue();

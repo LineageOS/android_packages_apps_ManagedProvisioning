@@ -62,14 +62,13 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_MANAGED_ACCOUNT;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.content.pm.PackageManager.FEATURE_MANAGED_USERS;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
@@ -312,7 +311,8 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         .setAccountToMigrate(TEST_ACCOUNT_TO_MIGRATE)
                         .setOrganizationName(TEST_ORGANIZATION_NAME)
                         .setSupportUrl(TEST_SUPPORT_URL)
-                        .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
+                        .setInitiatorRequestedProvisioningModes(
+                                FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED)
                         .setAllowedProvisioningModes(new ArrayList<>(List.of(
                                 PROVISIONING_MODE_MANAGED_PROFILE,
                                 PROVISIONING_MODE_FULLY_MANAGED_DEVICE
@@ -630,7 +630,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
                 .setStartedByTrustedSource(true)
                 .setDeviceAdminComponentName(TEST_COMPONENT_NAME)
-                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
+                .setInitiatorRequestedProvisioningModes(FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED)
                 .setAllowedProvisioningModes(new ArrayList<>(List.of(
                         PROVISIONING_MODE_MANAGED_PROFILE,
                         PROVISIONING_MODE_FULLY_MANAGED_DEVICE)))
@@ -726,57 +726,62 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
     public void
             testParse_trustedSourceWithPersonallyOwnedSupportedModes_areEqual() throws Exception {
         Intent intent = buildTestTrustedSourceIntent()
-                .putExtra(EXTRA_PROVISIONING_SUPPORTED_MODES, SUPPORTED_MODES_PERSONALLY_OWNED);
+                .putExtra(EXTRA_PROVISIONING_SUPPORTED_MODES,
+                        FLAG_SUPPORTED_MODES_PERSONALLY_OWNED);
         mockInstalledDeviceAdminForTestPackageName();
 
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
 
         assertThat(params.initiatorRequestedProvisioningModes)
-                .isEqualTo(SUPPORTED_MODES_PERSONALLY_OWNED);
+                .isEqualTo(FLAG_SUPPORTED_MODES_PERSONALLY_OWNED);
     }
 
     public void
             testParse_trustedSourceWithOrganizationOwnedSupportedModes_areEqual() throws Exception {
         Intent intent = buildTestTrustedSourceIntent()
-                .putExtra(EXTRA_PROVISIONING_SUPPORTED_MODES, SUPPORTED_MODES_ORGANIZATION_OWNED);
+                .putExtra(EXTRA_PROVISIONING_SUPPORTED_MODES,
+                        FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED);
         mockInstalledDeviceAdminForTestPackageName();
 
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
 
         assertThat(params.initiatorRequestedProvisioningModes)
-                .isEqualTo(SUPPORTED_MODES_ORGANIZATION_OWNED);
+                .isEqualTo(FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED);
     }
 
     public void testParse_trustedSourceWithOrganizationAndPersonallyOwnedSupportedModes_areEqual()
             throws Exception {
         Intent intent = buildTestTrustedSourceIntent()
                 .putExtra(EXTRA_PROVISIONING_SUPPORTED_MODES,
-                        SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED);
+                        FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED
+                                | FLAG_SUPPORTED_MODES_PERSONALLY_OWNED);
         mockInstalledDeviceAdminForTestPackageName();
 
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
 
         assertThat(params.initiatorRequestedProvisioningModes)
-                .isEqualTo(SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED);
+                .isEqualTo(FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED
+                        | FLAG_SUPPORTED_MODES_PERSONALLY_OWNED);
     }
 
     public void testParse_trustedSourceWithDeviceOwnerSupportedMode_areEqual()
             throws Exception {
         Intent intent = buildTestTrustedSourceIntent()
-                .putExtra(EXTRA_PROVISIONING_SUPPORTED_MODES, SUPPORTED_MODES_DEVICE_OWNER);
+                .putExtra(EXTRA_PROVISIONING_SUPPORTED_MODES, FLAG_SUPPORTED_MODES_DEVICE_OWNER);
         mockInstalledDeviceAdminForTestPackageName();
 
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
 
         assertThat(params.initiatorRequestedProvisioningModes)
-                .isEqualTo(SUPPORTED_MODES_DEVICE_OWNER);
+                .isEqualTo(FLAG_SUPPORTED_MODES_DEVICE_OWNER);
     }
 
     public void
     testParse_nonTrustedSourceIntentWithOrganizationOwnedSupportedModes_hasDefaultValue()
             throws Exception {
         Intent intent = bildTestNonTrustedSourceIntent()
-                .putExtra(EXTRA_PROVISIONING_SUPPORTED_MODES, SUPPORTED_MODES_ORGANIZATION_OWNED);
+                .putExtra(EXTRA_PROVISIONING_SUPPORTED_MODES,
+                        FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED);
         mockInstalledDeviceAdminForTestPackageName();
 
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
@@ -793,7 +798,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
 
         assertThat(params.initiatorRequestedProvisioningModes)
-                .isEqualTo(SUPPORTED_MODES_ORGANIZATION_OWNED);
+                .isEqualTo(FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED);
     }
 
     public void testParse_trustedSourceWithInvalidSupportedModes_throwsException()

@@ -61,12 +61,9 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_PROX
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SECURITY_TYPE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_SSID;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_ENROLLMENT;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
-import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
@@ -99,12 +96,10 @@ import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IllformedLocaleException;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -245,13 +240,6 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
     static final String EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT_SHORT = "a.a.e.PPSGOO";
 
     private static final Map<String, String> SHORTER_EXTRAS = buildShorterExtrasMap();
-
-    private static final ArrayList<Integer> SUPPORTED_MODES_ALLOWED_VALUES =
-            new ArrayList<>(List.of(
-                    SUPPORTED_MODES_ORGANIZATION_OWNED,
-                    SUPPORTED_MODES_PERSONALLY_OWNED,
-                    SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED,
-                    SUPPORTED_MODES_DEVICE_OWNER));
 
     private static Map<String, String> buildShorterExtrasMap() {
         Map<String, String> shorterExtras = new HashMap<>();
@@ -596,7 +584,7 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setIsQrProvisioning(provisioningTrigger == PROVISIONING_TRIGGER_QR_CODE)
                     .setProvisioningTrigger(provisioningTrigger)
                     .setAllowedProvisioningModes(mParserUtils.getAllowedProvisioningModes(
-                            mContext, initiatorRequestedProvisioningModes))
+                            mContext, initiatorRequestedProvisioningModes, mUtils))
                     .setInitiatorRequestedProvisioningModes(
                             initiatorRequestedProvisioningModes)
                     .setSkipOwnershipDisclaimer(getSkipOwnershipDisclaimer(intent))
@@ -641,15 +629,11 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
         if (!intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)) {
             return ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES;
         }
-        int initiatorRequestedProvisioningModes = getIntExtraFromLongName(intent,
+        int supportedModes = getIntExtraFromLongName(intent,
                 EXTRA_PROVISIONING_SUPPORTED_MODES,
-                SUPPORTED_MODES_ORGANIZATION_OWNED);
-        if (!SUPPORTED_MODES_ALLOWED_VALUES.contains(initiatorRequestedProvisioningModes)) {
-            throw new IllegalArgumentException(
-                    "Invalid value for EXTRA_PROVISIONING_SUPPORTED_MODES: "
-                            + initiatorRequestedProvisioningModes);
-        }
-        return initiatorRequestedProvisioningModes;
+                FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED);
+        mParserUtils.validateSupportedModes(supportedModes);
+        return supportedModes;
     }
 
     /**

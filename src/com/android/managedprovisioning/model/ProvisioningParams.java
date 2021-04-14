@@ -270,10 +270,10 @@ public final class ProvisioningParams extends PersistableBundlable {
      * Integer specifying what provisioning modes have been specified by the provisioning
      * initiator.
      *
-     * <p>Can be one of {@link DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_OWNED}, {@link
-     * DevicePolicyManager#SUPPORTED_MODES_PERSONALLY_OWNED} or {@link
-     * DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED}, {@link
-     * DevicePolicyManager#SUPPORTED_MODES_DEVICE_OWNER} or if not relevant to the
+     * <p>Can be a combination of {@link
+     * DevicePolicyManager#FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED}, {@link
+     * DevicePolicyManager#FLAG_SUPPORTED_MODES_PERSONALLY_OWNED}, {@link
+     * DevicePolicyManager#FLAG_SUPPORTED_MODES_DEVICE_OWNER} or if not relevant to the
      * admin-integrated flow, {@link ProvisioningParams#DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES}.
      *
      */
