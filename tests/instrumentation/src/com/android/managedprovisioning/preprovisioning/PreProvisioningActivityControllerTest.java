@@ -65,6 +65,8 @@ import android.content.res.Resources;
 import android.graphics.drawable.VectorDrawable;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.PersistableBundle;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -158,6 +160,8 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
     static {
         TEST_ADMIN_BUNDLE.putInt("someKey", 123);
     }
+
+    private Handler mHandler = new Handler(Looper.getMainLooper());
 
     @Override
     public void setUp() throws PackageManager.NameNotFoundException {
@@ -421,7 +425,8 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         when(mUtils.shouldShowOwnershipDisclaimerScreen(eq(mParams))).thenReturn(true);
 
         // WHEN initiating NFC provisioning
-        mController.initiateProvisioning(mIntent, /* callingPackage= */ null);
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
+                mController.initiateProvisioning(mIntent, /* callingPackage= */ null));
 
         // THEN show the ownership disclaimer
         verify(mUi).showOwnershipDisclaimerScreen(eq(mParams));
@@ -1334,6 +1339,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         } catch (IllegalProvisioningArgumentException e) {
             // will never happen
         }
-        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
+                mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE));
     }
 }

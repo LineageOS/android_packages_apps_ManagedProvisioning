@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_GETTING_PROVISIONING_MODE;
+import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZED;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PROVISIONING_FINALIZED;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PROVISIONING_STARTED;
@@ -107,6 +108,17 @@ public final class PreProvisioningViewModelTest {
 
                     assertThat(mViewModel.getState().getValue())
                             .isEqualTo(STATE_PROVISIONING_STARTED);
+                });
+    }
+
+    @Test
+    public void onProvisioningInitiated_stateIsProvisioningInitialized() {
+        mInstrumentation.runOnMainSync(
+                () -> {
+                    mViewModel.onProvisioningInitiated();
+
+                    assertThat(mViewModel.getState().getValue())
+                            .isEqualTo(STATE_PREPROVISIONING_INITIALIZED);
                 });
     }
 
