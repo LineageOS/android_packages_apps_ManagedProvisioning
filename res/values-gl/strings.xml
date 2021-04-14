@@ -59,7 +59,7 @@
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"Toca para continuar coa configuración do teu perfil de traballo"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Non se puido configurar o teu perfil de traballo. Ponte en contacto co departamento de TI ou téntao de novo máis tarde."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Produciuse un erro ao engadir o perfil de traballo"</string>
-    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Non se pode substituír nin eliminar o perfil de traballo"</string>
+    <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Non se pode substituír nin quitar o perfil de traballo"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"Non se pode engadir un perfil de traballo a este dispositivo. Se tes preguntas, ponte en contacto co teu administrador de TI."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"Cambia o launcher do dispositivo"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"O teu perfil de traballo non pode utilizar este launcher"</string>
