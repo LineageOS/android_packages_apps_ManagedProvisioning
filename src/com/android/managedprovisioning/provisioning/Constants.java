@@ -42,7 +42,7 @@ public final class Constants {
      * A boolean flag to indicate whether to lock the orientation to portrait mode.
      * <p>This is a temporary feature flag until the setup wizard library support is implemented.
      */
-    public static final boolean LOCK_TO_PORTRAIT_MODE = true;
+    public static final boolean LOCK_TO_PORTRAIT_MODE = false;
 
     /**
      * A boolean flag to indicate whether to enable custom activity start gestures.
