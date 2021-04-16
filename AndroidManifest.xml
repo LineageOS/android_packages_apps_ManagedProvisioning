@@ -253,6 +253,14 @@
             </intent-filter>
         </receiver>
 
+        <receiver
+            android:name="com.android.managedprovisioning.manageduser.ManagedUserRemovalListener"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_REMOVED" />
+            </intent-filter>
+        </receiver>
+
         <!-- TODO (b/146135268): Add permission for setup-wizard to guard access? -->
         <activity android:name=".finalization.FinalizationInsideSuwActivity"
                   android:excludeFromRecents="true"
