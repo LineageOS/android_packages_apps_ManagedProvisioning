@@ -27,6 +27,8 @@ import android.os.UserHandle;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import com.google.android.setupcompat.util.WizardManagerHelper;
+
 import java.util.function.BiConsumer;
 
 /**
@@ -51,9 +53,14 @@ public class PolicyComplianceUtils {
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
             TransitionHelper transitionHelper) {
         return startPolicyComplianceActivityIfResolvedInternal(parentActivity, params, utils,
-                provisioningAnalyticsTracker, (Intent intent, UserHandle userHandle) ->
-                        transitionHelper.startActivityForResultAsUserWithTransition(
-                                parentActivity, intent, requestCode, userHandle));
+                provisioningAnalyticsTracker, (Intent intent, UserHandle userHandle) -> {
+                    if (parentActivity.getIntent() != null) {
+                        WizardManagerHelper.copyWizardManagerExtras(
+                                parentActivity.getIntent(), intent);
+                    }
+                    transitionHelper.startActivityForResultAsUserWithTransition(
+                            parentActivity, intent, requestCode, userHandle);
+                });
     }
 
     /**
