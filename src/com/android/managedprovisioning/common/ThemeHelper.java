@@ -25,13 +25,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.SystemProperties;
 import android.text.TextUtils;
+import android.webkit.WebSettings;
 
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
 
 import com.android.managedprovisioning.R;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.util.ThemeResolver;
+
+import java.util.Objects;
 
 /**
  * Helper with utility methods to manage the ManagedProvisioning theme and night mode.
@@ -52,6 +57,8 @@ public class ThemeHelper {
      * Infers the correct theme resource id.
      */
     public int inferThemeResId(Context context, Intent intent) {
+        Objects.requireNonNull(context);
+        Objects.requireNonNull(intent);
         String themeName = getDefaultThemeName(intent);
         int defaultTheme = mSetupWizardBridge.isSetupWizardDayNightEnabled(context)
                 ? R.style.SudThemeGlifV3_DayNight
@@ -66,6 +73,7 @@ public class ThemeHelper {
      * @return {@link AppCompatDelegate#MODE_NIGHT_YES} or {@link AppCompatDelegate#MODE_NIGHT_NO}
      */
     public int getDefaultNightMode(Context context) {
+        Objects.requireNonNull(context);
         if (shouldSuppressDayNight(context)) {
             return AppCompatDelegate.MODE_NIGHT_NO;
         }
@@ -73,6 +81,28 @@ public class ThemeHelper {
             return AppCompatDelegate.MODE_NIGHT_YES;
         }
         return AppCompatDelegate.MODE_NIGHT_NO;
+    }
+
+    /**
+     * Forces the web pages shown by the {@link android.webkit.WebView} which has the
+     * supplied {@code webSettings} to have the appropriate day/night mode depending
+     * on the app theme.
+     */
+    public void applyWebSettingsDayNight(Context context, WebSettings webSettings) {
+        Objects.requireNonNull(context);
+        Objects.requireNonNull(webSettings);
+        if (!WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+            return;
+        }
+        WebSettingsCompat.setForceDark(webSettings, getForceDarkMode(context));
+    }
+
+    private int getForceDarkMode(Context context) {
+        if (getDefaultNightMode(context) == AppCompatDelegate.MODE_NIGHT_YES) {
+            return WebSettingsCompat.FORCE_DARK_ON;
+        } else {
+            return WebSettingsCompat.FORCE_DARK_OFF;
+        }
     }
 
     private boolean shouldSuppressDayNight(Context context) {

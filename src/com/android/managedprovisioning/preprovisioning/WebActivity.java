@@ -59,7 +59,6 @@ public class WebActivity extends SetupLayoutActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         String extraUrl = getIntent().getStringExtra(EXTRA_URL);
         if (extraUrl == null) {
             Toast.makeText(this, R.string.url_error, Toast.LENGTH_SHORT).show();
@@ -92,6 +91,7 @@ public class WebActivity extends SetupLayoutActivity {
             // User should not be able to escape provisioning if user setup isn't complete.
             mWebView.setOnLongClickListener(v -> true);
         }
+        getThemeHelper().applyWebSettingsDayNight(getApplicationContext(), webSettings);
         setContentView(mWebView);
     }
 

@@ -102,6 +102,10 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
         return mUtils;
     }
 
+    protected ThemeHelper getThemeHelper() {
+        return mThemeHelper;
+    }
+
     protected TransitionHelper getTransitionHelper() {
         return mTransitionHelper;
     }
