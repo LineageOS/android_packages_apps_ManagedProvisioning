@@ -45,7 +45,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"¿Eliminar el perfil?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Ya tienes un perfil de trabajo administrado a través de la siguiente aplicación:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Para continuar, "<a href="#read_this_link">"consulta esta información"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Si continuas, se eliminarán todas las aplicaciones y datos de este perfil."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Si continúas, se eliminarán todas las aplicaciones y datos de este perfil."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Eliminar"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Cancelar"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Para configurar el perfil de trabajo, hay que cifrar el dispositivo. Este proceso puede tardar un poco."</string>
@@ -157,7 +157,7 @@
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> y <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
-    <string name="take_a_few_minutes" msgid="6282806501305322838">"Este proceso puede tardar unos minutos"</string>
+    <string name="take_a_few_minutes" msgid="6282806501305322838">"Esto puede tardar unos minutos"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Tus aplicaciones de trabajo se guardarán en este perfil y las administrará tu organización"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Tu organización administrará y protegerá este dispositivo"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Preparando la configuración de tu dispositivo de trabajo…"</string>
@@ -188,7 +188,7 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatorio de privacidad"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Tu administrador de TI puede ver los datos y actividad de este dispositivo"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Ya puedes usar tu dispositivo."</string>
-    <string name="done" msgid="7755227776955952318">"Listo"</string>
+    <string name="done" msgid="7755227776955952318">"Hecho"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Este dispositivo se compró con crédito de <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> puede:"</string>
     <string name="install_creditor_app_description" msgid="6159751782301108878">"Instalar la aplicación <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> para que puedas hacer pagos para este dispositivo"</string>
