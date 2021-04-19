@@ -33,7 +33,7 @@
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Oğurluğa qarşı qorunma xüsusiyyətlərini istifadə etmək üçün, cihazınızda parol ilə qorunan ekran kilidi olmalıdır."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Təşkilatın məxfilik siyasətləri daxil olmaq ətraflı məlumat əldə etmək üçün IT admini ilə əlaqə saxlayın."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Ətraflı öyrənin"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"Ləğv et"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Ləğv edin"</string>
     <string name="ok_setup" msgid="4593707675416137504">"Ok"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Razıyam"</string>
     <string name="url_error" msgid="5958494012986243186">"Bu linki göstərmək olmur."</string>
@@ -47,7 +47,7 @@
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Davam etməmişdən əvvəl "<a href="#read_this_link">"bunu oxuyun"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Davam etsəniz, bu profildə bütün tətbiqlər və data silinəcək."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Sil"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"Ləğv et"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"Ləğv edin"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"İş profilini quraşdırmaq üçün əvvəlcə cihazı şifrələməli olacaqsınız. Bu proses bir az vaxt ala bilər."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"Bu cihazı quraşdırmaq üçün əvvəlcə onu şifrələməli olacaqsınız. Bu proses bir az vaxt ala bilər."</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"Cihaz şifrələnsin?"</string>
@@ -60,7 +60,7 @@
     <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"İş profilini bu cihaza əlavə etmək mümkün deyil. Sualınız varsa, IT admini ilə əlaqə saxlayın."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"Cihaz başladıcısını dəyişin"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Bu işəsalma tətbiqi iş profili tərəfindən istifadə edilə bilməz"</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"Ləğv et"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Ləğv edin"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Ok"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"İstifadəçi Ayarı Tamamlanmayıb"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"İş cihazı istifadəçisi"</string>

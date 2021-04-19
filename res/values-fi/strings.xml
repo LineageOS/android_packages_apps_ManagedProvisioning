@@ -33,7 +33,7 @@
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Jotta voit käyttää varkaudenesto-ominaisuuksia, laitteesi täytyy käyttää salasanasuojattua näytön lukitusta."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Pyydä IT-järjestelmänvalvojalta lisätietoja esimerkiksi organisaation tietosuojakäytännöistä."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Lisätietoja"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"Peruuta"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"Peru"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Suostun"</string>
     <string name="url_error" msgid="5958494012986243186">"Tätä linkkiä ei voi näyttää."</string>
@@ -47,7 +47,7 @@
     <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"Lue tämä"</a>" ennen kuin jatkat."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Jos jatkat, kaikki tämän profiilin sovellukset ja tiedot poistetaan."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Poista"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"Peruuta"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"Peru"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Laite on salattava ennen työprofiilin määritystä. Tämä voi kestää hetken."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"Laite on salattava ennen määritystä. Tämä voi kestää hetken."</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"Salataanko laite?"</string>
@@ -60,7 +60,7 @@
     <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"Työprofiilia ei voi lisätä tälle laitteelle. Jos sinulla on kysyttävää, ota yhteyttä IT-järjestelmänvalvojaan."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"Vaihda laitteen käynnistysohjelma."</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Työprofiili ei voi käyttää tätä käynnistyssovellusta."</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"Peruuta"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Peru"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Määritys ei ole valmis"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Työpaikan laitteen käyttäjä"</string>
@@ -78,7 +78,7 @@
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Lopetetaanko määritys ja palautetaanko laite?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Tämä palauttaa laitteesi tehdasasetukset ja vie sinut asennuksen alkuun."</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Haluatko keskeyttää määrittämisen ja tyhjentää laitteen tiedot?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Peruuta"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Peru"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
     <string name="reset" msgid="6467204151306265796">"Palauta"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Profiilin määritys epäonnistui."</string>
@@ -151,7 +151,7 @@
     <string name="close_list" msgid="9053538299788717597">"Sulje luettelo"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Lopeta asennus ja palauta tehdasasetukset?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Tämän asennuksen lopettaminen palauttaa laitteesi tehdasasetukset ja vie sinut asennuksen alkuun."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Peruuta"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Peru"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Palauta laitteen tehdasasetukset"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> ja <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> ja <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
