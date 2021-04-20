@@ -475,10 +475,6 @@ public class PreProvisioningActivityController {
 
     private void maybeUpdateSkipEducationScreens(ProvisioningParams.Builder builder,
             Intent resultIntent) {
-        // TODO(b/175396701): Remove this hack
-        if (mViewModel.getParams().skipEducationScreens) {
-            return;
-        }
         if (resultIntent.hasExtra(EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS)) {
             builder.setSkipEducationScreens(resultIntent.getBooleanExtra(
                     EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS, /* defaultValue */ false));
