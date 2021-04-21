@@ -74,7 +74,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"സജ്ജീകരിക്കുന്നത് അവസാനിപ്പിച്ച് നിങ്ങളുടെ ഉപകരണത്തിന്റെ ഡാറ്റ മായ്‌ക്കണമെന്ന് തീർച്ചയാണോ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"റദ്ദാക്കുക"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"ശരി"</string>
-    <string name="reset" msgid="6467204151306265796">"പുനഃസജ്ജമാക്കുക"</string>
+    <string name="reset" msgid="6467204151306265796">"റീസെറ്റ് ചെയ്യുക"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"പ്രൊഫൈൽ സജ്ജമാക്കാൻ കഴിയില്ല"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"ഉപകരണം സജ്ജമാക്കാൻ കഴിയില്ല"</string>
     <string name="something_went_wrong" msgid="3593223774041784329">"എന്തോ കുഴപ്പമുണ്ടായി"</string>
