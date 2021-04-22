@@ -77,24 +77,26 @@
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Op dit apparaat is versleuteling niet toegestaan, wat is vereist voor het instellen. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Instellen stoppen en apparaat resetten?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Hiermee wordt je apparaat gereset en ga je terug naar het eerste scherm"</string>
-    <string name="device_owner_cancel_message" msgid="2529288571742712065">"Configureren stoppen en de gegevens op je apparaat wissen?"</string>
+    <string name="device_owner_cancel_message" msgid="2529288571742712065">"Instellen stoppen en de gegevens op je apparaat wissen?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Annuleren"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
     <string name="reset" msgid="6467204151306265796">"Resetten"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Kan profiel niet instellen"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Kan apparaat niet instellen"</string>
+    <string name="something_went_wrong" msgid="3593223774041784329">"Er is iets misgegaan"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Kan apparaat niet instellen. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Neem voor hulp contact op met je IT-beheerder"</string>
+    <string name="reset_device" msgid="5483853913241939262">"Reset dit apparaat en probeer het opnieuw in te stellen"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Apparaat is al ingesteld"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Kan geen verbinding maken met wifi"</string>
-    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Bescherming tegen resetten is ingeschakeld voor je apparaat. Neem contact op met je beheerder voor hulp."</string>
+    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Je apparaat is beveiligd tegen resetten. Neem contact op met je beheerder voor hulp."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Wissen"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Even geduld..."</string>
     <string name="error_hash_mismatch" msgid="1145488923243178454">"Kan de beheer-app niet gebruiken vanwege een controlesomfout. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="error_download_failed" msgid="3274283629837019452">"Kan de beheer-app niet downloaden"</string>
     <string name="error_package_invalid" msgid="555402554502033988">"Kan de beheer-app niet gebruiken. Er ontbreken onderdelen of de app is beschadigd. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="error_installation_failed" msgid="2282903750318407285">"Kan de beheer-app niet installeren"</string>
-    <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Configureren stoppen?"</string>
+    <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Instellen stoppen?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nee"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ja"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Annuleren…"</string>
@@ -125,19 +127,19 @@
     <string name="info_anim_title_0" msgid="3285414600215959704">"Wijzig je manier van werken"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"Scheid werkgegevens van persoonsgegevens"</string>
     <string name="one_place_for_work_apps" msgid="2595597562302953960">"Eén plaats voor werk-apps"</string>
-    <string name="info_anim_title_2" msgid="4629781398620470204">"Schakel het werkgedeelte uit wanneer je klaar bent"</string>
+    <string name="info_anim_title_2" msgid="4629781398620470204">"Zet het werkgedeelte uit wanneer je klaar bent"</string>
     <string name="provisioning" msgid="4512493827019163451">"Registreren"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA-certificaten instellen"</string>
     <string name="setup_profile" msgid="5573950582159698549">"Je profiel instellen"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"Met een werkprofiel kun je je werkgegevens scheiden van je persoonsgegevens"</string>
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"Met een werkprofiel heb je op één centrale locatie toegang tot je werk-apps"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Je profiel instellen. Versleuteling"</string>
-    <string name="setup_profile_progress" msgid="7742718527853325656">"Je profiel instelling. Voortgang weergeven"</string>
+    <string name="setup_profile_progress" msgid="7742718527853325656">"Stel je profiel in. Voortgang tonen"</string>
     <string name="setup_device" msgid="6725265673245816366">"Je apparaat instellen"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"Je apparaat instellen. Versleuteling"</string>
-    <string name="setup_device_progress" msgid="7035335208571175393">"Je apparaat instellen. Voortgang weergeven"</string>
+    <string name="setup_device_progress" msgid="7035335208571175393">"Stel je apparaat in. Voortgang tonen"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Knop \'Meer informatie\'"</string>
-    <string name="mdm_icon_label" msgid="3399134595549660561">"Pictogram <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
+    <string name="mdm_icon_label" msgid="3399134595549660561">"Icoon <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="section_heading" msgid="3924666803774291908">"Kop van sectie <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
     <string name="section_content" msgid="8875502515704374394">"Content van sectie <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Uitvouwen"</string>
@@ -161,25 +163,34 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Voorbereiden om werkapparaat in te stellen…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Beheer-app instellen"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"De rest instellen"</string>
-    <string name="now_lets_set_up_everything_else" msgid="2905102208584231894">"Laten we nu de rest instellen"</string>
+    <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Voeg een persoonlijk account toe om meer uit je apparaat te halen"</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Nu je werkprofiel klaar is, kun je ook een persoonlijk Google-account toevoegen voor toegang tot je apps en content."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Dit apparaat is eigendom van je organisatie"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"De volgende app wordt gebruikt om deze telefoon te beheren en te controleren"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Instellingen klaarmaken voor werk…"</string>
-    <string name="work_profile_provisioning_accept_header" msgid="462916780311392444">"Laten we eerst je werkprofiel instellen"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Laten we eerst je werkprofiel instellen"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Werk-apps worden bewaard in je werkprofiel"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pauzeer je werk-apps wanneer je werkdag erop zit"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="7495564624887776704">"Je IT-beheerder kan alleen de gegevens in je werkprofiel bekijken"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"De gegevens in je werkprofiel zijn zichtbaar voor je IT-beheerder"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Je werkprofiel instellen…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3917907344897144246">"Werk-apps worden bewaard in je werkprofiel. Je kunt werk-apps pauzeren wanneer je werkdag erop zit. Je IT-beheerder kan alleen de gegevens in je werkprofiel bekijken."</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Werk-apps worden bewaard in je werkprofiel. Je kunt werk-apps pauzeren als je werkdag erop zit. De gegevens in je werkprofiel zijn zichtbaar voor je IT-beheerder."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Laten we je werkapparaat instellen"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Houd je werk-apps binnen handbereik"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Dit is geen privéapparaat"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Je IT-beheerder kan mogelijk je gegevens en activiteit op dit apparaat zien."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Je apparaat instellen…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Gebruik dit apparaat voor eenvoudige toegang tot je werk-apps. Dit is geen privéapparaat, dus je IT-beheerder kan mogelijk je gegevens en activiteit bekijken. Neem voor meer informatie contact op met je IT-beheerder."</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Werk-apps worden in je werkprofiel bewaard en beheerd door je IT-beheerder"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Persoonlijke apps staan apart, verborgen voor werk-apps"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Je IT-beheerder kan dit apparaat beheren en apps blokkeren"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Werk-apps worden in je werkprofiel bewaard en worden beheerd door je IT-beheerder. Persoonlijke apps zijn afgescheiden en verborgen voor werk-apps. Je IT-beheerder kan dit apparaat beheren en bepaalde apps blokkeren."</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"Een ogenblik geduld…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privacyherinnering"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Je IT-beheerder kan mogelijk je gegevens en activiteit op dit apparaat zien"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Je kunt je apparaat nu gebruiken."</string>
-    <string name="done" msgid="7755227776955952318">"Gereed"</string>
+    <string name="done" msgid="7755227776955952318">"Klaar"</string>
+    <string name="financed_device_screen_header" msgid="7890706080917322376">"Dit apparaat is gekocht op krediet van <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
+    <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan:"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"De <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-app installeren zodat je betalingen kunt doen voor dit apparaat"</string>
+    <string name="lock_device_description" msgid="2940362560732989166">"De toegang tot dit apparaat beperken als je geen betalingen doet"</string>
 </resources>
