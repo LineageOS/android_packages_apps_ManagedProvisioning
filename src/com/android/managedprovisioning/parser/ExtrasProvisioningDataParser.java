@@ -539,12 +539,11 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .parse(getParcelableArrayExtraFromLongName(
                             intent, EXTRA_PROVISIONING_DISCLAIMERS));
 
-            String organizationName = null;
+            String organizationName =
+                    getStringExtraFromLongName(intent, EXTRA_PROVISIONING_ORGANIZATION_NAME);
             String supportUrl = null;
             if (isProvisionManagedDeviceFromTrustedSourceIntent || isFinancedDeviceProvisioning) {
-                organizationName = getStringExtraFromLongName(
-                        intent,EXTRA_PROVISIONING_ORGANIZATION_NAME);
-                supportUrl = getStringExtraFromLongName(intent,EXTRA_PROVISIONING_SUPPORT_URL);
+                supportUrl = getStringExtraFromLongName(intent, EXTRA_PROVISIONING_SUPPORT_URL);
             }
 
             final boolean leaveAllSystemAppsEnabled = isManagedProfileAction
