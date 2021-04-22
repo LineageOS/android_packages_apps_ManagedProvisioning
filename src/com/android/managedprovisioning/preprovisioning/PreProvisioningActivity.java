@@ -20,7 +20,6 @@ import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_SHOWING_USER_CONSENT;
 
-import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
@@ -33,6 +32,7 @@ import android.widget.TextView;
 
 import androidx.annotation.VisibleForTesting;
 
+import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.GetProvisioningModeUtils;
@@ -45,22 +45,15 @@ import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
 import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityController.UiParams;
-import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelper;
-import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelperCallback;
-import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelperFactory;
 import com.android.managedprovisioning.provisioning.AdminIntegratedFlowPrepareActivity;
-import com.android.managedprovisioning.provisioning.FinancedDeviceLandingActivity;
-import com.android.managedprovisioning.provisioning.LandingActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
 public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
-        SimpleDialog.SimpleDialogListener, PreProvisioningActivityController.Ui,
-        ConsentUiHelperCallback {
+        SimpleDialog.SimpleDialogListener, PreProvisioningActivityController.Ui {
 
     private static final int ENCRYPT_DEVICE_REQUEST_CODE = 1;
     @VisibleForTesting
@@ -84,7 +77,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private PreProvisioningActivityController mController;
     private ControllerProvider mControllerProvider;
     private final AccessibilityContextMenuMaker mContextMenuMaker;
-    private ConsentUiHelper mConsentUiHelper;
+    private PreProvisioningActivityBridge mBridge;
 
     private static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
 
@@ -100,7 +93,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     }
 
     @VisibleForTesting
-    public PreProvisioningActivity(ControllerProvider controllerProvider,
+    public PreProvisioningActivity(
+            ControllerProvider controllerProvider,
             AccessibilityContextMenuMaker contextMenuMaker, Utils utils,
             SettingsFacade settingsFacade, ThemeHelper themeHelper) {
         super(utils, settingsFacade, themeHelper);
@@ -114,10 +108,32 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mController = mControllerProvider.getInstance(this);
-        mConsentUiHelper = ConsentUiHelperFactory.getInstance(
-                /* activity */ this, /* contextMenuMaker */ mContextMenuMaker,
-                /* callback */ this, /* utils */ mUtils, mController.getSettingsFacade());
+        mBridge = createBridge();
         mController.getState().observe(this, this::onStateChanged);
+    }
+
+    protected PreProvisioningActivityBridge createBridge() {
+        return new PreProvisioningActivityBridgeImpl(
+                /* activity= */ this,
+                mUtils,
+                PreProvisioningActivity.this::initializeLayoutParams,
+                createBridgeCallbacks());
+    }
+
+    protected final PreProvisioningActivityBridgeCallbacks createBridgeCallbacks() {
+        return new PreProvisioningActivityBridgeCallbacks() {
+            @Override
+            public void onTermsAccepted() {
+                mController.continueProvisioningAfterUserConsent();
+            }
+
+            @Override
+            public void onTermsButtonClicked() {
+                getTransitionHelper()
+                        .startActivityWithTransition(PreProvisioningActivity.this,
+                                mController.createViewTermsIntent());
+            }
+        };
     }
 
     private void onStateChanged(Integer state) {
@@ -139,7 +155,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         if (params != null) {
             params.cleanUp();
         }
-        EncryptionController.getInstance(this).cancelEncryptionReminder();
+        getEncryptionController().cancelEncryptionReminder();
         super.finish();
     }
 
@@ -317,7 +333,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void requestEncryption(ProvisioningParams params) {
-        Intent encryptIntent = new Intent(this, EncryptDeviceActivity.class);
+        Intent encryptIntent = new Intent(this,
+                getActivityForScreen(ManagedProvisioningScreens.ENCRYPT));
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), encryptIntent);
         encryptIntent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
         getTransitionHelper().startActivityForResultWithTransition(
@@ -351,7 +368,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     @Override
     public void prepareAdminIntegratedFlow(ProvisioningParams params) {
         if (AdminIntegratedFlowPrepareActivity.shouldRunPrepareActivity(mUtils, this, params)) {
-            final Intent intent = new Intent(this, AdminIntegratedFlowPrepareActivity.class);
+            Intent intent = new Intent(this,
+                    getActivityForScreen(ManagedProvisioningScreens.ADMIN_INTEGRATED_PREPARE));
             WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
             intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
             getTransitionHelper().startActivityForResultWithTransition(
@@ -372,7 +390,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
      * Starts {@link ProvisioningActivity}.
      */
     public void startProvisioning(ProvisioningParams params) {
-        Intent intent = new Intent(this, ProvisioningActivity.class);
+        Intent intent = new Intent(this,
+                getActivityForScreen(ManagedProvisioningScreens.PROVISIONING));
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
         getTransitionHelper().startActivityForResultWithTransition(
@@ -438,12 +457,13 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void initiateUi(UiParams uiParams) {
-        mConsentUiHelper.initiateUi(uiParams);
+        mBridge.initiateUi(uiParams);
     }
 
     @Override
     public void showOwnershipDisclaimerScreen(ProvisioningParams params) {
-        Intent intent = new Intent(this, LandingActivity.class);
+        Intent intent = new Intent(this,
+                getActivityForScreen(ManagedProvisioningScreens.LANDING));
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
         getTransitionHelper().startActivityForResultWithTransition(
@@ -452,7 +472,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void prepareFinancedDeviceFlow(ProvisioningParams params) {
-        Intent intent = new Intent(this, FinancedDeviceLandingActivity.class);
+        Intent intent = new Intent(this,
+                getActivityForScreen(ManagedProvisioningScreens.FINANCED_DEVICE_LANDING));
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
         getTransitionHelper().startActivityForResultWithTransition(
@@ -481,30 +502,13 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     @Override
     protected void onStart() {
         super.onStart();
-        mConsentUiHelper.onStart();
+        mBridge.onStart();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        mConsentUiHelper.onStop();
-    }
-
-    @Override
-    public void nextAfterUserConsent() {
-        mController.continueProvisioningAfterUserConsent();
-    }
-
-    @Override
-    public void onTermsButtonClicked() {
-        getTransitionHelper()
-                .startActivityWithTransition(this, mController.createViewTermsIntent());
-    }
-
-    @Override
-    public void initializeLayoutParams(int layoutResourceId, @Nullable Integer headerResourceId,
-            CustomizationParams params) {
-        super.initializeLayoutParams(layoutResourceId, headerResourceId, params);
+        mBridge.onStop();
     }
 
     /**

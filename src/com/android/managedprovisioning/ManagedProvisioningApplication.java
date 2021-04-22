@@ -32,9 +32,9 @@ import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecke
 import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
 
 /**
- * {@link android.app.Application} for ManagedProvisioning.
+ * {@link ManagedProvisioningBaseApplication} for ManagedProvisioning.
  */
-public class ManagedProvisioningApplication extends android.app.Application {
+public class ManagedProvisioningApplication extends ManagedProvisioningBaseApplication {
 
     private final ThemeHelper mThemeHelper = new ThemeHelper(
             new DefaultNightModeChecker(),

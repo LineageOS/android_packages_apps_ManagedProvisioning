@@ -45,6 +45,7 @@ import android.widget.TextView;
 
 import androidx.annotation.VisibleForTesting;
 
+import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
@@ -241,7 +242,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
     @VisibleForTesting
     protected void onAbortButtonClicked() {
-        final Intent intent = new Intent(this, ResetAndReturnDeviceActivity.class);
+        final Intent intent = new Intent(this,
+                getActivityForScreen(ManagedProvisioningScreens.RESET_AND_RETURN_DEVICE));
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
         getTransitionHelper().startActivityWithTransition(this, intent);

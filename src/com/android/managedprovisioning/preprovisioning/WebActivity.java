@@ -20,6 +20,7 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 
 import static java.net.HttpURLConnection.HTTP_FORBIDDEN;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,6 +34,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
+import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
@@ -121,9 +124,18 @@ public class WebActivity extends SetupLayoutActivity {
     @Nullable
     public static Intent createIntent(Context context, String url) {
         if (URLUtil.isNetworkUrl(url)) {
-            return new Intent(context, WebActivity.class)
+            return new Intent(context, getWebActivityClass(context))
                     .putExtra(EXTRA_URL, url);
         }
         return null;
+    }
+
+    private static Class<? extends Activity> getWebActivityClass(Context context) {
+        return getBaseApplication(context)
+                .getActivityClassForScreen(ManagedProvisioningScreens.WEB);
+    }
+
+    private static ManagedProvisioningBaseApplication getBaseApplication(Context context) {
+        return (ManagedProvisioningBaseApplication) context.getApplicationContext();
     }
 }

@@ -16,19 +16,21 @@
 package com.android.managedprovisioning.preprovisioning.consent;
 
 import android.app.Activity;
-import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
-import com.android.managedprovisioning.common.SettingsFacade;
+
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityBridgeCallbacks;
 
 /**
  * A factory which returns the appropriate {@link ConsentUiHelper} instance.
  */
 public class ConsentUiHelperFactory {
     public static ConsentUiHelper getInstance(
-        Activity activity, AccessibilityContextMenuMaker contextMenuMaker,
-        ConsentUiHelperCallback callback, Utils utils,
-        SettingsFacade settingsFacade) {
+            Activity activity,
+            ConsentUiHelperCallback callback,
+            Utils utils,
+            PreProvisioningActivityBridgeCallbacks preProvisioningActivityBridgeCallbacks) {
         // Currently there's just one
-        return new PrimaryConsentUiHelper(activity, callback, utils);
+        return new ConsentUiHelperImpl(activity, callback, utils,
+                preProvisioningActivityBridgeCallbacks);
     }
 }

@@ -32,6 +32,7 @@ import androidx.test.filters.SmallTest;
 import androidx.test.rule.ActivityTestRule;
 
 import com.android.managedprovisioning.TestInstrumentationRunner;
+import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.CustomizationVerifier;
 import com.android.managedprovisioning.common.GetProvisioningModeUtils;
@@ -87,7 +88,7 @@ public class PreProvisioningActivityTest {
                                 new PreProvisioningViewModel(
                                         new TimeLogger(activity, 0 /* category */),
                                         new MessageParser(activity),
-                                        EncryptionController.getInstance(activity))
+                                        TestUtils.createEncryptionController(activity))
                         ) {
                             @Override
                             protected boolean checkDevicePolicyPreconditions() {

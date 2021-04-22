@@ -41,10 +41,6 @@ import com.google.android.setupdesign.GlifLayout;
 public class EncryptDeviceActivity extends SetupGlifLayoutActivity {
     private ProvisioningParams mParams;
 
-    protected EncryptionController getEncryptionController() {
-        return EncryptionController.getInstance(this);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

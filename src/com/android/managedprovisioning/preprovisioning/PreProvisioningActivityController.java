@@ -56,6 +56,7 @@ import static java.util.Objects.requireNonNull;
 import android.accounts.Account;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.app.Activity;
 import android.app.KeyguardManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
@@ -79,6 +80,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
+import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
@@ -93,7 +96,6 @@ import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.ProvisioningParams.FlowType;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.PreProvisioningViewModelFactory;
-import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 
 import java.util.List;
 
@@ -133,8 +135,9 @@ public class PreProvisioningActivityController {
                 new GetProvisioningModeUtils(),
                 new ViewModelProvider(
                         activity,
-                        new PreProvisioningViewModelFactory(activity.getApplication()))
-                                .get(PreProvisioningViewModel.class));
+                        new PreProvisioningViewModelFactory(
+                                (ManagedProvisioningBaseApplication) activity.getApplication()))
+                                        .get(PreProvisioningViewModel.class));
     }
     @VisibleForTesting
     PreProvisioningActivityController(
@@ -564,8 +567,16 @@ public class PreProvisioningActivityController {
     }
 
     protected Intent createViewTermsIntent() {
-        return new Intent(mContext, TermsActivity.class).putExtra(
-            ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mViewModel.getParams());
+        return new Intent(mContext, getTermsActivityClass())
+                .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mViewModel.getParams());
+    }
+
+    private Class<? extends Activity> getTermsActivityClass() {
+        return getBaseApplication().getActivityClassForScreen(ManagedProvisioningScreens.TERMS);
+    }
+
+    private ManagedProvisioningBaseApplication getBaseApplication() {
+        return (ManagedProvisioningBaseApplication) mContext.getApplicationContext();
     }
 
     /**

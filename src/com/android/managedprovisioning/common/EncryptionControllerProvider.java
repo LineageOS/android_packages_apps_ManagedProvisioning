@@ -18,13 +18,23 @@ package com.android.managedprovisioning.common;
 
 import android.content.Context;
 
+import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.preprovisioning.EncryptionController;
 
 /**
  * A provider for {@link EncryptionController}.
  */
 public interface EncryptionControllerProvider {
-    EncryptionControllerProvider DEFAULT = EncryptionController::getInstance;
+    EncryptionControllerProvider DEFAULT = new EncryptionControllerProvider() {
+        @Override
+        public EncryptionController createEncryptionController(Context context) {
+            return getApplicationContext(context).getEncryptionController();
+        }
+
+        private ManagedProvisioningBaseApplication getApplicationContext(Context context) {
+            return (ManagedProvisioningBaseApplication) context.getApplicationContext();
+        }
+    };
 
     /**
      * Provides an instance for {@link EncryptionController}.

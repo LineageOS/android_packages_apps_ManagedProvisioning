@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.SettingsFacade;
@@ -103,7 +104,8 @@ public class LandingActivity extends SetupGlifLayoutActivity {
 
     private void onNextButtonClicked(ProvisioningParams params) {
         if (AdminIntegratedFlowPrepareActivity.shouldRunPrepareActivity(mUtils, this, params)) {
-            final Intent intent = new Intent(this, AdminIntegratedFlowPrepareActivity.class);
+            final Intent intent = new Intent(this,
+                    getActivityForScreen(ManagedProvisioningScreens.ADMIN_INTEGRATED_PREPARE));
             WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
             intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
             getTransitionHelper().startActivityForResultWithTransition(

@@ -1,11 +1,11 @@
 /*
- * Copyright 2019, The Android Open Source Project
+ * Copyright (C) 2021 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 package com.android.managedprovisioning.preprovisioning.consent;
+
+import static java.util.Objects.requireNonNull;
 
 import android.annotation.DrawableRes;
 import android.annotation.Nullable;
@@ -29,6 +31,7 @@ import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.common.TouchTargetEnforcer;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
+import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityBridgeCallbacks;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityController.UiParams;
 
 import com.google.android.setupdesign.GlifLayout;
@@ -36,19 +39,22 @@ import com.google.android.setupdesign.GlifLayout;
 /**
  * Implements functionality for the consent screen.
  */
-class PrimaryConsentUiHelper implements ConsentUiHelper {
+class ConsentUiHelperImpl implements ConsentUiHelper {
     private final Activity mActivity;
     private final TouchTargetEnforcer mTouchTargetEnforcer;
     private final ConsentUiHelperCallback mCallback;
     private final Utils mUtils;
+    private final PreProvisioningActivityBridgeCallbacks mBridgeCallbacks;
     private @Nullable RepeatingVectorAnimation mRepeatingVectorAnimation;
 
-    PrimaryConsentUiHelper(Activity activity, ConsentUiHelperCallback callback, Utils utils) {
-        mActivity = activity;
-        mCallback = callback;
+    ConsentUiHelperImpl(Activity activity, ConsentUiHelperCallback callback, Utils utils,
+            PreProvisioningActivityBridgeCallbacks bridgeCallbacks) {
+        mActivity = requireNonNull(activity);
+        mCallback = requireNonNull(callback);
         mTouchTargetEnforcer =
             new TouchTargetEnforcer(activity.getResources().getDisplayMetrics().density);
-        mUtils = utils;
+        mUtils = requireNonNull(utils);
+        mBridgeCallbacks = requireNonNull(bridgeCallbacks);
     }
 
     @Override
@@ -81,7 +87,7 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         }
 
         final CustomizationParams customization = uiParams.customization;
-        mCallback.initializeLayoutParams(
+        mCallback.onInitiateUi(
                 R.layout.intro,
                 headerResId,
                 customization);
@@ -113,7 +119,7 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
 
     private void onNextButtonClicked() {
         ProvisionLogger.logi("Next button (next_button) is clicked.");
-        mCallback.nextAfterUserConsent();
+        mBridgeCallbacks.onTermsAccepted();
     }
 
     private void setupViewTermsButton() {
@@ -121,7 +127,7 @@ class PrimaryConsentUiHelper implements ConsentUiHelper {
         layout.setDescriptionText(R.string.view_terms);
         TextView subtitle = layout.findViewById(R.id.sud_layout_subtitle);
         subtitle.setTextColor(mUtils.getAccentColor(mActivity));
-        subtitle.setOnClickListener(v -> mCallback.onTermsButtonClicked());
+        subtitle.setOnClickListener(v -> mBridgeCallbacks.onTermsButtonClicked());
         mTouchTargetEnforcer.enforce(subtitle, (View) subtitle.getParent());
     }
 }

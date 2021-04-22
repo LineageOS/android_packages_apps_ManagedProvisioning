@@ -19,6 +19,7 @@ package com.android.managedprovisioning.preprovisioning;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.common.TransitionHelper;
 
 /**
@@ -30,8 +31,12 @@ public class PostEncryptionActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        EncryptionController.getInstance(this).resumeProvisioning(this, new TransitionHelper());
+        getBaseApplication().getEncryptionController()
+                .resumeProvisioning(this, new TransitionHelper());
         finish();
+    }
+
+    private ManagedProvisioningBaseApplication getBaseApplication() {
+        return (ManagedProvisioningBaseApplication) getApplication();
     }
 }

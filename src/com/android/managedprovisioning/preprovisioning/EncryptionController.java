@@ -18,6 +18,8 @@ package com.android.managedprovisioning.preprovisioning;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import static java.util.Objects.requireNonNull;
+
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -62,19 +64,31 @@ public class EncryptionController {
 
     private static final String PROVISIONING_PARAMS_FILE_NAME
             = "encryption_controller_provisioning_params.xml";
+    private static final Object LOCK = new Object();
 
-    public static synchronized EncryptionController getInstance(Context context) {
-        if (sInstance == null) {
-            sInstance = new EncryptionController(context);
+    /**
+     * Returns an instance of {@link EncryptionController}.
+     *
+     * <p>This method is thread-safe.
+     */
+    public static EncryptionController getInstance(
+            Context context,
+            ComponentName homeReceiver) {
+        requireNonNull(context);
+        requireNonNull(homeReceiver);
+        synchronized (LOCK) {
+            if (sInstance == null) {
+                sInstance = new EncryptionController(context.getApplicationContext(), homeReceiver);
+            }
+            return sInstance;
         }
-        return sInstance;
     }
 
-    private EncryptionController(Context context) {
+    private EncryptionController(Context context, ComponentName homeReceiver) {
         this(context,
                 new Utils(),
                 new SettingsFacade(),
-                new ComponentName(context, PostEncryptionActivity.class),
+                homeReceiver,
                 new NotificationHelper(context),
                 UserHandle.myUserId());
     }

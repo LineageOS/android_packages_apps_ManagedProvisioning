@@ -20,7 +20,6 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 
 import android.annotation.IntDef;
 import android.annotation.MainThread;
-import android.app.Application;
 import android.content.Intent;
 
 import androidx.lifecycle.LiveData;
@@ -28,6 +27,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ProvisionLogger;
@@ -189,9 +189,9 @@ public final class PreProvisioningViewModel extends ViewModel {
     }
 
     static class PreProvisioningViewModelFactory implements ViewModelProvider.Factory {
-        private final Application mApplication;
+        private final ManagedProvisioningBaseApplication mApplication;
 
-        PreProvisioningViewModelFactory(Application application) {
+        PreProvisioningViewModelFactory(ManagedProvisioningBaseApplication application) {
             mApplication = application;
         }
 
@@ -204,7 +204,7 @@ public final class PreProvisioningViewModel extends ViewModel {
             return (T) new PreProvisioningViewModel(
                     new TimeLogger(mApplication, PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS),
                     new MessageParser(mApplication),
-                    EncryptionController.getInstance(mApplication));
+                    mApplication.getEncryptionController());
         }
     }
 }
