@@ -21,6 +21,10 @@ import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
 
 import static com.android.managedprovisioning.provisioning.Constants.FLAG_ENABLE_LIGHT_DARK_MODE;
 
+import static com.google.android.setupdesign.util.ThemeHelper.trySetDynamicColor;
+
+import static java.util.Objects.requireNonNull;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemProperties;
@@ -35,8 +39,6 @@ import com.android.managedprovisioning.R;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.util.ThemeResolver;
-
-import java.util.Objects;
 
 /**
  * Helper with utility methods to manage the ManagedProvisioning theme and night mode.
@@ -57,8 +59,8 @@ public class ThemeHelper {
      * Infers the correct theme resource id.
      */
     public int inferThemeResId(Context context, Intent intent) {
-        Objects.requireNonNull(context);
-        Objects.requireNonNull(intent);
+        requireNonNull(context);
+        requireNonNull(intent);
         String themeName = getDefaultThemeName(intent);
         int defaultTheme = mSetupWizardBridge.isSetupWizardDayNightEnabled(context)
                 ? R.style.SudThemeGlifV3_DayNight
@@ -68,12 +70,21 @@ public class ThemeHelper {
     }
 
     /**
+     * Sets up theme-specific colors. Must be called after {@link
+     * #inferThemeResId(Context, Intent)}.
+     */
+    public void setupDynamicColors(Context context) {
+        requireNonNull(context);
+        trySetDynamicColor(context);
+    }
+
+    /**
      * Returns the appropriate day or night mode, depending on the setup wizard flags.
      *
      * @return {@link AppCompatDelegate#MODE_NIGHT_YES} or {@link AppCompatDelegate#MODE_NIGHT_NO}
      */
     public int getDefaultNightMode(Context context) {
-        Objects.requireNonNull(context);
+        requireNonNull(context);
         if (shouldSuppressDayNight(context)) {
             return AppCompatDelegate.MODE_NIGHT_NO;
         }
@@ -89,8 +100,8 @@ public class ThemeHelper {
      * on the app theme.
      */
     public void applyWebSettingsDayNight(Context context, WebSettings webSettings) {
-        Objects.requireNonNull(context);
-        Objects.requireNonNull(webSettings);
+        requireNonNull(context);
+        requireNonNull(webSettings);
         if (!WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
             return;
         }
