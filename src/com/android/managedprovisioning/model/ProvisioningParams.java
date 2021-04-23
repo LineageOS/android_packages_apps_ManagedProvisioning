@@ -140,8 +140,8 @@ public final class ProvisioningParams extends PersistableBundlable {
     private static final String TAG_INITIATOR_REQUESTED_PROVISIONING_MODES =
             "initiator-requested-provisioning-modes";
     private static final String TAG_FLOW_TYPE = "flow-type";
-    private static final String TAG_IS_TRANSITIONING_FROM_REGULAR_TO_CHILD =
-            "is-transitioning-from-regular-to-child";
+    private static final String TAG_ALLOW_PROVISIONING_AFTER_USER_SETUP_COMPLETE =
+            "allow-provisioning-after-user-setup-complete";
     private static final String TAG_PROVISIONING_TRIGGER = "provisioning-trigger";
     private static final String TAG_SKIP_OWNERSHIP_DISCLAIMER = "skip-ownership-disclaimer";
     private static final String TAG_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE =
@@ -279,8 +279,8 @@ public final class ProvisioningParams extends PersistableBundlable {
      */
     public final int initiatorRequestedProvisioningModes;
 
-    /** True if the device is transitioning from regular to child user. */
-    public final boolean isTransitioningFromRegularToChild;
+    /** True if provisioning after user setup complete should be allowed. */
+    public final boolean allowProvisioningAfterUserSetupComplete;
 
     /**
      * The type of flow to be performed.
@@ -378,7 +378,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         allowedProvisioningModes = builder.mAllowedProvisioningModes;
         initiatorRequestedProvisioningModes = builder.mInitiatorRequestedProvisioningModes;
         flowType = builder.mFlowType;
-        isTransitioningFromRegularToChild = builder.mIsTransitioningFromRegularToChild;
+        allowProvisioningAfterUserSetupComplete = builder.mAllowProvisioningAfterUserSetupComplete;
         provisioningTrigger = builder.mProvisioningTrigger;
         skipOwnershipDisclaimer = builder.mSkipOwnershipDisclaimer;
         returnBeforePolicyCompliance = builder.mReturnBeforePolicyCompliance;
@@ -433,8 +433,8 @@ public final class ProvisioningParams extends PersistableBundlable {
         bundle.putInt(TAG_INITIATOR_REQUESTED_PROVISIONING_MODES,
                 initiatorRequestedProvisioningModes);
         bundle.putInt(TAG_FLOW_TYPE, flowType);
-        bundle.putBoolean(TAG_IS_TRANSITIONING_FROM_REGULAR_TO_CHILD,
-                 isTransitioningFromRegularToChild);
+        bundle.putBoolean(TAG_ALLOW_PROVISIONING_AFTER_USER_SETUP_COMPLETE,
+                allowProvisioningAfterUserSetupComplete);
         bundle.putInt(TAG_PROVISIONING_TRIGGER, provisioningTrigger);
         bundle.putBoolean(TAG_SKIP_OWNERSHIP_DISCLAIMER, skipOwnershipDisclaimer);
         bundle.putBoolean(TAG_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE,
@@ -489,8 +489,8 @@ public final class ProvisioningParams extends PersistableBundlable {
         builder.setInitiatorRequestedProvisioningModes(bundle.getInt(
                 TAG_INITIATOR_REQUESTED_PROVISIONING_MODES));
         builder.setFlowType(bundle.getInt(TAG_FLOW_TYPE));
-        builder.setIsTransitioningFromRegularToChild(bundle.getBoolean(
-                TAG_IS_TRANSITIONING_FROM_REGULAR_TO_CHILD));
+        builder.setAllowProvisioningAfterUserSetupComplete(bundle.getBoolean(
+                TAG_ALLOW_PROVISIONING_AFTER_USER_SETUP_COMPLETE));
         builder.setProvisioningTrigger(bundle.getInt(TAG_PROVISIONING_TRIGGER));
         builder.setSkipOwnershipDisclaimer(bundle.getBoolean(TAG_SKIP_OWNERSHIP_DISCLAIMER));
         builder.setReturnBeforePolicyCompliance(bundle.getBoolean(
@@ -619,7 +619,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         private int mInitiatorRequestedProvisioningModes =
                 DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES;
         private @FlowType int mFlowType = FLOW_TYPE_UNSPECIFIED;
-        private boolean mIsTransitioningFromRegularToChild = false;
+        private boolean mAllowProvisioningAfterUserSetupComplete = false;
         private @ProvisioningTrigger int mProvisioningTrigger = PROVISIONING_TRIGGER_UNSPECIFIED;
         private boolean mSkipOwnershipDisclaimer =
                 DEFAULT_EXTRA_PROVISIONING_SKIP_OWNERSHIP_DISCLAIMER;
@@ -749,9 +749,9 @@ public final class ProvisioningParams extends PersistableBundlable {
             return this;
         }
 
-        public Builder setIsTransitioningFromRegularToChild(
-                boolean isTransitioningFromRegularToChild) {
-            mIsTransitioningFromRegularToChild = isTransitioningFromRegularToChild;
+        public Builder setAllowProvisioningAfterUserSetupComplete(
+                boolean allowProvisioningAfterUserSetupComplete) {
+            mAllowProvisioningAfterUserSetupComplete = allowProvisioningAfterUserSetupComplete;
             return this;
         }
 

@@ -468,6 +468,35 @@ public class ProvisioningParamsTest extends AndroidTestCase {
         assertThat(params.deviceOwnerPermissionGrantOptOut).isTrue();
     }
 
+    @SmallTest
+    public void testSetAllowProvisioningAfterUserSetupComplete_setTrue_isTrue() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .setAllowProvisioningAfterUserSetupComplete(true)
+                        .build();
+
+        assertThat(provisioningParams.allowProvisioningAfterUserSetupComplete).isTrue();
+    }
+
+    @SmallTest
+    public void testSetAllowProvisioningAfterUserSetupComplete_setFalse_isFalse() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .setAllowProvisioningAfterUserSetupComplete(false)
+                        .build();
+
+        assertThat(provisioningParams.allowProvisioningAfterUserSetupComplete).isFalse();
+    }
+
+    @SmallTest
+    public void testSetAllowProvisioningAfterUserSetupComplete_notSet_isFalse() {
+        ProvisioningParams provisioningParams =
+                createDefaultProvisioningParamsBuilder()
+                        .build();
+
+        assertThat(provisioningParams.allowProvisioningAfterUserSetupComplete).isFalse();
+    }
+
     private ProvisioningParams.Builder createDefaultProvisioningParamsBuilder() {
         return ProvisioningParams.Builder
                 .builder()
@@ -495,6 +524,7 @@ public class ProvisioningParamsTest extends AndroidTestCase {
                 .setIsOrganizationOwnedProvisioning(true)
                 .setFlowType(FLOW_TYPE_ADMIN_INTEGRATED)
                 .setProvisioningTrigger(DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE)
+                .setAllowProvisioningAfterUserSetupComplete(true)
                 .build();
     }
 }

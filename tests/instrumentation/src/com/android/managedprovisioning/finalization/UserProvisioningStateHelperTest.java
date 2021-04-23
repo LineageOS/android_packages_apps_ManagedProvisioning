@@ -26,6 +26,8 @@ import static android.app.admin.DevicePolicyManager.STATE_USER_SETUP_INCOMPLETE;
 import static android.app.admin.DevicePolicyManager.STATE_USER_UNMANAGED;
 import static android.content.Context.DEVICE_POLICY_SERVICE;
 
+import static org.mockito.Mockito.anyInt;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -77,15 +79,14 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         // GIVEN that we've provisioned a managed profile after SUW
         final ProvisioningParams params =
                 createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
-        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(true);
+        markUserSetupCompleted(true);
         when(mUtils.getManagedProfile(mContext)).thenReturn(UserHandle.of(MANAGED_PROFILE_USER_ID));
 
         // WHEN calling markUserProvisioningStateInitiallyDone
         mHelper.markUserProvisioningStateInitiallyDone(params);
 
         // THEN the managed profile's state should be set to FINALIZED
-        verify(mDevicePolicyManager)
-                .setUserProvisioningState(STATE_USER_SETUP_FINALIZED, MANAGED_PROFILE_USER_ID);
+        verifyUserProvisioningStateSet(STATE_USER_SETUP_FINALIZED, MANAGED_PROFILE_USER_ID);
     }
 
     @SmallTest
@@ -93,18 +94,41 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         // GIVEN that we've provisioned a managed profile during SUW
         final ProvisioningParams params =
                 createProvisioningParams(ACTION_PROVISION_MANAGED_PROFILE);
-        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(false);
+        markUserSetupCompleted(false);
         when(mUtils.getManagedProfile(mContext)).thenReturn(UserHandle.of(MANAGED_PROFILE_USER_ID));
 
         // WHEN calling markUserProvisioningStateInitiallyDone
         mHelper.markUserProvisioningStateInitiallyDone(params);
 
         // THEN the managed profile's state should be set to COMPLETE
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_COMPLETE,
-                MANAGED_PROFILE_USER_ID);
+        verifyUserProvisioningStateSet(STATE_USER_SETUP_COMPLETE, MANAGED_PROFILE_USER_ID);
         // THEN the primary user's state should be set to PROFILE_COMPLETE
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_PROFILE_COMPLETE,
-                PRIMARY_USER_ID);
+        verifyUserProvisioningStateSet(STATE_USER_PROFILE_COMPLETE, PRIMARY_USER_ID);
+    }
+
+    @SmallTest
+    public void testInitiallyDone_DeviceAfterSuw() {
+        final ProvisioningParams params =
+                createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE);
+        markUserSetupCompleted(true);
+
+        mHelper.markUserProvisioningStateInitiallyDone(params);
+
+        verify(mDevicePolicyManager, never()).setUserProvisioningState(anyInt(), anyInt());
+    }
+
+    @SmallTest
+    public void testInitiallyDone_DeviceAfterSuw_allowedByParams() {
+        final ProvisioningParams params =
+                createProvisioningParams(ACTION_PROVISION_MANAGED_DEVICE)
+                        .toBuilder()
+                        .setAllowProvisioningAfterUserSetupComplete(true)
+                        .build();
+        markUserSetupCompleted(true);
+
+        mHelper.markUserProvisioningStateInitiallyDone(params);
+
+        verifyUserProvisioningStateSet(STATE_USER_SETUP_COMPLETE, PRIMARY_USER_ID);
     }
 
     @SmallTest
@@ -118,11 +142,9 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         mHelper.markUserProvisioningStateFinalized(params);
 
         // THEN the managed profile's state should be set to FINALIZED
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_FINALIZED,
-                MANAGED_PROFILE_USER_ID);
+        verifyUserProvisioningStateSet(STATE_USER_SETUP_FINALIZED, MANAGED_PROFILE_USER_ID);
         // THEN the primary user's state should be set to STATE_USER_PROFILE_FINALIZED
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_PROFILE_FINALIZED,
-                PRIMARY_USER_ID);
+        verifyUserProvisioningStateSet(STATE_USER_PROFILE_FINALIZED, PRIMARY_USER_ID);
     }
 
     @SmallTest
@@ -134,8 +156,7 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         mHelper.markUserProvisioningStateFinalized(params);
 
         // THEN the primary user's state should be set to FINALIZED
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_FINALIZED,
-                PRIMARY_USER_ID);
+        verifyUserProvisioningStateSet(STATE_USER_SETUP_FINALIZED, PRIMARY_USER_ID);
     }
 
     @SmallTest
@@ -149,10 +170,8 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
 
         // THEN both the user who is setting DO and the headless system user's states
         // should be set to FINALIZED
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_FINALIZED,
-            PRIMARY_USER_ID);
-        verify(mDevicePolicyManager).setUserProvisioningState(STATE_USER_SETUP_FINALIZED,
-            SYSTEM_USER_ID);
+        verifyUserProvisioningStateSet(STATE_USER_SETUP_FINALIZED, PRIMARY_USER_ID);
+        verifyUserProvisioningStateSet(STATE_USER_SETUP_FINALIZED, SYSTEM_USER_ID);
     }
 
 
@@ -163,6 +182,14 @@ public class UserProvisioningStateHelperTest extends AndroidTestCase {
         assertFalse(isStateUnmanagedOrFinalizedWithCurrentState(STATE_USER_PROFILE_COMPLETE));
         assertFalse(isStateUnmanagedOrFinalizedWithCurrentState(STATE_USER_SETUP_INCOMPLETE));
         assertTrue(isStateUnmanagedOrFinalizedWithCurrentState(STATE_USER_PROFILE_FINALIZED));
+    }
+
+    private void verifyUserProvisioningStateSet(int state, int userId) {
+        verify(mDevicePolicyManager).setUserProvisioningState(state, userId);
+    }
+
+    private void markUserSetupCompleted(boolean completed) {
+        when(mSettingsFacade.isUserSetupCompleted(mContext)).thenReturn(completed);
     }
 
     private boolean isStateUnmanagedOrFinalizedWithCurrentState(int currentState) {
