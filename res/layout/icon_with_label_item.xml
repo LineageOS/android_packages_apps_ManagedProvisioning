@@ -40,7 +40,6 @@
         android:layout_toEndOf="@+id/sud_items_icon_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:importantForAccessibility="no"
         android:gravity="start"
         style="@style/Provisioning2Theme.Text.Primary.Medium"/>
     <TextView
@@ -49,7 +48,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:importantForAccessibility="no"
         android:layout_marginStart="@dimen/sud_items_summary_margin_start"
         android:layout_marginTop="@dimen/sud_items_summary_margin_top"
         style="@style/Provisioning2Theme.Text.Primary.Small" />
