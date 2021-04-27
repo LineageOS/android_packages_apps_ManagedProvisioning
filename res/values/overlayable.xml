@@ -25,7 +25,6 @@
             <item type="dimen" name="terms_disclaimer_header_vertical_margin" />
             <item type="dimen" name="terms_disclaimer_content_margin_top" />
             <item type="dimen" name="terms_disclaimer_content_margin_bottom" />
-            <item type="dimen" name="terms_header_height" />
             <item type="bool" name="show_progress_label_on_left_side" />
         </policy>
     </overlayable>

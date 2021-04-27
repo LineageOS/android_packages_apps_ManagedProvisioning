@@ -25,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,11 +33,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.ClickableSpanFactory;
+import com.android.managedprovisioning.common.StylerHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 
 import com.google.android.setupdesign.util.DescriptionStyler;
-import com.google.android.setupdesign.util.ItemStyler;
 
 import java.util.List;
 
@@ -54,10 +55,12 @@ public class TermsListAdapter extends RecyclerView.Adapter<TermsListAdapter.Term
     private final Context mContext;
     private final TermsBridge mTermsBridge;
     private final Utils mUtils;
+    private final StylerHelper mStylerHelper;
 
     public TermsListAdapter(Context context, TermsDocument genericDisclaimer,
             List<TermsDocument> termsDocuments, LayoutInflater layoutInflater,
-            AccessibilityContextMenuMaker contextMenuMaker, TermsBridge termsBridge, Utils utils) {
+            AccessibilityContextMenuMaker contextMenuMaker, TermsBridge termsBridge, Utils utils,
+            StylerHelper stylerHelper) {
         mGenericDisclaimer = requireNonNull(genericDisclaimer);
         mTermsDocuments = requireNonNull(termsDocuments);
         mInflater = requireNonNull(layoutInflater);
@@ -65,6 +68,7 @@ public class TermsListAdapter extends RecyclerView.Adapter<TermsListAdapter.Term
         mContext = requireNonNull(context);
         mTermsBridge = requireNonNull(termsBridge);
         mUtils = requireNonNull(utils);
+        mStylerHelper = requireNonNull(stylerHelper);
     }
 
     @Override
@@ -84,7 +88,8 @@ public class TermsListAdapter extends RecyclerView.Adapter<TermsListAdapter.Term
     private View createRegularDisclaimerView(ViewGroup parent) {
         View rootView = mInflater.inflate(
                 R.layout.terms_disclaimer_header, parent, /* attachToRoot= */ false);
-        ItemStyler.applyPartnerCustomizationItemStyle(rootView);
+        mStylerHelper.applyListItemStyling(rootView,
+                new LinearLayout.LayoutParams(rootView.getLayoutParams()));
         return rootView;
     }
 

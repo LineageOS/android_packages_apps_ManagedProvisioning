@@ -46,6 +46,7 @@ import androidx.test.rule.ActivityTestRule;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.common.StylerHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.DisclaimersParam;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -85,6 +86,8 @@ public class TermsActivityTest {
     @Mock
     private SettingsFacade mSettingsFacade;
 
+    private final StylerHelper mStylerHelper = new StylerHelper();
+
     private Context mContext = InstrumentationRegistry.getTargetContext();
 
     @Rule
@@ -100,6 +103,7 @@ public class TermsActivityTest {
                 (classLoader, className, intent) -> new TermsActivity(
                         /* contextMenuMaker= */ null,
                         mSettingsFacade,
+                        mStylerHelper,
                         (appCompatActivity, params) -> new TermsViewModel(
                                 new TermsProvider(
                                         mContext,

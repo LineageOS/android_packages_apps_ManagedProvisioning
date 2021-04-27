@@ -24,6 +24,7 @@ import android.view.LayoutInflater;
 import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.StylerHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 
@@ -62,6 +63,7 @@ public class TermsListAdapterTest {
                 public void onLinkClicked(Intent intent) {}
             };
     private final Utils mUtils = new Utils();
+    private final StylerHelper mStylerHelper = new StylerHelper();
 
     @Before
     public void setUp() {
@@ -71,7 +73,7 @@ public class TermsListAdapterTest {
     @Test
     public void getItemCount_hasExpectedNumberOfDocuments() {
         TermsListAdapter adapter = new TermsListAdapter(mContext, GENERIC_TERMS, DOCS,
-                mLayoutInflater, mContextMenuMaker, mTermsBridge, mUtils);
+                mLayoutInflater, mContextMenuMaker, mTermsBridge, mUtils, mStylerHelper);
 
         assertThat(adapter.getItemCount()).isEqualTo(4);
     }

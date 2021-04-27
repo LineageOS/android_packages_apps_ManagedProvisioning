@@ -20,6 +20,8 @@ import static android.view.View.TEXT_ALIGNMENT_TEXT_START;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TERMS_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import static com.google.android.setupdesign.util.ThemeHelper.shouldApplyExtendedPartnerConfig;
+
 import static java.util.Objects.requireNonNull;
 
 import android.content.Intent;
@@ -35,6 +37,7 @@ import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.car.ui.core.CarUi;
@@ -47,6 +50,7 @@ import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
+import com.android.managedprovisioning.common.StylerHelper;
 import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
 import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
@@ -55,9 +59,6 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.terms.TermsViewModel.TermsViewModelFactory;
 import com.android.managedprovisioning.preprovisioning.terms.adapters.TermsListAdapter;
 import com.android.managedprovisioning.preprovisioning.terms.adapters.TermsListAdapterCar;
-
-import com.google.android.setupdesign.GlifRecyclerLayout;
-import com.google.android.setupdesign.template.RecyclerMixin;
 
 import java.util.List;
 import java.util.function.BiFunction;
@@ -70,14 +71,17 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
     private final AccessibilityContextMenuMaker mContextMenuMaker;
     private final SettingsFacade mSettingsFacade;
     private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
-    private BiFunction<AppCompatActivity, ProvisioningParams, TermsViewModel> mViewModelFetcher;
+    private final BiFunction<AppCompatActivity, ProvisioningParams, TermsViewModel>
+            mViewModelFetcher;
     private TermsViewModel mViewModel;
+    private final StylerHelper mStylerHelper;
 
     @SuppressWarnings("unused")
     public TermsActivity() {
         this(
                 /* contextMenuMaker= */ null,
                 new SettingsFacade(),
+                new StylerHelper(),
                 (activity, params) -> {
                     final TermsViewModelFactory factory =
                             new TermsViewModelFactory(activity.getApplication(), params);
@@ -87,6 +91,7 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
 
     @VisibleForTesting
     TermsActivity(AccessibilityContextMenuMaker contextMenuMaker, SettingsFacade settingsFacade,
+            StylerHelper stylerHelper,
             BiFunction<AppCompatActivity, ProvisioningParams, TermsViewModel> viewModelFetcher) {
         super(new Utils(), settingsFacade,
                 new ThemeHelper(new DefaultNightModeChecker(), new DefaultSetupWizardBridge()));
@@ -96,6 +101,7 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
                         this);
         mSettingsFacade = requireNonNull(settingsFacade);
         mViewModelFetcher = requireNonNull(viewModelFetcher);
+        mStylerHelper = requireNonNull(stylerHelper);
     }
 
     @Override
@@ -128,34 +134,39 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
     }
 
     private void initializeUiForHandhelds(List<TermsDocument> terms) {
-        setupGlifLayout();
+        setupHeader();
+        setupRecyclerView();
         setupToolbar();
         setupTermsListForHandhelds(terms);
     }
 
-    private void setupGlifLayout() {
-        GlifRecyclerLayout layout = findViewById(R.id.setup_wizard_layout);
-        layout.setHeaderText(R.string.terms);
-        layout.findManagedViewById(R.id.suc_layout_title)
-                .setTextAlignment(TEXT_ALIGNMENT_TEXT_START);
-        setupRecyclerView(layout);
+    private void setupHeader() {
+        if (!shouldApplyExtendedPartnerConfig(this)) {
+            return;
+        }
+        TextView header = findViewById(R.id.header);
+        header.setVisibility(View.VISIBLE);
+        header.setText(R.string.terms);
+        mStylerHelper.applyHeaderStyling(header,
+                new LinearLayout.LayoutParams(header.getLayoutParams()));
+        header.setTextAlignment(TEXT_ALIGNMENT_TEXT_START);
     }
 
-    private void setupRecyclerView(GlifRecyclerLayout layout) {
-        final RecyclerView recyclerView = layout.getMixin(RecyclerMixin.class).getRecyclerView();
-        recyclerView.setScrollbarFadingEnabled(false);
+    private void setupRecyclerView() {
+        final RecyclerView recyclerView = findViewById(R.id.terms_container);
         if (recyclerView.getItemDecorationCount() > 0) {
             recyclerView.removeItemDecorationAt(/* index= */ 0);
         }
     }
 
     private void setupToolbar() {
-        Toolbar toolbar = new Toolbar(this);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(getDrawable(R.drawable.ic_arrow_back_24dp));
         toolbar.setNavigationOnClickListener(v ->
                 getTransitionHelper().finishActivity(TermsActivity.this));
-        LinearLayout parent = (LinearLayout) findViewById(R.id.suc_layout_footer).getParent();
-        parent.addView(toolbar, /* index= */ 0);
+        if (!shouldApplyExtendedPartnerConfig(this)) {
+            toolbar.setTitle(R.string.terms);
+        }
     }
 
     private void setUpTermsListForAuto(List<TermsDocument> terms) {
@@ -166,15 +177,17 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
     }
 
     private void setupTermsListForHandhelds(List<TermsDocument> terms) {
-        final GlifRecyclerLayout layout = findViewById(R.id.setup_wizard_layout);
-        layout.setAdapter(new TermsListAdapter(
+        RecyclerView recyclerView = findViewById(R.id.terms_container);
+        recyclerView.setLayoutManager(new LinearLayoutManager(/* context= */ this));
+        recyclerView.setAdapter(new TermsListAdapter(
                 this,
                 mViewModel.getGeneralDisclaimer(),
                 terms,
                 getLayoutInflater(),
                 new AccessibilityContextMenuMaker(this),
                 this,
-                mUtils));
+                mUtils,
+                mStylerHelper));
     }
 
     @Override
