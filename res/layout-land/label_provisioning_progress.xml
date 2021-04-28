@@ -28,8 +28,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:paddingStart="?attr/sudMarginStart"
-        android:paddingEnd="?attr/sudMarginEnd"
         android:layout_marginTop="@dimen/spacer_12"
         android:layout_marginBottom="@dimen/spacer_24" />
     <TextView
@@ -37,8 +35,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:paddingStart="?attr/sudMarginStart"
-        android:paddingEnd="?attr/sudMarginEnd"
         android:layout_marginTop="@dimen/spacer_12"
         android:layout_marginBottom="@dimen/spacer_24" />
 </LinearLayout>

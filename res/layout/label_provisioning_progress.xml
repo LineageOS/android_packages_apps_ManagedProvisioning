@@ -25,7 +25,5 @@
         android:id="@+id/provisioning_progress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="?attr/sudMarginStart"
-        android:layout_marginRight="?attr/sudMarginEnd"
         android:layout_marginBottom="@dimen/spacer_24"/>
 </FrameLayout>

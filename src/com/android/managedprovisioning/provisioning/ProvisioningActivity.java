@@ -67,6 +67,7 @@ import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.Tr
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.GlifLayout;
+import com.google.android.setupdesign.util.ContentStyler;
 import com.google.android.setupdesign.util.DescriptionStyler;
 
 import java.lang.annotation.Retention;
@@ -431,6 +432,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                         ? mUtils.getTextPrimaryColor(this)
                         : mUtils.getAccentColor(this));
         progressLabel.setText(progressLabelResId);
+        int sidePadding = (int) ContentStyler.getPartnerContentMarginStart(this);
+        progressLabel.setPadding(sidePadding, /* top= */ 0, sidePadding, /* bottom= */ 0);
         getProvisioningProgressLabelContainer().setVisibility(View.VISIBLE);
     }
 
