@@ -22,13 +22,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <com.google.android.setupdesign.view.FillContentLayout
-        android:orientation="vertical"
+        style="@style/SudContentFrame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:maxWidth="@dimen/animation_max_size"
+        android:maxHeight="@dimen/animation_max_size">
         <ImageView
             android:id="@+id/animation"
-            style="@style/SudContentIllustration"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            android:scaleType="fitCenter" />
+
     </com.google.android.setupdesign.view.FillContentLayout>
 </com.google.android.setupdesign.GlifLayout>

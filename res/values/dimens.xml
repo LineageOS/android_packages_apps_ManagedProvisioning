@@ -86,4 +86,7 @@
     <dimen name="car_avatar_icon_size">56dp</dimen>
 
     <dimen name="terms_screen_header_margin_top">64dp</dimen>
+
+    <!-- An arbitrarily large number to make the max size fit the parent -->
+    <dimen name="animation_max_size">1000dp</dimen>
 </resources>
