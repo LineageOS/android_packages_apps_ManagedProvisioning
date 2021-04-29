@@ -164,6 +164,11 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="Provisioning2Theme.TermsList">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
     <style name="SetupWizardPartnerResource">
         <!-- Disable to use partner overlay theme for outside setupwizard flow. -->
         <item name="sucUsePartnerResource">true</item>

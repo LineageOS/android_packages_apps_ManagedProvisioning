@@ -16,8 +16,33 @@
  * limitations under the License.
  */
 -->
-<com.google.android.setupdesign.GlifRecyclerLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/setup_wizard_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:title="@string/terms"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:theme="?actionBarTheme"/>
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:paddingTop="@dimen/terms_screen_header_margin_top"
+        android:paddingBottom="@dimen/spacer_16"
+        android:paddingStart="?attr/sudMarginStart"
+        android:paddingEnd="?attr/sudMarginEnd"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/terms_container"
+        android:divider="@null"
+        android:layout_marginStart="?attr/sudMarginStart"
+        android:layout_marginEnd="?attr/sudMarginEnd"
+        style="@style/Provisioning2Theme.TermsList"/>
+</LinearLayout>

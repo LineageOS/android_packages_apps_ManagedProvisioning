@@ -18,8 +18,7 @@
 -->
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_marginLeft="?attr/sudMarginStart"
-    android:layout_marginRight="?attr/sudMarginEnd"
+    android:paddingTop="@dimen/spacer_16"
     android:paddingBottom="@dimen/spacer_24"
     android:id="@+id/terms_disclaimer_general"
     android:layout_height="wrap_content"

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright (C) 2021 The Android Open Source Project
   ~
@@ -15,14 +16,8 @@
   -->
 
 <resources>
-    <!-- Provisioning screens -->
-    <dimen name="sud_items_icon_size">20dp</dimen>
-    <dimen name="sud_items_summary_margin_start">36dp</dimen>
-    <dimen name="sud_items_summary_margin_top">2dp</dimen>
-    <dimen name="sud_items_margin_top">32dp</dimen>
-    <dimen name="sud_items_margin_inbetween">24dp</dimen>
-    <dimen name="terms_disclaimer_header_vertical_margin">16dp</dimen>
-    <dimen name="terms_disclaimer_content_margin_top">16dp</dimen>
-    <dimen name="terms_disclaimer_content_margin_bottom">24dp</dimen>
-    <bool name="show_progress_label_on_left_side">false</bool>
+    <style name="Provisioning2Theme.TermsList">
+        <item name="android:layout_width">600dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
 </resources>
