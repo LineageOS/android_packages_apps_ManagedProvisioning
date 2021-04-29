@@ -66,7 +66,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"Person som använder en arbetsenhet"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Konfigurera jobbenheten …"</string>
     <string name="progress_data_process" msgid="1707745321954672971">"Bearbetar konfigurationsdata …"</string>
-    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Ansluter till Wi-Fi …"</string>
+    <string name="progress_connect_to_wifi" msgid="472251154628863539">"Ansluter till wifi …"</string>
     <string name="progress_connect_to_mobile_network" msgid="3852054186860657088">"Ansluter till mobilt nätverk …"</string>
     <string name="progress_download" msgid="3522436271691064624">"Laddar ned administrationsappen …"</string>
     <string name="progress_install" msgid="2258045670385866183">"Installerar administrationsappen …"</string>
@@ -88,7 +88,7 @@
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Kontakta IT-administratören om du behöver hjälp"</string>
     <string name="reset_device" msgid="5483853913241939262">"Återställ enheten och testa att göra om konfigureringen."</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Enheten har redan konfigurerats"</string>
-    <string name="error_wifi" msgid="1850288843966836571">"Det gick inte att ansluta till Wi-Fi"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Det gick inte att ansluta till wifi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Återställningsskyddet är aktiverat på enheten. Kontakta IT-administratören om du behöver hjälp."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Rensar"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Vänta ..."</string>
