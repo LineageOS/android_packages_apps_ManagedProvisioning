@@ -66,6 +66,7 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         mTransitionHelper.applyTransitions(this);
         setTheme(mThemeHelper.inferThemeResId(this, getIntent()));
+        mThemeHelper.setupDynamicColors(this);
         super.onCreate(savedInstanceState);
         mTimeLogger = new TimeLogger(this, getMetricsCategory());
         mTimeLogger.start();
