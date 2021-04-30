@@ -22,8 +22,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:layout_marginLeft="?attr/sudMarginStart"
-        android:layout_marginRight="?attr/sudMarginEnd"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -32,23 +30,31 @@
             layout="@layout/icon_with_label_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/sud_items_margin_top" />
+            android:layout_marginTop="@dimen/sud_items_margin_top"
+            android:layout_marginLeft="?attr/sudMarginStart"
+            android:layout_marginRight="?attr/sudMarginEnd"/>
         <include
             android:id="@+id/item2"
             layout="@layout/icon_with_label_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/sud_items_margin_inbetween" />
+            android:layout_marginTop="@dimen/sud_items_margin_inbetween"
+            android:layout_marginLeft="?attr/sudMarginStart"
+            android:layout_marginRight="?attr/sudMarginEnd"/>
         <com.google.android.setupdesign.view.FillContentLayout
             android:id="@+id/animation_container"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:maxWidth="@dimen/animation_max_size"
+            android:maxHeight="@dimen/animation_max_size"
+            style="@style/SudContentFrame">
             <ImageView
                 android:id="@+id/animation"
-                style="@style/SudContentIllustration"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter" />
+
         </com.google.android.setupdesign.view.FillContentLayout>
     </LinearLayout>
 </com.google.android.setupdesign.GlifLayout>
