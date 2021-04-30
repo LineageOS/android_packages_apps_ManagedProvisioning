@@ -16,20 +16,10 @@
  * limitations under the License.
  */
 -->
-<com.google.android.setupdesign.GlifLayout
+<com.google.android.setupdesign.GlifLoadingLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/setup_wizard_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <com.google.android.setupdesign.view.FillContentLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/animation"
-            android:src="@drawable/enterprise_wp_animation"
-            style="@style/SudContentIllustration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.google.android.setupdesign.view.FillContentLayout>
-</com.google.android.setupdesign.GlifLayout>
+    android:layout_height="match_parent"
+    app:sudIllustrationType="connection" />
