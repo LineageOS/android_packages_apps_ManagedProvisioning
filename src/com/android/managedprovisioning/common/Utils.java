@@ -684,10 +684,10 @@ public class Utils {
     }
 
     /**
-     * Returns the theme's text primary color.
+     * Returns the theme's text secondary color.
      */
-    public int getTextPrimaryColor(Context context) {
-        return getAttrColor(context, android.R.attr.textColorPrimary);
+    public int getTextSecondaryColor(Context context) {
+        return getAttrColor(context, android.R.attr.textColorSecondary);
     }
 
     private int getAttrColor(Context context, int attr) {

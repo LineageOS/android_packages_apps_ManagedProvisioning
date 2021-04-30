@@ -429,7 +429,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         DescriptionStyler.applyPartnerCustomizationHeavyStyle(progressLabel);
         progressLabel.setTextColor(
                 shouldApplyExtendedPartnerConfig(this)
-                        ? mUtils.getTextPrimaryColor(this)
+                        ? mUtils.getTextSecondaryColor(this)
                         : mUtils.getAccentColor(this));
         progressLabel.setText(progressLabelResId);
         int sidePadding = (int) ContentStyler.getPartnerContentMarginStart(this);
