@@ -40,7 +40,8 @@ android_library {
         "setupdesign",
         "devicepolicyprotosnano",
         "managedprovisioning_protoslite",
-        "androidx.webkit_webkit-nodeps"
+        "androidx.webkit_webkit-nodeps",
+        "setupdesign-lottie-loading-layout"
     ],
 
     srcs: [
@@ -68,7 +69,8 @@ android_app {
         "setupdesign",
         "devicepolicyprotosnano",
         "managedprovisioning_protoslite",
-        "androidx.webkit_webkit-nodeps"
+        "androidx.webkit_webkit-nodeps",
+        "setupdesign-lottie-loading-layout"
     ],
 
     srcs: [
