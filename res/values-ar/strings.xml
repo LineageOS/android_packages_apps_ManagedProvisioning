@@ -188,9 +188,9 @@
     <string name="just_a_sec" msgid="6244676028626237220">"لحظة من فضلك…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"تذكير الخصوصية"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على هذا الجهاز."</string>
-    <string name="financed_device_screen_header" msgid="6875169548352717124">"توفر مؤسسة \"<xliff:g id="CREDITOR_NAME">%s</xliff:g>\" هذا الجهاز."</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"تسديد الدفعات باستخدام تطبيق <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"يمكن لموفّر الائتمان <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> تثبيت تطبيق <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> لتتمكن من تسديد الدفعات مقابل شراء هذا الجهاز."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"يمكن لموفّر الائتمان <xliff:g id="CREDITOR_NAME">%s</xliff:g> حظر الوصول إلى هذا الجهاز."</string>
-    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"يمكن لموفّر الائتمان <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> حظر الوصول إلى هذا الجهاز إذا لم تسدد الدفعات."</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"توفر مؤسسة \"<xliff:g id="CREDITOR_NAME">%s</xliff:g>\" هذا الجهاز"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"سداد الدفعات باستخدام تطبيق <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"يمكن لشركة بيع الأجهزة بالائتمان <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> تثبيت تطبيق <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> لتتمكّن من سداد الدفعات مقابل شراء هذا الجهاز."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"يمكن لشركة بيع الأجهزة بالائتمان <xliff:g id="CREDITOR_NAME">%s</xliff:g> حظر الوصول إلى هذا الجهاز"</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"يمكن لشركة بيع الأجهزة بالائتمان <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> حظر الوصول إلى هذا الجهاز إذا لم تسدد الدفعات."</string>
 </resources>
