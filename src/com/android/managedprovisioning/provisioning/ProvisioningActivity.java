@@ -102,6 +102,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     static final int PROVISIONING_MODE_FINANCED_DEVICE = 4;
     static final int PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE = 5;
     private CustomizationParams mCustomizationParams;
+    private ViewGroup mButtonFooterContainer;
 
     @IntDef(prefix = { "PROVISIONING_MODE_" }, value = {
         PROVISIONING_MODE_WORK_PROFILE,
@@ -221,14 +222,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
     private void updateProvisioningFinalizedScreen() {
         if (!shouldSkipEducationScreens()) {
-            final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
             getProvisioningProgressLabelContainer().setVisibility(View.GONE);
-            Utils.addNextButton(layout, v -> onNextButtonClicked());
-            //TODO(b/181323689): Add tests to ProvisioningActivityTest that the button is not
-            // shown for non-DO provisioning flows.
-            if (mUtils.isDeviceOwnerAction(mParams.provisioningAction)) {
-                Utils.addAbortAndResetButton(layout, v -> onAbortButtonClicked());
-            }
+            mButtonFooterContainer.setVisibility(View.VISIBLE);
         }
 
         if (shouldSkipEducationScreens()) {
@@ -390,6 +385,33 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             // make the icon invisible
             layout.findViewById(R.id.sud_layout_icon).setVisibility(View.INVISIBLE);
         }
+
+        Utils.addNextButton(layout, v -> onNextButtonClicked());
+        //TODO(b/181323689): Add tests to ProvisioningActivityTest that the button is not
+        // shown for non-DO provisioning flows.
+        if (mUtils.isDeviceOwnerAction(mParams.provisioningAction)) {
+            Utils.addAbortAndResetButton(layout, v -> onAbortButtonClicked());
+        }
+        ViewGroup root = findViewById(R.id.sud_layout_template_content);
+        mButtonFooterContainer = getButtonFooterContainer(root);
+
+        mUtils.onViewMeasured(mButtonFooterContainer, this::onContainerMeasured);
+    }
+
+    private ViewGroup getButtonFooterContainer(ViewGroup root) {
+        return (ViewGroup) root.getChildAt(root.getChildCount() - 2);
+    }
+
+    private void onContainerMeasured(View view) {
+        if (mState == STATE_PROVISIONING_FINALIZED) {
+            view.setVisibility(View.VISIBLE);
+            return;
+        }
+        getProvisioningProgressLabelContainer().setLayoutParams(
+                new LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        view.getHeight()));
+        view.setVisibility(View.GONE);
     }
 
     private void setupEducationViews(GlifLayout layout) {
@@ -406,12 +428,12 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     }
 
     private void addProvisioningProgressLabel() {
-        final LinearLayout parent = (LinearLayout) findViewById(R.id.suc_layout_footer).getParent();
+        ViewGroup parent = findViewById(R.id.sud_layout_template_content);
         getLayoutInflater().inflate(R.layout.label_provisioning_progress, parent, true);
     }
 
     private ViewGroup getProvisioningProgressLabelContainer() {
-        final LinearLayout parent = (LinearLayout) findViewById(R.id.suc_layout_footer).getParent();
+        ViewGroup parent = findViewById(R.id.sud_layout_template_content);
         return parent.findViewById(R.id.provisioning_progress_container);
     }
 

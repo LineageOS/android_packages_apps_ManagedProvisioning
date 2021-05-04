@@ -24,6 +24,7 @@
     <TextView
         android:id="@+id/provisioning_progress"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:layout_marginBottom="@dimen/spacer_24"/>
 </FrameLayout>

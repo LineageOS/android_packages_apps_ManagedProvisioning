@@ -59,7 +59,9 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -878,5 +880,19 @@ public class Utils {
      */
     public boolean containsBinaryFlags(int value, int flags) {
         return (value & flags) == flags;
+    }
+
+    /**
+     * Calls {@code callback} when {@code view} has been measured.
+     */
+    public void onViewMeasured(View view, Consumer<View> callback) {
+        view.getViewTreeObserver().addOnGlobalLayoutListener(
+                new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    callback.accept(view);
+                }
+            });
     }
 }
