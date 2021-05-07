@@ -40,6 +40,7 @@ import android.os.UserHandle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -51,6 +52,7 @@ import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
@@ -128,6 +130,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             }});
 
     private TransitionAnimationHelper mTransitionAnimationHelper;
+    private RepeatingVectorAnimation mRepeatingVectorAnimation;
     private UserProvisioningStateHelper mUserProvisioningStateHelper;
     private PolicyComplianceUtils mPolicyComplianceUtils;
     private ProvisioningManager mProvisioningManager;
@@ -336,7 +339,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     @Override
     protected void onStart() {
         super.onStart();
-        if (!shouldSkipEducationScreens()) {
+        if (shouldSkipEducationScreens()) {
+            startSpinnerAnimation();
+        } else {
             startTransitionAnimation();
         }
     }
@@ -344,7 +349,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     @Override
     protected void onStop() {
         super.onStop();
-        if (!shouldSkipEducationScreens()) {
+        if (shouldSkipEducationScreens()) {
+            endSpinnerAnimation();
+        } else {
             endTransitionAnimation();
         }
         // remove this Activity as the view store owner to avoid memory leaks
@@ -367,19 +374,16 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
     @Override
     protected void initializeUi(ProvisioningParams params) {
-        boolean isPoProvisioning = mUtils.isProfileOwnerAction(params.provisioningAction);
-        int titleResId =
+        final boolean isPoProvisioning = mUtils.isProfileOwnerAction(params.provisioningAction);
+        final int titleResId =
             isPoProvisioning ? R.string.setup_profile_progress : R.string.setup_device_progress;
-        int layoutResId = shouldSkipEducationScreens()
-                ? R.layout.empty_loading_layout
-                : R.layout.provisioning_progress;
 
         mCustomizationParams = CustomizationParams.createInstance(mParams, this, mUtils);
-        initializeLayoutParams(layoutResId, /* headerResourceId= */ null,
+        initializeLayoutParams(R.layout.provisioning_progress, /* headerResourceId= */ null,
                 mCustomizationParams);
         setTitle(titleResId);
 
-        GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
         setupEducationViews(layout);
         if (mUtils.isFinancedDeviceAction(params.provisioningAction)) {
             // make the icon invisible
@@ -422,6 +426,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
             final TextView header = layout.findViewById(R.id.suc_layout_title);
             header.setText(progressLabelResId);
             getProvisioningProgressLabelContainer().setVisibility(View.GONE);
+            layout.findViewById(R.id.item1).setVisibility(View.GONE);
+            layout.findViewById(R.id.item2).setVisibility(View.GONE);
         } else {
             setupProgressLabel(progressLabelResId);
         }
@@ -518,6 +524,35 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     private void endTransitionAnimation() {
         mTransitionAnimationHelper.clean();
         mTransitionAnimationHelper = null;
+    }
+
+    private void startSpinnerAnimation() {
+        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
+        final ImageView animation = layout.findViewById(R.id.animation);
+        if (animation.getVisibility() == View.INVISIBLE) {
+            return;
+        }
+        if (mUtils.isFinancedDeviceAction(mParams.provisioningAction)) {
+            // the default scale type is CENTER_CROP, but the progress bar animation is too large to
+            // fit into the ImageView
+            animation.setScaleType(ScaleType.CENTER_INSIDE);
+            animation.setImageResource(R.drawable.sud_fourcolor_progress_bar);
+        } else {
+            animation.setImageResource(R.drawable.enterprise_wp_animation);
+        }
+
+        final AnimatedVectorDrawable vectorDrawable =
+            (AnimatedVectorDrawable) animation.getDrawable();
+        mRepeatingVectorAnimation = new RepeatingVectorAnimation(vectorDrawable);
+        mRepeatingVectorAnimation.start();
+    }
+
+    private void endSpinnerAnimation() {
+        if (mRepeatingVectorAnimation ==  null) {
+            return;
+        }
+        mRepeatingVectorAnimation.stop();
+        mRepeatingVectorAnimation = null;
     }
 
     private boolean shouldSkipEducationScreens() {
