@@ -90,7 +90,7 @@
     <string name="device_already_set_up" msgid="507881934487140294">"Enheten har redan konfigurerats"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Det gick inte att ansluta till wifi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Återställningsskyddet är aktiverat på enheten. Kontakta IT-administratören om du behöver hjälp."</string>
-    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Rensar"</string>
+    <string name="frp_clear_progress_title" msgid="8628074089458234965">"Raderar"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Vänta ..."</string>
     <string name="error_hash_mismatch" msgid="1145488923243178454">"Det gick inte att använda administratörsappen på grund av en felaktig kontrollsumma. Kontakta IT-administratören om du behöver hjälp."</string>
     <string name="error_download_failed" msgid="3274283629837019452">"Det gick inte att hämta administrationsappen"</string>
