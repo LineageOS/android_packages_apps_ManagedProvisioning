@@ -173,7 +173,7 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi tällä laitteella."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Toimintasi ja datasi"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Sovellusluvat"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT-järjestelmänvalvoja voi määrittää käyttöoikeudet tämän laitteen sovelluksille, kuten mikrofonille, kameralle ja sijaintiluville."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT-järjestelmänvalvoja voi määrittää luvat tämän laitteen sovelluksille, kuten luvat käyttää mikrofonia, kameraa tai sijaintia."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Määritetään laitetta…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Käytä työsovelluksia helposti tällä laitteella. Laite ei ole yksityinen, joten IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi."</string>
     <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Käytä työsovelluksia helposti tällä laitteella. Laite ei ole yksityinen, joten IT-järjestelmänvalvoja voi nähdä toimintosi ja datasi. IT-järjestelmänvalvoja voi myös määrittää käyttöoikeudet tämän laitteen sovelluksille, kuten mikrofonille, kameralle ja sijaintiluville."</string>

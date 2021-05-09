@@ -170,7 +170,7 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Sätt igång att konfigurera jobbenheten"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Ha jobbapparna nära till hands"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Enheten är inte privat"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT-administratören kanske kan visa din aktivitet och data på enheten."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT-administratören kanske kan se din aktivitet och data på enheten."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Din aktivitet och data"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Appbehörigheter"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT-administratören kan ange behörigheter för appar på den här enheten, till exempel för mikrofon, kamera och plats."</string>

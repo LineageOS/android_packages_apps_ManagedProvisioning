@@ -170,7 +170,7 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Налаштуймо ваш робочий пристрій"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Робочі додатки у вас під рукою"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Цей пристрій не є особистим"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ІТ-адміністратор може бачити ваші дані й активність на цьому пристрої."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Ваш системний адміністратор може бачити ваші дані й дії на цьому пристрої."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Ваші дії й дані"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Дозволи для додатків"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Ваш системний адміністратор може надавати додаткам на цьому пристрої дозволи на доступ, наприклад, до мікрофона, камери й геоданих."</string>
