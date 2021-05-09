@@ -177,7 +177,7 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Налаштуймо ваш робочий пристрій"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Робочі додатки у вас під рукою"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Цей пристрій не є особистим"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ІТ-адміністратор може бачити ваші дані й активність на цьому пристрої."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Ваш системний адміністратор може бачити ваші дані й дії на цьому пристрої."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Ваш пристрій налаштовується…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Легко відкривайте робочі додатки на цьому пристрої. Він не є особистим, тому ІТ-адміністратор може бачити ваші дані й активність. Щоб дізнатися більше, зверніться до ІТ-адміністратора."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Робочі додатки зберігаються в робочому профілі, ними керує IT-адміністратор"</string>
