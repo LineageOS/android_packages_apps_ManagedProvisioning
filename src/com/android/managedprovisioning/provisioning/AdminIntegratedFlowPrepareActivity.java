@@ -18,14 +18,11 @@ package com.android.managedprovisioning.provisioning;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.AnimatedVectorDrawable;
-import android.widget.ImageView;
 
 import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.common.RepeatingVectorAnimation;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
@@ -33,8 +30,6 @@ import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBrid
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
-
-import com.google.android.setupdesign.GlifLayout;
 
 /**
  * Progress activity shown whilst network setup, downloading, verifying and installing the
@@ -46,7 +41,6 @@ import com.google.android.setupdesign.GlifLayout;
  */
 public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActivity {
 
-    private RepeatingVectorAnimation mRepeatingVectorAnimation;
     private AdminIntegratedFlowPrepareManager mProvisioningManager;
 
     public AdminIntegratedFlowPrepareActivity() {
@@ -85,22 +79,6 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        if (mRepeatingVectorAnimation != null) {
-            mRepeatingVectorAnimation.start();
-        }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (mRepeatingVectorAnimation != null) {
-            mRepeatingVectorAnimation.stop();
-        }
-    }
-
-    @Override
     protected ProvisioningManagerInterface getProvisioningManager() {
         if (mProvisioningManager == null) {
             mProvisioningManager = AdminIntegratedFlowPrepareManager.getInstance(this);
@@ -126,14 +104,7 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
         final int titleResId = R.string.setup_device_progress;
         final CustomizationParams customizationParams =
                 CustomizationParams.createInstance(mParams, this, mUtils);
-        initializeLayoutParams(R.layout.prepare_progress, headerResId, customizationParams);
+        initializeLayoutParams(R.layout.empty_loading_layout, headerResId, customizationParams);
         setTitle(titleResId);
-
-        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        final ImageView imageView = layout.findViewById(R.id.animation);
-        final AnimatedVectorDrawable animatedVectorDrawable =
-                (AnimatedVectorDrawable) imageView.getDrawable();
-        mRepeatingVectorAnimation = new RepeatingVectorAnimation(animatedVectorDrawable);
-        mRepeatingVectorAnimation.start();
     }
 }
