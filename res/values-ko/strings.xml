@@ -173,7 +173,7 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT 관리자가 이 기기의 내 데이터와 활동을 볼 수 있습니다."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"활동 및 데이터"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"앱 권한"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT 관리자가 이 기기에 있는 앱에서 마이크, 카메라, 위치 등에 대한 권한을 설정할 수 있습니다."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT 관리자가 이 기기에 있는 앱의 마이크, 카메라, 위치 등에 대한 권한을 설정할 수 있습니다."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"기기 설정 중…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"이 기기를 사용하여 직장 앱에 간편하게 액세스하세요. 이 기기는 비공개 기기가 아니므로 IT 관리자가 내 데이터와 활동을 볼 수 있습니다."</string>
     <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"이 기기를 사용하여 직장 앱에 간편하게 액세스하세요. 이 기기는 개인 기기가 아니므로 IT 관리자가 활동 및 데이터를 볼 수 있습니다. IT 관리자는 이 기기에 있는 앱에서 마이크, 카메라, 위치 등에 대한 권한을 설정할 수도 있습니다."</string>
