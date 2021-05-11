@@ -176,8 +176,8 @@
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి. మీ రోజువారీ పని పూర్తయినప్పుడు మీ కార్యాలయ యాప్‌లను మీరు పాజ్ చేయవచ్చు. మీ కార్యాలయ ప్రొఫైల్‌లోని డేటా మీ IT అడ్మిన్‌లకు కనిపిస్తుంది"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"మీ కార్యాలయ పరికరాన్ని సెటప్ చేయండి"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"మీ కార్యాలయ యాప్‌లు సత్వరం యాక్సెస్ చేయగలిగేలా అందుబాటులో ఉంచుకోండి"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ఈ పరికరం వ్యక్తిగతమైనది కాదు"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"మీ IT నిర్వాహకులు ఈ పరికరంలోని మీ డేటా, కార్యకలాపం చూడగలిగే అవకాశం ఉంటుంది."</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ఇది వ్యక్తిగత పరికరం కాదు"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ఈ పరికరంలోని మీ డేటాను, యాక్టివిటీని మీ IT అడ్మినిస్ట్రేటర్ చూడగలరు."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"మీ పరికరాన్ని సెటప్ చేస్తోంది…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"మీ కార్యాలయ యాప్‌లను సులభంగా యాక్సెస్ చేయడానికి ఈ పరికరాన్ని ఉపయోగించండి. ఈ పరికరం వ్యక్తిగతమైనది కాదు, కనుక మీ IT నిర్వాహకులు మీ డేటా, కార్యకలాపం చూడగలిగే అవకాశం ఉంటుంది. మరింత తెలుసుకోవడానికి, మీ IT నిర్వాహకులను సంప్రదించండి."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ఆఫీస్ యాప్‌లను అడ్మిన్ నిర్వహిస్తారు &amp; ఆఫీస్ ప్రొఫైల్‌లో ఉంటాయి"</string>
@@ -186,7 +186,7 @@
     <string name="cope_provisioning_summary" msgid="993014104601034878">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి, అలాగే మీ IT అడ్మిన్ ద్వారా నిర్వహించబడతాయి. వ్యక్తిగత యాప్‌లు అన్నవి విడిగా ఉంటాయి, అలాగే కార్యాలయ యాప్‌లలో కనిపించవు మీ IT అడ్మిన్ ఈ పరికరాన్ని నియంత్రించవచ్చు మరియు కొన్ని యాప్‌లను నిరోధించవచ్చు"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"ఒక్క క్షణం ఆగండి…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"గోప్యతా రిమైండర్"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"మీ IT నిర్వాహకులు ఈ పరికరంలోని మీ డేటా, కార్యకలాపం చూడగలిగే అవకాశం ఉంటుంది"</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ఈ పరికరంలోని మీ డేటాను, యాక్టివిటీని మీ IT అడ్మినిస్ట్రేటర్ చూడగలరు"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"మీ పరికరం ఉపయోగించేందుకు సిద్ధంగా ఉంది!"</string>
     <string name="done" msgid="7755227776955952318">"పూర్తయింది"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"ఈ పరికరం <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> నుండి క్రెడిట్ రూపంలో కొనుగోలు చేయబడింది"</string>
