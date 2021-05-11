@@ -171,7 +171,7 @@
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Pots tenir totes les teves aplicacions de treball al teu abast"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Aquest dispositiu no és privat"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"L\'administrador de TI podrà veure les teves dades i la teva activitat en aquest dispositiu."</string>
-    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"La teva activitat i les teves dades"</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Activitat i dades"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Permisos d\'aplicacions"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"L\'administrador de TI pot configurar els permisos de les aplicacions d\'aquest dispositiu, inclosos els permisos d\'accés al micròfon, a la càmera i a la ubicació."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"S\'està configurant el dispositiu…"</string>

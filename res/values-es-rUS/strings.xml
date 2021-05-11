@@ -192,5 +192,5 @@
     <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Realiza pagos con la app de <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> puede instalar la app de <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> para que puedas hacer los pagos de este dispositivo."</string>
     <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> puede restringir este dispositivo"</string>
-    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> puede restringir el acceso a este dispositivo si no quieres realizar pagos."</string>
+    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> puede restringir el acceso a este dispositivo si no realizas pagos."</string>
 </resources>
