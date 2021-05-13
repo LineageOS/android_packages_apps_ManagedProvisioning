@@ -81,15 +81,12 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
     protected abstract ProvisioningManagerInterface getProvisioningManager();
     // Show the dialog when user press back button while provisioning.
     protected abstract void decideCancelProvisioningDialog();
-    // Initialize UI for this activity.
-    protected abstract void initializeUi(ProvisioningParams params);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // initialize params so they're accessible for prechecks in onCreate
         mParams = getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
         super.onCreate(savedInstanceState);
-        initializeUi(mParams);
 
         if (savedInstanceState != null) {
             mState = savedInstanceState.getInt(KEY_ACTIVITY_STATE,
