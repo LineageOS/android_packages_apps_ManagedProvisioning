@@ -172,7 +172,7 @@
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Ovaj uređaj nije privatan"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Vaš IT administrator možda može vidjeti vaše podatke i aktivnosti na ovom uređaju."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Vaše aktivnosti i podaci"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Dopuštenja aplikacije"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Dopuštenja za aplikacije"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Vaš IT administrator može postaviti dopuštenja za aplikacije na ovom uređaju, kao što su dopuštenja za mikrofon, kameru i lokaciju."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Postavljanje uređaja…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Na ovom uređaju možete lako pristupati poslovnim aplikacijama. Ovaj uređaj nije privatan, pa vaš IT administrator možda može vidjeti vaše podatke i aktivnosti."</string>

@@ -169,9 +169,9 @@
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Все приложения, необходимые для работы, находятся в рабочем профиле. После работы эти приложения можно приостановить. Данные в вашем рабочем профиле видны системному администратору."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Настройте рабочее устройство"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Держите рабочие приложения под рукой"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Это устройство не предназначено для личного использования"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Системный администратор может получить доступ к вашим действиям и данным на этом устройстве."</string>
-    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Сведения о ваших действиях и данные"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Этим устройством управляет администратор"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Системный администратор может получить доступ к вашим данным и сведениям о ваших действиях на этом устройстве."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Ваши действия и данные"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Разрешения для приложений"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"На этом устройстве системный администратор может предоставлять приложениям такие разрешения, как доступ к микрофону, камере и данным о местоположении."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Настройка…"</string>
@@ -187,7 +187,7 @@
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Рабочие приложения находятся в рабочем профиле и управляются администратором. Личные приложения скрыты и находятся отдельно от рабочих. Системный администратор может управлять этим устройством и блокировать некоторые приложения."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Подождите…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Напоминание о конфиденциальности"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Системный администратор может получить доступ к вашим действиям и данным на этом устройстве."</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Системный администратор может получить доступ к вашим данным и сведениям о ваших действиях на этом устройстве."</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Устройство предоставлено компанией \"<xliff:g id="CREDITOR_NAME">%s</xliff:g>\""</string>
     <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Вносите платежи через приложение \"<xliff:g id="CREDITOR_NAME">%s</xliff:g>\""</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"Компания \"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>\" может установить приложение \"<xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>\", чтобы вы вносили платежи за это устройство."</string>

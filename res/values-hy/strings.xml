@@ -170,7 +170,7 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Կարգավորեք աշխատանքային սարքը"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Աշխատանքային հավելվածները՝ ձեր գրպանում"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Այս սարքն անձնական չէ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողություններն այս սարքում։"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողությունները։"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Ձեր գործողություններն ու տվյալները"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Հավելվածների թույլտվություններ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Ձեր ՏՏ ադմինիստրատորը կարող է այս սարքի հավելվածների համար սահմանել թույլտվություններ (օր․՝ տեղորոշման կամ խոսափողն ու տեսախցիկն օգտագործելու համար)։"</string>
@@ -187,7 +187,7 @@
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Աշխատանքային հավելվածները պահվում են ձեր աշխատանքային պրոֆիլում և կառավարվում են ձեր ՏՏ ադմինիստրատորի կողմից։ Անձնական հավելվածները թաքցված են և առանձնացված աշխատանքային հավելվածներից։ Ձեր ՏՏ ադմինիստրատորը կարող է վերահսկել այս սարքը և արգելափակել որոշակի հավելվածներ։"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Սպասեք մի փոքր…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Գաղտնիության վերաբերյալ հիշեցում"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողություններն այս սարքում"</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողությունները"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Այս սարքը տրամադրվել է <xliff:g id="CREDITOR_NAME">%s</xliff:g>-ի կողմից"</string>
     <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Վճարումներ կատարեք <xliff:g id="CREDITOR_NAME">%s</xliff:g> հավելվածի միջոցով"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"«<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>» ընկերությունը կարող է տեղադրել <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> հավելվածը, որպեսզի դուք կարողանաք վճարումներ կատարել։"</string>

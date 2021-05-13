@@ -170,13 +170,13 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Skonfiguruj urządzenie służbowe"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Miej aplikacje służbowe zawsze pod ręką"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"To urządzenie nie jest prywatne"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Twój administrator IT może mieć podgląd Twoich danych i aktywności na tym urządzeniu."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Administrator IT może mieć podgląd Twoich danych i aktywności na tym urządzeniu."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Twoje dane i aktywność"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Uprawnienia aplikacji"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Administrator IT może konfigurować uprawnienia dla aplikacji na tym urządzeniu, w tym dostęp do mikrofonu, aparatu i lokalizacji."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Administrator IT może konfigurować uprawnienia aplikacji na tym urządzeniu, w tym dostęp do mikrofonu, aparatu i lokalizacji."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfiguruję urządzenie…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Użyj tego urządzenia, aby łatwo korzystać z aplikacji służbowych. To urządzenie nie jest prywatne, więc administrator IT może mieć podgląd Twoich danych i aktywności."</string>
-    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Użyj tego urządzenia, aby łatwo korzystać z aplikacji służbowych. To urządzenie nie jest prywatne, więc administrator IT może mieć podgląd Twojej aktywności i danych. Administrator IT może również konfigurować uprawnienia dla aplikacji na tym urządzeniu, w tym dostęp do mikrofonu, aparatu i lokalizacji."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Użyj tego urządzenia, aby łatwo korzystać z aplikacji służbowych. To urządzenie nie jest prywatne, więc administrator IT może mieć podgląd Twojej aktywności i danych. Administrator IT może również konfigurować uprawnienia aplikacji na tym urządzeniu, w tym dostęp do mikrofonu, aparatu i lokalizacji."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Oddaj urządzenie administratorowi IT"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Wróć na poprzedni ekran lub zresetuj urządzenie i oddaj je administratorowi IT."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Anuluj konfigurację"</string>
