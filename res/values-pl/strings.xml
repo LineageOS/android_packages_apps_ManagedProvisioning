@@ -177,7 +177,7 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Skonfiguruj urządzenie służbowe"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Miej aplikacje służbowe zawsze pod ręką"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"To urządzenie nie jest prywatne"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Twój administrator IT może mieć podgląd Twoich danych i aktywności na tym urządzeniu."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Administrator IT może mieć podgląd Twoich danych i aktywności na tym urządzeniu."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfiguruję urządzenie…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Użyj tego urządzenia, by łatwo korzystać z aplikacji służbowych. To urządzenie nie jest prywatne, więc Twój administrator IT może mieć podgląd Twoich danych i aktywności. Aby dowiedzieć się więcej, skontaktuj się z administratorem IT."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplikacje służbowe znajdują się w profilu służbowym i zarządza nimi administrator"</string>
