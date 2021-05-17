@@ -177,7 +177,7 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Ας ρυθμίσουμε τη συσκευή εργασίας σας"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Διατηρήσετε στη διάθεσή σας τις εφαρμογές εργασίας σας"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Αυτή η συσκευή δεν είναι ιδιωτική"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Ο διαχειριστής IT σας μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας σε αυτήν τη συσκευή."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Ο διαχειριστής IT μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας σε αυτήν τη συσκευή."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Ρύθμιση της συσκευής σας…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Χρησιμοποιήστε αυτήν τη συσκευή για εύκολη πρόσβαση στις εφαρμογές εργασίας σας. Αυτή η συσκευή δεν είναι ιδιωτική, επομένως ο διαχειριστής IT σας μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας. Για να μάθετε περισσότερα, επικοινωνήστε με τον διαχειριστή IT σας."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Οι εφαρ. είναι στο προφίλ σας και ελέγχ. από τον διαχ/στή."</string>
@@ -186,7 +186,7 @@
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Οι εφαρμογές εργασιών βρίσκονται στο προφίλ εργασίας σας και η διαχείρισή τους γίνεται από τον διαχειριστή IT. Οι προσωπικές εφαρμογές βρίσκονται σε ξεχωριστή τοποθεσία και δεν είναι ορατές από τις εφαρμογές εργασιών. Ο διαχειριστής IT μπορεί να ελέγχει αυτήν τη συσκευή και να αποκλείει ορισμένες εφαρμογές."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Περιμένετε λίγο…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Υπενθύμιση απορρήτου"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Ο διαχειριστής IT σας μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας σε αυτήν τη συσκευή"</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Ο διαχειριστής IT μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας σε αυτήν τη συσκευή"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Η συσκευή σας είναι έτοιμη!"</string>
     <string name="done" msgid="7755227776955952318">"Τέλος"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Αυτή η συσκευή αγοράστηκε με πίστωση από τον πιστωτή <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>"</string>
