@@ -68,7 +68,9 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mTransitionHelper.applyTransitions(this);
+        if (!isWaitingScreen()) {
+            mTransitionHelper.applyContentScreenTransitions(this);
+        }
         setTheme(mThemeHelper.inferThemeResId(this, getIntent()));
         mThemeHelper.setupDynamicColors(this);
         super.onCreate(savedInstanceState);
@@ -80,6 +82,14 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
         logMetrics();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (isWaitingScreen()) {
+            mTransitionHelper.applyWaitingScreenTransitions(this);
+        }
     }
 
     private void logMetrics() {
@@ -125,6 +135,15 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
 
     protected EncryptionController getEncryptionController() {
         return getBaseApplication().getEncryptionController();
+    }
+
+    /**
+     * Whether the current screen is a waiting screen.
+     *
+     * <p>A waiting screen is a screen that shows a spinner and not content.
+     */
+    protected boolean isWaitingScreen() {
+        return false;
     }
 
     /**
