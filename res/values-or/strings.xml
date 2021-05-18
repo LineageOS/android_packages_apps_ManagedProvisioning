@@ -177,7 +177,7 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ଆସନ୍ତୁ ଆପଣଙ୍କ ୱର୍କ ଡିଭାଇସ୍‌କୁ ସେଟ୍ ଅପ୍ କରିବା"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ଆପଣଙ୍କର ଆଙ୍ଗୁଠି ଟିପରେ ନିଜର ୱର୍କ ଆପ୍ସ ରଖନ୍ତୁ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ଏହି ଡିଭାଇସ୍‌ ବ୍ୟକ୍ତିଗତ ନୁହେଁ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକ ବୋଧହୁଏ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିପାରିବେ।"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌କୁ ସେଟ୍ ଅପ୍ କରାଯାଉଛି…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"ଆପଣଙ୍କ ୱର୍କ ଆପ୍ସକୁ ସହଜରେ ଆକ୍ସେସ୍ କରିବାକୁ ଏହି ଡିଭାଇସ୍ ବ୍ୟବହାର କରନ୍ତୁ। ଏହି ଡିଭାଇସ୍ ବ୍ୟକ୍ତିଗତ ନୁହେଁ, ତେଣୁ ବୋଧହୁଏ ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିପାରିବେ। ଅଧିକ ଜାଣିବାକୁ, ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ୱାର୍କ ଆପ୍ସ ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ରଖାଯାଏ ଓ ଏହା ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ଦ୍ୱାରା ପରିଚାଳିତ ହୋଇଥାଏ"</string>
@@ -186,7 +186,7 @@
     <string name="cope_provisioning_summary" msgid="993014104601034878">"କାର୍ଯ୍ୟସ୍ଥଳୀ ଆପଗୁଡ଼ିକ ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ରଖାଯାଇଛି ଓ ଏଗୁଡ଼ିକ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ଦ୍ୱାରା ପରିଚାଳିତ ହେଉଛି। ବ୍ୟକ୍ତିଗତ ଆପଗୁଡ଼ିକ କାର୍ଯ୍ୟସ୍ଥଳୀ ଆପଗୁଡ଼ିକ ଠାରୁ ପୃଥକ୍ ଓ ଲୁକ୍କାୟିତ ଅଟେ। ଆପଣଙ୍କ IT ଆଡମିନ୍ ଏହି ଡିଭାଇସକୁ ନିୟନ୍ତ୍ରଣ କରି ନିର୍ଦ୍ଦିଷ୍ଟ ଆପଗୁଡ଼ିକୁ ବ୍ଲକ୍ କରିପାରିବେ।"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"ଟିକେ ରୁହନ୍ତୁ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ଗୋପନୀୟତା ରିମାଇଣ୍ଡର୍‍"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକ ବୋଧହୁଏ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିପାରିବେ"</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"ଆପଣଙ୍କ ଡିଭାଇସ୍ ବ୍ୟବହାର ପାଇଁ ପ୍ରସ୍ତୁତ ଅଛି!"</string>
     <string name="done" msgid="7755227776955952318">"ହୋଇଗଲା"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"ଏହି ଡିଭାଇସ୍ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>ରୁ କ୍ରେଡିଟରେ କିଣା ଯାଇଥିଲା"</string>
