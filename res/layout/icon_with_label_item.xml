@@ -41,7 +41,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
-        style="@style/Provisioning2Theme.Text.Primary.Medium"/>
+        style="@style/Provisioning2Theme.Text.Primary.Medium"
+        android:textDirection="locale" />
     <TextView
         android:id="@+id/sud_items_summary"
         android:layout_below="@+id/sud_items_title"
@@ -50,5 +51,6 @@
         android:gravity="start"
         android:layout_marginStart="@dimen/sud_items_summary_margin_start"
         android:layout_marginTop="@dimen/sud_items_summary_margin_top"
-        style="@style/Provisioning2Theme.Text.Primary.Small" />
+        style="@style/Provisioning2Theme.Text.Primary.Small"
+        android:textDirection="locale" />
 </RelativeLayout>
