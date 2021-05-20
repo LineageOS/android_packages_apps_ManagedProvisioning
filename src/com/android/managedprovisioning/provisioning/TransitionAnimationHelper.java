@@ -109,7 +109,7 @@ class TransitionAnimationHelper {
         // TODO(b/182824327): Gracefully pause/resume edu screen animations rather than restarting
         mCurrentTransitionIndex = currentTransitionIndex;
 
-        applyContentDescription();
+        applyContentDescription(mAnimationComponents.mImage, mProvisioningModeWrapper.summary);
         updateUiValues(mCurrentTransitionIndex);
     }
 
@@ -195,7 +195,7 @@ class TransitionAnimationHelper {
     void updateUiValues(int currentTransitionIndex) {
         final TransitionScreenWrapper transition =
                 getTransitionForIndex(currentTransitionIndex);
-        mAnimationComponents.mHeader.setText(transition.header);
+        setupHeaderText(transition);
         setupDescriptionText(transition);
         setupAnimation(transition);
         updateItemValues(
@@ -208,6 +208,17 @@ class TransitionAnimationHelper {
                 transition.secondarySubHeaderIcon,
                 transition.secondarySubHeaderTitle,
                 transition.secondarySubHeader);
+    }
+
+    private void setupHeaderText(TransitionScreenWrapper transition) {
+        mAnimationComponents.mHeader.setText(transition.header);
+        triggerTextToSpeechIfFocused(mAnimationComponents.mHeader);
+    }
+
+    private void triggerTextToSpeechIfFocused(TextView view) {
+        if (view.isAccessibilityFocused()) {
+            view.announceForAccessibility(view.getText().toString());
+        }
     }
 
     private void setupAnimation(TransitionScreenWrapper transition) {
@@ -223,6 +234,7 @@ class TransitionAnimationHelper {
         if (transition.description != 0) {
             mAnimationComponents.mDescription.setText(transition.description);
             mAnimationComponents.mDescription.setVisibility(View.VISIBLE);
+            triggerTextToSpeechIfFocused(mAnimationComponents.mDescription);
         } else {
             mAnimationComponents.mDescription.setVisibility(View.GONE);
         }
@@ -303,10 +315,9 @@ class TransitionAnimationHelper {
         return context.getResources().getBoolean(R.bool.show_edu_animations);
     }
 
-    private void applyContentDescription() {
-        final TextView header = mAnimationComponents.mHeader;
-        final Context context = header.getContext();
-        header.setContentDescription(context.getString(mProvisioningModeWrapper.summary));
+    private void applyContentDescription(View view, @StringRes int summaryRes) {
+        Context context = view.getContext();
+        view.setContentDescription(context.getString(summaryRes));
     }
 
     private static final class ProvisioningModeWrapper {
