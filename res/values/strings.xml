@@ -402,12 +402,12 @@
   <!-- Financed device provisioning landing screen -->
   <!-- Screen title in the device setup process. This is reminding the user that this device is provided by a creditor. This means the creditor can control the device, such as locking it if the user doesn't make payments. [CHAR LIMIT=NONE]-->
   <string name="financed_device_screen_header">This device is provided by <xliff:g id="creditor_name" example="creditor_name">%s</xliff:g></string>
-  <!-- Section header. This is letting the user know they can make payments for this device using the credit provider's app. The placeholder is the name of the credit provider's app. [CHAR LIMIT=NONE]-->
-  <string name="financed_make_payments_subheader_title">Make payments with the <xliff:g id="creditor_name" example="creditor_name">%s</xliff:g> app</string>
+  <!-- Section header. This is letting the user know they can make payments for this device. [CHAR LIMIT=NONE]-->
+  <string name="financed_make_payments_subheader_title">Make payments for this device</string>
   <!-- This text is reminding the user that the app installed by the credit provider can be used to make payments. The first placeholder is the name of the credit provider. The second placeholder is the name of the credit provider's app. [CHAR LIMIT=NONE]-->
   <string name="financed_make_payments_subheader_description"><xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g> can install the <xliff:g id="creditor_name" example="creditor_name">%2$s</xliff:g> app so you can make payments for this device.</string>
-  <!-- Section header. This is letting the user know that this device can be restricted by the credit provider. The placeholder is the name of the credit provider. [CHAR LIMIT=NONE]-->
-  <string name="financed_restrict_device_subheader_title"><xliff:g id="creditor_name" example="creditor_name">%s</xliff:g> can restrict this device</string>
+  <!-- Section header. This is letting the user know that this device can be restricted. [CHAR LIMIT=NONE]-->
+  <string name="financed_restrict_device_subheader_title">This device can be restricted</string>
   <!-- This text is letting the user know that the credit provider can restrict this device if the user doesn't make payments. The placeholder is the name of the credit provider. [CHAR LIMIT=NONE]-->
   <string name="financed_restrict_device_subheader_description"><xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g> can restrict access to this device if you don\’t make payments.</string>
 </resources>
