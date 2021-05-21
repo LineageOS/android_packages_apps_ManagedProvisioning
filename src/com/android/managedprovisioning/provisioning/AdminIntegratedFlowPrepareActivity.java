@@ -107,4 +107,9 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
         initializeLayoutParams(R.layout.empty_loading_layout, headerResId, customizationParams);
         setTitle(titleResId);
     }
+
+    @Override
+    protected boolean isWaitingScreen() {
+        return true;
+    }
 }

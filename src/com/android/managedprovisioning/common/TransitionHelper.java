@@ -19,6 +19,7 @@ package com.android.managedprovisioning.common;
 import static com.android.managedprovisioning.provisioning.Constants.ENABLE_CUSTOM_TRANSITIONS;
 
 import static com.google.android.setupdesign.transition.TransitionHelper.EXTRA_ACTIVITY_OPTIONS;
+import static com.google.android.setupdesign.transition.TransitionHelper.TRANSITION_FADE;
 import static com.google.android.setupdesign.transition.TransitionHelper.makeActivityOptions;
 
 import static java.util.Objects.requireNonNull;
@@ -38,9 +39,9 @@ import androidx.annotation.Nullable;
  * Wrapper for {@link com.google.android.setupdesign.transition.TransitionHelper}.
  *
  * <p>Each {@link Activity#onCreate(Bundle)} is expected to call {@link
- * TransitionHelper#applyTransitions(Activity)}. For starting an {@link Activity}, use any of the
- * {@code startActivity*WithTransition} methods provided in this class, in order to apply the
- * appropriate transition. When finishing an {@link Activity}, {@link
+ * TransitionHelper#applyContentScreenTransitions(Activity)}. For starting an {@link Activity}, use
+ * any of the {@code startActivity*WithTransition} methods provided in this class, in order to
+ * apply the appropriate transition. When finishing an {@link Activity}, {@link
  * TransitionHelper#finishActivity(Activity)} must be used to apply the relevant transition.
  *
  * @see #startActivityWithTransition(Activity, Intent)
@@ -53,13 +54,17 @@ public class TransitionHelper {
     private final Handler mHandler = new Handler(Looper.myLooper());
 
     /**
-     * Applies the relevant {@link Activity} transitions. Must be called in {@link
-     * Activity#onCreate(Bundle)}.
+     * Applies the relevant {@link Activity} transitions for this content screen.
+     * Must be called in {@link Activity#onCreate(Bundle)}.
+     *
+     * <p>A content screen is a screen that shows content, not a spinner.
      *
      * <p>Also enables the {@link Window#FEATURE_ACTIVITY_TRANSITIONS} feature so that transitions
      * are supported.
+     *
+     * @see #applyWaitingScreenTransitions(Activity)
      */
-    public void applyTransitions(Activity activity) {
+    public void applyContentScreenTransitions(Activity activity) {
         requireNonNull(activity);
         if (!ENABLE_CUSTOM_TRANSITIONS) {
             return;
@@ -68,6 +73,20 @@ public class TransitionHelper {
         com.google.android.setupdesign.transition.TransitionHelper.applyForwardTransition(activity);
         com.google.android.setupdesign.transition.TransitionHelper
                 .applyBackwardTransition(activity);
+    }
+
+    /**
+     * Applies the relevant {@link Activity} transitions for this waiting screen.
+     * Must be called in {@link Activity#onResume()}.
+     *
+     * <p>A waiting screen is a screen that shows a spinner, not content.
+     *
+     * @see #applyContentScreenTransitions(Activity)
+     */
+    public void applyWaitingScreenTransitions(Activity activity) {
+        requireNonNull(activity);
+        com.google.android.setupdesign.transition.TransitionHelper
+                .applyForwardTransition(activity, TRANSITION_FADE);
     }
 
     /**
