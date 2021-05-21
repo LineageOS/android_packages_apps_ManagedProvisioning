@@ -400,6 +400,11 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         mUtils.onViewMeasured(mButtonFooterContainer, this::onContainerMeasured);
     }
 
+    @Override
+    protected boolean isWaitingScreen() {
+        return shouldSkipEducationScreens();
+    }
+
     private ViewGroup getButtonFooterContainer(ViewGroup root) {
         return (ViewGroup) root.getChildAt(root.getChildCount() - 2);
     }

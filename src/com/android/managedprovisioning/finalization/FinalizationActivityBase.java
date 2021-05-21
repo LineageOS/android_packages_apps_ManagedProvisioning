@@ -77,7 +77,7 @@ public abstract class FinalizationActivityBase extends Activity {
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                 .permitUnbufferedIo()
                 .build());
-        mTransitionHelper.applyTransitions(this);
+        mTransitionHelper.applyContentScreenTransitions(this);
         super.onCreate(savedInstanceState);
         mFinalizationController = createFinalizationController();
 

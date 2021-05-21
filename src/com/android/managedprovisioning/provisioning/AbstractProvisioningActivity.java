@@ -86,8 +86,9 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        // initialize params so they're accessible for prechecks in onCreate
         mParams = getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+        super.onCreate(savedInstanceState);
         initializeUi(mParams);
 
         if (savedInstanceState != null) {
