@@ -189,8 +189,10 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Adatvédelmi emlékeztető"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Rendszergazdája láthatja az eszközön végzett tevékenységeit és a rajta tárolt adatait"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Ezt az eszközt a(z) <xliff:g id="CREDITOR_NAME">%s</xliff:g> szervezet biztosítja"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Tartozás kifizetése a(z) <xliff:g id="CREDITOR_NAME">%s</xliff:g> alkalmazással"</string>
+    <!-- no translation found for financed_make_payments_subheader_title (7880606710044254210) -->
+    <skip />
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"A(z) <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> telepítheti a(z) <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> alkalmazást annak érdekében, hogy Ön kifizethesse az eszközre vonatkozó tartozását."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"A(z) <xliff:g id="CREDITOR_NAME">%s</xliff:g> korlátozhatja ezt az eszközt"</string>
+    <!-- no translation found for financed_restrict_device_subheader_title (2138828664816418195) -->
+    <skip />
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"A(z) <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> korlátozhatja az Ön eszközhöz való hozzáférését, ha nem fizet."</string>
 </resources>

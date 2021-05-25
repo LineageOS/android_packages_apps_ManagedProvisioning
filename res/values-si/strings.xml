@@ -189,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"පෞද්ගලිකත්ව සිහි කැඳවීම"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ඔබේ තොරතුරු තාක්‍ෂණ පරිපාලකයාට මෙම උපාංගය මත ඔබේ දත්ත සහ ක්‍රියාකාරකම බැලිය හැකි වීමට ඉඩ ඇත"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"මෙම උපාංගය <xliff:g id="CREDITOR_NAME">%s</xliff:g> මගින් සැපයේ"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> යෙදුම සමගින් ගෙවීම් සිදු කරන්න"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"මෙම උපාංගය සඳහා ගෙවීම් සිදු කරන්න"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> හට මෙම උපාංගය සඳහා ඔබට ගෙවීම් කළ හැකි වන ලෙස <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> යෙදුම ස්ථාපනය කළ හැකිය."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> හට මෙම උපාංගය සීමා කළ හැකිය"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"මෙම උපාංගය සීමා කළ හැකිය"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"ඔබ ගෙවීම් සිදු නොකරන්නේ නම් <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> හට මෙම උපාංගයට ඔබට ප්‍රවේශය සීමා කළ හැකිය."</string>
 </resources>
