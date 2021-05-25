@@ -52,7 +52,6 @@
                 android:id="@+id/animation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:importantForAccessibility="no"
                 android:scaleType="fitCenter" />
 
         </com.google.android.setupdesign.view.FillContentLayout>
