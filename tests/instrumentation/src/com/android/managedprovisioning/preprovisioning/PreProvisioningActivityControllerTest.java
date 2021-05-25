@@ -1235,6 +1235,19 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .isEqualTo(existingAdminBundle.toString());
     }
 
+    public void testInitiateProvisioning_withActionProvisionManagedDevice_failsSilently()
+            throws Exception {
+        prepareMocksForDoIntent(/* skipEncryption= */ false);
+
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        });
+
+        verify(mUi, never()).initiateUi(any());
+        verify(mUi).abortProvisioning();
+        verifyNoMoreInteractions(mUi);
+    }
+
     private ProvisioningParams.Builder createProvisioningParamsBuilderForInitiateProvisioning() {
         return createProvisioningParamsBuilder()
                 .setDeviceAdminDownloadInfo(PACKAGE_DOWNLOAD_INFO);
