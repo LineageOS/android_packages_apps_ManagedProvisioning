@@ -129,7 +129,7 @@
     <string name="one_place_for_work_apps" msgid="2595597562302953960">"Un único lugar para las aplicaciones de trabajo"</string>
     <string name="info_anim_title_2" msgid="4629781398620470204">"Desconecta del trabajo en cuanto lo acabes"</string>
     <string name="provisioning" msgid="4512493827019163451">"Administrando"</string>
-    <string name="copying_certs" msgid="5697938664953550881">"Configurando certificados de CA"</string>
+    <string name="copying_certs" msgid="5697938664953550881">"Configurando certificados AC"</string>
     <string name="setup_profile" msgid="5573950582159698549">"Configura tu perfil"</string>
     <string name="profile_benefits_description" msgid="758432985984252636">"Si utilizas un perfil de trabajo, puedes mantener separados tus datos personales y los profesionales"</string>
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"Si utilizas un perfil de trabajo, puedes tener todas tus aplicaciones de trabajo en un único lugar"</string>
