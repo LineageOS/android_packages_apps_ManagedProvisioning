@@ -34,7 +34,7 @@
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ਹੋਰ ਜਾਣੋ"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ਰੱਦ ਕਰੋ"</string>
-    <string name="ok_setup" msgid="4593707675416137504">"ਠੀਕ"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"ਠੀਕ ਹੈ"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ਮੈਂ ਸਹਿਮਤ ਹਾਂ"</string>
     <string name="url_error" msgid="5958494012986243186">"ਇਹ ਲਿੰਕ ਦਿਖਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ।"</string>
     <string name="terms" msgid="8295436105384703903">"ਮਦਾਂ"</string>
@@ -61,7 +61,7 @@
     <string name="change_device_launcher" msgid="4523563368433637980">"ਡੀਵਾਈਸ ਲਾਂਚਰ ਨੂੰ ਬਦਲੋ"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"ਇਹ ਲਾਂਚਰ ਐਪ ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵੱਲੋਂ ਨਹੀਂ ਵਰਤੀ ਜਾ ਸਕਦੀ"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ਰੱਦ ਕਰੋ"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"ਠੀਕ"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"ਠੀਕ ਹੈ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ਵਰਤੋਂਕਾਰ ਸੈੱਟਅੱਪ ਅਧੂਰਾ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ਕਾਰਜ ਡੀਵਾਈਸ ਦਾ ਵਰਤੋਂਕਾਰ"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"ਕਾਰਜ ਡੀਵਾਈਸ ਸੈੱਟ ਅੱਪ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
@@ -79,7 +79,7 @@
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"ਇਸ ਨਾਲ ਤੁਹਾਡਾ ਡੀਵਾਈਸ ਰੀਸੈੱਟ ਹੋ ਜਾਵੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਵਾਪਸ ਪਹਿਲੀ ਸਕ੍ਰੀਨ \'ਤੇ ਲਿਜਾਇਆ ਜਾਵੇਗਾ"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ਕੀ ਤੁਸੀਂ ਸੈੱਟ ਅੱਪ ਕਰਨਾ ਬੰਦ ਅਤੇ ਆਪਣੇ ਡੀਵਾਈਸ ਦਾ ਡਾਟਾ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ਰੱਦ ਕਰੋ"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"ਠੀਕ"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"ਠੀਕ ਹੈ"</string>
     <string name="reset" msgid="6467204151306265796">"ਰੀਸੈੱਟ ਕਰੋ"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"ਡੀਵਾਈਸ ਸਥਾਪਤ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ"</string>
