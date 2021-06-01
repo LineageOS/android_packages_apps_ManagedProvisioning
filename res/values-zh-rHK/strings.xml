@@ -189,10 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"私隱提醒"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"您的 IT 管理員或可查看您在此裝置上的資料和活動"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"此裝置由「<xliff:g id="CREDITOR_NAME">%s</xliff:g>」提供"</string>
-    <!-- no translation found for financed_make_payments_subheader_title (7880606710044254210) -->
-    <skip />
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"為此裝置付款"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"「<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>」可在此裝置上安裝「<xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>」應用程式，以便您為此裝置付款。"</string>
-    <!-- no translation found for financed_restrict_device_subheader_title (2138828664816418195) -->
-    <skip />
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"此裝置可能會受到限制"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"如果您沒有付款，「<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>」可限制您使用此裝置。"</string>
 </resources>
