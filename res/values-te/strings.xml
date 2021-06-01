@@ -189,10 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"గోప్యతా రిమైండర్"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ఈ పరికరంలోని మీ డేటాను, యాక్టివిటీని మీ IT అడ్మినిస్ట్రేటర్ చూడగలరు"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"ఈ పరికరం <xliff:g id="CREDITOR_NAME">%s</xliff:g> ద్వారా అందించబడింది"</string>
-    <!-- no translation found for financed_make_payments_subheader_title (7880606710044254210) -->
-    <skip />
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"ఈ పరికరానికి సంబంధించిన పేమెంట్‌లు చేయండి"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>యాప్‌ను ఇన్‌స్టాల్ చేయవచ్చు, కాబట్టి మీరు ఈ పరికరం కోసం పేమెంట్‌లు చేయవచ్చు."</string>
-    <!-- no translation found for financed_restrict_device_subheader_title (2138828664816418195) -->
-    <skip />
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ఈ పరికరాన్ని పరిమితం చేయవచ్చు"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"మీరు పేమెంట్‌లు చేయకపోతే <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ఈ పరికరానికి యాక్సెస్‌ను పరిమితం చేయవచ్చు."</string>
 </resources>
