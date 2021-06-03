@@ -191,6 +191,6 @@
     <string name="financed_device_screen_header" msgid="6875169548352717124">"อุปกรณ์นี้ให้บริการโดย <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"ชำระเงินค่าอุปกรณ์นี้"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> ติดตั้งแอป <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> เพื่อให้ดำเนินการชำระเงินสำหรับอุปกรณ์นี้ได้"</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"อุปกรณ์นี้สามารถถูกจำกัด"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"อุปกรณ์นี้อาจถูกจำกัด"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> จำกัดการเข้าถึงอุปกรณ์นี้ได้หากคุณไม่ชำระเงิน"</string>
 </resources>

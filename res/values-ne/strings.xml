@@ -189,10 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"गोपनीयतासम्बन्धी रिमाइन्डर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"तपाईंका IT व्यवस्थापकले यस डिभाइसको तपाईंको डेटा र गतिविधि हेर्न सक्ने सम्भावना हुन्छ।"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ले यो डिभाइस उपलब्ध गराएको हो"</string>
-    <!-- no translation found for financed_make_payments_subheader_title (7880606710044254210) -->
-    <skip />
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"यो डिभाइसका लागि भुक्तानी गर्नुहोस्"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"तपाईंले यो डिभाइसको रकम भुक्तानी गर्न सक्नुहोस् भन्नाका खातिर <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> ले <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> एप इन्स्टल गर्न सक्छ।"</string>
-    <!-- no translation found for financed_restrict_device_subheader_title (2138828664816418195) -->
-    <skip />
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"यो डिभाइसलाई ब्लक गर्न सकिन्छ"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"तपाईंले रकम भुक्तानी गर्नुभएन भने <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ले यो यन्त्रमाथि प्रतिबन्ध लगाउन सक्छ।"</string>
 </resources>
