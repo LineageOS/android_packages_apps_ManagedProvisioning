@@ -18,7 +18,6 @@ package com.android.managedprovisioning.provisioning;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
 
 import androidx.annotation.VisibleForTesting;
 
@@ -80,11 +79,6 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        initializeUi(mParams);
-    }
-
     protected ProvisioningManagerInterface getProvisioningManager() {
         if (mProvisioningManager == null) {
             mProvisioningManager = AdminIntegratedFlowPrepareManager.getInstance(this);
@@ -104,7 +98,8 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
         showCancelProvisioningDialog(/* resetRequired = */true);
     }
 
-    private void initializeUi(ProvisioningParams params) {
+    @Override
+    protected void initializeUi(ProvisioningParams params) {
         final int headerResId = R.string.downloading_administrator_header;
         final int titleResId = R.string.setup_device_progress;
         final CustomizationParams customizationParams =
