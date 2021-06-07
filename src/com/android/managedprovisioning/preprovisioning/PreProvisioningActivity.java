@@ -117,7 +117,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 /* activity= */ this,
                 mUtils,
                 PreProvisioningActivity.this::initializeLayoutParams,
-                createBridgeCallbacks());
+                createBridgeCallbacks(),
+                getThemeHelper());
     }
 
     protected final PreProvisioningActivityBridgeCallbacks createBridgeCallbacks() {
@@ -497,18 +498,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             showDialog(mUtils.createCancelProvisioningDialogBuilder(),
                     BACK_PRESSED_DIALOG_CLOSE_ACTIVITY);
         }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mBridge.onStart();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        mBridge.onStop();
     }
 
     /**
