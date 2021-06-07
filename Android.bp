@@ -30,7 +30,10 @@ android_library {
     name: "ManagedProvisioningLib",
     manifest: "AndroidManifest.xml",
 
-    libs: ["android.car"],
+    libs: [
+        "android.car",
+        "auto_value_annotations",
+    ],
 
     static_libs: [
         "androidx.legacy_legacy-support-v4",
@@ -43,6 +46,8 @@ android_library {
         "androidx.webkit_webkit-nodeps",
         "setupdesign-lottie-loading-layout"
     ],
+
+    plugins: ["auto_value_plugin"],
 
     srcs: [
         "src/**/*.java",
@@ -60,7 +65,10 @@ android_app {
     name: "ManagedProvisioning",
 
     // TODO(b/183510678) remove AAOS dependency after refactoring
-    libs: ["android.car"],
+    libs: [
+        "android.car",
+        "auto_value_annotations",
+    ],
 
     static_libs: [
         "androidx.legacy_legacy-support-v4",
@@ -72,6 +80,8 @@ android_app {
         "androidx.webkit_webkit-nodeps",
         "setupdesign-lottie-loading-layout"
     ],
+
+    plugins: ["auto_value_plugin"],
 
     srcs: [
         "src/**/*.java",
