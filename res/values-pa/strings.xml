@@ -45,7 +45,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"ਕੀ ਮੌਜੂਦਾ ਪ੍ਰੋਫਾਈਲ ਮਿਟਾਉਣਾ ਹੈ?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ਤੁਹਾਡੇ ਕੋਲ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਇੱਕ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਹੈ। ਇਸਦਾ ਪ੍ਰਬੰਧਨ ਅੱਗੇ ਦਿੱਤੀ ਐਪ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕੀਤਾ ਜਾਂਦਾ ਹੈ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ, "<a href="#read_this_link">"ਇਹ ਪੜ੍ਹੋ"</a>"।"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦੀਆਂ ਸਾਰੀਆਂ ਐਪਾਂ ਅਤੇ ਡਾਟਾ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ਜੇ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦੀਆਂ ਸਾਰੀਆਂ ਐਪਾਂ ਅਤੇ ਡਾਟਾ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ਮਿਟਾਓ"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ਰੱਦ ਕਰੋ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸਥਾਪਤ ਕਰਨ ਲਈ, ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਨੂੰ ਇਨਕ੍ਰਿਪਟ ਕੀਤੇ ਜਾਣ ਦੀ ਲੋੜ ਹੈ। ਇਸ ਵਿੱਚ ਕੁਝ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ।"</string>
