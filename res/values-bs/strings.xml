@@ -45,7 +45,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"Izbrisati postojeći profil?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Već imate radni profil kojim se upravlja putem ove aplikacije:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Prije nego što nastavite, "<a href="#read_this_link">"pročitajte ovo"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ako nastavite, sve aplikacije i podaci sa ovog profila će biti izbrisani."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ako nastavite, sve aplikacije i podaci s ovog profila će biti izbrisani."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Tipka za brisanje"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Otkaži"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Da bi se postavio radni profil, uređaj treba šifrirati. To može malo potrajati."</string>

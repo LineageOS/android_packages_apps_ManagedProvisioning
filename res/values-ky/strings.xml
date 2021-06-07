@@ -60,7 +60,7 @@
     <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"Бул түзмөккө жумуш профили кошулбайт. Суроолоруңуз болсо, IT администраторуңузга кайрылыңыз."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"Түзмөктүн жүргүзгүчүн өзгөртүү"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Бул жүргүзүүчү колдонмо жумуш профилиңизде иштебейт"</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"Жокко чыгаруу"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Жок"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Жарайт"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Колдонуучунун жөндөөсү толук эмес"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Жумуш түзмөгүн колдонуучу"</string>
