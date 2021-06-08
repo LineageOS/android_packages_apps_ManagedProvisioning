@@ -48,7 +48,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"Удалить существующий профиль?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"У вас уже есть рабочий профиль. Им управляют с помощью этого приложения:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Прежде чем продолжить, "<a href="#read_this_link">"ознакомьтесь с этой информацией"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Все приложения и данные в этом профиле будут удалены. Продолжить?"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Все приложения и данные, находящиеся в этом профиле, будут удалены."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Удалить"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Отмена"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Чтобы настроить рабочий профиль, необходимо зашифровать данные на устройстве. Это займет некоторое время."</string>
