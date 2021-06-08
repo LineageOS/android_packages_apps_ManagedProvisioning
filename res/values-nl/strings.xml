@@ -77,7 +77,7 @@
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Op dit apparaat is versleuteling niet toegestaan, wat is vereist voor het instellen. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Instellen stoppen en apparaat resetten?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Hiermee wordt je apparaat gereset en ga je terug naar het eerste scherm"</string>
-    <string name="device_owner_cancel_message" msgid="2529288571742712065">"Configureren stoppen en de gegevens op je apparaat wissen?"</string>
+    <string name="device_owner_cancel_message" msgid="2529288571742712065">"Instellen stoppen en de gegevens op je apparaat wissen?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Annuleren"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
     <string name="reset" msgid="6467204151306265796">"Resetten"</string>
@@ -89,14 +89,14 @@
     <string name="reset_device" msgid="5483853913241939262">"Reset dit apparaat en probeer het opnieuw in te stellen"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Apparaat is al ingesteld"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Kan geen verbinding maken met wifi"</string>
-    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Bescherming tegen resetten is ingeschakeld voor je apparaat. Neem contact op met je beheerder voor hulp."</string>
+    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Je apparaat is beveiligd tegen resetten. Neem contact op met je beheerder voor hulp."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Wissen"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Even geduld..."</string>
     <string name="error_hash_mismatch" msgid="1145488923243178454">"Kan de beheer-app niet gebruiken vanwege een controlesomfout. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="error_download_failed" msgid="3274283629837019452">"Kan de beheer-app niet downloaden"</string>
     <string name="error_package_invalid" msgid="555402554502033988">"Kan de beheer-app niet gebruiken. Er ontbreken onderdelen of de app is beschadigd. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="error_installation_failed" msgid="2282903750318407285">"Kan de beheer-app niet installeren"</string>
-    <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Configureren stoppen?"</string>
+    <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Instellen stoppen?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nee"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ja"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Annuleren…"</string>
@@ -134,10 +134,10 @@
     <string name="profile_benefits_description" msgid="758432985984252636">"Met een werkprofiel kun je je werkgegevens scheiden van je persoonsgegevens"</string>
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"Met een werkprofiel heb je op één centrale locatie toegang tot je werk-apps"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Je profiel instellen. Versleuteling"</string>
-    <string name="setup_profile_progress" msgid="7742718527853325656">"Je profiel instelling. Voortgang weergeven"</string>
+    <string name="setup_profile_progress" msgid="7742718527853325656">"Stel je profiel in. Voortgang tonen"</string>
     <string name="setup_device" msgid="6725265673245816366">"Je apparaat instellen"</string>
     <string name="setup_device_encryption" msgid="7852944465414197103">"Je apparaat instellen. Versleuteling"</string>
-    <string name="setup_device_progress" msgid="7035335208571175393">"Je apparaat instellen. Voortgang weergeven"</string>
+    <string name="setup_device_progress" msgid="7035335208571175393">"Stel je apparaat in. Voortgang tonen"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Knop \'Meer informatie\'"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Icoon <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="section_heading" msgid="3924666803774291908">"Kop van sectie <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
