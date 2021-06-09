@@ -20,6 +20,7 @@ import static java.util.Objects.requireNonNull;
 
 import android.app.Activity;
 
+import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelper;
 import com.android.managedprovisioning.preprovisioning.consent.ConsentUiHelperCallback;
@@ -36,12 +37,14 @@ final class PreProvisioningActivityBridgeImpl implements PreProvisioningActivity
             Activity activity,
             Utils utils,
             ConsentUiHelperCallback callback,
-            PreProvisioningActivityBridgeCallbacks bridgeCallbacks) {
+            PreProvisioningActivityBridgeCallbacks bridgeCallbacks,
+            ThemeHelper themeHelper) {
         mConsentUiHelper = ConsentUiHelperFactory.getInstance(
                 requireNonNull(activity),
                 requireNonNull(callback),
                 requireNonNull(utils),
-                requireNonNull(bridgeCallbacks));
+                requireNonNull(bridgeCallbacks),
+                requireNonNull(themeHelper));
     }
 
     @Override
@@ -50,12 +53,8 @@ final class PreProvisioningActivityBridgeImpl implements PreProvisioningActivity
     }
 
     @Override
-    public void onStart() {
-        mConsentUiHelper.onStart();
-    }
+    public void onStart() {}
 
     @Override
-    public void onStop() {
-        mConsentUiHelper.onStop();
-    }
+    public void onStop() {}
 }

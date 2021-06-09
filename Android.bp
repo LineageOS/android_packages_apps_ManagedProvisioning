@@ -44,7 +44,8 @@ android_library {
         "devicepolicyprotosnano",
         "managedprovisioning_protoslite",
         "androidx.webkit_webkit-nodeps",
-        "setupdesign-lottie-loading-layout"
+        "setupdesign-lottie-loading-layout",
+        "lottie"
     ],
 
     plugins: ["auto_value_plugin"],
@@ -78,7 +79,8 @@ android_app {
         "devicepolicyprotosnano",
         "managedprovisioning_protoslite",
         "androidx.webkit_webkit-nodeps",
-        "setupdesign-lottie-loading-layout"
+        "setupdesign-lottie-loading-layout",
+        "lottie"
     ],
 
     plugins: ["auto_value_plugin"],

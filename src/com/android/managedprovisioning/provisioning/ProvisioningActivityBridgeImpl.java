@@ -35,7 +35,9 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity.ProvisioningMode;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.AnimationComponents;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationCallback;
+import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationStateManager;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupdesign.util.ContentStyler;
 import com.google.android.setupdesign.util.DescriptionStyler;
@@ -58,6 +60,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
     abstract boolean getShouldSkipEducationScreens();
     abstract @StringRes int getProgressLabelResId();
     abstract ProvisioningActivityBridgeCallbacks getBridgeCallbacks();
+    abstract TransitionAnimationStateManager getStateManager();
 
     @Override
     public void initiateUi(Activity activity) {
@@ -145,14 +148,16 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
         return mTransitionAnimationHelper.areAllTransitionsShown();
     }
 
-    private void startTransitionAnimation(Activity activity, TransitionAnimationCallback callback) {
+    private void startTransitionAnimation(
+            Activity activity,
+            TransitionAnimationCallback callback) {
         final GlifLayout layout = activity.findViewById(R.id.setup_wizard_layout);
         setupTransitionAnimationHelper(layout, callback);
         mTransitionAnimationHelper.start();
     }
 
     private void endTransitionAnimation() {
-        mTransitionAnimationHelper.clean();
+        mTransitionAnimationHelper.stop();
         mTransitionAnimationHelper = null;
     }
 
@@ -163,7 +168,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
         TextView description = layout.findViewById(R.id.sud_layout_subtitle);
         ViewGroup item1 = layout.findViewById(R.id.item1);
         ViewGroup item2 = layout.findViewById(R.id.item2);
-        ImageView drawable = layout.findViewById(R.id.animation);
+        LottieAnimationView drawable = layout.findViewById(R.id.animation);
         ViewGroup drawableContainer = layout.findViewById(R.id.animation_container);
         AnimationComponents animationComponents =
                 new AnimationComponents(
@@ -173,7 +178,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
                 !getParams().deviceOwnerPermissionGrantOptOut,
                 animationComponents,
                 callback,
-                getProvisioningManager().getCurrentTransitionAnimation());
+                getStateManager());
     }
 
     private void setupEducationViews(
@@ -256,6 +261,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
         abstract Builder setProgressLabelResId(@StringRes int progressLabelResId);
         abstract Builder setBridgeCallbacks(
                 ProvisioningActivityBridgeCallbacks callbacks);
+        abstract Builder setStateManager(TransitionAnimationStateManager stateManager);
         abstract ProvisioningActivityBridgeImpl build();
     }
 }
