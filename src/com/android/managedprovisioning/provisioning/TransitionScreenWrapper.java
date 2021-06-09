@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.provisioning;
 
 import android.annotation.DrawableRes;
+import android.annotation.RawRes;
 import android.annotation.StringRes;
 
 /**
@@ -25,7 +26,7 @@ import android.annotation.StringRes;
 final class TransitionScreenWrapper {
     public final @StringRes int header;
     public final @StringRes int description;
-    public final @DrawableRes int drawable;
+    public final @RawRes int drawable;
     public final @StringRes int subHeaderTitle;
     public final @StringRes int subHeader;
     public final @DrawableRes int subHeaderIcon;
@@ -34,12 +35,12 @@ final class TransitionScreenWrapper {
     public final @StringRes int secondarySubHeader;
     public final @DrawableRes int secondarySubHeaderIcon;
 
-    TransitionScreenWrapper(@StringRes int header, @DrawableRes int drawable) {
+    TransitionScreenWrapper(@StringRes int header, @RawRes int drawable) {
         this(header, /* description= */ 0, drawable, /* shouldLoop */ true);
     }
 
     TransitionScreenWrapper(@StringRes int header, @StringRes int description,
-            @DrawableRes int drawable, boolean shouldLoop) {
+            @RawRes int drawable, boolean shouldLoop) {
         this(header, /* description= */ description, drawable, 0, 0, 0, shouldLoop, 0, 0, 0);
     }
 
@@ -80,7 +81,7 @@ final class TransitionScreenWrapper {
     public static final class Builder {
         @StringRes int mHeader;
         @StringRes int mDescription;
-        @DrawableRes int mDrawable;
+        @RawRes int mDrawable;
         @StringRes private int mSubHeaderTitle;
         @StringRes int mSubHeader;
         @DrawableRes int mSubHeaderIcon;

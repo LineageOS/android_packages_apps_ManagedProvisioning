@@ -51,7 +51,9 @@ import com.android.managedprovisioning.finalization.PreFinalizationController;
 import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationCallback;
+import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationStateManager;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
 import java.lang.annotation.Retention;
@@ -69,7 +71,7 @@ import java.util.Map;
  * showing of cancel and error dialogs.</p>
  */
 public class ProvisioningActivity extends AbstractProvisioningActivity
-        implements TransitionAnimationCallback {
+        implements TransitionAnimationCallback, TransitionAnimationStateManager {
     private static final int RESULT_CODE_COMPLETE_DEVICE_FINANCE = 121;
     /*
      * Returned after the work profile has been completed. Note this is before launching the DPC.
@@ -170,6 +172,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
                 .setShouldSkipEducationScreens(shouldSkipEducationScreens())
                 .setProgressLabelResId(getProgressLabelResId())
                 .setBridgeCallbacks(createCallbacks())
+                .setStateManager(this)
                 .build();
     }
 
@@ -377,8 +380,18 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     }
 
     @Override
-    public void onTransitionStart(int screenIndex, AnimatedVectorDrawable currentAnimation) {
-        getProvisioningManager().setCurrentTransitionAnimation(screenIndex);
+    public void onAnimationSetup(LottieAnimationView animationView) {
+        getThemeHelper().setupAnimationDynamicColors(this, animationView);
+    }
+
+    @Override
+    public void saveState(TransitionAnimationHelper.TransitionAnimationState state) {
+        getProvisioningManager().saveTransitionAnimationState(state);
+    }
+
+    @Override
+    public TransitionAnimationHelper.TransitionAnimationState restoreState() {
+        return getProvisioningManager().restoreTransitionAnimationState();
     }
 
     @Override

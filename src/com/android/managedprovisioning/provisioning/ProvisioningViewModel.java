@@ -19,25 +19,30 @@ package com.android.managedprovisioning.provisioning;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationState;
+
 /**
  * An {@link ViewModel} which maintains data related to provisioning.
  */
 public class ProvisioningViewModel extends ViewModel {
 
-    private int mCurrentTransitionScreen;
+    private TransitionAnimationState mTransitionAnimationState;
 
     /**
-     * Returns the index of the last playing transition screen.
+     * Saves the state of the transition animation.
+     *
+     * @see #restoreTransitionAnimationState()
      */
-    public int getCurrentTransitionScreen() {
-        return mCurrentTransitionScreen;
+    public void saveTransitionAnimationState(TransitionAnimationState state) {
+        mTransitionAnimationState = state;
     }
 
     /**
-     * Sets the index of the currently playing transition screen.
+     * Returns the state that was saved via {@link
+     * #saveTransitionAnimationState(TransitionAnimationState)}.
      */
-    public void setCurrentTransitionScreen(int currentTransitionScreen) {
-        mCurrentTransitionScreen = currentTransitionScreen;
+    public TransitionAnimationState restoreTransitionAnimationState() {
+        return mTransitionAnimationState;
     }
 
     static class ProvisioningViewModelFactory implements ViewModelProvider.Factory {

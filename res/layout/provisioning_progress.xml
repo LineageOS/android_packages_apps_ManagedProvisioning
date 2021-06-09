@@ -48,12 +48,11 @@
             android:maxWidth="@dimen/animation_max_size"
             android:maxHeight="@dimen/animation_max_size"
             style="@style/SudContentFrame">
-            <ImageView
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter" />
-
         </com.google.android.setupdesign.view.FillContentLayout>
     </LinearLayout>
 </com.google.android.setupdesign.GlifLayout>

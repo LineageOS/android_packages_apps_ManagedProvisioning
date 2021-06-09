@@ -18,23 +18,24 @@ package com.android.managedprovisioning.preprovisioning.consent;
 import static java.util.Objects.requireNonNull;
 
 import android.annotation.DrawableRes;
-import android.annotation.Nullable;
 import android.app.Activity;
-import android.graphics.drawable.AnimatedVectorDrawable;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.RawRes;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.common.RepeatingVectorAnimation;
+import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.TouchTargetEnforcer;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityBridgeCallbacks;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityController.UiParams;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.setupdesign.GlifLayout;
+
 
 /**
  * Implements functionality for the consent screen.
@@ -45,30 +46,18 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
     private final ConsentUiHelperCallback mCallback;
     private final Utils mUtils;
     private final PreProvisioningActivityBridgeCallbacks mBridgeCallbacks;
-    private @Nullable RepeatingVectorAnimation mRepeatingVectorAnimation;
+    private final ThemeHelper mThemeHelper;
 
     ConsentUiHelperImpl(Activity activity, ConsentUiHelperCallback callback, Utils utils,
-            PreProvisioningActivityBridgeCallbacks bridgeCallbacks) {
+            PreProvisioningActivityBridgeCallbacks bridgeCallbacks,
+            ThemeHelper themeHelper) {
         mActivity = requireNonNull(activity);
         mCallback = requireNonNull(callback);
         mTouchTargetEnforcer =
             new TouchTargetEnforcer(activity.getResources().getDisplayMetrics().density);
         mUtils = requireNonNull(utils);
         mBridgeCallbacks = requireNonNull(bridgeCallbacks);
-    }
-
-    @Override
-    public void onStart() {
-        if (mRepeatingVectorAnimation != null) {
-            mRepeatingVectorAnimation.start();
-        }
-    }
-
-    @Override
-    public void onStop() {
-        if (mRepeatingVectorAnimation != null) {
-            mRepeatingVectorAnimation.stop();
-        }
+        mThemeHelper = requireNonNull(themeHelper);
     }
 
     @Override
@@ -79,11 +68,11 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
         if (mUtils.isProfileOwnerAction(uiParams.provisioningAction)) {
             titleResId = R.string.setup_profile;
             headerResId = R.string.work_profile_provisioning_accept_header_post_suw;
-            animationResId = R.drawable.consent_animation_po;
+            animationResId = R.raw.consent_animation_po;
         } else if (mUtils.isDeviceOwnerAction(uiParams.provisioningAction)) {
             titleResId = R.string.setup_device;
             headerResId = R.string.fully_managed_device_provisioning_accept_header;
-            animationResId = R.drawable.consent_animation_do;
+            animationResId = R.raw.consent_animation_do;
         }
 
         final CustomizationParams customization = uiParams.customization;
@@ -102,14 +91,17 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
         setupViewTermsButton();
     }
 
-    private void setupAnimation(@DrawableRes int animationResId) {
+    @Override
+    public void onStart() {}
+
+    @Override
+    public void onStop() {}
+
+    private void setupAnimation(@RawRes int animationResId) {
         final GlifLayout layout = mActivity.findViewById(R.id.setup_wizard_layout);
-        final ImageView imageView = layout.findViewById(R.id.animation);
-        imageView.setImageResource(animationResId);
-        final AnimatedVectorDrawable animatedVectorDrawable =
-                (AnimatedVectorDrawable) imageView.getDrawable();
-        mRepeatingVectorAnimation = new RepeatingVectorAnimation(animatedVectorDrawable);
-        mRepeatingVectorAnimation.start();
+        LottieAnimationView lottieAnimationView = layout.findViewById(R.id.animation);
+        lottieAnimationView.setAnimation(animationResId);
+        mThemeHelper.setupAnimationDynamicColors(mActivity, lottieAnimationView);
     }
 
     private void setupAcceptAndContinueButton() {
