@@ -69,6 +69,7 @@ public class LandingActivity extends SetupGlifLayoutActivity {
                 .setParams(mParams)
                 .setInitializeLayoutParamsConsumer(LandingActivity.this::initializeLayoutParams)
                 .setUtils(mUtils)
+                .setAccessibilityContextMenuMaker(mContextMenuMaker)
                 .build();
     }
 
