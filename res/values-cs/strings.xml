@@ -164,9 +164,9 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Teď nastavíme váš pracovní profil"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Pracovní aplikace jsou uložené v pracovním profilu"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Až budete mít hotovo, pracovní aplikace pozastavte"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Data v pracovním profilu vidí administrátor IT"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Údaje v pracovním profilu může vidět administrátor IT"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Nastavování pracovního profilu…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Pracovní aplikace jsou uložené v pracovním profilu. Když pro daný den skončíte s prací, můžete je pozastavit. Data v pracovním profilu vidí administrátor IT."</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Pracovní aplikace jsou uložené v pracovním profilu. Když pro daný den skončíte s prací, můžete je pozastavit. Údaje v pracovním profilu může vidět administrátor IT."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Nastavíme váš pracovní telefon"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Mějte pracovní aplikace po ruce"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Toto zařízení není soukromé"</string>

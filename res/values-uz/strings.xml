@@ -164,7 +164,7 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Keling, ishchi profilingizni sozlaymiz"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Ishga oid ilovalar ishchi profilda saqlanadi"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Ishni tugatganingizdan keyin ishchi ilovalarni pauza qilish"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Ish profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Ish profilingizdagi maʼlumotlar faqat administratoringizga koʻrinadi"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Ish profilingiz sozlanmoqda…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Ishga oid ilovalar ish profilida saqlanadi. Ishni tugatganingizdan keyin ishga oid ilovalarni pauza qilishingiz mumkin. Ish profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Keling, ishchi qurilmangizni sozlaymiz"</string>
