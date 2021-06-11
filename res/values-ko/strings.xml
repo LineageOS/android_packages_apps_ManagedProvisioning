@@ -169,7 +169,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"다음 앱이 이 휴대전화를 관리하고 모니터링하는 데 사용됩니다."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"직장 설정 준비 중…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"직장 프로필 설정"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"업무용 앱은 직장 프로필에 보관됩니다."</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"업무용 앱은 직장 프로필에 보관됩니다"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"업무가 끝나면 업무용 앱 일시중지"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"직장 프로필의 데이터가 IT 관리자에게 공개됩니다"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"직장 프로필 설정 중..."</string>

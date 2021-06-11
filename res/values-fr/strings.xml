@@ -164,7 +164,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Configuration de l\'application d\'administration"</string>
     <string name="set_up_everything_else" msgid="4407706086957916501">"Configurez tout le reste"</string>
     <string name="now_lets_set_up_everything_else" msgid="5829716209795747105">"Ajouter un compte personnel pour profiter davantage de votre appareil"</string>
-    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Maintenant que votre profil professionnel est prêt, vous pouvez également ajouter un compte Google personnel pour accéder à vos applications et contenus."</string>
+    <string name="now_lets_set_up_everything_else_explanation" msgid="2730458857511288697">"Maintenant que votre profil pro est prêt, vous pouvez aussi ajouter un compte Google personnel pour accéder à vos applis et contenus."</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Cet appareil appartient à votre organisation"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"L\'application suivante sera utilisée pour gérer et surveiller ce téléphone"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Préparation pour la configuration professionnelle…"</string>
@@ -172,7 +172,7 @@
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Les applis professionnelles sont dans votre profil professionnel"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Mettez vos applis professionnelles en pause quand vous avez fini de travailler"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Votre administrateur informatique a accès aux données du profil professionnel"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Configuration de votre profil professionnel…"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Configuration de votre profil pro…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Les applications professionnelles sont conservées dans votre profil professionnel. Vous pouvez mettre en pause vos applications professionnelles lorsque vous avez fini votre journée. Les données dans votre profil professionnel sont visibles par votre administrateur informatique."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Configurez votre appareil professionnel"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Gardez vos applications professionnelles à portée de main"</string>
@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configuration de votre appareil…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Utilisez cet appareil pour accéder facilement à vos applications professionnelles. Cet appareil n\'est pas privé. De ce fait, votre administrateur informatique peut voir vos données et votre activité. Pour en savoir plus, contactez ce dernier."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Les applis pros sont conservées dans votre profil pro et gérées par votre administrateur"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applis personnelles sont distinctes des professionnelles et masquées"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applis."</string>
-    <string name="cope_provisioning_summary" msgid="993014104601034878">"Les applications professionnelles sont conservées dans votre profil professionnel et gérées par votre administrateur informatique. Les applications personnelles sont masquées des applications professionnelles et traitées de façon distincte. Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applications."</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applis perso sont distinctes des applis pro et non visibles par celles-ci"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applis"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Les applis pro sont conservées dans votre profil pro et gérées par votre administrateur. Les applis perso sont distinctes des applis pro et non visibles par celles-ci. Votre administrateur peut contrôler cet appareil et bloquer certaines applis."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Un instant…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Rappel concernant les règles de confidentialité"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Votre administrateur informatique peut voir vos données et votre activité sur cet appareil"</string>

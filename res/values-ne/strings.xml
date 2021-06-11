@@ -172,7 +172,7 @@
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"कार्यस्थलसम्बन्धी एपहरू तपाईंको कार्यसम्बन्धी प्रोफाइलमा राखिन्छन्"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"आफ्नो दिनभरिको काम पूरा भएपछि कार्यस्थलसम्बन्धी एप पज गर्नुहोस्"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"तपाईंका IT एडमिनले तपाईंको कार्यलयको प्रोफाइलमा भएका डेटा हेर्न सक्छन्"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"तपाईंको कार्य प्रोफाइल सेट गरिँदै…"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"तपाईंको कार्य प्रोफाइल सेट गरिँदै छ…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"कामसम्बन्धी एपहरू तपाईंको कार्यलयको प्रोफाइलमा राखिन्छन्। तपाईंले दिनभरिको काम सकेपछि तपाईं कामसम्बन्धी एपहरू पज गर्न सक्नुहुन्छ। तपाईंका IT एडमिनले तपाईंको कार्यलयको प्रोफाइलमा भएका डेटा हेर्न सक्छन्।"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"तपाईंको कार्यस्थलको यन्त्र सेट अप गरौँ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"आफ्ना कार्यस्थलसम्बन्धी एपहरू सजिलै प्राप्त गर्नुहोस्"</string>
