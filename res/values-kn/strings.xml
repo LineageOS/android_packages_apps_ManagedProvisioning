@@ -171,7 +171,7 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಸೆಟಪ್ ಮಾಡೋಣ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿರಿಸಲಾಗಿದೆ"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ನಿಮ್ಮ ಕೆಲಸದ ಸಮಯವು ಮುಕ್ತಾಯವಾದಾಗ, ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ವಿರಾಮಗೊಳಿಸಿ"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿನ ಡೇಟಾ ನಿಮ್ಮ ಐಟಿ ನಿರ್ವಾಹಕರಿಗೆ ಗೋಚರಿಸುತ್ತದೆ"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿನ ಡೇಟಾ ಐಟಿ ನಿರ್ವಾಹಕರಿಗೆ ಕಾಣಿಸುತ್ತದೆ"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"ಉದ್ಯೋಗದ ಆ್ಯಪ್‌ಗಳನ್ನು ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿರಿಸಲಾಗಿದೆ. ನಿಮ್ಮ ಕೆಲಸದ ಸಮಯವು ಮುಕ್ತಾಯವಾದಾಗ ನಿಮ್ಮ ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ನೀವು ವಿರಾಮಗೊಳಿಸಬಹುದು. ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿರುವ ಡೇಟಾ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ಮಾತ್ರ ಗೋಚರಿಸುತ್ತದೆ."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ನಿಮ್ಮ ಕೆಲಸದ ಸಾಧನವನ್ನು ಸೆಟಪ್ ಮಾಡೋಣ"</string>
