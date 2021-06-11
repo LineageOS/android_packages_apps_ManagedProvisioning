@@ -164,9 +164,9 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Келиңиз, жумуш профилиңизди жөндөп алалы"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Жумуш колдонмолору жумуш профилиңизде сакталат"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Иштеп бүткөнүңүздөн кийин, жумуш колдонмолорун тындырып коюңуз"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"IT администраторуңузга жумуш профилиңиздеги маалымат көрүнөт"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"IT администраторуңузга жумуш профилиңиздеги нерселер көрүнөт"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Жумуш профилиңиз жөндөлүүдө…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Жумуш колдонмолору жумуш профилиңизде сакталат. Иштеп бүткөнүңүздөн кийин, жумуш колдонмолоруңузду тындырып койсоңуз болот. IT администраторуңузга жумуш профилиңиздеги маалымат көрүнөт."</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Жумуш колдонмолору жумуш профилиңизде сакталат. Иштеп бүткөнүңүздөн кийин, жумуш колдонмолоруңузду тындырып койсоңуз болот. IT администраторуңузга жумуш профилиңиздеги нерселер көрүнөт."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Келиңиз, жумуш телефонуңузду жөндөп алалы"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Жумуш колдонмолоруңузга оңой кире аласыз"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Бул жеке түзмөк эмес"</string>

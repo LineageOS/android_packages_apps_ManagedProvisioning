@@ -164,9 +164,9 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ଚାଲନ୍ତୁ ଆପଣଙ୍କର ୱାର୍କ ପ୍ରୋଫାଇଲ୍ ସେଟ୍ ଅପ୍ କରିବା"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ୱାର୍କ୍ ଆପଗୁଡ଼ିକ ଆପଣଙ୍କର ୱାର୍କ୍ ପ୍ରୋଫାଇଲ୍‌ରେ ରଖାଯାଇଛି"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ଆପଣଙ୍କର ପୁରା ଦିନର କାମ ଶେଷ ହୋଇଗଲା ପରେ ୱର୍କ ଆପ୍ସକୁ ବିରତି କରନ୍ତୁ"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ଥିବା ଡାଟା ଆପଣଙ୍କ IT ଆଡମିନକୁ ଦେଖାଯାଉଛି"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ଥିବା ଡାଟା ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ ଦେଖାଯାଉଛି"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"ଆପଣଙ୍କର ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟ୍‌ ଅପ୍‍ କରାଯାଉଛି…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"କାର୍ଯ୍ୟସ୍ଥଳୀ ଆପଗୁଡ଼ିକ ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ରଖାଯାଇଛି। ଆପଣ ଆପଣଙ୍କ ପୂରା ଦିନର କାମ ସମାପ୍ତ କରିସାରିବା ପରେ ଆପଣଙ୍କର କାର୍ଯ୍ୟସ୍ଥଳୀ ଆପଗୁଡ଼ିକୁ ବିରତ କରିପାରିବେ। ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ଥିବା ଡାଟା ଆପଣଙ୍କ IT ଆଡମିନକୁ ଦେଖାଯାଉଛି।"</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"ୱାର୍କ୍ ଆପଗୁଡ଼ିକ ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ରଖାଯାଇଛି। ଆପଣ ଆପଣଙ୍କ ପୂରା ଦିନର କାମ ସମାପ୍ତ କରିସାରିବା ପରେ ଆପଣଙ୍କର ୱାର୍କ୍ ଆପଗୁଡ଼ିକୁ ବିରତ କରିପାରିବେ। ଆପଣଙ୍କ ୱାର୍କ୍ ପ୍ରୋଫାଇଲରେ ଥିବା ଡାଟା ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ ଦେଖାଯାଉଛି।"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ଆସନ୍ତୁ ଆପଣଙ୍କ ୱର୍କ ଡିଭାଇସ୍‌କୁ ସେଟ୍ ଅପ୍ କରିବା"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ଆପଣଙ୍କର ଆଙ୍ଗୁଠି ଟିପରେ ନିଜର ୱର୍କ ଆପ୍ସ ରଖନ୍ତୁ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ଏହି ଡିଭାଇସ୍‌ ବ୍ୟକ୍ତିଗତ ନୁହେଁ"</string>
