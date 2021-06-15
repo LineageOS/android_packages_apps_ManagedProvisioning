@@ -180,7 +180,7 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Il tuo amministratore IT potrebbe visualizzare i tuoi dati e la tua attività su questo dispositivo."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurazione del dispositivo…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"Usa questo dispositivo per accedere facilmente alle tue app di lavoro. Questo dispositivo non è privato, perciò il tuo amministratore IT potrebbe visualizzare i tuoi dati e le tue attività. Per ulteriori informazioni, contatta il tuo amministratore IT."</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Le app di lavoro sono nel tuo profilo di lavoro e vengono gestite dall\'amministratore IT"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Le app di lavoro rimangono nel tuo profilo di lavoro e sono gestite dall\'amministratore IT"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Le app personali sono separate e nascoste dalle app di lavoro"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"L\'amministratore IT può controllare questo dispositivo e bloccare alcune app"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Le app di lavoro vengono mantenute nel tuo profilo di lavoro e gestite dall\'amministratore IT. Le app personali sono separate e vengono nascoste dalle app di lavoro. L\'amministratore IT può controllare questo dispositivo e bloccare alcune app."</string>

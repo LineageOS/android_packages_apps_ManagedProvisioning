@@ -181,9 +181,9 @@
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"デバイスをセットアップしています…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"このデバイスを使用して仕事用アプリに簡単にアクセスできます。このデバイスは非公開ではないため、IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります。詳しくは、IT 管理者にお問い合わせください。"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"仕事用アプリは仕事用プロファイルに保存され、IT 管理者が管理します"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"個人用アプリは仕事用アプリとは別に保存され、一緒には表示されません"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"個人用と仕事用のアプリは別々に保存、表示されます"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT 管理者は、このデバイスを管理して特定のアプリをブロックできます"</string>
-    <string name="cope_provisioning_summary" msgid="993014104601034878">"仕事用アプリは仕事用プロファイルに保存され、IT 管理者によって管理されています。個人用アプリは仕事用アプリとは別個に保存され、一緒に表示されません。IT 管理者はこのデバイスを管理し、特定のアプリをブロックすることができます。"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"仕事用アプリは仕事用プロファイルに保存され、IT 管理者によって管理されています。個人用と仕事用のアプリは別々に保存、表示されます。IT 管理者はこのデバイスを管理し、特定のアプリをブロックすることができます。"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"お待ちください…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"プライバシーに関するお知らせ"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります"</string>
