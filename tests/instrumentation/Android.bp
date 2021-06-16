@@ -25,6 +25,9 @@ android_test {
         "truth-prebuilt",
         "testng", // used only for assertThrows
         "ub-uiautomator", // used for unlocking the device
+        "TestApp",
+        "ctstestrunner-axt",
+        "Harrier",
     ],
 
     instrumentation_for: "ManagedProvisioning",
