@@ -15,10 +15,6 @@
  */
 package com.android.managedprovisioning.provisioning;
 
-import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
-import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_WORK_PROFILE;
-import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE;
-
 import static java.util.Objects.requireNonNull;
 
 import android.annotation.StringRes;
@@ -36,7 +32,7 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.CrossFadeHelper;
 import com.android.managedprovisioning.common.CrossFadeHelper.Callback;
 import com.android.managedprovisioning.common.StylerHelper;
-import com.android.managedprovisioning.provisioning.ProvisioningActivity.ProvisioningMode;
+import com.android.managedprovisioning.provisioning.ProvisioningModeWrapperProvider.ProvisioningModeWrapper;
 
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -62,30 +58,6 @@ class TransitionAnimationHelper {
         TransitionAnimationState restoreState();
     }
 
-    @VisibleForTesting
-    static final ProvisioningModeWrapper WORK_PROFILE_WRAPPER =
-            new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
-        new TransitionScreenWrapper(R.string.work_profile_provisioning_step_1_header,
-                R.raw.separate_work_and_personal_animation),
-        new TransitionScreenWrapper(R.string.work_profile_provisioning_step_2_header,
-                R.raw.pause_work_apps_animation),
-        new TransitionScreenWrapper(R.string.work_profile_provisioning_step_3_header,
-                R.raw.not_private_animation)
-    }, R.string.work_profile_provisioning_summary);
-
-    @VisibleForTesting
-    static final ProvisioningModeWrapper WORK_PROFILE_ON_ORG_OWNED_DEVICE_WRAPPER =
-            new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
-        new TransitionScreenWrapper(R.string.cope_provisioning_step_1_header,
-                R.raw.separate_work_and_personal_animation),
-        new TransitionScreenWrapper(R.string.cope_provisioning_step_2_header,
-                /* description= */ 0,
-                R.raw.personal_apps_separate_hidden_from_work_animation,
-                /* shouldLoop */ false),
-        new TransitionScreenWrapper(R.string.cope_provisioning_step_3_header,
-                R.raw.it_admin_control_device_block_apps_animation)
-    }, R.string.cope_provisioning_summary);
-
     private static final int TRANSITION_TIME_MILLIS = 5000;
     private static final int CROSSFADE_ANIMATION_DURATION_MILLIS = 500;
 
@@ -101,17 +73,15 @@ class TransitionAnimationHelper {
     private TransitionAnimationState mTransitionAnimationState;
     private final StylerHelper mStylerHelper;
 
-    TransitionAnimationHelper(@ProvisioningMode int provisioningMode,
-            boolean adminCanGrantSensorsPermissions,
-            AnimationComponents animationComponents,
+    TransitionAnimationHelper(AnimationComponents animationComponents,
             TransitionAnimationCallback callback,
             TransitionAnimationStateManager stateManager,
-            StylerHelper stylerHelper) {
+            StylerHelper stylerHelper,
+            ProvisioningModeWrapper provisioningModeWrapper) {
         mAnimationComponents = requireNonNull(animationComponents);
         mCallback = requireNonNull(callback);
         mStateManager = requireNonNull(stateManager);
-        mProvisioningModeWrapper = getProvisioningModeWrapper(provisioningMode,
-                adminCanGrantSensorsPermissions);
+        mProvisioningModeWrapper = provisioningModeWrapper;
         mCrossFadeHelper = getCrossFadeHelper();
         mShowAnimations = shouldShowAnimations();
         mStylerHelper = requireNonNull(stylerHelper);
@@ -295,59 +265,6 @@ class TransitionAnimationHelper {
         return transitions[currentTransitionIndex % transitions.length];
     }
 
-    @VisibleForTesting
-    ProvisioningModeWrapper getProvisioningModeWrapper(
-            @ProvisioningMode int provisioningMode, boolean adminCanGrantSensorsPermissions) {
-        switch (provisioningMode) {
-            case PROVISIONING_MODE_WORK_PROFILE:
-                return WORK_PROFILE_WRAPPER;
-            case PROVISIONING_MODE_FULLY_MANAGED_DEVICE:
-                return getProvisioningModeWrapperForFullyManaged(adminCanGrantSensorsPermissions);
-            case PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE:
-                return WORK_PROFILE_ON_ORG_OWNED_DEVICE_WRAPPER;
-        }
-        throw new IllegalStateException("Unexpected provisioning mode " + provisioningMode);
-    }
-
-    /** Return the provisioning mode wrapper for a fully-managed device.
-     * The second screen, as well as the accessible summary, will be different, depending on whether
-     * the admin can grant sensors-related permissions on this device or not.
-     */
-    private static ProvisioningModeWrapper getProvisioningModeWrapperForFullyManaged(
-            boolean adminCanGrantSensorsPermissions) {
-        final int provisioningSummaryId;
-        TransitionScreenWrapper.Builder secondScreenBuilder =
-                new TransitionScreenWrapper.Builder()
-                        .setHeader(R.string.fully_managed_device_provisioning_step_2_header);
-
-        if (adminCanGrantSensorsPermissions) {
-            secondScreenBuilder
-                    .setSubHeaderTitle(
-                            R.string.fully_managed_device_provisioning_permissions_header)
-                    .setSubHeader(R.string.fully_managed_device_provisioning_permissions_subheader)
-                    .setSubHeaderIcon(R.drawable.ic_history)
-                    .setSecondarySubHeaderTitle(
-                            R.string.fully_managed_device_provisioning_permissions_secondary_header)
-                    .setSecondarySubHeader(R.string
-                            .fully_managed_device_provisioning_permissions_secondary_subheader)
-                    .setSecondarySubHeaderIcon(R.drawable.ic_perm_device_information)
-                    .setShouldLoop(true);
-            provisioningSummaryId =
-                    R.string.fully_managed_device_with_permission_control_provisioning_summary;
-        } else {
-            provisioningSummaryId = R.string.fully_managed_device_provisioning_summary;
-            secondScreenBuilder
-                    .setDescription(R.string.fully_managed_device_provisioning_step_2_subheader)
-                    .setAnimation(R.raw.not_private_animation);
-        }
-
-        TransitionScreenWrapper firstScreen = new TransitionScreenWrapper(
-                R.string.fully_managed_device_provisioning_step_1_header,
-                R.raw.connect_on_the_go_animation);
-        return new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
-                firstScreen, secondScreenBuilder.build()}, provisioningSummaryId);
-    }
-
     private boolean shouldShowAnimations() {
         final Context context = mAnimationComponents.mHeader.getContext();
         return context.getResources().getBoolean(R.bool.show_edu_animations);
@@ -356,16 +273,6 @@ class TransitionAnimationHelper {
     private void applyContentDescription(View view, @StringRes int summaryRes) {
         Context context = view.getContext();
         view.setContentDescription(context.getString(summaryRes));
-    }
-
-    private static final class ProvisioningModeWrapper {
-        final TransitionScreenWrapper[] transitions;
-        final @StringRes int summary;
-
-        ProvisioningModeWrapper(TransitionScreenWrapper[] transitions, @StringRes int summary) {
-            this.transitions = requireNonNull(transitions);
-            this.summary = summary;
-        }
     }
 
     static final class AnimationComponents {
