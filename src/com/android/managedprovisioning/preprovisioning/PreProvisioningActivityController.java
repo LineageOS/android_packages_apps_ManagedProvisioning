@@ -276,6 +276,13 @@ public class PreProvisioningActivityController {
             return;
         }
 
+        if (!isIntentActionValid(intent.getAction())) {
+            ProvisionLogger.loge(
+                    ACTION_PROVISION_MANAGED_DEVICE + " is no longer a supported intent action.");
+            mUi.abortProvisioning();
+            return;
+        }
+
         if (isDeviceOwnerProvisioning()) {
             // TODO: make a general test based on deviceAdminDownloadInfo field
             // PO doesn't ever initialize that field, so OK as a general case
@@ -326,6 +333,10 @@ public class PreProvisioningActivityController {
             // TODO(b/175678720): Fail provisioning if flow started by PROVISION_MANAGED_DEVICE
             startManagedDeviceFlow();
         }
+    }
+
+    private boolean isIntentActionValid(String action) {
+        return !ACTION_PROVISION_MANAGED_DEVICE.equals(action);
     }
 
     void startNfcFlow(Intent intent) {
