@@ -16,11 +16,14 @@
 
 package com.android.managedprovisioning.provisioning;
 
+import static java.util.Objects.requireNonNull;
+
 import android.annotation.DrawableRes;
 import android.annotation.StringRes;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -28,6 +31,7 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
+import com.android.managedprovisioning.common.StylerHelper;
 import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
 import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
@@ -38,25 +42,30 @@ import com.google.android.setupcompat.template.FooterBarMixin;
 import com.google.android.setupcompat.template.FooterButton;
 import com.google.android.setupdesign.GlifLayout;
 
+import java.util.Objects;
+
 /**
  * This is the first activity the user will see during financed device provisioning.
  */
 public final class FinancedDeviceLandingActivity extends SetupGlifLayoutActivity {
 
     private final AccessibilityContextMenuMaker mContextMenuMaker;
+    private final StylerHelper mStylerHelper;
 
     public FinancedDeviceLandingActivity() {
         this(new Utils(), /* contextMenuMaker= */null, new SettingsFacade(),
-                new ThemeHelper(new DefaultNightModeChecker(), new DefaultSetupWizardBridge()));
+                new ThemeHelper(new DefaultNightModeChecker(), new DefaultSetupWizardBridge()),
+                new StylerHelper());
     }
 
     @VisibleForTesting
     FinancedDeviceLandingActivity(Utils utils, AccessibilityContextMenuMaker contextMenuMaker,
-            SettingsFacade settingsFacade, ThemeHelper themeHelper) {
+            SettingsFacade settingsFacade, ThemeHelper themeHelper, StylerHelper stylerHelper) {
         super(utils, settingsFacade, themeHelper);
         mContextMenuMaker = contextMenuMaker != null
                 ? contextMenuMaker
                 : new AccessibilityContextMenuMaker(this);
+        mStylerHelper = requireNonNull(stylerHelper);
     }
 
     @Override
@@ -105,6 +114,9 @@ public final class FinancedDeviceLandingActivity extends SetupGlifLayoutActivity
 
     private void setupItem(ViewGroup item, @StringRes int title, String summary,
             @DrawableRes int icon, String organizationName) {
+        mStylerHelper.applyListItemStyling(
+                item, new LinearLayout.LayoutParams(item.getLayoutParams()));
+
         final ImageView makePaymentsSubHeaderImage = item.findViewById(R.id.sud_items_icon);
         makePaymentsSubHeaderImage.setImageDrawable(getDrawable(icon));
 

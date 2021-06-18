@@ -29,6 +29,7 @@ import androidx.annotation.StringRes;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.InitializeLayoutConsumerHandler;
+import com.android.managedprovisioning.common.StylerHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -178,7 +179,8 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
                 !getParams().deviceOwnerPermissionGrantOptOut,
                 animationComponents,
                 callback,
-                getStateManager());
+                getStateManager(),
+                new StylerHelper());
     }
 
     private void setupEducationViews(
