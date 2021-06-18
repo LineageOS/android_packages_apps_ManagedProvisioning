@@ -177,7 +177,7 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"İş cihazınızın kurulumunu yapalım"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"İş uygulamalarınızı parmaklarınızın ucunda tutun"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Bu cihaz gizli değil"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"BT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Cihazınız ayarlanıyor…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1176062866187662479">"İş uygulamalarınıza kolayca erişmek için bu cihazı kullanın. Bu cihaz gizli olmadığından IT yöneticiniz verilerinizi ve etkinliklerinizi görebilir. Daha fazla bilgi edinmek için IT yöneticinizle iletişime geçin."</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"İş uygulamaları iş profilinizde tutulur ve BT yöneticiniz tarafından yönetilir"</string>
@@ -186,7 +186,7 @@
     <string name="cope_provisioning_summary" msgid="993014104601034878">"İş uygulamaları iş profilinizde tutulur ve BT yöneticiniz tarafından yönetilir. Kişisel uygulamalar ayrı olup iş uygulamalarından gizlenir. BT yöneticiniz bu cihazı kontrol edebilir ve belirli uygulamaları engelleyebilir."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Bir saniye…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Gizlilik hatırlatıcısı"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir"</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"BT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir"</string>
     <string name="device_provisioning_finished" msgid="3981783240592092906">"Cihazınız kullanıma hazır!"</string>
     <string name="done" msgid="7755227776955952318">"Bitti"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"Bu cihaz <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> tarafından sağlanan krediyle satın alınmıştır"</string>

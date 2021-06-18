@@ -100,7 +100,7 @@
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Ez"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Bai"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Bertan behera uzten…"</string>
-    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Profila konfiguratzeari utzi nahi diozu?"</string>
+    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Profilaren konfigurazio-prozesua gelditu?"</string>
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"Geroago ere konfigura dezakezu laneko profila erakundeak gailua kudeatzeko duen aplikazioan"</string>
     <string name="continue_button" msgid="7177918589510964446">"Egin aurrera"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Gelditu"</string>
