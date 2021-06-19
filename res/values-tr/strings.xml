@@ -170,7 +170,7 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"İş cihazınızın kurulumunu yapalım"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"İş uygulamalarınızı parmaklarınızın ucunda tutun"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Bu cihaz gizli değil"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"BT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Etkinliğiniz ve verileriniz"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Uygulama izinleri"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"BT yöneticiniz, bu cihazdaki uygulamalar için izinleri (ör. mikrofon, kamera ve konum izinleri) ayarlayabilir."</string>
@@ -187,7 +187,7 @@
     <string name="cope_provisioning_summary" msgid="993014104601034878">"İş uygulamaları iş profilinizde tutulur ve BT yöneticiniz tarafından yönetilir. Kişisel uygulamalar ayrı olup iş uygulamalarından gizlenir. BT yöneticiniz bu cihazı kontrol edebilir ve belirli uygulamaları engelleyebilir."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Bir saniye…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Gizlilik hatırlatıcısı"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir"</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"BT yöneticiniz bu cihazdaki verilerinizi ve etkinliklerinizi görebilir"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Bu cihaz, <xliff:g id="CREDITOR_NAME">%s</xliff:g> tarafından sağlanmaktadır"</string>
     <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Bu cihaz için ödeme yapın"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>, bu cihazın ödemelerini yapabilmeniz için <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> uygulamasını yükleyebilir."</string>
