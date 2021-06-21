@@ -22,22 +22,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:layout_marginLeft="?attr/sudMarginStart"
-        android:layout_marginRight="?attr/sudMarginEnd"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        style="@style/SudContentFrame">
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="@dimen/sud_items_margin_top"/>
         <include
             android:id="@+id/item1"
             layout="@layout/icon_with_label_item"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/sud_items_margin_top" />
+            android:layout_height="wrap_content"/>
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="@dimen/sud_items_margin_inbetween"/>
         <include
             android:id="@+id/item2"
             layout="@layout/icon_with_label_item"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/sud_items_margin_inbetween" />
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </com.google.android.setupdesign.GlifLayout>

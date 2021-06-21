@@ -24,30 +24,30 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        style="@style/SudContentFrame">
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="@dimen/sud_items_margin_top"/>
         <include
             android:id="@+id/item1"
             layout="@layout/icon_with_label_item"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/sud_items_margin_top"
-            android:layout_marginLeft="?attr/sudMarginStart"
-            android:layout_marginRight="?attr/sudMarginEnd"/>
+            android:layout_height="wrap_content"/>
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="@dimen/sud_items_margin_inbetween"/>
         <include
             android:id="@+id/item2"
             layout="@layout/icon_with_label_item"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/sud_items_margin_inbetween"
-            android:layout_marginLeft="?attr/sudMarginStart"
-            android:layout_marginRight="?attr/sudMarginEnd"/>
+            android:layout_height="wrap_content"/>
         <com.google.android.setupdesign.view.FillContentLayout
             android:id="@+id/animation_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:maxWidth="@dimen/animation_max_size"
-            android:maxHeight="@dimen/animation_max_size"
-            style="@style/SudContentFrame">
+            android:maxHeight="@dimen/animation_max_size">
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animation"
                 android:layout_width="match_parent"

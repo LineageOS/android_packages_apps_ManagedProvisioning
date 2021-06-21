@@ -28,16 +28,17 @@ import android.os.Looper;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.CrossFadeHelper;
 import com.android.managedprovisioning.common.CrossFadeHelper.Callback;
+import com.android.managedprovisioning.common.StylerHelper;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity.ProvisioningMode;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.google.android.setupdesign.util.ItemStyler;
 
 import java.util.Arrays;
 import java.util.List;
@@ -53,8 +54,8 @@ class TransitionAnimationHelper {
         void onAllTransitionsShown();
 
         void onAnimationSetup(LottieAnimationView animationView);
-    }
 
+    }
     interface TransitionAnimationStateManager {
         void saveState(TransitionAnimationState state);
 
@@ -98,12 +99,14 @@ class TransitionAnimationHelper {
 
     private Handler mUiThreadHandler = new Handler(Looper.getMainLooper());
     private TransitionAnimationState mTransitionAnimationState;
+    private final StylerHelper mStylerHelper;
 
     TransitionAnimationHelper(@ProvisioningMode int provisioningMode,
             boolean adminCanGrantSensorsPermissions,
             AnimationComponents animationComponents,
             TransitionAnimationCallback callback,
-            TransitionAnimationStateManager stateManager) {
+            TransitionAnimationStateManager stateManager,
+            StylerHelper stylerHelper) {
         mAnimationComponents = requireNonNull(animationComponents);
         mCallback = requireNonNull(callback);
         mStateManager = requireNonNull(stateManager);
@@ -111,6 +114,7 @@ class TransitionAnimationHelper {
                 adminCanGrantSensorsPermissions);
         mCrossFadeHelper = getCrossFadeHelper();
         mShowAnimations = shouldShowAnimations();
+        mStylerHelper = requireNonNull(stylerHelper);
 
         applyContentDescription(
                 mAnimationComponents.mAnimationView,
@@ -278,7 +282,8 @@ class TransitionAnimationHelper {
             ((ImageView) item.findViewById(R.id.sud_items_icon)).setImageResource(icon);
             ((TextView) item.findViewById(R.id.sud_items_title)).setText(subHeaderTitle);
             ((TextView) item.findViewById(R.id.sud_items_summary)).setText(subHeader);
-            ItemStyler.applyPartnerCustomizationItemStyle(item);
+            mStylerHelper.applyListItemStyling(
+                    item, new LinearLayout.LayoutParams(item.getLayoutParams()));
             item.setVisibility(View.VISIBLE);
         } else {
             item.setVisibility(View.GONE);
