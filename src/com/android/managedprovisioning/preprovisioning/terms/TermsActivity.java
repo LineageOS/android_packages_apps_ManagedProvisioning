@@ -161,6 +161,7 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
 
     private void setupToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationContentDescription(R.string.navigation_button_description);
         toolbar.setNavigationIcon(getDrawable(R.drawable.ic_arrow_back_24dp));
         toolbar.setNavigationOnClickListener(v ->
                 getTransitionHelper().finishActivity(TermsActivity.this));

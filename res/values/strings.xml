@@ -62,6 +62,8 @@
   <string name="url_error">This link cannot be displayed.</string>
 
   <!-- 'Terms and conditions' screen -->
+  <!-- Button text for a screen reader. This text describes the back button for a Terms and Conditions page. -->
+  <string name="navigation_button_description">Navigate up</string>
   <!--Toolbar header [CHAR LIMIT=NONE] -->
   <string name="terms">Terms</string>
   <!-- Work profile info terms section heading. [CHAR LIMIT=NONE] -->
