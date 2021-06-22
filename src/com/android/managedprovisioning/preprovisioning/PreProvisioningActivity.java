@@ -78,6 +78,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private ControllerProvider mControllerProvider;
     private final AccessibilityContextMenuMaker mContextMenuMaker;
     private PreProvisioningActivityBridge mBridge;
+    private boolean mShouldForwardTransition;
 
     private static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
 
@@ -110,6 +111,15 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         mController = mControllerProvider.getInstance(this);
         mBridge = createBridge();
         mController.getState().observe(this, this::onStateChanged);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mShouldForwardTransition) {
+            overridePendingTransition(R.anim.sud_slide_next_in, R.anim.sud_slide_next_out);
+            mShouldForwardTransition = false;
+        }
     }
 
     protected PreProvisioningActivityBridge createBridge() {
@@ -213,6 +223,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 }
                 break;
             case GET_PROVISIONING_MODE_REQUEST_CODE:
+                mShouldForwardTransition = true;
                 if (resultCode == RESULT_OK) {
                     if(data != null && mController.updateProvisioningParamsFromIntent(data)) {
                         mController.showUserConsentScreen();
