@@ -44,9 +44,7 @@ import android.os.Looper;
 import androidx.test.filters.FlakyTest;
 import androidx.test.filters.SmallTest;
 
-import com.android.managedprovisioning.analytics.MetricsWriter;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
-import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -220,7 +218,7 @@ public class DownloadPackageTaskTest {
 
     private void verifyOnTaskFinished(String location) {
         verify(mCallback).onSuccess(mTask);
-        assertEquals(location, mTask.getDownloadedPackageLocation());
+        assertEquals(location, mTask.getPackageLocation());
     }
 
     private void runTask() {

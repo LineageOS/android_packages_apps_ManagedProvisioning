@@ -35,6 +35,7 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -55,16 +56,16 @@ public class VerifyPackageTask extends AbstractProvisioningTask {
     public static final int ERROR_DEVICE_ADMIN_MISSING = 1;
 
     private final Utils mUtils;
-    private final DownloadPackageTask mDownloadPackageTask;
+    private final PackageLocationProvider mDownloadLocationProvider;
     private final PackageManager mPackageManager;
     private final PackageDownloadInfo mDownloadInfo;
 
     public VerifyPackageTask(
-            DownloadPackageTask downloadPackageTask,
+            PackageLocationProvider downloadLocationProvider,
             Context context,
             ProvisioningParams params,
             Callback callback) {
-        this(new Utils(), downloadPackageTask, context, params, callback,
+        this(new Utils(), downloadLocationProvider, context, params, callback,
                 new ProvisioningAnalyticsTracker(
                         MetricsWriterFactory.getMetricsWriter(context, new SettingsFacade()),
                         new ManagedProvisioningSharedPreferences(context)));
@@ -73,7 +74,7 @@ public class VerifyPackageTask extends AbstractProvisioningTask {
     @VisibleForTesting
     VerifyPackageTask(
             Utils utils,
-            DownloadPackageTask downloadPackageTask,
+            PackageLocationProvider downloadLocationProvider,
             Context context,
             ProvisioningParams params,
             Callback callback,
@@ -81,23 +82,24 @@ public class VerifyPackageTask extends AbstractProvisioningTask {
         super(context, params, callback, provisioningAnalyticsTracker);
 
         mUtils = checkNotNull(utils);
-        mDownloadPackageTask = checkNotNull(downloadPackageTask);
+        mDownloadLocationProvider = checkNotNull(downloadLocationProvider);
         mPackageManager = mContext.getPackageManager();
         mDownloadInfo = checkNotNull(params.deviceAdminDownloadInfo);
     }
 
     @Override
     public void run(int userId) {
-        final String downloadLocation = mDownloadPackageTask.getDownloadedPackageLocation();
-        if (TextUtils.isEmpty(downloadLocation)) {
-            ProvisionLogger.logw("VerifyPackageTask invoked, but download location is null");
+        final File packageLocation = mDownloadLocationProvider.getPackageLocation();
+        if (packageLocation == null) {
+            ProvisionLogger.logw("VerifyPackageTask invoked, but package is null");
             success();
             return;
         }
-        ProvisionLogger.logi("Verifying package from location " + downloadLocation + " for user "
-                + userId);
+        ProvisionLogger.logi("Verifying package from location " + packageLocation.getAbsolutePath()
+                + " for user " + userId);
 
-        PackageInfo packageInfo = mPackageManager.getPackageArchiveInfo(downloadLocation,
+        PackageInfo packageInfo = mPackageManager.getPackageArchiveInfo(
+                packageLocation.getAbsolutePath(),
                 PackageManager.GET_SIGNATURES | PackageManager.GET_RECEIVERS);
         String packageName = mProvisioningParams.inferDeviceAdminPackageName();
         // Device admin package name can't be null
@@ -114,7 +116,8 @@ public class VerifyPackageTask extends AbstractProvisioningTask {
         }
 
         if (mDownloadInfo.packageChecksum.length > 0) {
-            if (!doesPackageHashMatch(downloadLocation, mDownloadInfo.packageChecksum)) {
+            if (!doesPackageHashMatch(
+                    packageLocation.getAbsolutePath(), mDownloadInfo.packageChecksum)) {
                 error(ERROR_HASH_MISMATCH);
                 return;
             }
