@@ -175,7 +175,7 @@ public class AnimationDynamicColorsHelper {
                 new ColorItem(R.color.yellow100, ".yellow100"));
         result.put(
                 new ColorItem(R.color.blue300, ".blue300"),
-                new ColorItem(R.color.blue50, ".blue50"));
+                new ColorItem(R.color.blue800, ".blue800"));
         result.put(
                 new ColorItem(R.color.grey300, ".grey300"),
                 new ColorItem(R.color.grey600, ".grey600"));
