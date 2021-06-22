@@ -94,7 +94,8 @@ public class WebActivity extends SetupLayoutActivity {
             // User should not be able to escape provisioning if user setup isn't complete.
             mWebView.setOnLongClickListener(v -> true);
         }
-        getThemeHelper().applyWebSettingsDayNight(getApplicationContext(), webSettings);
+        getThemeHelper()
+                .applyWebSettingsDayNight(getApplicationContext(), webSettings, getIntent());
         setContentView(mWebView);
     }
 

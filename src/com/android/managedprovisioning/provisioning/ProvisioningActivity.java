@@ -381,7 +381,7 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
     @Override
     public void onAnimationSetup(LottieAnimationView animationView) {
-        getThemeHelper().setupAnimationDynamicColors(this, animationView);
+        getThemeHelper().setupAnimationDynamicColors(this, animationView, getIntent());
     }
 
     @Override
