@@ -101,7 +101,8 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
         final GlifLayout layout = mActivity.findViewById(R.id.setup_wizard_layout);
         LottieAnimationView lottieAnimationView = layout.findViewById(R.id.animation);
         lottieAnimationView.setAnimation(animationResId);
-        mThemeHelper.setupAnimationDynamicColors(mActivity, lottieAnimationView);
+        mThemeHelper.setupAnimationDynamicColors(
+                mActivity, lottieAnimationView, mActivity.getIntent());
     }
 
     private void setupAcceptAndContinueButton() {

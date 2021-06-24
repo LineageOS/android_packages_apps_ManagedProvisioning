@@ -41,7 +41,10 @@ import java.util.Objects;
 
 @SmallTest
 public class ThemeHelperTest {
-    public static final String THEME_TEST_VALUE = "glif_v3_light";
+    private static final String THEME_TEST_VALUE = "glif_v3_light";
+    private static final Intent INTENT_WITH_THEME =
+            new Intent().putExtra(WizardManagerHelper.EXTRA_THEME, THEME_TEST_VALUE);
+    private static final Intent INTENT_NO_THEME = new Intent();
 
     private final Context mContext = InstrumentationRegistry.getTargetContext();
     private boolean mInitialFeatureFlagValue;
@@ -136,8 +139,38 @@ public class ThemeHelperTest {
                 createThemeHelperWithDayNightEnabled(true);
         int expectedResId = mSetupWizardBridge.resolveTheme(
                 R.style.SudThemeGlifV3_DayNight,
-                com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_LIGHT,
+                com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3,
                 /* suppressDayNight= */ false);
+
+        assertThat(themeHelper.inferThemeResId(mContext, new Intent())).isEqualTo(expectedResId);
+    }
+
+    @Test
+    public void inferThemeResId_suppressDayNight_systemNightMode_noSetupWizard_isDarkMode() {
+        FLAG_ENABLE_LIGHT_DARK_MODE = true;
+        ThemeHelper themeHelper =
+                createThemeHelperWithDayNightAndSystemNightModeEnabled(
+                        /* setupWizardDayNightEnabled= */ false,
+                        /* isSystemNightMode= */ true);
+        int expectedResId = mSetupWizardBridge.resolveTheme(
+                R.style.SudThemeGlifV3_Light,
+                com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3,
+                /* suppressDayNight= */ true);
+
+        assertThat(themeHelper.inferThemeResId(mContext, new Intent())).isEqualTo(expectedResId);
+    }
+
+    @Test
+    public void inferThemeResId_suppressDayNight_systemNightMode_noSetupWizard_isLightMode() {
+        FLAG_ENABLE_LIGHT_DARK_MODE = true;
+        ThemeHelper themeHelper =
+                createThemeHelperWithDayNightAndSystemNightModeEnabled(
+                        /* setupWizardDayNightEnabled= */ false,
+                        /* isSystemNightMode= */ false);
+        int expectedResId = mSetupWizardBridge.resolveTheme(
+                R.style.SudThemeGlifV3_Light,
+                com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3_LIGHT,
+                /* suppressDayNight= */ true);
 
         assertThat(themeHelper.inferThemeResId(mContext, new Intent())).isEqualTo(expectedResId);
     }
@@ -146,8 +179,8 @@ public class ThemeHelperTest {
     public void getDefaultNightMode_returnsYes() {
         FLAG_ENABLE_LIGHT_DARK_MODE = true;
         ThemeHelper themeHelper = createThemeHelperForNightMode();
-
-        assertThat(themeHelper.getDefaultNightMode(mContext)).isEqualTo(MODE_NIGHT_YES);
+        assertThat(themeHelper.getDefaultNightMode(mContext, INTENT_WITH_THEME))
+                .isEqualTo(MODE_NIGHT_YES);
     }
 
     @Test
@@ -155,7 +188,8 @@ public class ThemeHelperTest {
         FLAG_ENABLE_LIGHT_DARK_MODE = false;
         ThemeHelper themeHelper = createThemeHelperForNightMode();
 
-        assertThat(themeHelper.getDefaultNightMode(mContext)).isEqualTo(MODE_NIGHT_NO);
+        assertThat(themeHelper.getDefaultNightMode(mContext, INTENT_WITH_THEME))
+                .isEqualTo(MODE_NIGHT_NO);
     }
 
     @Test
@@ -163,7 +197,8 @@ public class ThemeHelperTest {
         FLAG_ENABLE_LIGHT_DARK_MODE = true;
         ThemeHelper themeHelper = createThemeHelperWithDayNightEnabled(false);
 
-        assertThat(themeHelper.getDefaultNightMode(mContext)).isEqualTo(MODE_NIGHT_NO);
+        assertThat(themeHelper.getDefaultNightMode(mContext, INTENT_WITH_THEME))
+                .isEqualTo(MODE_NIGHT_NO);
     }
 
     @Test
@@ -171,7 +206,26 @@ public class ThemeHelperTest {
         FLAG_ENABLE_LIGHT_DARK_MODE = true;
         ThemeHelper themeHelper = createThemeHelperWithSystemNightModeEnabled(false);
 
-        assertThat(themeHelper.getDefaultNightMode(mContext)).isEqualTo(MODE_NIGHT_NO);
+        assertThat(themeHelper.getDefaultNightMode(mContext, INTENT_WITH_THEME))
+                .isEqualTo(MODE_NIGHT_NO);
+    }
+
+    @Test
+    public void getDefaultNightMode_systemNightModeFalse_noThemeExtra_returnsNo() {
+        FLAG_ENABLE_LIGHT_DARK_MODE = true;
+        ThemeHelper themeHelper = createThemeHelperWithSystemNightModeEnabled(false);
+
+        assertThat(themeHelper.getDefaultNightMode(mContext, INTENT_NO_THEME))
+                .isEqualTo(MODE_NIGHT_NO);
+    }
+
+    @Test
+    public void getDefaultNightMode_systemNightModeTrue_noThemeExtra_returnsYes() {
+        FLAG_ENABLE_LIGHT_DARK_MODE = true;
+        ThemeHelper themeHelper = createThemeHelperWithSystemNightModeEnabled(true);
+
+        assertThat(themeHelper.getDefaultNightMode(mContext, INTENT_NO_THEME))
+                .isEqualTo(MODE_NIGHT_YES);
     }
 
     private ThemeHelper createThemeHelperForNightMode() {
@@ -186,6 +240,15 @@ public class ThemeHelperTest {
                 setupWizardDayNightEnabled,
                 /* systemPropertySetupWizardTheme= */ null,
                 /* isSystemNightMode= */ true);
+    }
+
+    private ThemeHelper createThemeHelperWithDayNightAndSystemNightModeEnabled(
+            boolean setupWizardDayNightEnabled,
+            boolean isSystemNightMode) {
+        return createThemeHelper(
+                setupWizardDayNightEnabled,
+                /* systemPropertySetupWizardTheme= */ null,
+                /* isSystemNightMode= */ isSystemNightMode);
     }
 
     private ThemeHelper createThemeHelperWithSystemNightModeEnabled(boolean isSystemNightMode) {

@@ -17,6 +17,8 @@
 package com.android.managedprovisioning.common;
 
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
+import static android.content.res.Configuration.UI_MODE_NIGHT_NO;
+import static android.content.res.Configuration.UI_MODE_NIGHT_UNDEFINED;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
 
 import static com.android.managedprovisioning.provisioning.Constants.FLAG_ENABLE_LIGHT_DARK_MODE;
@@ -66,7 +68,7 @@ public class ThemeHelper {
     public int inferThemeResId(Context context, Intent intent) {
         requireNonNull(context);
         requireNonNull(intent);
-        String themeName = getDefaultThemeName(intent);
+        String themeName = getDefaultThemeName(context, intent);
         int defaultTheme = mSetupWizardBridge.isSetupWizardDayNightEnabled(context)
                 ? R.style.SudThemeGlifV3_DayNight
                 : R.style.SudThemeGlifV3_Light;
@@ -88,8 +90,13 @@ public class ThemeHelper {
      *
      * @return {@link AppCompatDelegate#MODE_NIGHT_YES} or {@link AppCompatDelegate#MODE_NIGHT_NO}
      */
-    public int getDefaultNightMode(Context context) {
+    public int getDefaultNightMode(Context context, Intent intent) {
         requireNonNull(context);
+        if (TextUtils.isEmpty(getProvidedTheme(intent))) {
+            return isSystemNightMode(context)
+                    ? AppCompatDelegate.MODE_NIGHT_YES
+                    : AppCompatDelegate.MODE_NIGHT_NO;
+        }
         if (shouldSuppressDayNight(context)) {
             return AppCompatDelegate.MODE_NIGHT_NO;
         }
@@ -104,13 +111,13 @@ public class ThemeHelper {
      * supplied {@code webSettings} to have the appropriate day/night mode depending
      * on the app theme.
      */
-    public void applyWebSettingsDayNight(Context context, WebSettings webSettings) {
+    public void applyWebSettingsDayNight(Context context, WebSettings webSettings, Intent intent) {
         requireNonNull(context);
         requireNonNull(webSettings);
         if (!WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
             return;
         }
-        WebSettingsCompat.setForceDark(webSettings, getForceDarkMode(context));
+        WebSettingsCompat.setForceDark(webSettings, getForceDarkMode(context, intent));
     }
 
     /**
@@ -119,14 +126,14 @@ public class ThemeHelper {
      * LottieComposition}, it asynchronously waits for it to load and then applies the colors.
      */
     public void setupAnimationDynamicColors(
-            Context context, LottieAnimationView lottieAnimationView) {
+            Context context, LottieAnimationView lottieAnimationView, Intent intent) {
         mAnimationDynamicColorsHelper.setupAnimationDynamicColors(
                 new LottieAnimationWrapper(lottieAnimationView),
-                getDefaultNightMode(context));
+                getDefaultNightMode(context, intent));
     }
 
-    private int getForceDarkMode(Context context) {
-        if (getDefaultNightMode(context) == AppCompatDelegate.MODE_NIGHT_YES) {
+    private int getForceDarkMode(Context context, Intent intent) {
+        if (getDefaultNightMode(context, intent) == AppCompatDelegate.MODE_NIGHT_YES) {
             return WebSettingsCompat.FORCE_DARK_ON;
         } else {
             return WebSettingsCompat.FORCE_DARK_OFF;
@@ -144,13 +151,22 @@ public class ThemeHelper {
         return mNightModeChecker.isSystemNightMode(context);
     }
 
-    private String getDefaultThemeName(Intent intent) {
+    private String getDefaultThemeName(Context context, Intent intent) {
+        String theme = getProvidedTheme(intent);
+        if (TextUtils.isEmpty(theme)) {
+            if (isSystemNightMode(context)) {
+                theme = com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3;
+            } else {
+                theme = com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3_LIGHT;
+            }
+        }
+        return theme;
+    }
+
+    private String getProvidedTheme(Intent intent) {
         String theme = intent.getStringExtra(WizardManagerHelper.EXTRA_THEME);
         if (TextUtils.isEmpty(theme)) {
-            theme = mSetupWizardBridge.getSystemPropertySetupWizardTheme();
-        }
-        if (TextUtils.isEmpty(theme)) {
-            theme = com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_LIGHT;
+            return mSetupWizardBridge.getSystemPropertySetupWizardTheme();
         }
         return theme;
     }
