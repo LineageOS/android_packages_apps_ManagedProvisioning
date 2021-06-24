@@ -41,6 +41,8 @@
     <string name="ok_setup" msgid="4593707675416137504">"እሺ"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ፍቃዴን ሰጥቼያለሁ"</string>
     <string name="url_error" msgid="5958494012986243186">"ይህን አገናኝ ማሳየት አይቻልም።"</string>
+    <!-- no translation found for navigation_button_description (6106309408994461239) -->
+    <skip />
     <string name="terms" msgid="8295436105384703903">"ውሎች"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"የሥራ መገለጫ መረጃ"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"የሚተዳደር መሣሪያ መረጃ"</string>

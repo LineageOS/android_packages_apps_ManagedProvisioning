@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"Потврди"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Прихватам"</string>
     <string name="url_error" msgid="5958494012986243186">"Овај линк не може да се прикаже."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"Иди нагоре"</string>
     <string name="terms" msgid="8295436105384703903">"Услови"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Информације о пословном профилу"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Информације о уређају којим се управља"</string>
