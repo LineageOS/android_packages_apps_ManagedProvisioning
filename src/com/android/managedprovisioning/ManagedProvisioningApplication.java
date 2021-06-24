@@ -16,54 +16,7 @@
 
 package com.android.managedprovisioning;
 
-import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
-
-import android.content.res.Configuration;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatDelegate;
-
-import com.android.managedprovisioning.analytics.MetricsWriterFactory;
-import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
-import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
-import com.android.managedprovisioning.common.SettingsFacade;
-import com.android.managedprovisioning.common.ThemeHelper;
-import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecker;
-import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
-
 /**
  * {@link ManagedProvisioningBaseApplication} for ManagedProvisioning.
  */
-public class ManagedProvisioningApplication extends ManagedProvisioningBaseApplication {
-
-    private final ThemeHelper mThemeHelper = new ThemeHelper(
-            new DefaultNightModeChecker(),
-            new DefaultSetupWizardBridge());
-
-    @Override
-    public void onCreate() {
-        int defaultNightMode = updateDefaultNightMode();
-        super.onCreate();
-        logMetrics(defaultNightMode);
-    }
-
-    @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        updateDefaultNightMode();
-    }
-
-    private int updateDefaultNightMode() {
-        int defaultNightMode = mThemeHelper.getDefaultNightMode(this);
-        AppCompatDelegate.setDefaultNightMode(defaultNightMode);
-        return defaultNightMode;
-    }
-
-    private void logMetrics(int defaultNightMode) {
-        final ProvisioningAnalyticsTracker analyticsTracker =
-                new ProvisioningAnalyticsTracker(
-                        MetricsWriterFactory.getMetricsWriter(this, new SettingsFacade()),
-                        new ManagedProvisioningSharedPreferences(this));
-        analyticsTracker.logIsNightMode(defaultNightMode == MODE_NIGHT_YES);
-    }
-}
+public class ManagedProvisioningApplication extends ManagedProvisioningBaseApplication {}
