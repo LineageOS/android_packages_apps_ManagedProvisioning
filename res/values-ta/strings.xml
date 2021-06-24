@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"சரி"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ஏற்கிறேன்"</string>
     <string name="url_error" msgid="5958494012986243186">"இந்த இணைப்பைக் காட்ட முடியவில்லை."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"மேலே செல்"</string>
     <string name="terms" msgid="8295436105384703903">"விதிமுறைகள்"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"பணிக் கணக்குச் தகவல்"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"நிர்வகிக்கப்படும் சாதனத் தகவல்"</string>

@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"ຕົກລົງ"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ຂ້ອຍ​ຍິນຍອມ"</string>
     <string name="url_error" msgid="5958494012986243186">"This link cannot be displayed."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"ເລື່ອນຂຶ້ນ"</string>
     <string name="terms" msgid="8295436105384703903">"ຂໍ້ກຳນົດ"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"ຂໍ້ມູນໂປຣໄຟລ໌ບ່ອນເຮັດວຽກ"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"ຂໍ້ມູນອຸປະກອນທີ່ມີການຈັດການ"</string>
