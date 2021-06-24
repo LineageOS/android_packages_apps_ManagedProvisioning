@@ -41,6 +41,8 @@
     <string name="ok_setup" msgid="4593707675416137504">"ठिक छ"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"म स्वीकृति दिन्छु"</string>
     <string name="url_error" msgid="5958494012986243186">"यो लिंक देखाउन सकिँदैन।"</string>
+    <!-- no translation found for navigation_button_description (6106309408994461239) -->
+    <skip />
     <string name="terms" msgid="8295436105384703903">"सर्तहरू"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"कार्य प्रोफाइल सम्बन्धी जानकारी"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"व्यवस्थित गरिएको डिभाइसको जानकारी"</string>

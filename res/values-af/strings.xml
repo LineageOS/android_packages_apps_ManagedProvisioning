@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Ek stem in"</string>
     <string name="url_error" msgid="5958494012986243186">"Hierdie skakel kan nie gewys word nie."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"Gaan op"</string>
     <string name="terms" msgid="8295436105384703903">"Bepalings"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Inligting oor werkprofiel"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Inligting oor bestuurde toestel"</string>
