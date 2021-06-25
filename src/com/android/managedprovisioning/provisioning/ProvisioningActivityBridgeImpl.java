@@ -21,7 +21,6 @@ import static com.google.android.setupdesign.util.ThemeHelper.shouldApplyExtende
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -34,6 +33,7 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity.ProvisioningMode;
+import com.android.managedprovisioning.provisioning.ProvisioningModeWrapperProvider.ProvisioningModeWrapper;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.AnimationComponents;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationCallback;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationStateManager;
@@ -174,13 +174,16 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
         AnimationComponents animationComponents =
                 new AnimationComponents(
                         header, description, item1, item2, drawable, drawableContainer);
-        mTransitionAnimationHelper = new TransitionAnimationHelper(getProvisioningMode(),
-                /* adminCanGrantSensorsPermissions= */
-                !getParams().deviceOwnerPermissionGrantOptOut,
+
+        ProvisioningModeWrapperProvider provider = new ProvisioningModeWrapperProvider(getParams());
+        ProvisioningModeWrapper provisioningModeWrapper = provider
+                .getProvisioningModeWrapper(getProvisioningMode());
+        mTransitionAnimationHelper = new TransitionAnimationHelper(
                 animationComponents,
                 callback,
                 getStateManager(),
-                new StylerHelper());
+                new StylerHelper(),
+                provisioningModeWrapper);
     }
 
     private void setupEducationViews(

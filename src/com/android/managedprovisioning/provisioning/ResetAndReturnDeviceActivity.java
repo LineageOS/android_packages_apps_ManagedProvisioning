@@ -20,16 +20,13 @@ import android.os.Bundle;
 
 import androidx.annotation.VisibleForTesting;
 
-import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import com.google.android.setupcompat.template.FooterButton;
-import com.google.android.setupdesign.GlifLayout;
 
 /**
  * An activity for telling the user they can abort set-up, reset the device and return
@@ -38,6 +35,7 @@ import com.google.android.setupdesign.GlifLayout;
 public class ResetAndReturnDeviceActivity extends SetupGlifLayoutActivity {
     private FooterButton mCancelAndResetButton;
     private ProvisioningParams mParams;
+    private ResetAndReturnDeviceActivityBridge mBridge;
 
     public ResetAndReturnDeviceActivity() {
         super();
@@ -52,19 +50,26 @@ public class ResetAndReturnDeviceActivity extends SetupGlifLayoutActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mParams = getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
-        CustomizationParams customizationParams =
-                CustomizationParams.createInstance(mParams, this, mUtils);
-        initializeLayoutParams(R.layout.return_device_screen, null, customizationParams);
-
-        final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        layout.setIcon(getDrawable(R.drawable.ic_error_outline));
-        mCancelAndResetButton = Utils.addResetButton(layout, v -> onResetButtonClicked());
+        mBridge = createBridge();
+        mBridge.initiateUi(this);
     }
 
-    private void onResetButtonClicked() {
-        getUtils().factoryReset(this, "User chose to abort setup.");
-        getTransitionHelper().finishActivity(this);
+    protected ResetAndReturnDeviceActivityBridge createBridge() {
+        return ResetAndReturnDeviceActivityBridgeImpl.builder()
+                .setBridgeCallback(createBridgeCallback())
+                .setParams(mParams)
+                .setInitializeLayoutParamsConsumer(
+                        ResetAndReturnDeviceActivity.this::initializeLayoutParams)
+                .setUtils(mUtils)
+                .build();
+    }
+
+    private ResetAndReturnDeviceActivityBridgeCallback createBridgeCallback() {
+        return () -> {
+            getUtils().factoryReset(ResetAndReturnDeviceActivity.this,
+                    "User chose to abort setup.");
+            getTransitionHelper().finishActivity(ResetAndReturnDeviceActivity.this);
+        };
     }
 }
