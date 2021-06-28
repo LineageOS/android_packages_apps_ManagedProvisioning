@@ -69,6 +69,7 @@ public class InstallPackageTaskTest {
         mInstallPackageBlockingCallback = new InstallPackageBlockingCallback();
     }
 
+    @Ignore("b/192247143")
     @EnsureHasPermission(WRITE_EXTERNAL_STORAGE)
     @Test
     public void run_success() throws IOException, InterruptedException {
