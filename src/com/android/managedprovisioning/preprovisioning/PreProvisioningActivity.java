@@ -18,10 +18,15 @@ package com.android.managedprovisioning.preprovisioning;
 
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
+import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
+import static android.provider.Settings.Secure.USER_SETUP_PERSONALIZATION_STARTED;
+import static android.provider.Settings.Secure.USER_SETUP_PERSONALIZATION_STATE;
 
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_SHOWING_USER_CONSENT;
+
+import static com.google.android.setupcompat.util.WizardManagerHelper.EXTRA_IS_SETUP_FLOW;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -113,11 +118,34 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // TODO(b/192074477): Remove deferred setup-specific logic after the managed account flow
+        //  starts ManagedProvisioning with the isSetupFlow extra
+        // TODO(b/178822333): Remove NFC-specific logic after adding support for the
+        //  admin-integrated flow
+        // This temporary fix only works when called before super.onCreate
+        if (isDeferredSetup() || isNfcSetup()) {
+            getIntent().putExtra(EXTRA_IS_SETUP_FLOW, true);
+        }
+
         super.onCreate(savedInstanceState);
         mController = mControllerProvider.getInstance(this);
         mBridge = createBridge();
         mController.getState().observe(this, this::onStateChanged);
         logMetrics();
+    }
+
+    private boolean isNfcSetup() {
+        return ACTION_NDEF_DISCOVERED.equals(getIntent().getAction());
+    }
+
+    private boolean isDeferredSetup() {
+        try {
+            return Settings.Secure.getInt(
+                    getContentResolver(), USER_SETUP_PERSONALIZATION_STATE)
+                    == USER_SETUP_PERSONALIZATION_STARTED;
+        } catch (Settings.SettingNotFoundException e) {
+            return false;
+        }
     }
 
     @Override
@@ -210,7 +238,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 if (resultCode == RESULT_OK) {
                     // TODO(b/177849035): Remove NFC-specific logic
                     if (mController.getParams().isNfc) {
-                        mController.startNfcFlow(getIntent());
+                        mController.startNfcFlow();
                     } else {
                         handleAdminIntegratedFlowPreparerResult();
                     }
