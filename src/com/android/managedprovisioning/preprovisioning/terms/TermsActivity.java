@@ -25,7 +25,6 @@ import static com.google.android.setupdesign.util.ThemeHelper.shouldApplyExtende
 import static java.util.Objects.requireNonNull;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -40,9 +39,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.car.ui.core.CarUi;
-import com.android.car.ui.recyclerview.CarUiRecyclerView;
-import com.android.car.ui.toolbar.ToolbarController;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
@@ -58,7 +54,6 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.terms.TermsViewModel.TermsViewModelFactory;
 import com.android.managedprovisioning.preprovisioning.terms.adapters.TermsListAdapter;
-import com.android.managedprovisioning.preprovisioning.terms.adapters.TermsListAdapterCar;
 
 import java.util.List;
 import java.util.function.BiFunction;
@@ -106,9 +101,6 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) {
-            setTheme(R.style.Theme_CarUi_WithToolbar);
-        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.terms_screen);
         setTitle(R.string.terms);
@@ -118,14 +110,7 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
         mViewModel = mViewModelFetcher.apply(this, params);
         List<TermsDocument> terms = mViewModel.getTerms();
 
-        if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) {
-            ToolbarController toolbar = CarUi.requireToolbar(this);
-            toolbar.setTitle(R.string.terms);
-            toolbar.setState(com.android.car.ui.toolbar.Toolbar.State.SUBPAGE);
-            setUpTermsListForAuto(terms);
-        } else {
-            initializeUiForHandhelds(terms);
-        }
+        initializeUiForHandhelds(terms);
 
         mProvisioningAnalyticsTracker = new ProvisioningAnalyticsTracker(
                 MetricsWriterFactory.getMetricsWriter(this, mSettingsFacade),
@@ -168,13 +153,6 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
         if (!shouldApplyExtendedPartnerConfig(this)) {
             toolbar.setTitle(R.string.terms);
         }
-    }
-
-    private void setUpTermsListForAuto(List<TermsDocument> terms) {
-        CarUiRecyclerView listView = findViewById(R.id.terms_container);
-        listView.setAdapter(new TermsListAdapterCar(getApplicationContext(), terms, mUtils,
-                intent -> getTransitionHelper().startActivityWithTransition(
-                        TermsActivity.this, intent)));
     }
 
     private void setupTermsListForHandhelds(List<TermsDocument> terms) {
