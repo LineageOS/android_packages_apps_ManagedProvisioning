@@ -30,6 +30,8 @@ import com.android.managedprovisioning.R;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import com.google.android.setupdesign.util.Partner;
+
 /**
  * Helper methods for showing notifications, such as the provisioning reminder and
  * privacy reminder notifications.
@@ -85,7 +87,7 @@ public class NotificationHelper {
         notificationManager.createNotificationChannel(channel);
 
         final Notification.Builder notify = new Notification.Builder(mContext, CHANNEL_ID)
-                .setColor(context.getColor(R.color.notification_background))
+                .setColor(Partner.getColor(context, R.color.setup_notification_bg_color))
                 .setColorized(true)
                 .setContentTitle(mContext.getString(
                         R.string.fully_managed_device_provisioning_privacy_title))
