@@ -16,7 +16,11 @@
 
 package com.android.managedprovisioning.provisioning;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+
+import com.android.managedprovisioning.common.Globals;
 
 import java.io.File;
 
@@ -48,6 +52,11 @@ public final class Constants {
      * A boolean flag to indicate whether to enable custom activity start gestures.
      */
     public static boolean ENABLE_CUSTOM_TRANSITIONS = false;
+
+    public static final Intent PROVISIONING_SERVICE_INTENT = new Intent().setComponent(
+            new ComponentName(
+                    Globals.MANAGED_PROVISIONING_PACKAGE_NAME,
+                    ProvisioningService.class.getName()));
 
     private Constants() {
         // Do not instantiate
