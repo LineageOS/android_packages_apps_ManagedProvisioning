@@ -27,11 +27,12 @@ import static java.util.Objects.requireNonNull;
 import android.annotation.NonNull;
 import android.app.PendingIntent;
 import android.app.admin.DevicePolicyManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
-import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
@@ -47,6 +48,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -66,6 +69,10 @@ public class InstallPackageTask extends AbstractProvisioningTask {
     private final PackageInstaller.SessionCallback mSessionCallback =  new SessionCallback();
     private final String mPackageName;
     private final Utils mUtils;
+
+    private static final int SUCCESS_INSTALLED_BROADCAST = 1;
+    private static final int SUCCESS_INSTALLED_CALLBACK = 2;
+    private final Set<Integer> mSuccessCodes = new HashSet<>();
 
     /**
      * Create an InstallPackageTask. When run, this will attempt to install the device admin package
@@ -144,7 +151,7 @@ public class InstallPackageTask extends AbstractProvisioningTask {
         params.installFlags |= installFlags;
 
         try {
-            installPackage(packageLocation, params, mContext, mSessionCallback);
+            installPackage(packageLocation, mPackageName, params, mContext, mSessionCallback);
         } catch (IOException e) {
             ProvisionLogger.loge("Installing package " + mPackageName + " failed.", e);
             error(ERROR_INSTALLATION_FAILED);
@@ -153,13 +160,17 @@ public class InstallPackageTask extends AbstractProvisioningTask {
         }
     }
 
-    private static void installPackage(
+    private void installPackage(
             File source,
+            String packageName,
             PackageInstaller.SessionParams params,
             Context context,
             PackageInstaller.SessionCallback sessionCallback)
             throws IOException {
         PackageInstaller pi = context.getPackageManager().getPackageInstaller();
+        context.registerReceiver(
+                new PackageAddedReceiver(packageName),
+                createPackageAddedIntentFilter());
         pi.registerSessionCallback(sessionCallback);
         int sessionId = pi.createSession(params);
         try (PackageInstaller.Session session = pi.openSession(sessionId)) {
@@ -181,9 +192,51 @@ public class InstallPackageTask extends AbstractProvisioningTask {
         }
     }
 
+    private IntentFilter createPackageAddedIntentFilter() {
+        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_PACKAGE_ADDED);
+        intentFilter.addDataScheme("package");
+        return intentFilter;
+    }
+
     @Override
     protected int getMetricsCategory() {
         return PROVISIONING_INSTALL_PACKAGE_TASK_MS;
+    }
+
+    private void addSuccessStatus(int successStatus) {
+        mSuccessCodes.add(successStatus);
+        if (mSuccessCodes.contains(SUCCESS_INSTALLED_BROADCAST)
+                && mSuccessCodes.contains(SUCCESS_INSTALLED_CALLBACK)) {
+            ProvisionLogger.logd("Package " + mPackageName + " is successfully installed.");
+            stopTaskTimer();
+            success();
+        }
+    }
+
+    private class PackageAddedReceiver extends BroadcastReceiver {
+
+        private final String mPackageName;
+
+        PackageAddedReceiver(String packageName) {
+            mPackageName = requireNonNull(packageName);
+        }
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            ProvisionLogger.logd("PACKAGE_ADDED broadcast received with intent data "
+                    + intent.getDataString());
+            if (!mPackageName.equals(extractPackageNameFromDataString(intent.getDataString()))) {
+                ProvisionLogger.logd("The package name provided in the intent data does not equal "
+                        + mPackageName);
+                return;
+            }
+            addSuccessStatus(SUCCESS_INSTALLED_BROADCAST);
+            context.unregisterReceiver(this);
+        }
+
+        private String extractPackageNameFromDataString(String dataString) {
+            return dataString.substring("package:".length());
+        }
     }
 
     private class SessionCallback extends PackageInstaller.SessionCallback {
@@ -221,9 +274,8 @@ public class InstallPackageTask extends AbstractProvisioningTask {
                     return;
                 }
             }
-            ProvisionLogger.logd("Package " + mPackageName + " is successfully installed.");
-            stopTaskTimer();
-            success();
+            ProvisionLogger.logd("Install package callback received for " + mPackageName);
+            addSuccessStatus(SUCCESS_INSTALLED_CALLBACK);
         }
     }
 }
