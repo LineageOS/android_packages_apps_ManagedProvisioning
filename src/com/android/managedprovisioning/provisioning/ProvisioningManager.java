@@ -91,7 +91,7 @@ public class ProvisioningManager implements ProvisioningControllerCallback,
         mFactory = requireNonNull(factory);
         mProvisioningAnalyticsTracker = requireNonNull(analyticsTracker);
         mTimeLogger = requireNonNull(timeLogger);
-        mHelper = new ProvisioningManagerHelper(context);
+        mHelper = new ProvisioningManagerHelper();
     }
 
     /**
