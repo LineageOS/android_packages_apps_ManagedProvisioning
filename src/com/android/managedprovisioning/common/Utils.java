@@ -686,6 +686,20 @@ public class Utils {
     }
 
     /**
+     * Returns the theme's background color.
+     */
+    public int getBackgroundColor(Context context) {
+        return getAttrColor(context, android.R.attr.colorBackground);
+    }
+
+    /**
+     * Returns the theme's text primary color.
+     */
+    public int getTextPrimaryColor(Context context) {
+        return getAttrColor(context, android.R.attr.textColorPrimary);
+    }
+
+    /**
      * Returns the theme's text secondary color.
      */
     public int getTextSecondaryColor(Context context) {

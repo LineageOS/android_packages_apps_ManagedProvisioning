@@ -27,6 +27,7 @@ import static com.google.common.truth.Truth.assertThat;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -35,8 +36,11 @@ import static org.mockito.Mockito.when;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.PersistableBundle;
 import android.os.UserHandle;
+
+import androidx.test.InstrumentationRegistry;
 
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
@@ -88,13 +92,17 @@ public class ProvisioningIntentProviderTest {
     @Mock private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
     @Mock private PolicyComplianceUtils mPolicyComplianceUtils;
     @Mock private SettingsFacade mSettingsFacade;
+    @Mock private SharedPreferences mSharedPreferences;
 
     private final ProvisioningIntentProvider mProvisioningIntentProvider =
             new ProvisioningIntentProvider();
+    private final Context mTargetContext = InstrumentationRegistry.getTargetContext();
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+        when(mContext.getSharedPreferences(anyString(), anyInt())).thenReturn(mSharedPreferences);
+        when(mContext.getResources()).thenReturn(mTargetContext.getResources());
     }
 
     @Test

@@ -31,7 +31,6 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.view.ViewGroup;
@@ -40,6 +39,7 @@ import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
@@ -55,6 +55,7 @@ import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.Tr
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.setupcompat.util.WizardManagerHelper;
+import com.google.android.setupdesign.util.Partner;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -158,6 +159,22 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         if (mState == STATE_PROVISIONING_FINALIZED) {
             updateProvisioningFinalizedScreen();
         }
+
+        writeSharedPreferences();
+    }
+
+    private void writeSharedPreferences() {
+        ManagedProvisioningSharedPreferences sharedPreferences =
+                new ManagedProvisioningSharedPreferences(this);
+        sharedPreferences.writeNavigationBarColor(getWindow().getNavigationBarColor());
+        sharedPreferences.writeNavigationBarDividerColor(
+                getWindow().getNavigationBarDividerColor());
+        sharedPreferences.writeTextPrimaryColor(mUtils.getTextPrimaryColor(this));
+        sharedPreferences.writeTextSecondaryColor(mUtils.getTextSecondaryColor(this));
+        sharedPreferences.writeBackgroundColor(mUtils.getBackgroundColor(this));
+        sharedPreferences.writeAccentColor(mUtils.getAccentColor(this));
+        sharedPreferences.writeNotificationBackgroundColor(
+                Partner.getColor(this, R.color.setup_notification_bg_color));
     }
 
     protected ProvisioningActivityBridge createBridge() {

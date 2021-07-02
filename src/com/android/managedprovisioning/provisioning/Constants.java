@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.provisioning;
 
+import android.annotation.IntDef;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +24,9 @@ import android.content.Intent;
 import com.android.managedprovisioning.common.Globals;
 
 import java.io.File;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.util.HashMap;
 
 /**
  * Constants used for communication between service and activity.
@@ -35,6 +39,34 @@ public final class Constants {
      */
     public static final String ACTION_START_PROVISIONING =
             "com.android.managedprovisioning.START_PROVISIONING";
+
+    public static final int COLOR_TYPE_ACCENT = 1;
+    public static final int COLOR_TYPE_PRIMARY_TEXT = 2;
+    public static final int COLOR_TYPE_SECONDARY_TEXT = 3;
+    public static final int COLOR_TYPE_BACKGROUND_SURFACE = 4;
+    public static final int COLOR_TYPE_NOTIFICATION_BACKGROUND = 5;
+    public static final int COLOR_TYPE_NAVIGATION_BAR_COLOR = 6;
+    public static final int COLOR_TYPE_NAVIGATION_BAR_DIVIDER_COLOR = 7;
+    public static final int COLOR_TYPE_IS_NIGHT_MODE_ACTIVE = 8;
+
+    @IntDef(prefix = {"COLOR_PALETTE_"}, value = {
+        COLOR_TYPE_ACCENT,
+        COLOR_TYPE_PRIMARY_TEXT,
+        COLOR_TYPE_SECONDARY_TEXT,
+        COLOR_TYPE_BACKGROUND_SURFACE,
+        COLOR_TYPE_NOTIFICATION_BACKGROUND,
+        COLOR_TYPE_NAVIGATION_BAR_COLOR,
+        COLOR_TYPE_NAVIGATION_BAR_DIVIDER_COLOR,
+        COLOR_TYPE_IS_NIGHT_MODE_ACTIVE
+    })
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface ColorType {}
+
+    /**
+     * A {@link HashMap} extra that maps colors from {@link ColorType} to an {@link Integer} color
+     */
+    public static final String EXTRA_PROVISIONING_COLOR_PALETTE =
+            "android.app.extra.PROVISIONING_COLOR_PALETTE";
 
     public static File getDeferredMetricsFile(Context context) {
         return new File(context.getFilesDir(), "deferred_metrics");
