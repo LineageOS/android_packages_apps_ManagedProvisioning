@@ -207,9 +207,6 @@ public class AnimationDynamicColorsHelper {
                 new ColorItem(R.color.pink400, ".pink400"),
                 new ColorItem(R.color.pink100, ".pink100"));
         result.put(
-                new ColorItem(R.color.purple400, ".purple400"),
-                new ColorItem(R.color.purple100, ".purple100"));
-        result.put(
                 new ColorItem(R.color.cyan400, ".cyan400"),
                 new ColorItem(R.color.cyan100, ".cyan100"));
         return result;
@@ -229,6 +226,12 @@ public class AnimationDynamicColorsHelper {
         result.put(
                 new ColorItem(R.color.yellow50, ".yellow50"),
                 new ColorItem(R.color.grey900, ".grey900"));
+        result.put(
+                new ColorItem(R.color.purple400, ".purple400"),
+                new ColorItem(R.color.purple800, ".purple800"));
+        result.put(
+                new ColorItem(R.color.purple300, ".purple300"),
+                new ColorItem(R.color.purple800, ".purple800"));
         return result;
     }
 }
