@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -204,16 +205,22 @@ class TransitionAnimationHelper {
         setupHeaderText(transition);
         setupDescriptionText(transition);
         setupAnimation(transition);
+
+        boolean isTextBasedEduScreen = transition.subHeaderIcon != 0;
         updateItemValues(
                 mAnimationComponents.mItem1,
                 transition.subHeaderIcon,
                 transition.subHeaderTitle,
-                transition.subHeader);
+                transition.subHeader,
+                isTextBasedEduScreen);
         updateItemValues(
                 mAnimationComponents.mItem2,
                 transition.secondarySubHeaderIcon,
                 transition.secondarySubHeaderTitle,
-                transition.secondarySubHeader);
+                transition.secondarySubHeader,
+                isTextBasedEduScreen);
+        updateSpaceVisibility(mAnimationComponents.mSpace1, isTextBasedEduScreen);
+        updateSpaceVisibility(mAnimationComponents.mSpace2, isTextBasedEduScreen);
     }
 
     private void setupHeaderText(TransitionScreenWrapper transition) {
@@ -247,8 +254,9 @@ class TransitionAnimationHelper {
         }
     }
 
-    private void updateItemValues(ViewGroup item, int icon, int subHeaderTitle, int subHeader) {
-        if (icon != 0) {
+    private void updateItemValues(ViewGroup item, int icon, int subHeaderTitle, int subHeader,
+            boolean isTextBasedEduScreen) {
+        if (isTextBasedEduScreen) {
             ((ImageView) item.findViewById(R.id.sud_items_icon)).setImageResource(icon);
             ((TextView) item.findViewById(R.id.sud_items_title)).setText(subHeaderTitle);
             ((TextView) item.findViewById(R.id.sud_items_summary)).setText(subHeader);
@@ -257,6 +265,14 @@ class TransitionAnimationHelper {
             item.setVisibility(View.VISIBLE);
         } else {
             item.setVisibility(View.GONE);
+        }
+    }
+
+    private void updateSpaceVisibility(Space space, boolean isTextBasedEduScreen) {
+        if (isTextBasedEduScreen) {
+            space.setVisibility(View.VISIBLE);
+        } else {
+            space.setVisibility(View.GONE);
         }
     }
 
@@ -282,15 +298,20 @@ class TransitionAnimationHelper {
         private final ViewGroup mImageContainer;
         private final ViewGroup mItem1;
         private final ViewGroup mItem2;
+        private final Space mSpace1;
+        private final Space mSpace2;
 
         AnimationComponents(TextView header, TextView description, ViewGroup item1,
-                ViewGroup item2, LottieAnimationView animationView, ViewGroup imageContainer) {
+                ViewGroup item2, LottieAnimationView animationView, ViewGroup imageContainer,
+                Space space1, Space space2) {
             this.mHeader = requireNonNull(header);
             this.mDescription = requireNonNull(description);
             this.mItem1 = requireNonNull(item1);
             this.mItem2 = requireNonNull(item2);
             this.mImageContainer = requireNonNull(imageContainer);
             this.mAnimationView = requireNonNull(animationView);
+            this.mSpace1 = requireNonNull(space1);
+            this.mSpace2 = requireNonNull(space2);
         }
 
         List<View> asList() {
