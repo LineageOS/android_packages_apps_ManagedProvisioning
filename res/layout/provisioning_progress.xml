@@ -27,6 +27,7 @@
         android:orientation="vertical"
         style="@style/SudContentFrame">
         <Space
+            android:id="@+id/space1"
             android:layout_width="1dp"
             android:layout_height="@dimen/sud_items_margin_top"/>
         <include
@@ -35,6 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <Space
+            android:id="@+id/space2"
             android:layout_width="1dp"
             android:layout_height="@dimen/sud_items_margin_inbetween"/>
         <include
