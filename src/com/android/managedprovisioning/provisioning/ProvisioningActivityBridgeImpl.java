@@ -22,6 +22,7 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 import androidx.annotation.StringRes;
@@ -171,9 +172,12 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
         ViewGroup item2 = layout.findViewById(R.id.item2);
         LottieAnimationView drawable = layout.findViewById(R.id.animation);
         ViewGroup drawableContainer = layout.findViewById(R.id.animation_container);
+        Space space1 = layout.findViewById(R.id.space1);
+        Space space2 = layout.findViewById(R.id.space2);
         AnimationComponents animationComponents =
                 new AnimationComponents(
-                        header, description, item1, item2, drawable, drawableContainer);
+                        header, description, item1, item2, drawable, drawableContainer,
+                        space1, space2);
 
         ProvisioningModeWrapperProvider provider = new ProvisioningModeWrapperProvider(getParams());
         ProvisioningModeWrapper provisioningModeWrapper = provider
