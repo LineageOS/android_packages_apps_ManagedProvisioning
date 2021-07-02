@@ -75,7 +75,9 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
         }
         updateDefaultNightMode();
         setTheme(mThemeHelper.inferThemeResId(this, getIntent()));
-        mThemeHelper.setupDynamicColors(this);
+        if (shouldSetupDynamicColors()) {
+            mThemeHelper.setupDynamicColors(this);
+        }
         super.onCreate(savedInstanceState);
         mTimeLogger = new TimeLogger(this, getMetricsCategory());
         mTimeLogger.start();
@@ -85,6 +87,10 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
         logMetrics();
+    }
+
+    protected boolean shouldSetupDynamicColors() {
+        return true;
     }
 
     @Override
