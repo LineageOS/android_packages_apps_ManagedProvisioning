@@ -19,8 +19,6 @@ package com.android.managedprovisioning.preprovisioning;
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
-import static android.provider.Settings.Secure.USER_SETUP_PERSONALIZATION_STARTED;
-import static android.provider.Settings.Secure.USER_SETUP_PERSONALIZATION_STATE;
 
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
@@ -130,7 +128,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         // TODO(b/178822333): Remove NFC-specific logic after adding support for the
         //  admin-integrated flow
         // This temporary fix only works when called before super.onCreate
-        if (isDeferredSetup() || isNfcSetup()) {
+        if (mSettingsFacade.isDeferredSetup(getApplicationContext()) || isNfcSetup()) {
             getIntent().putExtra(EXTRA_IS_SETUP_FLOW, true);
         }
 
@@ -143,16 +141,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     private boolean isNfcSetup() {
         return ACTION_NDEF_DISCOVERED.equals(getIntent().getAction());
-    }
-
-    private boolean isDeferredSetup() {
-        try {
-            return Settings.Secure.getInt(
-                    getContentResolver(), USER_SETUP_PERSONALIZATION_STATE)
-                    == USER_SETUP_PERSONALIZATION_STARTED;
-        } catch (Settings.SettingNotFoundException e) {
-            return false;
-        }
     }
 
     @Override

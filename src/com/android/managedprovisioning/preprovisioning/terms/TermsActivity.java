@@ -24,6 +24,7 @@ import static com.google.android.setupdesign.util.ThemeHelper.shouldApplyExtende
 
 import static java.util.Objects.requireNonNull;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -212,5 +213,12 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
     @Override
     public void onLinkClicked(Intent intent) {
         getTransitionHelper().startActivityWithTransition(this, intent);
+    }
+
+    @Override
+    protected boolean shouldSetupDynamicColors() {
+        Context context = getApplicationContext();
+        return !mSettingsFacade.isDeferredSetup(context)
+                && !mSettingsFacade.isDuringSetupWizard(context);
     }
 }
