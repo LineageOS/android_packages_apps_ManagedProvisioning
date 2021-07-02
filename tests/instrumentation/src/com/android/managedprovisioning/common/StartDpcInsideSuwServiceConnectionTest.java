@@ -22,6 +22,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXT
 
 import static com.android.managedprovisioning.TestUtils.createTestAdminExtras;
 
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
@@ -34,11 +35,16 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.UserHandle;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
+
+import androidx.test.InstrumentationRegistry;
 
 import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
@@ -47,6 +53,7 @@ import com.android.managedprovisioning.provisioning.Constants;
 
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
@@ -66,10 +73,12 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
     @Mock private Utils mUtils;
     @Mock private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
     @Mock private TransitionHelper mTransitionHelper;
+    @Mock private SharedPreferences mSharedPreferences;
 
     private StartDpcInsideSuwServiceConnection mStartDpcInsideSuwServiceConnection;
     private Runnable mDpcIntentSender;
     private ProvisioningParams mParams;
+    private final Context mTargetContext = InstrumentationRegistry.getTargetContext();
 
     @Override
     public void setUp() throws Exception {
@@ -84,6 +93,12 @@ public class StartDpcInsideSuwServiceConnectionTest extends AndroidTestCase {
                 .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE)
                 .setAdminExtrasBundle(TEST_MDM_EXTRA_BUNDLE)
                 .build();
+
+        when(mActivity.getSharedPreferences(anyString(), anyInt())).thenReturn(mSharedPreferences);
+        when(mActivity.getResources()).thenReturn(mTargetContext.getResources());
+        when(mRestoredActivity.getSharedPreferences(anyString(), anyInt()))
+                .thenReturn(mSharedPreferences);
+        when(mRestoredActivity.getResources()).thenReturn(mTargetContext.getResources());
 
         mStartDpcInsideSuwServiceConnection = new StartDpcInsideSuwServiceConnection();
         Constants.ENABLE_CUSTOM_TRANSITIONS = true;

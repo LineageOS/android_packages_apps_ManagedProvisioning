@@ -18,6 +18,8 @@ package com.android.managedprovisioning.common;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 
+import static com.android.managedprovisioning.provisioning.Constants.EXTRA_PROVISIONING_COLOR_PALETTE;
+
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
@@ -29,6 +31,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
+import java.util.HashMap;
 import java.util.function.BiConsumer;
 
 /**
@@ -100,7 +103,7 @@ public class PolicyComplianceUtils {
 
     private Intent getPolicyComplianceIntentIfResolvable(Context context,
             ProvisioningParams params, Utils utils, UserHandle userHandle) {
-        final Intent policyComplianceIntent = getPolicyComplianceIntent(params);
+        final Intent policyComplianceIntent = getPolicyComplianceIntent(params, context);
         final boolean intentResolvable = utils.canResolveIntentAsUser(context,
                 policyComplianceIntent, userHandle.getIdentifier());
         // Calling startActivity() from outside of an Activity context requires
@@ -111,13 +114,21 @@ public class PolicyComplianceUtils {
         return intentResolvable ? policyComplianceIntent : null;
     }
 
-    private Intent getPolicyComplianceIntent(ProvisioningParams params) {
+    private Intent getPolicyComplianceIntent(
+            ProvisioningParams params, Context context) {
         final String adminPackage = params.inferDeviceAdminPackageName();
         final Intent policyComplianceIntent =
                 new Intent(DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE);
         policyComplianceIntent.putExtra(
                 DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE,
                 params.adminExtrasBundle);
+        // TODO(b/192254845): Remove EXTRA_PROVISIONING_COLOR_PALETTE when framework
+        //  fix available
+        HashMap<Integer, Integer> colorPaletteMap =
+                new ColorPaletteHelper().createColorPaletteMap(
+                        context,
+                        new ManagedProvisioningSharedPreferences(context));
+        policyComplianceIntent.putExtra(EXTRA_PROVISIONING_COLOR_PALETTE, colorPaletteMap);
         policyComplianceIntent.setPackage(adminPackage);
         return policyComplianceIntent;
     }

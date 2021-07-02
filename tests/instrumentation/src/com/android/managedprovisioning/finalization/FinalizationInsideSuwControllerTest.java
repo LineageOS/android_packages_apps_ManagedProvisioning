@@ -25,6 +25,7 @@ import static com.android.managedprovisioning.TestUtils.createTestAdminExtras;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
@@ -43,6 +44,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -50,6 +52,8 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
+
+import androidx.test.InstrumentationRegistry;
 
 import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.analytics.DeferredMetricsReader;
@@ -87,9 +91,11 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
     @Mock private DeferredMetricsReader mDeferredMetricsReader;
     @Mock private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
     @Mock private UserManager mUserManager;
+    @Mock private SharedPreferences mSharedPreferences;
 
     private PreFinalizationController mPreFinalizationController;
     private FinalizationController mFinalizationController;
+    private final Context mTargetContext = InstrumentationRegistry.getTargetContext();
     @Mock private TransitionHelper mTransitionHelper;
 
     @Override
@@ -106,6 +112,8 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         when(mActivity.getSystemServiceName(UserManager.class))
                 .thenReturn(Context.USER_SERVICE);
         when(mActivity.getSystemService(Context.USER_SERVICE)).thenReturn(mUserManager);
+        when(mActivity.getSharedPreferences(anyString(), anyInt())).thenReturn(mSharedPreferences);
+        when(mActivity.getResources()).thenReturn(mTargetContext.getResources());
         when(mUserManager.isUserUnlocked(anyInt())).thenReturn(true);
         when(mUserManager.isUserUnlocked(any(UserHandle.class))).thenReturn(true);
 
