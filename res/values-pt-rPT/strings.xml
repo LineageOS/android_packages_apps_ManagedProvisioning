@@ -157,7 +157,7 @@
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> e <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
-    <string name="take_a_few_minutes" msgid="6282806501305322838">"Esta ação pode demorar alguns minutos."</string>
+    <string name="take_a_few_minutes" msgid="6282806501305322838">"Isto pode demorar alguns minutos"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"As suas aplicações de trabalho serão mantidas neste perfil e serão geridas pela sua entidade."</string>
     <string name="device_owner_description" msgid="168013145812679664">"A proteção e a gestão deste dispositivo serão efetuadas pela sua entidade."</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"A preparar a configuração do dispositivo de trabalho…"</string>
