@@ -186,7 +186,7 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ਨਿੱਜੀ ਐਪ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੋਂ ਵੱਖਰੀਆਂ ਅਤੇ ਲੁਕਵੀਆਂ ਹੁੰਦੀਆਂ ਹਨ"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ਤੁਹਾਡਾ IT ਪ੍ਰਸ਼ਾਸਕ ਡੀਵਾਈਸ ਕੰਟਰੋਲ ਅਤੇ ਕੁਝ ਐਪ ਬਲਾਕ ਕਰ ਸਕਦਾ ਹੈ"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਰੱਖੀਆਂ ਜਾਂਦੀਆਂ ਹਨ ਅਤੇ ਤੁਹਾਡੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਵੱਲੋਂ ਪ੍ਰਬੰਧਿਤ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ। ਨਿੱਜੀ ਐਪਾਂ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੋਂ ਵੱਖਰੀਆਂ ਅਤੇ ਲੁਕਵੀਆਂ ਹੁੰਦੀਆਂ ਹਨ। ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਕੰਟਰੋਲ ਕਰ ਸਕਦਾ ਹੈ ਅਤੇ ਕੁਝ ਐਪਾਂ ਨੂੰ ਬਲਾਕ ਕਰ ਸਕਦਾ ਹੈ।"</string>
-    <string name="just_a_sec" msgid="6244676028626237220">"ਬੱਸ ਇੱਕ ਸਕਿੰਟ…"</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"ਬਸ ਇੱਕ ਸਕਿੰਟ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ਪਰਦੇਦਾਰੀ ਯਾਦ-ਸੂਚਨਾ"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ਸ਼ਾਇਦ ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਤੁਹਾਡਾ ਡਾਟਾ ਅਤੇ ਸਰਗਰਮੀ ਦੇਖ ਸਕਦਾ ਹੈ"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"ਇਹ ਡੀਵਾਈਸ <xliff:g id="CREDITOR_NAME">%s</xliff:g> ਵੱਲੋਂ ਮੁਹੱਈਆ ਕਰਵਾਇਆ ਗਿਆ ਹੈ"</string>
