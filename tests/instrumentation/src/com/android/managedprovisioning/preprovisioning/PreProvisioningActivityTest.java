@@ -45,6 +45,7 @@ import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -119,6 +120,7 @@ public class PreProvisioningActivityTest {
         v.assertSwiperColorCorrect(SAMPLE_COLOR);
     }
 
+    @Ignore("b/181323689")
     @Test
     public void deviceOwnerDefaultColorsAndLogo() {
         Activity activity = mActivityRule.launchActivity(
@@ -128,6 +130,7 @@ public class PreProvisioningActivityTest {
         v.assertDefaultLogoCorrect(DEFAULT_MAIN_COLOR);
     }
 
+    @Ignore("b/181323689")
     @Test
     public void deviceOwnerCustomColor() {
         Activity activity = mActivityRule.launchActivity(
