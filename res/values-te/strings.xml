@@ -96,7 +96,7 @@
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"అవును"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"రద్దు చేస్తోంది…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ప్రొఫైల్ సెటప్‌ను ఆపివేయాలా?"</string>
-    <string name="work_profile_setup_later_message" msgid="122069011117225292">"మీ సంస్థ యొక్క పరికర నిర్వహణ అనువర్తనంలో మీ కార్యాలయ ప్రొఫైల్‌ని మీరు తర్వాత సెటప్ చేయవచ్చు"</string>
+    <string name="work_profile_setup_later_message" msgid="122069011117225292">"మీ సంస్థ యొక్క పరికర నిర్వహణ యాప్‌లో మీ కార్యాలయ ప్రొఫైల్‌ని మీరు తర్వాత సెటప్ చేయవచ్చు"</string>
     <string name="continue_button" msgid="7177918589510964446">"కొనసాగించు"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"ఆపివేయి"</string>
     <string name="dismiss" msgid="9009534756748565880">"తీసివేయి"</string>
