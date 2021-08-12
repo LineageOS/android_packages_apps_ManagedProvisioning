@@ -115,7 +115,7 @@
     <string name="your_org_app_used" msgid="5336414768293540831">"కింది యాప్‌ను ఉపయోగించి <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ఈ పరికరాన్ని నిర్వహిస్తుంది మరియు పర్యవేక్షిస్తుంది:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"మీ సంస్థ"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"మీ సంస్థ"</string>
-    <string name="view_terms" msgid="7230493092383341605">"నిబంధనలను వీక్షించండి"</string>
+    <string name="view_terms" msgid="7230493092383341605">"నిబంధనలను చూడండి"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"ఆమోదించు, కొనసాగించు"</string>
     <string name="back" msgid="6455622465896147127">"వెనుకకు"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"మీ పరికరాన్ని సెటప్ చేయండి"</string>
