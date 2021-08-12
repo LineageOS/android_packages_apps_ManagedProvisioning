@@ -120,7 +120,7 @@
     <string name="your_org_app_used" msgid="5336414768293540831">"కింది యాప్‌ను ఉపయోగించి <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ఈ పరికరాన్ని నిర్వహిస్తుంది మరియు పర్యవేక్షిస్తుంది:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"మీ సంస్థ"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"మీ సంస్థ"</string>
-    <string name="view_terms" msgid="7230493092383341605">"నిబంధనలను వీక్షించండి"</string>
+    <string name="view_terms" msgid="7230493092383341605">"నిబంధనలను చూడండి"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"ఆమోదించు, కొనసాగించు"</string>
     <string name="back" msgid="6455622465896147127">"వెనుకకు"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"మీ పరికరాన్ని సెటప్ చేయండి"</string>
@@ -191,6 +191,6 @@
     <string name="done" msgid="7755227776955952318">"పూర్తయింది"</string>
     <string name="financed_device_screen_header" msgid="7890706080917322376">"ఈ పరికరం <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> నుండి క్రెడిట్ రూపంలో కొనుగోలు చేయబడింది"</string>
     <string name="creditor_capabilities_header" msgid="6217362648469323253">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> వీటిని చేయగలదు:"</string>
-    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> యాప్‌ను ఇన్‌స్టాల్ చేస్తే, దాని ద్వారా ఈ పరికర చెల్లింపులను చేయవచ్చు"</string>
+    <string name="install_creditor_app_description" msgid="6159751782301108878">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> యాప్‌ను ఇన్‌స్టాల్ చేస్తే, దాని ద్వారా ఈ పరికర పేమెంట్‌లను చేయవచ్చు"</string>
     <string name="lock_device_description" msgid="2940362560732989166">"మీరు చెల్లింపు చేయకపోతే, ఈ పరికరానికి యాక్సెస్‌ను పరిమితం చేయండి"</string>
 </resources>
