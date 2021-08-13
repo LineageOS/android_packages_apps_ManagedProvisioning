@@ -64,7 +64,7 @@ public class AddWifiNetworkTask extends AbstractProvisioningTask
             ProvisioningParams provisioningParams,
             Callback callback) {
         this(
-                new NetworkMonitor(context),
+                new NetworkMonitor(context, /* waitForValidated */ false),
                 new WifiConfigurationProvider(),
                 context, provisioningParams, callback, new Utils(), new Injector(),
                 new ProvisioningAnalyticsTracker(
