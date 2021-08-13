@@ -18,20 +18,18 @@ package com.android.managedprovisioning.task.wifi;
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.ConnectivityManager.NetworkCallback;
 import android.net.Network;
+import android.net.NetworkCapabilities;
 
-import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
-import com.android.managedprovisioning.common.Utils;
 
 /**
  * Monitor the state of the data network. Invoke a callback when the network is connected.
+ *
+ * The callback may be called multiple times for the same network as its status changes.
  */
 public class NetworkMonitor {
 
@@ -41,6 +39,7 @@ public class NetworkMonitor {
     }
 
     private final Context mContext;
+    private final boolean mWaitForValidated;
 
     private NetworkConnectedCallback mCallback = null;
 
@@ -51,8 +50,9 @@ public class NetworkMonitor {
      *
      * @param context to use for intent observers and such
      */
-    public NetworkMonitor(Context context) {
+    public NetworkMonitor(Context context, boolean waitForValidated) {
         mContext = checkNotNull(context);
+        mWaitForValidated = waitForValidated;
     }
 
     /**
@@ -85,14 +85,46 @@ public class NetworkMonitor {
     }
 
     private final NetworkCallback mConnectivityCallback = new NetworkCallback() {
-        // onBlockedStatusChanged is called immediately after onAvailable, and receiving
-        // blocked=false is the equivalent to legacy behavior that would verify
-        // getActiveNetworkInfo().isConnected()
+        private boolean mBlocked;
+        private boolean mValidated;
+
+        @Override
+        public void onAvailable(Network network) {
+            // Default network switched to a new network. Set internal state to values that will
+            // not cause a callback to be sent. onBlockedStatusChanged and onCapabilitiesChanged
+            // will be called immediately after (then later on changes).
+            mBlocked = true;
+            mValidated = false;
+        }
+
         @Override
         public void onBlockedStatusChanged(Network network, boolean blocked) {
+            if (mBlocked == blocked) {
+                return;
+            }
             ProvisionLogger.logd("NetworkMonitor.onBlockedStatusChanged: " + network
                     + " blocked=" + blocked);
-            if (blocked) {
+            mBlocked = blocked;
+            maybeSendCallback();
+        }
+
+        @Override
+        public void onCapabilitiesChanged(Network network, NetworkCapabilities caps) {
+            final boolean validated = caps.hasCapability(
+                    NetworkCapabilities.NET_CAPABILITY_VALIDATED);
+            if (!mWaitForValidated || mValidated == validated) {
+                return;
+            }
+            ProvisionLogger.logd("NetworkMonitor.onCapabilitiesChanged: " + network
+                    + " validated=" + validated);
+            mValidated = validated;
+            maybeSendCallback();
+        }
+
+        private void maybeSendCallback() {
+            // Receiving blocked=false is the equivalent to legacy behavior that would verify
+            // getActiveNetworkInfo().isConnected()
+            if (mBlocked || (mWaitForValidated && !mValidated)) {
                 return;
             }
             synchronized (NetworkMonitor.this) {
