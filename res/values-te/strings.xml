@@ -28,12 +28,12 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"క్రింది యాప్ మీ డివైజ్‌ను నిర్వహిస్తుంది:"</string>
     <string name="next" msgid="1004321437324424398">"తర్వాత"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేస్తోంది..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"మీ పరికర స్థానం, కాల్ చరిత్ర, పరిచయ శోధన చరిత్రతో పాటు ఈ ప్రొఫైల్‌కు అనుబంధితమైన సెట్టింగ్‌లు, కార్పొరేట్ యాక్సెస్, యాప్‌లు, అనుమతులు, డేటాతో సహా మీ నెట్‌వర్క్ కార్యకలాపాన్ని కూడా పర్యవేక్షించగల మరియు నిర్వహించగల సామర్థ్యం మీ IT నిర్వాహకులకు ఉంది.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"మీ పరికర లొకేషన్, కాల్ హిస్టరీ, కాంటాక్ట్ సెర్చ్ హిస్టరీతో పాటు ఈ ప్రొఫైల్‌కు అనుబంధితమైన సెట్టింగ్‌లు, కార్పొరేట్ యాక్సెస్, యాప్‌లు, అనుమతులు, డేటాతో సహా మీ నెట్‌వర్క్ యాక్టివిటీని కూడా పర్యవేక్షించగల మరియు మేనేజ్ చేయగల సామర్థ్యం మీ IT అడ్మిన్‌కు ఉంది.<xliff:g id="LINE_BREAK">
 
-</xliff:g>మీ సంస్థ గోప్యతా విధానాలతో పాటు మరింత సమాచారం కోసం మీ IT నిర్వాహకులను సంప్రదించండి."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"మీ పరికర స్థానం, కాల్ చరిత్ర, పరిచయ శోధన చరిత్రతో పాటు ఈ పరికరానికి అనుబంధితమైన సెట్టింగ్‌లు, కార్పొరేట్ యాక్సెస్, యాప్‌లు, అనుమతులు, డేటాతో సహా మీ నెట్‌వర్క్ కార్యకలాపాన్ని కూడా పర్యవేక్షించగల మరియు నిర్వహించగల సామర్థ్యం మీ IT నిర్వాహకులకు ఉంది.<xliff:g id="LINE_BREAK">
+</xliff:g>మీ సంస్థ గోప్యతా పాలసీలతో పాటు మరింత సమాచారం కోసం మీ IT అడ్మిన్‌ను సంప్రదించండి."</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"మీ పరికర లొకేషన్, కాల్ హిస్టరీ, కాంటాక్ట్ సెర్చ్ హిస్టరీతో పాటు ఈ పరికరానికి అనుబంధితమైన సెట్టింగ్‌లు, కార్పొరేట్ యాక్సెస్, యాప్‌లు, అనుమతులు, డేటాతో సహా మీ నెట్‌వర్క్ యాక్టివిటీని కూడా పర్యవేక్షించగల మరియు మేనేజ్ చేయగల సామర్థ్యం మీ IT అడ్మిన్‌కు ఉంది.<xliff:g id="LINE_BREAK">
 
-</xliff:g>మీ సంస్థ గోప్యతా విధానాలతో పాటు మరింత సమాచారం కోసం మీ IT నిర్వాహకులను సంప్రదించండి."</string>
+</xliff:g>మీ సంస్థ గోప్యతా పాలసీలతో పాటు మరింత సమాచారం కోసం మీ IT అడ్మిన్‌ను సంప్రదించండి."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"అపహరణ జరగకుండా రక్షణనిచ్చే లక్షణాలను ఉపయోగించడానికి, మీరు మీ పరికరం కోసం తప్పనిసరిగా పాస్‌వర్డ్ సురక్షిత స్క్రీన్ లాక్‌ను కలిగి ఉండాలి."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"మీ సంస్థ గోప్యతా విధానాలతో సహా మరింత సమాచారం కోసం మీ IT నిర్వాహకులను సంప్రదించండి."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"మరింత తెలుసుకోండి"</string>
@@ -97,7 +97,7 @@
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"రద్దు చేస్తోంది…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"ప్రొఫైల్ సెటప్‌ను ఆపివేయాలా?"</string>
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"మీ సంస్థ యొక్క పరికర నిర్వహణ యాప్‌లో మీ కార్యాలయ ప్రొఫైల్‌ని మీరు తర్వాత సెటప్ చేయవచ్చు"</string>
-    <string name="continue_button" msgid="7177918589510964446">"కొనసాగించు"</string>
+    <string name="continue_button" msgid="7177918589510964446">"కొనసాగించండి"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"ఆపివేయి"</string>
     <string name="dismiss" msgid="9009534756748565880">"తీసివేయి"</string>
     <string name="profile_owner_info" msgid="8975319972303812298">"మీరు కార్యాలయ ప్రొఫైల్‌ని సృష్టించబోతున్నారు, ఇది మీ సంస్థ ద్వారా నిర్వహించబడుతుంది మరియు పర్యవేక్షించబడుతుంది. నిబంధనలు వర్తిస్తాయి."</string>
@@ -139,11 +139,11 @@
     <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> విభాగం కంటెంట్: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"విస్తరింపజేస్తుంది"</string>
     <string name="collapse" msgid="7817530505064432580">"కుదిస్తుంది"</string>
-    <string name="access_list_of_links" msgid="7094123315959323372">"లింక్‌ల జాబితాను యాక్సెస్ చేస్తుంది"</string>
+    <string name="access_list_of_links" msgid="7094123315959323372">"లింక్‌ల లిస్ట్‌ను యాక్సెస్ చేస్తుంది"</string>
     <string name="access_links" msgid="7991363727326168600">"లింక్‌లను యాక్సెస్ చేస్తుంది"</string>
     <string name="access_terms" msgid="1982500872249763745">"యాక్సెస్ నిబంధనలు"</string>
     <string name="read_terms" msgid="1745011123626640728">"నిబంధనలను చదవండి"</string>
-    <string name="close_list" msgid="9053538299788717597">"జాబితాను మూసివేయి"</string>
+    <string name="close_list" msgid="9053538299788717597">"లిస్ట్‌ను మూసివేయి"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"సెటప్‌ను ముగించి, ఫ్యాక్టరీ రీసెట్ చేయాలా?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ఈ సెటప్‌ను ముగిస్తే మీ పరికరం ఫ్యాక్టరీ రీసెట్ చేయబడుతుంది మరియు మీరు తిరిగి సెటప్ ప్రారంభ స్క్రీన్‌కు తీసుకెళ్లబడతారు."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"రద్దు చేయి"</string>
