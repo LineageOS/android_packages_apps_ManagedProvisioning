@@ -24,8 +24,8 @@
     <string name="setup_work_profile" msgid="1468934631731845267">"కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"మీ సంస్థ ఈ ప్రొఫైల్‌ను నియంత్రిస్తుంది మరియు దాన్ని సురక్షితంగా ఉంచుతుంది. మీరు మీ పరికరంలో మిగిలిన అన్నింటిని నియంత్రిస్తారు."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"మీ సంస్థ ఈ పరికరాన్ని నియంత్రిస్తుంది మరియు సురక్షితంగా ఉంచుతుంది."</string>
-    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"క్రింది యాప్ ఈ ప్రొఫైల్‌ను యాక్సెస్ చేయాలి:"</string>
-    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"క్రింది యాప్ మీ డివైజ్‌ను నిర్వహిస్తుంది:"</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"కింది యాప్ ఈ ప్రొఫైల్‌ను యాక్సెస్ చేయాలి:"</string>
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"కింది యాప్ మీ డివైజ్‌ను నిర్వహిస్తుంది:"</string>
     <string name="next" msgid="1004321437324424398">"తర్వాత"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేస్తోంది..."</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"మీ పరికర లొకేషన్, కాల్ హిస్టరీ, కాంటాక్ట్ సెర్చ్ హిస్టరీతో పాటు ఈ ప్రొఫైల్‌కు అనుబంధితమైన సెట్టింగ్‌లు, కార్పొరేట్ యాక్సెస్, యాప్‌లు, అనుమతులు, డేటాతో సహా మీ నెట్‌వర్క్ యాక్టివిటీని కూడా పర్యవేక్షించగల మరియు మేనేజ్ చేయగల సామర్థ్యం మీ IT అడ్మిన్‌కు ఉంది.<xliff:g id="LINE_BREAK">
