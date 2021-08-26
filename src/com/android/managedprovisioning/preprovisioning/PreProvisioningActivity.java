@@ -28,6 +28,7 @@ import static com.android.managedprovisioning.provisioning.Constants.PROVISIONIN
 import static com.google.android.setupcompat.util.WizardManagerHelper.EXTRA_IS_SETUP_FLOW;
 
 import android.app.Activity;
+import android.app.BackgroundServiceStartNotAllowedException;
 import android.app.DialogFragment;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -120,9 +121,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (savedInstanceState == null) {
-            getApplicationContext().startService(PROVISIONING_SERVICE_INTENT);
-        }
         // TODO(b/192074477): Remove deferred setup-specific logic after the managed account flow
         //  starts ManagedProvisioning with the isSetupFlow extra
         // TODO(b/178822333): Remove NFC-specific logic after adding support for the
@@ -137,6 +135,16 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         mBridge = createBridge();
         mController.getState().observe(this, this::onStateChanged);
         logMetrics();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        try {
+            getApplicationContext().startService(PROVISIONING_SERVICE_INTENT);
+        } catch (BackgroundServiceStartNotAllowedException e) {
+            ProvisionLogger.loge(e);
+        }
     }
 
     private boolean isNfcSetup() {
