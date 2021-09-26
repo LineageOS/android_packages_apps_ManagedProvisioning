@@ -174,7 +174,7 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ఈ పరికరంలోని మీ డేటాను, యాక్టివిటీని మీ IT అడ్మినిస్ట్రేటర్ చూడగలరు."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"మీ యాక్టివిటీ &amp; డేటా"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"యాప్ అనుమతులు"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"ఈ పరికరంలోని యాప్‌లకు వర్తించే అనుమతులను (మైక్రోఫోన్, కెమెరా, లొకేషన్ మొదలైనవి) మీ IT అడ్మినిస్ట్రేటర్ సెట్ చేయగలరు."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"ఈ పరికరంలోని యాప్‌లకు వర్తించే అనుమతులను (మైక్రోఫోన్, కెమెరా, లొకేషన్ మొదలైనవి) మీ IT అడ్మిన్ సెట్ చేయగలరు."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"మీ పరికరాన్ని సెటప్ చేస్తోంది…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"మీ వర్క్ యాప్‌లను సులభంగా యాక్సెస్ చేయడానికి ఈ పరికరాన్ని ఉపయోగించండి. ఇది ప్రైవేట్ పరికరం కాదు కాబట్టి, మీ IT అడ్మిన్ మీ డేటాను, యాక్టివిటీని చూడగలిగే అవకాశం ఉంటుంది."</string>
     <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"మీ వర్క్ యాప్‌లను సులభంగా యాక్సెస్ చేయడానికి ఈ పరికరాన్ని ఉపయోగించండి. ఇది ప్రైవేట్ పరికరం కాదు కాబట్టి, మీ IT అడ్మిన్ మీ యాక్టివిటీని, డేటాను చూడగలిగే అవకాశం ఉంటుంది. మీ IT అడ్మిన్ మైక్రోఫోన్, కెమెరా, అలాగే లొకేషన్ అనుమతులు వంటి ఈ పరికరంలోని యాప్‌ల కోసం అనుమతులను కూడా సెట్ చేయవచ్చు."</string>
