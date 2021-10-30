@@ -49,7 +49,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"আগৰে পৰা থকা প্ৰ\'ফাইলটো মচিবনে?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"আপোনাৰ ইতিমধ্যে এটা কৰ্মস্থানৰ প্ৰ\'ফাইল আছে। সেইটোক তলত উল্লেখ কৰা এপটোৱে পৰিচালনা কৰে:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"আৰম্ভ কৰাৰ আগতে, "<a href="#read_this_link">"এয়া পঢ়ক"</a>"।"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"আপুনি এই কার্য অব্যাহত ৰাখিলে এই প্ৰ\'ফাইলৰ সকলো এপ্ আৰু ডেটা মচা হ\'ব।"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"আপুনি এই কার্য অব্যাহত ৰাখিলে এই প্ৰ\'ফাইলৰ আটাইবোৰ এপ্ আৰু ডেটা মচা হ\'ব।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"মচক"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"বাতিল কৰক"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"আপোনাৰ কৰ্মস্থানৰ প্ৰ\'ফাইলটো ছেট আপ কৰিবলৈ আপোনাৰ ডিভাইচটো এনক্ৰিপ্ট কৰিব লাগিব। এই কাম সম্পূৰ্ণ হ\'বলৈ কিছু সময়ৰ প্ৰয়োজন হ\'ব পাৰে।"</string>
