@@ -15,7 +15,6 @@
  */
 package com.android.managedprovisioning.parser;
 
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMERS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_CONTENT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_HEADER;
 import static com.android.managedprovisioning.common.StoreUtils.DIR_PROVISIONING_PARAMS_FILE_CACHE;
@@ -25,7 +24,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
+
 import android.text.TextUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.StoreUtils;
@@ -39,14 +38,14 @@ import java.util.List;
  * Parser for {@link EXTRA_PROVISIONING_DISCLAIMERS} into {@link DisclaimersParam}
  * It also saves the disclaimer content into files
  */
-public class DisclaimersParser {
+public class DisclaimersParserImpl implements DisclaimerParser {
     private static final int MAX_LENGTH = 3;
 
     private final Context mContext;
     private final long mProvisioningId;
     private final File mDisclaimerDir;
 
-    public DisclaimersParser(Context context, long provisioningId) {
+    public DisclaimersParserImpl(Context context, long provisioningId) {
         mContext = context;
         mProvisioningId = provisioningId;
         mDisclaimerDir =  new File(mContext.getFilesDir(), DIR_PROVISIONING_PARAMS_FILE_CACHE);
