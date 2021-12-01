@@ -160,7 +160,7 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"ఇది మీ సంస్థకు చెందిన పరికరం"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ఈ ఫోన్‌ని నిర్వహించేందుకు మరియు పర్యవేక్షించడానికి ఈ యాప్‌ ఉపయోగపడుతుంది"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"మీ ఖాతా మేనేజ్ చేయబడింది"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"మీ IT అడ్మిన్, భద్రతా పాలసీలను అమలు చేయడానికి \'మొబైల్ పరికర నిర్వహణ\'ను ఉపయోగిస్తారు"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"సెక్యూరిటీ పాలసీలను అమలు చేయడానికి మీ IT అడ్మిన్, \'మొబైల్ పరికర మేనేజ్‌మెంట్‌\'ను ఉపయోగిస్తారు"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"కార్యాలయ సెటప్ కోసం సిద్ధం చేయబడుతోంది…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ముందుగా, మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి"</string>
