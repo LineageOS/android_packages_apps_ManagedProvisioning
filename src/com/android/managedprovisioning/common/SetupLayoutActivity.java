@@ -18,6 +18,7 @@ package com.android.managedprovisioning.common;
 
 import static android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.VIEW_UNKNOWN;
+import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
 import android.app.Activity;
 import android.app.ActivityManager.TaskDescription;
@@ -58,6 +59,9 @@ public abstract class SetupLayoutActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setDefaultTheme();
+
+        getWindow().addPrivateFlags(PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
+
         mTimeLogger = new TimeLogger(this, getMetricsCategory());
         mTimeLogger.start();
 
