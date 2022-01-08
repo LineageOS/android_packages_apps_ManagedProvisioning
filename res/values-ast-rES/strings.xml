@@ -18,7 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="provisioning_error_title">¡Ups!</string>
-  <string name="setup_work_profile">Configurar perfil de trabayu</string>
+  <string name="setup_work_profile">Configurar perfil llaboral</string>
   <string name="company_controls_workspace">La to organización controla esti perfil y caltienlu seguru, tu controles tolo demás nel preséu.</string>
   <string name="company_controls_device">La to organización va controlar y caltener seguru esti preséu.</string>
   <string name="the_following_is_your_mdm">L\'aplicación de darréu va precisar acceder a esti perfil:</string>
@@ -29,7 +29,7 @@
   <string name="cancel_setup">Encaboxar</string>
   <string name="ok_setup">Aceutar</string>
   <string name="user_consent_msg">Doi laude</string>
-  <string name="default_managed_profile_name">Perfil de trabayu</string>
+  <string name="default_managed_profile_name">Perfil llaboral</string>
   <string name="default_first_meat_user_name">Usuariu primariu</string>
   <string name="read_more_delete_profile">Enantes de siguir, <a href="#read_this_link">llei esto</a>.</string>
   <string name="sure_you_want_to_delete_profile">Si sigues, desaniciaránse toles aplicaciones y datos nesti perfil.</string>
@@ -38,14 +38,14 @@
   <string name="encrypt_this_device_question">¿Cifrar esti preséu?</string>
   <string name="encrypt">Cifrar</string>
   <string name="continue_provisioning_notify_title">Cifráu completáu</string>
-  <string name="continue_provisioning_notify_text">Calca pa siguir configurando\'l to perfil de trabayu</string>
-  <string name="managed_provisioning_error_text">Nun pudo configurase\'l perfil de trabayu. Contauta col to departamentu informáticu o volvi tentalo más sero.</string>
-  <string name="cant_add_work_profile">Nun se puede amestar un perfil de trabayu</string>
+  <string name="continue_provisioning_notify_text">Calca pa siguir configurando\'l to perfil llaboral</string>
+  <string name="managed_provisioning_error_text">Nun pudo configurase\'l perfil llaboral. Contauta col to departamentu informáticu o volvi tentalo más sero.</string>
+  <string name="cant_add_work_profile">Nun se puede amestar un perfil llaboral</string>
   <string name="change_device_launcher">Camudar preséu llanzador</string>
   <string name="cancel_provisioning">Encaboxar</string>
   <string name="pick_launcher">Aceutar</string>
   <string name="user_setup_incomplete">Configuración d\'usuariu incompleta</string>
-  <string name="default_owned_device_username">Usuariu del perfil de trabayu</string>
+  <string name="default_owned_device_username">Usuariu del perfil llaboral</string>
   <string name="setup_work_device">Configurando\'l preséu de trabayu\u2026</string>
   <string name="progress_data_process">Procesando datos de configuración\u2026</string>
   <string name="progress_connect_to_wifi">Coneutando cola Wi-Fi\u2026</string>
@@ -87,7 +87,7 @@
   <string name="provisioning">Aprovisionamientu</string>
   <string name="copying_certs">Configurando certificaos CA</string>
   <string name="setup_profile">Configura\'l perfil</string>
-  <string name="comp_profile_benefits_description">Al usar un perfil de trabayu, puedes caltener les tos aplicaciones de trabayu nun sitiu toes.
+  <string name="comp_profile_benefits_description">Al usar un perfil llaboral, puedes caltener les tos aplicaciones de trabayu nun sitiu toes.
 Al utilizar un perfil de trabajo, puede mantener sus aplicaciones de trabajo en un solo lugar</string>
   <string name="setup_profile_encryption">Configura\'l to perfil. Cifráu</string>
   <string name="setup_profile_progress">Configura\'l to perfil. Amosando progresu</string>
@@ -114,5 +114,5 @@ Al utilizar un perfil de trabajo, puede mantener sus aplicaciones de trabajo en 
   <string name="join_many_items_first"><xliff:g id="first_item">%1$s</xliff:g>, <xliff:g id="all_but_first_and_last_item">%2$s</xliff:g></string>
   <string name="join_many_items_middle"><xliff:g id="added_item">%1$s</xliff:g>, <xliff:g id="rest_of_items">%2$s</xliff:g></string>
   <string name="take_a_few_minutes">Esto puede llevar dellos minutos</string>
-  <string name="work_profile_provisioning_progress_label">Configurando\'l perfil de trabayu\u2026</string>
+  <string name="work_profile_provisioning_progress_label">Configurando\'l perfil llaboral\u2026</string>
 </resources>

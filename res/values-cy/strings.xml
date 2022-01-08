@@ -81,8 +81,10 @@
   <string name="reset">Ailosod</string>
   <string name="cant_set_up_profile">Methu â gosod proffil</string>
   <string name="cant_set_up_device">Methu â gosod y ddyfais</string>
+  <string name="something_went_wrong">Aeth rhywbeth o\'i le</string>
   <string name="couldnt_set_up_device">Methwyd â gosod y ddyfais. Cysyllta â dy weinyddwr TG am gymorth.</string>
   <string name="contact_your_admin_for_help">Cysyllta â dy weinyddwr TG am gymorth</string>
+  <string name="reset_device">Ailosoda\'r ddyfais hon a cheisio ei gosod eto</string>
   <string name="device_already_set_up">Mae\'r ddyfais eisoes wedi ei gosod.</string>
   <string name="error_wifi">Methwyd â chysylltu â\'r Wi-Fi</string>
   <string name="device_has_reset_protection_contact_admin">Mae dy ddyfais wedi ei gwarchod rhag cael ei ailosod. Cysyllta â dy weinyddwr TG am gymorth.</string>
@@ -159,21 +161,34 @@
   <string name="setup_provisioning_header">Yn paratoi i osod dyfais gwaith\u2026</string>
   <string name="setup_provisioning_header_description">Yn gosod ap gweinyddwr</string>
   <string name="set_up_everything_else">Yn gosod popeth arall</string>
-  <string name="brand_screen_header">Mae\'r ddyfais hon yn eiddo i dy sefydliad</string>
+  <string name="now_lets_set_up_everything_else">Ychwanega gyfrif personol i wneud mwy â dy ddyfais</string>
+  <string name="now_lets_set_up_everything_else_explanation">Nawr fod dy broffil gwaith yn barod, gall ychwanegu gyfrif Google personol i gael at dy apiau a chynnwys.</string>
+  <string name="brand_screen_header">Mae\'r ddyfais hon yn perthyn i dy sefydliad</string>
   <string name="brand_screen_subheader">Defnyddir yr ap canlynol i reoli a monitro\'r ffôn hwn</string>
   <string name="downloading_administrator_header">Yn paratoi i osod gwaith\u2026</string>
   <string name="work_profile_provisioning_accept_header_post_suw">Gadewch i ni osod dy broffil gwaith</string>
   <string name="work_profile_provisioning_step_1_header">Cedwir apiau gwaith yn dy broffil gwaith</string>
   <string name="work_profile_provisioning_step_2_header">Oedi apiau gwaith pan rwyt wedi gorffen am y dydd</string>
+  <string name="work_profile_provisioning_step_3_header">Mae data yn dy broffil gwaith yn weladwy i dy weinyddwyr TG</string>
   <string name="work_profile_provisioning_progress_label">Yn gosod dy broffil gwaith\u2026</string>
+  <string name="work_profile_provisioning_summary">Cedwir apiau gwaith yn dy broffil gwaith. Gallet roi dy apiau gwaith ar saib pan fyddi di wedi gorffen am y dydd. Mae\'r data yn dy broffil gwaith yn weladwy i dy weinyddwyr TG.</string>
   <string name="fully_managed_device_provisioning_accept_header">Gadewch i ni osod dy ddyfais gwaith</string>
   <string name="fully_managed_device_provisioning_step_1_header">Cadwa dy apiau gwaith wrth flaen dy fysedd</string>
   <string name="fully_managed_device_provisioning_step_2_header">Nid yw\'r ddyfais hon yn breifat</string>
   <string name="fully_managed_device_provisioning_step_2_subheader">Gall fod dy weinyddwr TG yn gweld data a defnydd ar y ddyfais hon.</string>
   <string name="fully_managed_device_provisioning_progress_label">Yn gosod dy ddyfais\u2026</string>
   <string name="fully_managed_device_provisioning_summary">Defnyddia\'r ddyfais hon i gael at dy apiau gwaith yn hawdd. Dyw\'r ddyfais hon ddim yn breifat, felly gall fod dy weinyddwr TG yn gweld data a defnydd y ddyfais. I ddysgu mwy, cysyllta â dy weinyddwr TG.</string>
+  <string name="cope_provisioning_step_1_header">Cedwir apiau gwaith yn dy broffil gwaith a\'u rheoli gan dy weinyddwyr TG</string>
+  <string name="cope_provisioning_step_2_header">Cedwir apiau personol ar wahân ac wedi\'u cuddio oddi wrth apiau gwaith.</string>
+  <string name="cope_provisioning_step_3_header">Gall dy weinyddwyr TG reoli\'r ddyfais hon a rhwystro rhai apiau</string>
+  <string name="cope_provisioning_summary">Cedwir apiau gwaith yn dy broffil gwaith a\'u rheoli gan dy weinyddwyr TG. Cedwir apiau personol ar wahân ac wedi\'u cuddio oddi wrth apiau gwaith. Gall dy weinyddwyr TG reoli\'r ddyfais hon a rhwystro rhai apiau.</string>
+  <string name="just_a_sec">Un eiliad\u2026</string>
   <string name="fully_managed_device_provisioning_privacy_title">Atgoffeb preifatrwydd</string>
   <string name="fully_managed_device_provisioning_privacy_body">Gall fod dy weinyddwr TG yn gweld data a defnydd ar y ddyfais hon</string>
   <string name="device_provisioning_finished">Mae dy ddyfais yn barod i fynd!</string>
   <string name="done">Iawn</string>
+  <string name="financed_device_screen_header">Prynwyd y ddyfais hon ar gredyd oddi wrth <xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g></string>
+  <string name="creditor_capabilities_header">Gall <xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g>:</string>
+  <string name="install_creditor_app_description">Gosoda ap <xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g> er mwyn medru gwneud taliadau am y ddyfais hon</string>
+  <string name="lock_device_description">Rhwystro mynediad at y ddyfais hon os na fydd taliadau wedi\'u gwneud</string>
 </resources>
