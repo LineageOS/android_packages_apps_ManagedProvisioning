@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="provisioning_error_title">Oich!</string>
+  <string name="setup_work_profile">Suidhich a’ phròifil agad</string>
+  <string name="company_controls_workspace">Tha a’ phròifil seo fo smachd a’ bhuidhinn agad agus cumaidh iadsan tèarainte i. Bidh smachd agad fhèin air a h-uile càil eile air an fhòn seo.</string>
+  <string name="company_controls_device">Bidh smachd aig a’ bhuidheann agad air an uidheam seo agus cumaidh iad sàbhailte e.</string>
+  <string name="the_following_is_your_mdm">Feumaidh an aplacaid seo a’ phròifil seo inntrigeadh:</string>
+  <string name="the_following_is_your_mdm_for_device">Stiùiridh an aplacaid seo an t-uidheam agad:</string>
+  <string name="set_up">Suidhich</string>
+  <string name="setting_up_workspace">A’ suidheachadh pròifil na h-obrach agad\u2026</string>
+  <string name="admin_has_ability_to_monitor_profile">’S urrainn dhan rianaire agad sùil a chumail air na nithean seo agus an stiùireadh: na roghainnean, an t-inntrigeadh corporra, na h-aplacaidean, na ceadan, an dàta co-cheangailte ris a’ phròifil seo, a’ gabhail a-staigh gnìomhachd an lìonraidh agus fiosrachadh ionad an uidheim.</string>
+  <string name="admin_has_ability_to_monitor_device">’S urrainn dhan rianaire agad sùil a chumail air na nithean seo agus an stiùireadh: na roghainnean, an t-inntrigeadh corporra, na h-aplacaidean, na ceadan, an dàta co-cheangailte ris an uidheam seo, a’ gabhail a-staigh gnìomhachd an lìonraidh agus fiosrachadh ionad an uidheim.</string>
+  <string name="theft_protection_disabled_warning">Ma leanas tu air adhart, cha dèid an dìon o ghoid a chur an comas. Airson dìon o ghoid a chur air, sguir dheth a-nis agus suidhich mar uidheam pearsanta e.</string>
+  <string name="contact_your_admin_for_more_info">Cuir fios gun rianaire agad airson barrachd fiosrachaidh, a’ gabhail a-staigh poileasaidhean prìobhaideachd a’ bhuidhinn agad.</string>
+  <string name="learn_more_link">Barrachd fiosrachaidh </string>
+  <string name="cancel_setup">SGUIR DHETH</string>
+  <string name="ok_setup">CEART MA-THÀ</string>
+  <string name="default_managed_profile_name">Pròifil na h-obrach</string>
+  <string name="delete_profile_title">An doir thu pròifil na h-obrach air falbh?</string>
+  <string name="opening_paragraph_delete_profile_unknown_company">Tha pròifil obrach ann mu thràth agus fo stiùireadh:</string>
+  <string name="opening_paragraph_delete_profile_known_company">Tha pròifil na h-obrach ’ga stiùireadh às leth %s le:</string>
+  <string name="read_more_delete_profile"><a href="#read_this_link">Leugh seo</a> mus lean thu air adhart.</string>
+  <string name="sure_you_want_to_delete_profile">Thèid a h-uile aplacaid is dàta sa phròifil seo a sguabadh às ma leanas tu air adhart.</string>
+  <string name="delete_profile">SGUAB ÀS</string>
+  <string name="cancel_delete_profile">SGUIR DHETH</string>
+  <string name="encrypt_device_text_for_profile_owner_setup">Airson leantainn air adhart le suidheachadh pròifil na h-obrach agad, feumaidh tu an t-uidheam agad a chrioptachadh. Dh’fhaoidte gun doir seo greis.</string>
+  <string name="encrypt_device_text_for_device_owner_setup">Airson leantainn air adhart le suidheachadh an uidheim agad, feumaidh tu a chrioptachadh. Dh’fhaoidte gun doir seo greis.</string>
+  <string name="encrypt_device_cancel">SGUIR DHETH</string>
+  <string name="encrypt_device_launch_settings">CRIOPTAICH</string>
+  <string name="continue_provisioning_notify_title">Tha an crioptachadh deiseil</string>
+  <string name="continue_provisioning_notify_text">Suath ris a leantainn air adhart le suidheachadh pròifil na h-obrach agad</string>
+  <string name="managed_provisioning_error_text">Cha b’ urrainn dhuinn pròifil na h-obrach agad a shuidheachadh. Cuir fios gun sgioba ICT agad no feuch ris a-rithist uaireigin eile.</string>
+  <string name="managed_provisioning_not_supported">Chan eil an t-uidheam agad a’ cur taic ri pròifilean obrach</string>
+  <string name="user_is_not_owner">Chan urrainn ach am prìomh-chleachdaiche pròifil obrach a shuidheachadh</string>
+  <string name="device_owner_exists">Chan urrainn dhut pròifil obrach a shuidheachadh air uidheam fo stiùireadh</string>
+  <string name="maximum_user_limit_reached">Cha ghabh pròifil obrach a shuidheachadh on a ràinig thu crìoch nan cleachdaichean air an uidheam seo. Thoir air falbh cleachdaiche is feuch ris a-rithist.</string>
+  <string name="managed_provisioning_not_supported_by_launcher">Cha chuir an aplacaid lòinseir seo taic ri pròifilean obrach. Feumaidh tu a h-atharrachadh gu lòinsear co-chòrdail.</string>
+  <string name="cancel_provisioning">SGUIR DHETH</string>
+  <string name="pick_launcher">CEART MA-THÀ</string>
+  <string name="default_owned_device_username">Cleachdaiche uidheim obrach</string>
+  <string name="setup_work_device">Suidhich an t-uidheam agad</string>
+  <string name="progress_data_process">A’ pròiseasadh dàta an t-suidheachaidh\u2026</string>
+  <string name="progress_connect_to_wifi">A’ ceangal ri WiFi\u2026</string>
+  <string name="progress_download">A’ luchdadh a-nuas aplacaid na rianachd\u2026</string>
+  <string name="progress_install">A’ stàladh aplacaid na rianachd\u2026</string>
+  <string name="progress_set_owner">A’ suidheachadh seilbheadair an uidheim\u2026</string>
+  <string name="device_owner_cancel_message">An cuir thu stad air an t-suidheachadh ’s an suath thu bàn dàta an uidheim agad?</string>
+  <string name="device_owner_cancel_cancel">SGUIR DHETH</string>
+  <string name="device_owner_error_ok">CEART MA-THÀ</string>
+  <string name="device_owner_error_reset">ATH-SHUIDHICH</string>
+  <string name="device_owner_error_general">Cha b’ urrainn dhuinn an t-uidheam agad a shuidheachadh. Cuir fios gun sgioba ICT agad. </string>
+  <string name="device_owner_error_already_provisioned">Chaidh an t-uidheam seo a shuidheachadh mu thràth.</string>
+  <string name="device_owner_error_already_provisioned_user">Chaidh an t-uidheam seo a shuidheachadh dhan chleachdaiche seo mu thràth.</string>
+  <string name="device_owner_error_wifi">Cha b’ urrainn dhuinn ceangal WiFi a dhèanamh</string>
+  <string name="device_owner_error_frp">Chaidh an t-uidheam seo a ghlasadh le dìon o thilleadh gu roghainnean an fhactaraidh. Cuir fios gun sgioba ICT agad.</string>
+  <string name="frp_clear_progress_title">’Ga shuathadh bàn</string>
+  <string name="frp_clear_progress_text">Fuirich ort…</string>
+  <string name="device_owner_error_hash_mismatch">Cha b’ urrainn dhuinn aplacaid rianaire a chleachdadh ri linn mearachd leis a’ checksum. Cuir fios gun sgioba ICT agad.</string>
+  <string name="device_owner_error_download_failed">Cha b’ urrainn dhuinn aplacaid na rianachd a luchdadh a-nuas</string>
+  <string name="device_owner_error_package_invalid">Chan urrainn dhuinn aplacaid rianaire a chleachdadh. Tha co-phàirt a dhìth oirre no tha i coirbte. Cuir fios gun sgioba ICT agad.</string>
+  <string name="device_owner_error_package_name_invalid">Chan urrainn dhuinn aplacaid na rianachd a stàladh. Chan eil ainm na h-aplacaid dligheach. Cuir fios gun sgioba ICT agad.</string>
+  <string name="device_owner_error_installation_failed">Cha b’ urrainn dhuinn aplacaid na rianachd a stàladh</string>
+  <string name="device_owner_error_package_not_installed">Cha deach aplacaid na rianachd a stàladh air an uidheam agad</string>
+  <string name="profile_owner_cancel_message">An cuir thu stad air an t-suidheachadh?</string>
+  <string name="profile_owner_cancel_cancel">CHA CHUIR</string>
+  <string name="profile_owner_cancel_ok">CUIRIDH</string>
+  <string name="profile_owner_cancelling">A’ sgur dheth\u2026</string>
+  <string name="work_profile_setup_later_title">An cuir thu stad air suidheachadh na pròifil?</string>
+  <string name="work_profile_setup_later_message">’S urrainn dhut pròifil na h-obrach agad a shuidheachadh uaireigin eile on aplacaid stiùireadh uidheim a chleachdas am buidheann agad.</string>
+  <string name="work_profile_setup_continue">LEAN AIR ADHART</string>
+  <string name="work_profile_setup_stop">CUIR STAD AIR</string>
+  <string name="provisioning">Solar</string>
+  <string name="copying_certs">A’ suidheachadh teisteanasan ùghdarrais</string>
+  <string name="setup_profile_start_setup">Suidhich a’ phròifil agad. Tòisich air an t-suidheachadh</string>
+  <string name="setup_profile_encryption">Suidhich a’ phròifil agad. Crioptachadh</string>
+  <string name="setup_profile_progress">Suidhich a’ phròifil agad. A’ sealltainn an adhartais</string>
+  <string name="setup_device_start_setup">Suidhich an t-uidheam agad. Tòisich air an t-suidheachadh</string>
+  <string name="setup_device_encryption">Suidhich an t-uidheam agad. Crioptachadh</string>
+  <string name="setup_device_progress">Suidhich an t-uidheam agad. A’ sealltainn an adhartais</string>
+  <string name="learn_more_label">Putan “Barrachd fiosrachaidh”</string>
+  <string name="mdm_icon_label">Ìomhaigheag <xliff:g id="icon_label" example="Test App">%1$s</xliff:g></string>
+</resources>
