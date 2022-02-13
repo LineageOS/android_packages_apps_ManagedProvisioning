@@ -22,7 +22,7 @@
   <string name="setup_work_profile">Gosod proffil gwaith</string>
   <string name="company_controls_workspace">Mae dy sefydliad yn rheoli\'r proffil hwn a\'i gadw\'n ddiogel. Rwyt ti\'n rheoli popeth arall ar dy ddyfais.</string>
   <string name="company_controls_device">Bydd dy sefydliad yn rheoli\'r ddyfais hon a cyn ei chadw\'n ddiogel.</string>
-  <string name="the_following_is_your_mdm">Bydd ar yr ap hwn angen mynediad i\'r proffil hwn:</string>
+  <string name="the_following_is_your_mdm">Bydd ar yr ap hwn angen mynediad at y proffil hwn:</string>
   <string name="the_following_is_your_mdm_for_device">Bydd yr ap canlynol yn rheoli dy ddyfais:</string>
   <string name="next">Nesaf</string>
   <string name="setting_up_workspace">Yn gosod y proffil gwaith\u2026</string>
