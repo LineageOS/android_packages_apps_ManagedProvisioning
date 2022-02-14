@@ -135,7 +135,7 @@
     <string name="setup_device_progress" msgid="7035335208571175393">"Configura tu dispositivo. Mostrando progreso"</string>
     <string name="learn_more_label" msgid="2723716758654655009">"Botón para obtener más información"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"Icono de <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
-    <string name="section_heading" msgid="3924666803774291908">"Título de la sección <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
+    <string name="section_heading" msgid="3924666803774291908">"Encabezado de la sección <xliff:g id="SECTION_HEADING">%1$s</xliff:g>."</string>
     <string name="section_content" msgid="8875502515704374394">"Contenido de la sección <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Mostrar"</string>
     <string name="collapse" msgid="7817530505064432580">"Ocultar"</string>
