@@ -98,7 +98,7 @@
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Դադարեցնե՞լ պրոֆիլի կարգավորումը:"</string>
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"Հետագայում կարող եք կարգավորել ձեր աշխատանքային պրոֆիլը ձեր կազմակերպության սարքի կառավարման հավելվածում"</string>
     <string name="continue_button" msgid="7177918589510964446">"Շարունակել"</string>
-    <string name="work_profile_setup_stop" msgid="6772128629992514750">"Դադարեցնել"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"Կանգնեցնել"</string>
     <string name="dismiss" msgid="9009534756748565880">"Փակել"</string>
     <string name="profile_owner_info" msgid="8975319972303812298">"Դուք պատրաստվում եք ստեղծել աշխատանքային պրոֆիլ, որը կկառավարվի և կվերահսկվի ձեր կազմակերպության կողմից: Կիրառվում են հատուկ պայմաններ։"</string>
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Դուք պատրաստվում եք ստեղծել աշխատանքային պրոֆիլ, որը կկառավարվի և կվերահսկվի ձեր կազմակերպության կողմից: Կիրառվում են <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> պայմանները։"</string>
