@@ -98,7 +98,7 @@
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"راه‌اندازی متوقف شود؟"</string>
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"در فرصت دیگری می‌توانید از برنامه مدیریت دستگاه مورداستفاده سازمانتان، نمایه کاری‌تان را راه‌اندازی کنید"</string>
     <string name="continue_button" msgid="7177918589510964446">"ادامه"</string>
-    <string name="work_profile_setup_stop" msgid="6772128629992514750">"توقف"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"متوقف کردن"</string>
     <string name="dismiss" msgid="9009534756748565880">"نپذیرفتن"</string>
     <string name="profile_owner_info" msgid="8975319972303812298">"می‌خواهید یک نمایه کاری ایجاد کنید که توسط سازمانتان مدیریت و پایش خواهد شد. شرایط اعمال می‌شود."</string>
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"می‌خواهید یک نمایه کاری ایجاد کنید که توسط سازمان شما مدیریت و پایش خواهد شد. شرایط <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> اعمال می‌شود."</string>
