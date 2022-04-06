@@ -16,14 +16,11 @@
 
 package com.android.managedprovisioning.finalization;
 
-import static android.app.admin.DevicePolicyManager.ACTION_MANAGED_PROFILE_PROVISIONED;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
-
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.accounts.Account;
+import android.app.admin.DevicePolicyManager;
 import android.content.Context;
-import android.content.Intent;
 import android.os.UserHandle;
 
 import com.android.managedprovisioning.common.Utils;
@@ -55,40 +52,33 @@ class PrimaryProfileFinalizationHelper {
 
     void finalizeProvisioningInPrimaryProfile(Context context,
             DpcReceivedSuccessReceiver.Callback callback) {
-        final Intent primaryProfileSuccessIntent = new Intent(ACTION_MANAGED_PROFILE_PROVISIONED);
-        primaryProfileSuccessIntent.setPackage(mMdmPackageName);
-        primaryProfileSuccessIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES |
-                Intent.FLAG_RECEIVER_FOREGROUND);
-        primaryProfileSuccessIntent.putExtra(Intent.EXTRA_USER, mManagedUserHandle);
-
         // Now cleanup the primary profile if necessary
         if (mMigratedAccount != null) {
-            primaryProfileSuccessIntent.putExtra(EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE,
-                    mMigratedAccount);
-            finishAccountMigration(context, primaryProfileSuccessIntent, callback);
+            finishAccountMigration(context, callback);
             // Note that we currently do not check if account migration worked
         } else {
-            handleFinalization(context, callback, primaryProfileSuccessIntent);
+            handleFinalization(context, callback);
         }
     }
 
-    private void handleFinalization(Context context, DpcReceivedSuccessReceiver.Callback callback,
-            Intent primaryProfileSuccessIntent) {
-        context.sendBroadcast(primaryProfileSuccessIntent);
+    private void handleFinalization(Context context, DpcReceivedSuccessReceiver.Callback callback) {
+        DevicePolicyManager devicePolicyManager = (DevicePolicyManager)
+                context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        devicePolicyManager.finalizeWorkProfileProvisioning(
+                mManagedUserHandle, mMigratedAccount);
         if (callback != null) {
             callback.cleanup();
         }
     }
 
     private void finishAccountMigration(final Context context,
-            final Intent primaryProfileSuccessIntent,
             DpcReceivedSuccessReceiver.Callback callback) {
         if (!mKeepAccountMigrated) {
             mUtils.removeAccountAsync(context, mMigratedAccount, () -> {
-                handleFinalization(context, callback, primaryProfileSuccessIntent);
+                handleFinalization(context, callback);
             });
         } else {
-            handleFinalization(context, callback, primaryProfileSuccessIntent);
+            handleFinalization(context, callback);
         }
     }
 }
