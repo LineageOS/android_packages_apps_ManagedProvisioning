@@ -40,7 +40,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Annuleren"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Ik ga akkoord"</string>
-    <string name="url_error" msgid="5958494012986243186">"Kan deze link niet weergeven."</string>
+    <string name="url_error" msgid="5958494012986243186">"Kan deze link niet bekijken."</string>
     <string name="navigation_button_description" msgid="6106309408994461239">"Terug"</string>
     <string name="terms" msgid="8295436105384703903">"Voorwaarden"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Informatie over werkprofiel"</string>
