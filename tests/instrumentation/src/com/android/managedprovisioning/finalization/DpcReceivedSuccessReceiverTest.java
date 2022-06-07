@@ -17,15 +17,17 @@
 package com.android.managedprovisioning.finalization;
 
 import static android.app.admin.DeviceAdminReceiver.ACTION_PROFILE_PROVISIONING_COMPLETE;
-import static android.app.admin.DevicePolicyManager.ACTION_MANAGED_PROFILE_PROVISIONED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
+
 
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import android.app.admin.DevicePolicyManager;
 import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
@@ -57,12 +59,18 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
 
     @Mock private Context mContext;
     @Mock private Utils mUtils;
+    @Mock private DevicePolicyManager mDevicePolicyManager;
 
     @Override
     public void setUp() {
         // this is necessary for mockito to work
         System.setProperty("dexmaker.dexcache", getContext().getCacheDir().toString());
         MockitoAnnotations.initMocks(this);
+
+        when(mContext.getSystemServiceName(DevicePolicyManager.class))
+                .thenReturn(Context.DEVICE_POLICY_SERVICE);
+        when(mContext.getSystemService(Context.DEVICE_POLICY_SERVICE))
+                .thenReturn(mDevicePolicyManager);
     }
 
     @SmallTest
@@ -76,87 +84,8 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
         // WHEN the profile provisioning complete intent was received by the DPC
         receiver.onReceive(mContext, TEST_INTENT);
 
-        // THEN an intent should be sent to the primary user
-        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
-        verify(mContext).sendBroadcast(intentCaptor.capture());
-
-        // THEN the broadcast action is ACTION_MANAGED_PROFILE_PROVISIONED
-        assertEquals(ACTION_MANAGED_PROFILE_PROVISIONED, intentCaptor.getValue().getAction());
-
-        // THEN the receiver package is the DPC
-        assertEquals(TEST_MDM_PACKAGE_NAME, intentCaptor.getValue().getPackage());
-
-        // THEN the extra user handle should be of managed profile
-        assertEquals(MANAGED_PROFILE_USER_HANDLE,
-                intentCaptor.getValue().getExtra(Intent.EXTRA_USER));
-    }
-
-    @SmallTest
-    public void testAccountMigration() throws Exception {
-        // GIVEN that account migration occurred during provisioning
-        final DpcReceivedSuccessReceiver receiver = new DpcReceivedSuccessReceiver(TEST_ACCOUNT,
-                /* keepAccountMigrated */ false, MANAGED_PROFILE_USER_HANDLE, TEST_MDM_PACKAGE_NAME,
-                mUtils, /* callback */ null, /* isAdminIntegratedFlow */ false);
-
-        // WHEN receiver.onReceive is called
-        invokeOnReceiveAndVerifyIntent(receiver, /* postOnReceive */ aVoid -> {
-            // THEN the account should have been removed from the primary user
-            ArgumentCaptor<RemoveAccountListener> captor =
-                    ArgumentCaptor.forClass(RemoveAccountListener.class);
-            verify(mUtils).removeAccountAsync(eq(mContext), eq(TEST_ACCOUNT), captor.capture());
-            captor.getValue().onAccountRemoved();
-            return null;
-        });
-
-    }
-
-    @SmallTest
-    public void testAccountCopy() throws Exception {
-        // GIVEN that account copy occurred during provisioning
-        final DpcReceivedSuccessReceiver receiver = new DpcReceivedSuccessReceiver(TEST_ACCOUNT,
-                /* keepAccountMigrated */ true, MANAGED_PROFILE_USER_HANDLE, TEST_MDM_PACKAGE_NAME,
-                mUtils, /* callback */ null, /* isAdminIntegratedFlow */ false);
-
-        // WHEN receiver.onReceive is called
-        invokeOnReceiveAndVerifyIntent(receiver, /* postOnReceive */ aVoid -> {
-            // THEN the account is not removed from the primary user
-            verify(mUtils, never()).removeAccountAsync(eq(mContext), eq(TEST_ACCOUNT), any());
-            return null;
-        });
-    }
-
-    private void invokeOnReceiveAndVerifyIntent(final DpcReceivedSuccessReceiver receiver,
-            Function<Void, Void> postOnReceive) throws InterruptedException {
-        // prepare a semaphore to handle AsyncTask usage
-        final Semaphore semaphore = new Semaphore(0);
-        doAnswer((InvocationOnMock invocation) -> {
-            semaphore.release(1);
-            return null;
-        }).when(mContext).sendBroadcast(any(Intent.class));
-
-        // WHEN the profile provisioning complete intent was received by the DPC
-        receiver.onReceive(mContext, TEST_INTENT);
-
-        postOnReceive.apply(null);
-
-        assertTrue(semaphore.tryAcquire(SEND_BROADCAST_TIMEOUT_SECONDS, TimeUnit.SECONDS));
-
-        // THEN an intent should be sent to the primary user
-        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
-        verify(mContext).sendBroadcast(intentCaptor.capture());
-
-        // THEN the broadcast action is ACTION_MANAGED_PROFILE_PROVISIONED
-        assertEquals(ACTION_MANAGED_PROFILE_PROVISIONED, intentCaptor.getValue().getAction());
-
-        // THEN the receiver package is the DPC
-        assertEquals(TEST_MDM_PACKAGE_NAME, intentCaptor.getValue().getPackage());
-
-        // THEN the extra user handle should be of managed profile
-        assertEquals(MANAGED_PROFILE_USER_HANDLE,
-                intentCaptor.getValue().getExtra(Intent.EXTRA_USER));
-
-        // THEN the account was added to the broadcast
-        assertEquals(TEST_ACCOUNT, intentCaptor.getValue().getParcelableExtra(
-                EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE));
+        // THEN the system should be told to finalize the provisioning
+        verify(mDevicePolicyManager).finalizeWorkProfileProvisioning(
+                MANAGED_PROFILE_USER_HANDLE, /* migratedAccount= */ null);
     }
 }
