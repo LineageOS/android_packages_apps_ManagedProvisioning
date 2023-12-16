@@ -26,6 +26,19 @@ java_library {
     },
 }
 
+aconfig_declarations {
+    name: "aconfig_managed_provisioning_flags",
+    package: "com.android.managedprovisioning.flags",
+    srcs: [
+      "aconfig/*.aconfig"
+    ],
+}
+
+java_aconfig_library {
+    name: "aconfig_managed_provisioning_flags_lib",
+    aconfig_declarations: "aconfig_managed_provisioning_flags",
+}
+
 android_library {
     name: "ManagedProvisioningLib",
     manifest: "AndroidManifest.xml",
@@ -36,14 +49,20 @@ android_library {
 
     static_libs: [
         "androidx.legacy_legacy-support-v4",
-        "setupcompat",
+        "androidx.annotation_annotation",
         "setupdesign",
         "managedprovisioning_protoslite",
         "androidx.webkit_webkit-nodeps",
         "setupdesign-lottie-loading-layout",
         "lottie",
         "guava",
-        "aconfig_managed_provisioning_flags_lib"
+        "aconfig_managed_provisioning_flags_lib",
+        "hilt_android",
+        "android_onboarding.contracts.provisioning",
+        "android_onboarding.contracts.annotations",
+        "android_onboarding.contracts.setupwizard",
+        "android_onboarding.flags_hilt",
+        "jsr330",
     ],
 
     plugins: ["auto_value_plugin"],
@@ -82,17 +101,4 @@ android_app {
     jacoco: {
         include_filter: ["com.android.managedprovisioning.*"],
     },
-}
-
-aconfig_declarations {
-    name: "aconfig_managed_provisioning_flags",
-    package: "com.android.managedprovisioning.flags",
-    srcs: [
-      "aconfig/*.aconfig"
-    ],
-}
-
-java_aconfig_library {
-    name: "aconfig_managed_provisioning_flags_lib",
-    aconfig_declarations: "aconfig_managed_provisioning_flags",
 }

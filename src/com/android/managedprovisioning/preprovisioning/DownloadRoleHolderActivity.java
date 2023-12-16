@@ -26,10 +26,16 @@ import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ErrorDialogUtils;
 import com.android.managedprovisioning.common.ErrorWrapper;
+import com.android.managedprovisioning.common.Flags;
 import com.android.managedprovisioning.common.RoleHolderProvider;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
+import com.android.managedprovisioning.contracts.DownloadRoleHolderContract;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.DownloadRoleHolderViewModel.DownloadRoleHolderViewModelFactory;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+import javax.inject.Inject;
 
 /**
  * Spinner which takes care of network connectivity if needed, and downloading of the role holder.
@@ -43,12 +49,22 @@ import com.android.managedprovisioning.preprovisioning.DownloadRoleHolderViewMod
  * ErrorDialogUtils#EXTRA_FACTORY_RESET_REQUIRED} which can be used to display in a user-visible
  * dialog.
  */
-public class DownloadRoleHolderActivity extends SetupGlifLayoutActivity {
+@AndroidEntryPoint(SetupGlifLayoutActivity.class)
+public class DownloadRoleHolderActivity extends Hilt_DownloadRoleHolderActivity {
     private DownloadRoleHolderViewModel mViewModel;
+
+    @Inject
+    protected Flags mFlags;
+
+    @Inject
+    protected DownloadRoleHolderContract mContract;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (mFlags.isCosmicRayEnabled()) {
+            mContract.validate(this, getIntent());
+        }
 
         ProvisioningParams params = getIntent().getParcelableExtra(EXTRA_PROVISIONING_PARAMS);
         if (params.roleHolderDownloadInfo == null) {
@@ -72,7 +88,7 @@ public class DownloadRoleHolderActivity extends SetupGlifLayoutActivity {
     }
 
     private void onStateChanged(Integer state) {
-        switch(state) {
+        switch (state) {
             case DownloadRoleHolderViewModel.STATE_IDLE:
                 break;
             case DownloadRoleHolderViewModel.STATE_DOWNLOADING:

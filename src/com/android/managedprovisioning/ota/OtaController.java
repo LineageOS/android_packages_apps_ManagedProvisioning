@@ -92,15 +92,18 @@ public class OtaController {
     }
 
     public void run() {
+        ProvisionLogger.logd("Starting OTA migration");
         if (mContext.getUserId() != UserHandle.USER_SYSTEM) {
             return;
         }
         // Migrate snapshot files to use user serial number as file name.
+        ProvisionLogger.logd("Migrating system apps snapshots");
         mTaskExecutor.execute(
                 UserHandle.USER_SYSTEM, new MigrateSystemAppsSnapshotTask(
                         mContext, mTaskExecutor, mProvisioningAnalyticsTracker));
 
         // Check for device owner.
+        ProvisionLogger.logd("Checking for device owner");
         final int deviceOwnerUserId = mDevicePolicyManager.getDeviceOwnerUserId();
         if (deviceOwnerUserId != UserHandle.USER_NULL) {
             addDeviceOwnerTasks(deviceOwnerUserId, mContext);
@@ -108,16 +111,21 @@ public class OtaController {
 
         for (UserInfo userInfo : mUserManager.getUsers()) {
             if (userInfo.isManagedProfile()) {
+                ProvisionLogger.logd("Migrating managed profile " + userInfo.id);
                 addManagedProfileTasks(userInfo.id, mContext);
             } else if (mDevicePolicyManager.getProfileOwnerAsUser(userInfo.id) != null) {
+                ProvisionLogger.logd("Migrating managed user " + userInfo.id);
                 addManagedUserTasks(userInfo.id, mContext);
             } else if (!userInfo.isProfile()) {
                 // if this user has managed profiles, reset the cross-profile intent filters between
                 // this user and its managed profiles.
+                ProvisionLogger.logd(
+                        "Resetting default cross-profile intent filters for user " + userInfo.id);
                 mDevicePolicyManager.resetDefaultCrossProfileIntentFilters(userInfo.id);
             }
         }
 
+        ProvisionLogger.logd("Executing OTA migrations");
         mTaskExecutor.execute(mContext.getUserId(), new UpdateInteractAcrossProfilesAppOpTask(
                 mContext,
                 /* params= */ null,
@@ -199,7 +207,7 @@ public class OtaController {
     /**
      * Returns IME packages that can be installed from the profile parent user.
      *
-     * @param context {@link Context} of the caller.
+     * @param context    {@link Context} of the caller.
      * @param userHandle {@link UserHandle} that specifies the user.
      * @return A set of IME package names that can be installed from the profile parent user.
      */
@@ -215,7 +223,7 @@ public class OtaController {
     /**
      * Returns a set of the installed IME package names for the given user.
      *
-     * @param context {@link Context} of the caller.
+     * @param context    {@link Context} of the caller.
      * @param userHandle {@link UserHandle} that specifies the user.
      * @return A set of IME package names.
      */

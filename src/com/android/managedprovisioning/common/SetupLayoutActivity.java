@@ -45,10 +45,13 @@ import com.android.managedprovisioning.common.ThemeHelper.DefaultNightModeChecke
 import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBridge;
 import com.android.managedprovisioning.preprovisioning.EncryptionController;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 /**
  * Base class for setting up the layout.
  */
-public abstract class SetupLayoutActivity extends AppCompatActivity {
+@AndroidEntryPoint(AppCompatActivity.class)
+public abstract class SetupLayoutActivity extends Hilt_SetupLayoutActivity {
     protected final Utils mUtils;
     protected final SettingsFacade mSettingsFacade;
     private final ThemeHelper mThemeHelper;
@@ -176,9 +179,11 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
 
     /**
      * Constructs and shows a {@link DialogFragment} unless it is already displayed.
+     *
      * @param dialogBuilder Lightweight builder, that it is inexpensive to discard it if dialog
-     * already shown.
-     * @param tag The tag for this dialog, as per {@link FragmentTransaction#add(Fragment, String)}.
+     *                      already shown.
+     * @param tag           The tag for this dialog, as per
+     *                      {@link FragmentTransaction#add(Fragment, String)}.
      */
     protected void showDialog(DialogBuilder dialogBuilder, String tag) {
         FragmentManager fragmentManager = getFragmentManager();
@@ -189,6 +194,7 @@ public abstract class SetupLayoutActivity extends AppCompatActivity {
 
     /**
      * Checks whether the {@link DialogFragment} associated with the given tag is currently showing.
+     *
      * @param tag The tag for this dialog.
      */
     protected boolean isDialogAdded(String tag) {

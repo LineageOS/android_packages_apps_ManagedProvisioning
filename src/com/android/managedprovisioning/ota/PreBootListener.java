@@ -28,6 +28,7 @@ public class PreBootListener extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        ProvisionLogger.logd("Received PreBoot broadcast " + intent.getAction());
         if (Intent.ACTION_PRE_BOOT_COMPLETED.equals(intent.getAction())) {
             final PendingResult result = goAsync();
             Thread thread = new Thread(() -> {
@@ -35,6 +36,7 @@ public class PreBootListener extends BroadcastReceiver {
                 result.finish();
             });
             thread.setPriority(Thread.MAX_PRIORITY);
+            ProvisionLogger.logd("PreBoot completed, starting OTA controller job");
             thread.start();
         } else {
             ProvisionLogger.logw("Unexpected intent action: " + intent.getAction());

@@ -23,6 +23,10 @@ import android.view.WindowManager;
 
 import com.android.managedprovisioning.preprovisioning.EncryptionController;
 
+import dagger.hilt.android.HiltAndroidApp;
+
+import javax.inject.Inject;
+
 /**
  * A base {@link Application} that is meant to be extended.
  *
@@ -32,9 +36,11 @@ import com.android.managedprovisioning.preprovisioning.EncryptionController;
  *
  * <p>By default, the existing {@code ManagedProvisioning} {@link Activity} classes are used.
  */
-public abstract class ManagedProvisioningBaseApplication extends Application {
-    private final ScreenManager mScreenManager =
-            new ScreenManager(ScreenManager.DEFAULT_SCREEN_TO_ACTIVITY_MAP);
+@HiltAndroidApp(Application.class)
+public abstract class ManagedProvisioningBaseApplication extends
+        Hilt_ManagedProvisioningBaseApplication {
+    @Inject
+    protected ScreenManager mScreenManager;
     private EncryptionController mEncryptionController;
     private boolean mKeepScreenOn;
 
@@ -70,8 +76,8 @@ public abstract class ManagedProvisioningBaseApplication extends Application {
      * <p>If no screens were set via {@link #setOverrideActivity(ManagedProvisioningScreens,
      * Class)}, the base ManagedProvisioning {@link Activity} implementation will be returned.
      */
-    public final Class<? extends Activity>
-            getActivityClassForScreen(ManagedProvisioningScreens screen) {
+    public final Class<? extends Activity> getActivityClassForScreen(
+            ManagedProvisioningScreens screen) {
         return mScreenManager.getActivityClassForScreen(screen);
     }
 
