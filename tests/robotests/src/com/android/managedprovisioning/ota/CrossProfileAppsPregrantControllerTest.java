@@ -43,12 +43,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
+import org.robolectric.shadow.api.Shadow;
 import org.robolectric.shadows.ShadowProcess;
 
 import java.util.Collections;
 import java.util.Set;
 
 @RunWith(RobolectricTestRunner.class)
+@Config(shadows={ExtendsShadowCrossProfileApps.class, ExtendsShadowDevicePolicyManager.class})
 public class CrossProfileAppsPregrantControllerTest {
 
     private static final int MY_USER_ID = 0;
@@ -79,6 +82,10 @@ public class CrossProfileAppsPregrantControllerTest {
 
     private static final String TEST_PACKAGE = "test.package";
 
+    private static ExtendsShadowCrossProfileApps myShadowOf(CrossProfileApps mCrossProfileApps) {
+        return (ExtendsShadowCrossProfileApps) Shadow.extract(mCrossProfileApps);
+    }
+
     @Before
     public void setup() {
         // This is needed because the cross profile apps shadow doesn't actually set the appop
@@ -86,7 +93,7 @@ public class CrossProfileAppsPregrantControllerTest {
         when(mAppOpsManager.unsafeCheckOpNoThrow(anyString(), anyInt(), anyString()))
                 .thenAnswer(
                         invocation ->
-                                shadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(
+                                myShadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(
                                         invocation.getArgument(2)));
     }
 
@@ -100,7 +107,7 @@ public class CrossProfileAppsPregrantControllerTest {
 
         mPregrantController.checkCrossProfileAppsPermissions();
 
-        assertThat(shadowOf(mCrossProfileApps)
+        assertThat(myShadowOf(mCrossProfileApps)
                 .getInteractAcrossProfilesAppOp(TEST_PACKAGE))
                 .isEqualTo(AppOpsManager.MODE_DEFAULT);
     }
@@ -115,7 +122,7 @@ public class CrossProfileAppsPregrantControllerTest {
 
         mPregrantController.checkCrossProfileAppsPermissions();
 
-        assertThat(shadowOf(mCrossProfileApps)
+        assertThat(myShadowOf(mCrossProfileApps)
                 .getInteractAcrossProfilesAppOp(TEST_PACKAGE))
                 .isEqualTo(AppOpsManager.MODE_DEFAULT);
     }
@@ -130,7 +137,7 @@ public class CrossProfileAppsPregrantControllerTest {
 
         mPregrantController.checkCrossProfileAppsPermissions();
 
-        assertThat(shadowOf(mCrossProfileApps)
+        assertThat(myShadowOf(mCrossProfileApps)
                 .getInteractAcrossProfilesAppOp(TEST_PACKAGE))
                 .isEqualTo(AppOpsManager.MODE_ALLOWED);
     }
@@ -145,7 +152,7 @@ public class CrossProfileAppsPregrantControllerTest {
 
         mPregrantController.checkCrossProfileAppsPermissions();
 
-        assertThat(shadowOf(mCrossProfileApps)
+        assertThat(myShadowOf(mCrossProfileApps)
                 .getInteractAcrossProfilesAppOp(TEST_PACKAGE))
                 .isEqualTo(AppOpsManager.MODE_IGNORED);
     }
@@ -162,10 +169,10 @@ public class CrossProfileAppsPregrantControllerTest {
     }
 
     private void setWhitelistedPackages(Set<String> packages) {
-        shadowOf(mDevicePolicyManager).setDefaultCrossProfilePackages(packages);
+        ((ExtendsShadowDevicePolicyManager) Shadow.extract(mDevicePolicyManager)).setDefaultCrossProfilePackages(packages);
     }
 
     private void setConfigurablePackages(Set<String> packages) {
-        packages.forEach(p -> shadowOf(mCrossProfileApps).addCrossProfilePackage(p));
+        packages.forEach(p -> myShadowOf(mCrossProfileApps).addCrossProfilePackage(p));
     }
 }

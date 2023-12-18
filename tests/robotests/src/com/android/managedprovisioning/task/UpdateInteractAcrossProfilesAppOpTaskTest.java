@@ -35,11 +35,15 @@ import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.ota.ExtendsShadowCrossProfileApps;
+import com.android.managedprovisioning.ota.ExtendsShadowDevicePolicyManager;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
+import org.robolectric.annotation.Config;
+import org.robolectric.shadow.api.Shadow;
 
 import org.junit.runner.RunWith;
 
@@ -50,6 +54,7 @@ import java.util.Set;
  * Unit-tests for {@link UpdateInteractAcrossProfilesAppOpTask}.
  */
 @RunWith(RobolectricTestRunner.class)
+@Config(shadows={ExtendsShadowCrossProfileApps.class, ExtendsShadowDevicePolicyManager.class})
 public class UpdateInteractAcrossProfilesAppOpTaskTest {
     private static final String TEST_PACKAGE_NAME_1 = "com.test.packagea";
     private static final String TEST_PACKAGE_NAME_2 = "com.test.packageb";
@@ -74,6 +79,10 @@ public class UpdateInteractAcrossProfilesAppOpTaskTest {
             new UpdateInteractAcrossProfilesAppOpTask(
                     mContext, /* params= */ null, mCallback, mProvisioningAnalyticsTracker);
 
+    private static ExtendsShadowCrossProfileApps myShadowOf(CrossProfileApps mCrossProfileApps) {
+        return (ExtendsShadowCrossProfileApps) Shadow.extract(mCrossProfileApps);
+    }
+
     @Before
     public void setUp() {
         shadowOf(mUserManager).addUser(TEST_USER_ID, "Username", /* flags= */ 0);
@@ -86,7 +95,7 @@ public class UpdateInteractAcrossProfilesAppOpTaskTest {
 
         task.run(TEST_USER_ID);
 
-        assertThat(shadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(TEST_PACKAGE_NAME_2))
+        assertThat(myShadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(TEST_PACKAGE_NAME_2))
                 .isEqualTo(MODE_ALLOWED);
     }
 
@@ -94,13 +103,13 @@ public class UpdateInteractAcrossProfilesAppOpTaskTest {
     public void run_packageIsRemovedButStillConfigurable_appOpIsNotReset() {
         setDefaultCrossProfilePackages(TEST_PACKAGE_NAME_1, TEST_PACKAGE_NAME_2);
         mCrossProfileApps.setInteractAcrossProfilesAppOp(TEST_PACKAGE_NAME_2, MODE_ALLOWED);
-        shadowOf(mCrossProfileApps).addCrossProfilePackage(TEST_PACKAGE_NAME_2);
+        myShadowOf(mCrossProfileApps).addCrossProfilePackage(TEST_PACKAGE_NAME_2);
         task.run(TEST_USER_ID);
 
         setDefaultCrossProfilePackages(TEST_PACKAGE_NAME_1);
         task.run(TEST_USER_ID);
 
-        assertThat(shadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(TEST_PACKAGE_NAME_2))
+        assertThat(myShadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(TEST_PACKAGE_NAME_2))
                 .isEqualTo(MODE_ALLOWED);
     }
 
@@ -114,7 +123,7 @@ public class UpdateInteractAcrossProfilesAppOpTaskTest {
         setDefaultCrossProfilePackages(TEST_PACKAGE_NAME_1);
         task.run(TEST_USER_ID);
 
-        assertThat(shadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(TEST_PACKAGE_NAME_2))
+        assertThat(myShadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(TEST_PACKAGE_NAME_2))
                 .isEqualTo(MODE_DEFAULT);
     }
 
@@ -127,7 +136,7 @@ public class UpdateInteractAcrossProfilesAppOpTaskTest {
         setDefaultCrossProfilePackages(TEST_PACKAGE_NAME_2);
         task.run(TEST_USER_ID);
 
-        assertThat(shadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(TEST_PACKAGE_NAME_2))
+        assertThat(myShadowOf(mCrossProfileApps).getInteractAcrossProfilesAppOp(TEST_PACKAGE_NAME_2))
                 .isEqualTo(MODE_ALLOWED);
     }
 
@@ -137,6 +146,6 @@ public class UpdateInteractAcrossProfilesAppOpTaskTest {
             packages.add(packageName);
         }
 
-        shadowOf(mDevicePolicyManager).setDefaultCrossProfilePackages(packages);
+        ((ExtendsShadowDevicePolicyManager) Shadow.extract(mDevicePolicyManager)).setDefaultCrossProfilePackages(packages);
     }
 }
