@@ -18,8 +18,6 @@ android_robolectric_test {
 
     // Include the testing libraries
     libs: [
-        "robolectric_android-all-stub",
-        "Robolectric_all-target",
         "mockito-robolectric-prebuilt",
         "truth",
         "androidx.test.core",
@@ -31,4 +29,6 @@ android_robolectric_test {
     static_libs: ["managedprovisioning_protoslite"],
 
     instrumentation_for: "ManagedProvisioning",
+
+    upstream: true,
 }
