@@ -15,17 +15,11 @@
  */
 package com.android.managedprovisioning.model;
 
-import android.os.Bundle;
 import android.os.Parcel;
 import android.test.AndroidTestCase;
 import android.test.MoreAsserts;
-import android.test.suitebuilder.annotation.SmallTest;
 
-import com.android.managedprovisioning.model.PackageDownloadInfo;
-
-import junit.framework.Assert;
-
-import java.lang.Exception;
+import androidx.test.filters.SmallTest;
 
 /** Tests for {@link PackageDownloadInfo} */
 public class PackageDownloadInfoTest extends AndroidTestCase {
