@@ -25,8 +25,12 @@ import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.os.UserManager;
 
+import com.android.managedprovisioning.ota.ExtendsShadowDevicePolicyManager;
+
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
+import org.robolectric.annotation.Config;
+import org.robolectric.shadow.api.Shadow;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -39,6 +43,7 @@ import java.util.Set;
  * Unit-tests for {@link CrossProfileAppsSnapshot}.
  */
 @RunWith(RobolectricTestRunner.class)
+@Config(shadows={ExtendsShadowDevicePolicyManager.class})
 public class CrossProfileAppsSnapshotTest {
     private static final String TEST_PACKAGE_NAME_1 = "com.test.packagea";
     private static final String TEST_PACKAGE_NAME_2 = "com.test.packageb";
@@ -96,6 +101,6 @@ public class CrossProfileAppsSnapshotTest {
             packages.add(packageName);
         }
 
-        shadowOf(mDevicePolicyManager).setDefaultCrossProfilePackages(packages);
+        ((ExtendsShadowDevicePolicyManager) Shadow.extract(mDevicePolicyManager)).setDefaultCrossProfilePackages(packages);
     }
 }
