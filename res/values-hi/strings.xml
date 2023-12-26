@@ -84,7 +84,7 @@
     <string name="error_wifi" msgid="1850288843966836571">"वाई-फ़ाई से कनेक्ट नहीं किया जा सका"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"आपके <xliff:g id="DEVICE_NAME">%1$s</xliff:g> में फ़ैक्ट्री रीसेट करने से जुड़ी सुरक्षा चालू है. इसके बारे में सहायता पाने के लिए, अपने आईटी एडमिन से संपर्क करें."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"मिटाया जा रहा है"</string>
-    <string name="frp_clear_progress_text" msgid="1740164332830598827">"कृपया प्रतीक्षा करें..."</string>
+    <string name="frp_clear_progress_text" msgid="1740164332830598827">"कृपया इंतज़ार करें..."</string>
     <string name="error_hash_mismatch" msgid="1145488923243178454">"चेकसम गड़बड़ी की वजह से एडमिन ऐप्लिकेशन का इस्तेमाल नहीं किया जा सका. मदद के लिए अपने आईटी एडमिन से संपर्क करें."</string>
     <string name="error_download_failed" msgid="3274283629837019452">"एडमिन ऐप्लिकेशन डाउनलोड नहीं किया जा सका"</string>
     <string name="error_package_invalid" msgid="555402554502033988">"एडमिन ऐप्लिकेशन का इस्तेमाल नहीं किया जा सकता. उसमें कुछ चीज़ें मौजूद नहीं हैं या वह खराब है. मदद के लिए, अपने आईटी एडमिन से संपर्क करें."</string>
