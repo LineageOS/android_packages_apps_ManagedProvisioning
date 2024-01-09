@@ -29,8 +29,9 @@ java_library {
 aconfig_declarations {
     name: "aconfig_managed_provisioning_flags",
     package: "com.android.managedprovisioning.flags",
+    container: "system",
     srcs: [
-      "aconfig/*.aconfig"
+        "aconfig/*.aconfig",
     ],
 }
 
@@ -70,7 +71,7 @@ android_library {
     srcs: [
         "src/**/*.java",
         "src/**/*.kt",
-        "src/**/I*.aidl"
+        "src/**/I*.aidl",
     ],
 
     resource_dirs: ["res"],
