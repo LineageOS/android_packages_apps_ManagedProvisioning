@@ -22,14 +22,13 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 import static com.android.managedprovisioning.analytics.NetworkTypeLogger.NETWORK_TYPE_NOT_CONNECTED;
 
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 import android.content.Context;
-import android.test.AndroidTestCase;
-import android.test.suitebuilder.annotation.SmallTest;
-import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.test.AndroidTestCase;
+
+import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.Utils;

@@ -40,9 +40,9 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.UserHandle;
 import android.test.AndroidTestCase;
-import android.test.suitebuilder.annotation.SmallTest;
 
 import androidx.test.InstrumentationRegistry;
+import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
