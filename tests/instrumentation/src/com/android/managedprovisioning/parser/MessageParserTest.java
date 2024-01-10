@@ -26,7 +26,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.os.UserHandle;
 import android.test.AndroidTestCase;
-import android.test.suitebuilder.annotation.SmallTest;
+
+import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
