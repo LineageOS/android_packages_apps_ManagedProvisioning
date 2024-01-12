@@ -1,5 +1,6 @@
 plugins {
     id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 val androidTop = extra["ANDROID_TOP"].toString()
 android {
@@ -16,4 +17,10 @@ android {
         )
         manifest.srcFile("empty-manifest.xml")
     }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+dependencies {
+    implementation("androidx.core:core-ktx:+")
 }

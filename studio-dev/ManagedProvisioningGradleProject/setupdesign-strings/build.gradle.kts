@@ -4,6 +4,7 @@
  */
 plugins {
     id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 
 val top = extra["ANDROID_TOP"].toString()
@@ -20,7 +21,11 @@ android {
             res.srcDirs(listOf("$top/external/setupdesign/strings/res"))
         }
     }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies {
+    implementation("androidx.core:core-ktx:+")
 }

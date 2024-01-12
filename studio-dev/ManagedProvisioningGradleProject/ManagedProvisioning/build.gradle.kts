@@ -20,6 +20,7 @@ val robolibBuildDir = project(":RobolectricLib").buildDir.toString()
 aconfig {
     aconfigDeclaration {
         packageName.set("com.android.managedprovisioning.flags")
+        containerName.set("system")
         srcFile.setFrom(fileTree("$moduleDir/aconfig").matching {
             include("*.aconfig")
         })

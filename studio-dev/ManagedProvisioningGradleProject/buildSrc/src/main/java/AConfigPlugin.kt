@@ -34,6 +34,7 @@ abstract class AConfigPlugin : Plugin<Project> {
                     ) {
                         aconfigPath.set(aconfigBin)
                         packageName = pkgName
+                        containerName = it.containerName.get()
                         srcFiles.setFrom(it.srcFile)
                         outputFile.set(
                                 project.layout.buildDirectory.file(

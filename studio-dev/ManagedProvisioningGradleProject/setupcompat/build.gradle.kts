@@ -5,6 +5,7 @@
 
 plugins {
     id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 
 val top = extra["ANDROID_TOP"].toString()
@@ -32,10 +33,14 @@ android {
     buildFeatures {
         aidl = true
     }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies {
     implementation(libs.androidx.annotation)
     implementation(libs.errorprone.annotations)
     implementation(libs.androidx.window)
+    implementation("androidx.core:core-ktx:+")
 }

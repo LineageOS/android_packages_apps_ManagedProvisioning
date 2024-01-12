@@ -6,6 +6,7 @@ import org.gradle.api.provider.Property
 
 interface AConfigDeclaration {
     val packageName: Property<String>
+    val containerName: Property<String>
     val srcFile: ConfigurableFileCollection
 }
 

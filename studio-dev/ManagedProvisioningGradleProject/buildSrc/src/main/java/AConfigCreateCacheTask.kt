@@ -7,13 +7,16 @@ import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputFile
 
 abstract class AConfigCreateCacheTask :
-    AbstractExecTask<AConfigCreateCacheTask>(AConfigCreateCacheTask::class.java) {
+        AbstractExecTask<AConfigCreateCacheTask>(AConfigCreateCacheTask::class.java) {
 
     @get:InputFile
     abstract val aconfigPath: RegularFileProperty
 
     @get:Input
     abstract var packageName: String
+
+    @get:Input
+    abstract var containerName: String
 
     @get:InputFiles
     abstract val srcFiles: ConfigurableFileCollection
@@ -23,7 +26,7 @@ abstract class AConfigCreateCacheTask :
 
     override fun exec() {
         commandLine(aconfigPath.get())
-        args("create-cache", "--package", packageName)
+        args("create-cache", "--package", packageName, "--container", containerName)
 
         srcFiles.files.forEach { aconfigFile ->
             args("--declarations", aconfigFile)
