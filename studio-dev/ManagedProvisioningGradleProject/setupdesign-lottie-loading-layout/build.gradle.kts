@@ -4,6 +4,7 @@
  */
 plugins {
   id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 
 val top = extra["ANDROID_TOP"].toString()
@@ -27,6 +28,9 @@ android {
       res.srcDirs(listOf("$top/external/setupdesign/lottie_loading_layout/res"))
     }
   }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies {
@@ -34,4 +38,5 @@ dependencies {
   api(project(":setupcompat"))
   api(project(":setupdesign"))
   api(libs.com.airbnb.android.lottie)
+    implementation("androidx.core:core-ktx:+")
 }

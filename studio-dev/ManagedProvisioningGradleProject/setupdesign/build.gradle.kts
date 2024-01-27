@@ -4,6 +4,7 @@
  */
 plugins {
     id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 
 val top = extra["ANDROID_TOP"].toString()
@@ -28,6 +29,9 @@ android {
             res.srcDirs(listOf("$top/external/setupdesign/main/res"))
         }
     }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies {
@@ -41,4 +45,5 @@ dependencies {
     api(libs.errorprone.annotations)
     api(project(":setupcompat"))
     api(project(":setupdesign-strings"))
+    implementation("androidx.core:core-ktx:+")
 }
