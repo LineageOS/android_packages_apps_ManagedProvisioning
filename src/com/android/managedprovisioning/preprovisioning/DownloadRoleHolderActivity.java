@@ -33,9 +33,9 @@ import com.android.managedprovisioning.contracts.DownloadRoleHolderContract;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.DownloadRoleHolderViewModel.DownloadRoleHolderViewModelFactory;
 
-import dagger.hilt.android.AndroidEntryPoint;
-
 import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
 
 /**
  * Spinner which takes care of network connectivity if needed, and downloading of the role holder.
@@ -63,7 +63,7 @@ public class DownloadRoleHolderActivity extends Hilt_DownloadRoleHolderActivity 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (mFlags.isCosmicRayEnabled()) {
-            mContract.validate(this, getIntent());
+            mContract.attach(this, getIntent());
         }
 
         ProvisioningParams params = getIntent().getParcelableExtra(EXTRA_PROVISIONING_PARAMS);
