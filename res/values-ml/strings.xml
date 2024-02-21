@@ -183,7 +183,7 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"ഉപകരണം സജ്ജീകരിക്കാനാകില്ല"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"പൂർണ്ണമായും മാനേജ് ചെയ്യുന്ന മോഡിലേക്ക് ഈ ഉപകരണം എൻറോൾ ചെയ്യാനാകില്ല. ഉപകരണം ഫാക്ടറി റീസെറ്റ് ചെയ്ത് ഐടി അഡ്മിനെ ബന്ധപ്പെടൂ."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"ഫാക്‌ടറി റീസെറ്റ്"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ഔദ്യോഗിക ആപ്പുകൾ ഔദ്യോഗിക പ്രൊഫൈലിലാണ്, അവ നിയന്ത്രിക്കുന്നത് ഐടി അഡ്‍മിനാണ്"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"അഡ്‍മിൻ നിയന്ത്രിക്കുന്ന ഔദ്യോഗിക ആപ്പുകൾ ഔദ്യോഗിക പ്രൊഫൈലിലാണ്."</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"വ്യക്തിപരമായ ആപ്പുകളും ഔദ്യോഗിക ആപ്പുകളും വെവ്വേറെയാണ്, അവ പരസ്പരം മറച്ചിരിക്കുന്നു"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ഐടി അഡ്‍മിന് ഈ ഉപകരണം നിയന്ത്രിക്കാനും ചില ആപ്പുകൾ ബ്ലോക്ക് ചെയ്യാനുമാകും"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"ഔദ്യോഗിക ആപ്പുകൾ നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിൽ സൂക്ഷിച്ചിരിക്കുന്നു, ഐടി അഡ്‌മിൻ അവ മാനേജ് ചെയ്യുന്നു. വ്യക്തിപര ആപ്പുകൾ വേർതിരിച്ചിട്ടുണ്ട്, ഔദ്യോഗിക ആപ്പിൽ നിന്ന് മറച്ചിരിക്കുന്നു. നിങ്ങളുടെ ഐടി അഡ്‌മിന് ഈ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> നിയന്ത്രിക്കാനും ചില ആപ്പുകൾ ബ്ലോക്ക് ചെയ്യാനുമാകും."</string>

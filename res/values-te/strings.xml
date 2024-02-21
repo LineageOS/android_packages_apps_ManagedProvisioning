@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"పరికరాన్ని సెటప్ చేయడం సాధ్యపడదు"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"ఈ పరికరాన్ని పూర్తిగా మేనేజ్ చేయబడే మోడ్‌లో ఎన్‌రోల్ చేయడం సాధ్యపడదు. మీ పరికరాన్ని ఫ్యాక్టరీ రీసెట్ చేసి, మీ IT అడ్మిన్‌ను సంప్రదించండి."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"ఫ్యాక్టరీ రీసెట్ చేయండి"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ఆఫీస్ యాప్‌లు మీ వర్క్ ప్రొఫైల్‌లో ఉంటాయి &amp; మీ IT అడ్మిన్ చేత మేనేజ్ చేయబడతాయి"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"వ్యక్తిగత యాప్‌లు విడిగా ఉంటాయి &amp; ఆఫీస్ యాప్‌లకు కనిపించవు"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"మీ IT అడ్మిన్ ఈ పరికరాన్ని కంట్రోల్ చేయగలరు &amp; కొన్ని యాప్‌లను బ్లాక్ చేయగలరు"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"వర్క్ యాప్స్ వర్క్ ప్రొఫైల్‌లో IT అడ్మిన్ కంట్రోల్‌లో ఉంటాయి"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"వ్యక్తిగత యాప్స్ విడిగా ఉంటాయి, అవి వర్క్ యాప్‌లకు కనిపించవు"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"డివైజ్ అడ్మిన్ కంట్రోల్‌లో ఉండి, కొన్ని యాప్స్ బ్లాక్ అవచ్చు"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"మీ వర్క్ ప్రొఫైల్‌లో వర్క్ యాప్‌లు ఉంటాయి, వాటిని మీ IT అడ్మిన్ మేనేజ్ చేస్తారు. వ్యక్తిగత యాప్‌లు విడిగా ఉంటాయి, వర్క్ యాప్‌లలో కనిపించవు. మీ IT అడ్మిన్ ఈ <xliff:g id="DEVICE_NAME">%1$s</xliff:g>‌ను కంట్రోల్ చేయగలరు, కొన్ని యాప్‌లను బ్లాక్ చేయగలరు."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"ఒక్క క్షణం ఆగండి…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"గోప్యతా రిమైండర్"</string>

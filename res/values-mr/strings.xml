@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"डिव्हाइस सेट केले जाऊ शकत नाही"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"पूर्णपणे व्यवस्थापित केलेल्या मोडमध्ये या डिव्हाइसची नोंदणी केली जाऊ शकत नाही. तुमचे डिव्हाइस फॅक्टरी रीसेट करा आणि तुमच्या आयटी ॲडमिनशी संपर्क साधा."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"फॅक्टरी रीसेट करा"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कार्य प्रोफाइलमध्ये ठेवलेली तुमची कार्य अ‍ॅप्स आयटी ॲडमिन व्यवस्थापित करतात"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कार्य प्रोफाइलमधील कार्य अ‍ॅप्स आयटी ॲडमिन व्यवस्थापित करतात"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"वैयक्तिक अ‍ॅप्स कामासंबंधी अ‍ॅप्सहून वेगळी व लपवलेली असतात"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"तुमचा आयटी ॲडमिन हे डिव्हाइस नियंत्रित व काही ॲप्स ब्लॉक करू शकतो"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"आयटी ॲडमिन हे डिव्हाइस नियंत्रित व काही ॲप्स ब्लॉक करू शकतो"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"कार्य अ‍ॅप्स तुमच्या कार्य प्रोफाइलमध्ये ठेवली जातात आणि तुमच्या आयटी ॲडमिनद्वारे व्यवस्थापित केली जातात. वैयक्तिक अ‍ॅप्स ही कार्य अ‍ॅप्सपासून वेगळी आणि लपवलेली असतात. तुमचा आयटी ॲडमिन हे <xliff:g id="DEVICE_NAME">%1$s</xliff:g> नियंत्रित करू शकतो आणि विशिष्ट ॲप्स ब्लॉक करू शकतो."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"फक्त एक सेकंद…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"गोपनीयता रिमाइंडर"</string>
