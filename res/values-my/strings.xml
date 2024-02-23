@@ -185,7 +185,7 @@
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"စက်ရုံထုတ်အတိုင်း ပြင်ဆင်သတ်မှတ်ရန်"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"အလုပ်အက်ပ်များကို အလုပ်ပရိုဖိုင်တွင် IT စီမံသူက ထိန်းချုပ်၏"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ကိုယ်ပိုင်အက်ပ်များကို အလုပ်အက်ပ်များမှ ခွဲပြီးဖျောက်ထားသည်"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"သင်၏ IT စီမံသူက ဤစက်ကိုထိန်းချုပ်ပြီး အချို့အက်ပ်များ ပိတ်ထားနိုင်သည်"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT စီမံသူက စက်ကိုထိန်းချုပ်ပြီး အချို့အက်ပ်များ ပိတ်နိုင်သည်"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"အလုပ်သုံးအက်ပ်များကို သင့်အလုပ်ပရိုဖိုင်တွင် သိမ်းထားပြီး သင်၏ IT စီမံခန့်ခွဲသူက စီမံသည်။ ကိုယ်ရေးသုံးအက်ပ်များသည် သီးခြားဖြစ်ပြီး အလုပ်သုံးအက်ပ်များမှ ဖျောက်ထားသည်။ သင်၏ IT စီမံခန့်ခွဲသူက ဤ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ကို ထိန်းချုပ်ပြီး အချို့သောအက်ပ်များကို ပိတ်ထားနိုင်သည်။"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"ခဏစောင့်ပါ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ပုဂ္ဂိုလ်ရေးလုံခြုံမှု သတိပေးချက်"</string>

@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Uređaj ne može da se podesi"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Ovaj uređaj ne može da se podesi za režim sa potpunim upravljanjem. Resetujte uređaj na fabrička podešavanja i obratite se IT administratoru."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Resetuj na fabrička podešavanja"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Poslovne aplikacije se čuvaju na poslovnom profilu i njima upravlja IT administrator"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Poslovne apl. su na poslovnom profilu kojim upravlja IT admin."</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Lične aplikacije su odvojene i skrivene od poslovnih"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT administrator može da kontroliše ovaj uređaj i da blokira određene aplikacije"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT admin. može da kontroliše ovaj uređaj i blokira aplikacije"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Poslovne aplikacije se čuvaju na profilu za Work i njima upravlja IT administrator. Lične aplikacije su odvojene i skrivene kada se prikazuju aplikacije za posao. IT administrator može da kontroliše ovaj uređaj <xliff:g id="DEVICE_NAME">%1$s</xliff:g> i da blokira određene aplikacije."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Samo trenutak…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Podsetnik o privatnosti"</string>
