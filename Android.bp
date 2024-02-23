@@ -77,7 +77,6 @@ android_library {
 
     resource_dirs: ["res"],
 
-    platform_apis: true,
     optimize: {
         proguard_flags_files: ["proguard.flags"],
     },
