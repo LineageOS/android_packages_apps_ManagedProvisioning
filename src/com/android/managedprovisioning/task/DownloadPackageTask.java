@@ -16,9 +16,9 @@
 package com.android.managedprovisioning.task;
 
 import static android.provider.Settings.Secure.MANAGED_PROVISIONING_DPC_DOWNLOADED;
-
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_DOWNLOAD_PACKAGE_TASK_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
+import static java.lang.String.format;
 
 import android.app.DownloadManager;
 import android.app.DownloadManager.Query;
@@ -45,6 +45,7 @@ import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import java.io.File;
+import java.net.URI;
 
 /**
  * Downloads the management app apk from the url provided by {@link PackageDownloadInfo#location}.
@@ -98,10 +99,12 @@ public class DownloadPackageTask extends AbstractProvisioningTask
     @Override
     public void run(int userId) {
         startTaskTimer();
+        ProvisionLogger.logd(format("Starting download of %s on user %s for user %s", mPackageName, mContext.getUserId(), userId));
         if (!mUtils.packageRequiresUpdate(mPackageName, mPackageDownloadInfo.minVersion,
                 mContext)) {
             // Do not log time if package is already on device and does not require an update, as
             // that isn't useful.
+            ProvisionLogger.logd(format("No update needed for %s", mPackageName));
             success();
             return;
         }
@@ -114,18 +117,16 @@ public class DownloadPackageTask extends AbstractProvisioningTask
 
         setDpcDownloadedSetting(mContext);
 
+        ProvisionLogger.logd(format("Creating download receiver for %s", mPackageName));
         mReceiver = createDownloadReceiver();
         // register the receiver on the worker thread to avoid threading issues with respect to
         // the location variable
+        ProvisionLogger.logd(format("Registering download receiver for %s", mPackageName));
         mContext.registerReceiver(mReceiver,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE),
                 null,
                 new Handler(Looper.myLooper()),
                 Context.RECEIVER_EXPORTED);
-
-        if (Globals.DEBUG) {
-            ProvisionLogger.logd("Starting download from " + mPackageDownloadInfo.location);
-        }
 
         Request request = new Request(Uri.parse(mPackageDownloadInfo.location));
 
@@ -144,6 +145,7 @@ public class DownloadPackageTask extends AbstractProvisioningTask
                         + mPackageDownloadInfo.cookieHeader);
             }
         }
+        ProvisionLogger.logd(format("Starting download for %s from %s into %s", mPackageName, mPackageDownloadInfo.location, path));
         mDownloadId = mDownloadManager.enqueue(request);
     }
 
@@ -167,14 +169,15 @@ public class DownloadPackageTask extends AbstractProvisioningTask
             @Override
             public void onReceive(Context context, Intent intent) {
                 if (DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(intent.getAction())) {
+                    ProvisionLogger.logd(format("Download receiver invoked for %s", mPackageName));
                     Query q = new Query();
                     q.setFilterById(mDownloadId);
                     Cursor c = mDownloadManager.query(q);
                     if (c.moveToFirst()) {
                         int columnIndex = c.getColumnIndex(DownloadManager.COLUMN_STATUS);
                         if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
-                            mDownloadLocationTo = new File(c.getString(
-                                    c.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME)));
+                            mDownloadLocationTo = new File(URI.create(c.getString(
+                                    c.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI))));
                             c.close();
                             onDownloadSuccess();
                         } else if (DownloadManager.STATUS_FAILED == c.getInt(columnIndex)) {
