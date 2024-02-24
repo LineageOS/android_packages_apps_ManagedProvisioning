@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Não é possível configurar o dispositivo"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Não é possível inscrever este dispositivo no modo totalmente gerido. Faça uma reposição de fábrica do dispositivo e contacte o administrador de TI."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Fazer reposição de fábrica"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apps de trabalho são do perfil de trabalho e geridas pelo administrador de TI"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apps de trabalho - no perfil de trabalho/geridas pelo admin. de TI"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"As apps pessoais são separadas e ocultas das de trabalho"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"O administrador de TI pode controlar o dispositivo e bloquear certas apps"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"O admin. de TI pode controlar o dispositivo e bloquear certas apps"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"As apps de trabalho são mantidas no seu perfil de trabalho e geridas pelo seu administrador de TI. As apps pessoais são separadas e ocultas das apps de trabalho. O seu administrador de TI pode controlar este dispositivo <xliff:g id="DEVICE_NAME">%1$s</xliff:g> e bloquear determinadas apps."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Aguarde um segundo…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Lembrete de privacidade"</string>

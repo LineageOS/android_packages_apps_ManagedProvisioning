@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Hindi ma-set up ang device"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Hindi mae-enroll ang device sa fully managed mode. I-factory reset ang device at kontakin ang IT admin."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"I-factory reset"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Nasa profile mo sa trabaho ang apps para sa trabaho at mina-manage ito ng IT admin mo"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Nakahiwalay ang mga personal na app at nakatago ito mula sa mga app para sa trabaho"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Makokontrol ng iyong IT admin ang device na ito at makakapag-block siya ng ilang apps"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Nasa work profile mo ng work apps at mina-manage ng IT admin"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Nakahiwalay ang personal apps at nakatago mula sa work apps"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Makokontrol ng IT ang device at makakapag-block ng ilang app"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Pinapanatili sa iyong profile sa trabaho ang mga app para sa trabaho at pinapamahalaan ng IT admin mo ang mga ito. Nakahiwalay ang mga personal na app at nakatago ang mga ito mula sa mga app para sa trabaho. Makokontrol ng iyong IT admin ang <xliff:g id="DEVICE_NAME">%1$s</xliff:g> na ito at makakapag-block siya ng ilang partikular na app."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Sandali lang…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Paalala sa privacy"</string>
