@@ -22,6 +22,7 @@ import static com.google.android.setupdesign.util.ThemeHelper.shouldApplyMateria
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Layout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -179,6 +180,8 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
         TextView header = layout.findViewById(com.google.android.setupdesign.R.id.suc_layout_title);
         TextView description =
                 layout.findViewById(com.google.android.setupdesign.R.id.sud_layout_subtitle);
+        // No hyphenation split word in header
+        header.setHyphenationFrequency(Layout.HYPHENATION_FREQUENCY_NORMAL);
         ViewGroup item1 = layout.findViewById(R.id.item1);
         ViewGroup item2 = layout.findViewById(R.id.item2);
         LottieAnimationView drawable = layout.findViewById(R.id.animation);
