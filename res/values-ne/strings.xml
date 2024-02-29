@@ -183,8 +183,8 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"यो डिभाइस सेटअप गर्न मिल्दैन"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"यो डिभाइस पूर्ण रूपमा व्यवस्थापन गरिने मोडमा दर्ता गर्न मिल्दैन। आफ्नो डिभाइस फ्याक्ट्री रिसेट गर्नुहोस् अनि आफ्ना IT एड्मिनलाई सम्पर्क गर्नुहोस्।"</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"फ्याक्ट्री रिसेट गर्नुहोस्"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कामसम्बन्धी एपहरू कार्य प्रोफाइलमा राखिन्छन् र IT एड्मिनले ती एप व्यवस्थापन गर्छन्"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"व्यक्तिगत एपहरू छुट्टै राखिन्छन् र ती एप कामसम्बन्धी एपसँगै देखिँदैनन्"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कामसम्बन्धी एप कार्य प्रोफाइलमा हुन्छन् र IT एड्मिनले हेर्छन्"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"व्यक्तिगत एप छुट्टै राखिन्छन् र कामसम्बन्धी एपसँगै देखिँदैनन्"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT एड्मिन यो डिभाइस र यसका केही एपहरू नियन्त्रण गर्न सक्छन्"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"कामसम्बन्धी एपहरू तपाईंको कार्य प्रोफाइलमा राखिन्छन् र तपाईंका IT एड्मिन ती एप व्यवस्थापन गर्छन्। व्यक्तिगत एपहरू छुट्टै राखिन्छन् र ती एप कामसम्बन्धी एपसँगै देखिँदैनन्। तपाईंका IT एड्मिन यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> नियन्त्रण गर्न र निश्चित एपमाथि रोक लगाउन सक्छन्।"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"एकै छिन पर्खनुहोस्…"</string>

@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"לא ניתן להגדיר את המכשיר"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"‏לא ניתן לרשום את המכשיר הזה למצב מנוהל באופן מלא. יש לאפס את המכשיר להגדרות המקוריות ולפנות לאדמין ב-IT."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"איפוס להגדרות המקוריות"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏אפליקציות לעבודה מאוחסנות בפרופיל שלך ומנוהלות על ידי מנהל ה-IT"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏אפליקציות לעבודה נשמרות בפרופיל שלך ומנוהלות ע\"י האדמין ב-IT"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"אפליקציות אישיות מאוחסנות בנפרד ומוסתרות מאפליקציות לעבודה"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"‏מנהל ה-IT יכול לשלוט במכשיר הזה ולחסום אפליקציות מסוימות"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"‏האדמין ב-IT יכול לשלוט במכשיר הזה ולחסום אפליקציות מסוימות"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"‏אפליקציות לעבודה נשמרות בפרופיל העבודה ומנוהלות על ידי מנהל ה-IT. אפליקציות לשימוש אישי מאוחסנות בנפרד ומוסתרות מהאפליקציות לעבודה. מנהל ה-IT יכול לשלוט במכשיר <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ולחסום אפליקציות מסוימות."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"רק רגע…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"תזכורת לגבי פרטיות"</string>
