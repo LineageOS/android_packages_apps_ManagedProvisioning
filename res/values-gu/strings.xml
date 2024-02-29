@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"ડિવાઇસનું સેટઅપ કરી શકાતું નથી"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"સંપૂર્ણ રીતે મેનેજ કરેલા મોડમાં આ ડિવાઇસની નોંધણી કરી શકાતી નથી. તમારા ડિવાઇસને ફેક્ટરી રીસેટ કરો અને તમારા IT ઍડમિનનો સંપર્ક કરો."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"ફેક્ટરી રીસેટ કરો"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ઑફિસ ઍપ તમારા ઑફિસની પ્રોફાઇલમાં રાખેલ છે અને તમારા IT ઍડમિન મેનેજ કરે છે"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ઑફિસ ઍપ,ઑફિસ પ્રોફાઇલમાં રાખેલ છે અને IT ઍડમિન મેનેજ કરે છે"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"વ્યક્તિગત ઍપ અલગ હોય છે અને તે ઑફિસની ઍપથી છુપાયેલી હોય છે"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT ઍડમિન આ ડિવાઇસને નિયંત્રિત કરી અને અમુક ઍપને બ્લૉક કરી શકે છે"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT ઍડમિન આ ડિવાઇસને નિયંત્રિત અને અમુક ઍપને બ્લૉક કરી શકે છે"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"ઑફિસ માટેની ઍપ તમારી ઑફિસની પ્રોફાઇલમાં રાખવામાં આવે છે અને તમારા IT ઍડમિન દ્વારા મેનેજ કરવામાં આવે છે. વ્યક્તિગત ઍપ અલગ હોય છે અને તે ઑફિસ માટેની ઍપથી છુપાયેલી હોય છે. તમારા IT ઍડમિન આ <xliff:g id="DEVICE_NAME">%1$s</xliff:g>ને નિયંત્રિત કરી શકે છે અને અમુક ઍપને બ્લૉક કરી શકે છે."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"માત્ર એક સેકન્ડ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"પ્રાઇવસી રિમાઇન્ડર"</string>

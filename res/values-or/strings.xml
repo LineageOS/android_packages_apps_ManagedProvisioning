@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"ଡିଭାଇସକୁ ସେଟ ଅପ କରାଯାଇପାରିବ ନାହିଁ"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"ଏ ଡିଭାଇସକୁ ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ ପରିଚାଳିତ ମୋଡରେ ପଞ୍ଜିକରଣ କରିହେବ ନାହିଁ। ଡିଭାଇସକୁ ଫେକ୍ଟୋରୀ ରିସେଟ କରି IT ଆଡମିନଙ୍କୁ କଣ୍ଟାକ୍ଟ କର।"</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"ଫେକ୍ଟୋରୀ ରିସେଟ କରନ୍ତୁ"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ୱାର୍କ ଆପ୍ସ ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ରଖାଯାଏ ଓ ଏହା ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ଦ୍ୱାରା ପରିଚାଳିତ ହୋଇଥାଏ"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ବ୍ୟକ୍ତିଗତ ଆପଗୁଡ଼ିକ କାର୍ଯ୍ୟସ୍ଥଳୀ ଆପଗୁଡ଼ିକ ଠାରୁ ଅଲଗା ଅଟେ ଓ ଏହା ଲୁକ୍କାୟିତ ଅଛି"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ଏହି ଡିଭାଇସକୁ ନିୟନ୍ତ୍ରଣ କରି ନିର୍ଦ୍ଦିଷ୍ଟ ଆପଗୁଡ଼ିକୁ ବ୍ଲକ୍ କରିପାରିବେ"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ୱାର୍କ ଆପ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ଥାଏ ଓ ଏହା IT ଆଡମିନଦ୍ୱାରା ପରିଚାଳିତ"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ବ୍ୟକ୍ତିଗତ ଆପଗୁଡ଼ିକ ୱାର୍କ ଆପରୁ ଅଲଗା ଅଟେ ଓ ଲୁକ୍କାୟିତ ଅଛି"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT ଆଡମିନ ଏହି ଡିଭାଇସକୁ ନିୟନ୍ତ୍ରଣ କରି କେତେକ ଆପକୁ ବ୍ଲକ କରିପାରିବେ"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"ୱାର୍କ ଆପ୍ସକୁ ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ରଖାଯାଏ ଓ ଏଗୁଡ଼ିକ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ଦ୍ୱାରା ପରିଚାଳିତ ହେଉଛି। ବ୍ୟକ୍ତିଗତ ଆପ୍ସ ୱାର୍କ ଆପ୍ସଠାରୁ ଅଲଗା ଓ ଲୁକ୍କାୟିତ ଅଟେ। ଆପଣଙ୍କ IT ଆଡମିନ ଏହି <xliff:g id="DEVICE_NAME">%1$s</xliff:g>କୁ ନିୟନ୍ତ୍ରଣ କରି ନିର୍ଦ୍ଦିଷ୍ଟ ଆପ୍ସକୁ ବ୍ଲକ କରିପାରିବେ।"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"ଟିକେ ରୁହନ୍ତୁ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ଗୋପନୀୟତା ରିମାଇଣ୍ଡର୍‍"</string>

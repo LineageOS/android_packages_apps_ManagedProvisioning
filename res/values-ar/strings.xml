@@ -183,7 +183,7 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"يتعذّر إعداد الجهاز"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"لا يمكن تفعيل وضع الإدارة الكاملة على هذا الجهاز. عليك إعادة ضبط جهازك على الإعدادات الأصلية والتواصل مع مشرف تكنولوجيا المعلومات."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"إعادة الضبط على الإعدادات الأصلية"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"يُحتفظ بتطبيقات العمل بالملف الشخصي للعمل ويُديرها مشرف تقنية المعلومات"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"تبقى تطبيقات العمل بحساب العمل ويديرها مشرف تقنية المعلومات"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"التطبيقات الشخصية منفصلة عن تطبيقات العمل ومخفية عنها"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"يستطيع مشرف تقنية المعلومات التحكم بالجهاز وحظر التطبيقات"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"يتم الاحتفاظ بتطبيقات العمل في ملفك الشخصي للعمل ويديرها مشرف تكنولوجيا المعلومات في مؤسستك. تكون التطبيقات الشخصية منفصلة عن تطبيقات العمل ومخفية عنها. يستطيع مشرف تكنولوجيا المعلومات التحكّم في جهاز \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\" هذا وحظر تطبيقات معيّنة."</string>

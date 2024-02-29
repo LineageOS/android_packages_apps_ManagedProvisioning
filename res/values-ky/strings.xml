@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Түзмөктү тууралоо мүмкүн эмес"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Бул түзмөктү толук башкарылуучу режимге өткөрө албайсыз. Түзмөгүңүздү баштапкы абалга кайтарып, IT администраторуңузга кайрылыңыз."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Баштапкы абалга кайтаруу"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Жумуш колдонмолоруңуз жумуш профилинде сакталып, аларды IT администраторуңуз тескейт"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Жеке колдонмолор жумуш колдонмолорунан өзүнчө жана жашыруун сакталат"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT администраторуңуз бул түзмөктү көзөмөлдөп, айрым колдонмолорду бөгөттөй алат"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Жумуш колдонмолоруңуз – жумуш профилинде (IT админ тескейт)"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Жеке колдонмолор жашырылып, жумуш колдонм. өзүнчө сакталат"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Администратор түзмөктү башкарып, айрым колдонмрду бөгөттөйт"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Жумуш колдонмолоруңуз жумуш профилинде сакталып, IT администраторуңуз тарабынан тескелет. Жеке колдонмолор жумуш колдонмолорунан өзүнчө сакталат. IT администраторуңуз бул <xliff:g id="DEVICE_NAME">%1$s</xliff:g> түзмөгүн көзөмөлдөп, белгилүү бир колдонмолорду бөгөттөй алат."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Бир секунд…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Купуялык жөнүндө эстеткич"</string>

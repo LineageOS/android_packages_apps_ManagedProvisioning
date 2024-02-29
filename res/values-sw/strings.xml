@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Haiwezi kuweka mipangilio ya kifaa"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Kifaa hiki hakiwezi kuandikishwa katika hali ya usimamizi kamili. Rejesha mipangilio ya kiwandani na uwasiliane na Msimamizi wako wa TEHAMA."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Rejesha mipangilio ya kiwandani"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Programu za kazini huwa kwenye wasifu wako wa kazini na hudhibitiwa na msimamizi wa TEHAMA"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Programu za kazini ni za wasifu wa kazini, hudhibitiwa na msimamizi TEHAMA"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Programu za binafsi huwa kando na hazionyeshwi kwenye za kazini"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Msimamizi wa TEHAMA anaweza kudhibiti kifaa hiki na kuzuia baadhi ya programu"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Msimamizi TEHAMA anaweza kudhibiti kifaa na kuzuia programu"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Programu za kazini huwekwa kwenye wasifu wako wa kazini na kudhibitiwa na msimamizi wako wa TEHAMA. Programu za binafsi ni tofauti na hazionyeshwi kwenye programu za kazini. Msimamizi wako wa TEHAMA anaweza kudhibiti <xliff:g id="DEVICE_NAME">%1$s</xliff:g> hii na kuzuia programu fulani."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Subiri kidogo…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Kikumbusho cha faragha"</string>
