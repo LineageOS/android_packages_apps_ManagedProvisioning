@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"ਡੀਵਾਈਸ ਦਾ ਸੈੱਟਅੱਪ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਪ੍ਰਬੰਧਿਤ ਮੋਡ ਵਿੱਚ ਦਰਜ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ। ਆਪਣੇ ਡੀਵਾਈਸ ਨੂੰ ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰੋ ਅਤੇ ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"ਫੈਕਟਰੀ ਰੀਸੈੱਟ ਕਰੋ"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਨੂੰ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਰੱਖਿਆ ਅਤੇ IT ਪ੍ਰਸ਼ਾਸਕ ਵੱਲੋਂ ਪ੍ਰਬੰਧਿਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ਨਿੱਜੀ ਐਪਾਂ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੋਂ ਵੱਖਰੀਆਂ ਅਤੇ ਲੁਕਵੀਆਂ ਹੁੰਦੀਆਂ ਹਨ"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਕੰਟਰੋਲ ਅਤੇ ਕੁਝ ਐਪਾਂ ਨੂੰ ਬਲਾਕ ਕਰ ਸਕਦਾ ਹੈ"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ਪ੍ਰਸ਼ਾਸਕ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ \'ਚ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਦਾ ਹੈ"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ਨਿੱਜੀ ਐਪਾਂ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੋਂ ਅਲੱਗ ਅਤੇ ਲੁਕਵੀਆਂ ਹੁੰਦੀਆਂ ਹਨ"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਇਹ ਡੀਵਾਈਸ ਕੰਟਰੋਲ ਅਤੇ ਕੁਝ ਐਪਾਂ ਬਲਾਕ ਕਰ ਸਕਦਾ ਹੈ"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਰੱਖੀਆਂ ਜਾਂਦੀਆਂ ਹਨ ਅਤੇ ਉਨ੍ਹਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਤੁਹਾਡੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਵੱਲੋਂ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਨਿੱਜੀ ਐਪਾਂ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੋਂ ਵੱਖਰੀਆਂ ਅਤੇ ਲੁਕਵੀਆਂ ਹੁੰਦੀਆਂ ਹਨ। ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਇਸ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ਨੂੰ ਕੰਟਰੋਲ ਕਰ ਸਕਦਾ ਹੈ ਅਤੇ ਕੁਝ ਐਪਾਂ ਨੂੰ ਬਲਾਕ ਕਰ ਸਕਦਾ ਹੈ।"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"ਬਸ ਇੱਕ ਸਕਿੰਟ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ਪਰਦੇਦਾਰੀ ਯਾਦ-ਸੂਚਨਾ"</string>

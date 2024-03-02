@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Perangkat tidak dapat disiapkan"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Perangkat ini tidak dapat didaftarkan ke mode terkelola sepenuhnya. Reset perangkat ke setelan pabrik dan hubungi admin IT Anda."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Reset ke setelan pabrik"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplikasi kerja ada di profil kerja Anda &amp; dikelola admin IT"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplikasi pribadi terpisah &amp; tersembunyi dari aplikasi kerja"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Admin IT dapat mengontrol perangkat &amp; memblokir aplikasi tertentu"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apl kerja ada di profil kerja &amp; dikelola admin IT"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Apl pribadi terpisah &amp; tersembunyi dari apl kerja"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Admin IT dapat mengontrol perangkat &amp; memblokir apl tertentu"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Aplikasi kerja disimpan dalam profil kerja Anda dan dikelola oleh admin IT Anda. Aplikasi pribadi terpisah dan disembunyikan dari aplikasi kerja. Admin IT Anda dapat mengontrol <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ini dan memblokir aplikasi tertentu."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Tunggu sebentar…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pengingat privasi"</string>

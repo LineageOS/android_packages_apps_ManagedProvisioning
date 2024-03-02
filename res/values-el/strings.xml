@@ -184,7 +184,7 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Αδυναμία εγγραφής συσκευής σε λειτ. πλήρους διαχείρισης. Επαναφορά ρυθμίσεων και επικοινωνία με διαχειριστή IT."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Επαναφορά εργοστασιακών ρυθμίσεων"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Οι εφαρ. είναι στο προφίλ σας και ελέγχ. από τον διαχ/στή."</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Οι προσωπ. εφαρ. είναι ξεχωριστά και μη ορατές σε εφαρ. εργ."</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Οι προσωπ. εφαρ. είναι ξεχωριστά &amp; μη ορατές σε εφαρ. εργ."</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Ο διαχ/στής ελέγχει τη συσκ. και αποκλείει ορισμένες εφαρ."</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Οι εφαρμογές εργασιών βρίσκονται στο προφίλ εργασίας σας και η διαχείρισή τους γίνεται από τον διαχειριστή IT. Οι προσωπικές εφαρμογές βρίσκονται σε ξεχωριστή τοποθεσία και δεν είναι ορατές στις εφαρμογές εργασιών. Ο διαχειριστής IT μπορεί να ελέγχει τη συσκευή <xliff:g id="DEVICE_NAME">%1$s</xliff:g> και να αποκλείει ορισμένες εφαρμογές."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Περιμένετε λίγο…"</string>

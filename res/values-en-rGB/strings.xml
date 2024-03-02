@@ -183,7 +183,7 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Device can\'t be set up"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"This device can\'t be enrolled into fully managed mode. Factory reset your device and contact your IT admin."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Factory reset"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Work apps are kept in your work profile and managed by your IT admin"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Work apps kept in your work profile, managed by IT admin"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Personal apps are separate and hidden from work apps"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Your IT admin can control this device and block certain apps"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Work apps are kept in your work profile and managed by your IT admin. Personal apps are separate and hidden from work apps. Your IT admin can control this <xliff:g id="DEVICE_NAME">%1$s</xliff:g> and block certain apps."</string>

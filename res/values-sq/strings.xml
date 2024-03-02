@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Pajisja nuk mund të konfigurohet"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Pajisja nuk mund të regjistrohet te modaliteti i menaxhimit të plotë. Rivendos pajisjen në gjendje fabrike dhe kontakto administratorin tënd të teknologjisë së informacionit."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Rivendos në gjendje fabrike"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apl. e punës mbahen në profilin tënd të punës dhe menaxhohen nga administratori yt i TI-së"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplikacionet personale janë të ndara dhe të fshehura nga aplikacionet e punës"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Admin. i TI-së mund ta kontrollojë këtë pajisje e të bllokojë aplikacione të caktuara"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Apl. e punës mbahen në profilin e punës; I menaxhon admin."</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Apl. personale janë të ndara e të fshehura nga apl. e punës"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Administratori, të drejta kontrolli/bllokimi aplikacionesh"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Aplikacionet e punës mbahen në profilin tënd të punës dhe menaxhohen nga administratori yt i teknologjisë së informacionit. Aplikacionet personale janë të ndara dhe të fshehura nga aplikacionet e punës. Administratori yt i teknologjisë së informacionit mund të kontrollojë këtë pajisje <xliff:g id="DEVICE_NAME">%1$s</xliff:g> dhe të bllokojë aplikacione të caktuara."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Vetëm një sekondë…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Rikujtuesi i privatësisë"</string>

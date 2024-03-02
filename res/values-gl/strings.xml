@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Non se puido configurar o dispositivo"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Este dispositivo non puido darse de alta no modo totalmente xestionado. Restablece a súa configuración de fábrica e ponte en contacto co teu administrador de TI."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Restablecer configuración de fábrica"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"O administrador de TI xestiona as aplicacións laborais no teu perfil de traballo"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"As aplicacións persoais están separadas das do traballo e, ademais, ocultas"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"O administrador de TI pode controlar o dispositivo e bloquear determinadas aplicacións"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"O admin. xestiona as apps laborais no perfil de traballo"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"As apps persoais están separadas das do traballo e ocultas"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"O administrador pode controlar o dispositivo e bloquear apps"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"As aplicacións do traballo gárdanse no teu perfil de traballo e xestiónaas o teu administrador de TI. As aplicacións persoais están separadas das aplicacións do traballo e non se mostran nelas. O teu administrador de TI pode controlar este dispositivo (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>) e bloquear determinadas aplicacións."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Un segundo…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatorio de privacidade"</string>

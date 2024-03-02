@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Seadet ei saa seadistada"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Seadet ei saa registreerida täielikult hallatavasse režiimi. Lähtestage seade tehaseseadetele ja pöörduge IT-administraatori poole."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Tehaseseadetele lähtestamine"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Töörakendused on tööprofiilil ja neid haldab IT-haldur"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Töörakendusi hoitakse tööprofiilil ja neid haldab IT-haldur"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Isiklikke rakendusi hoitakse töörakendustest eraldi"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-admin. saab seda seadet juhtida ja rakendusi blokeerida"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-haldur saab seda seadet juhtida ja rakendusi blokeerida"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Töörakendusi hoitakse teie tööprofiilil ja neid haldab teie IT-administraator. Isiklikke rakendusi hoitakse töörakendustest eraldi. Teie IT-administraator saab seadet <xliff:g id="DEVICE_NAME">%1$s</xliff:g> juhtida ja teatud rakendused blokeerida."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Üks hetk …"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privaatsuse meeldetuletus"</string>

@@ -183,8 +183,8 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Không thiết lập được thiết bị"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Không thể đăng ký chế độ được quản lý hoàn toàn cho thiết bị này. Vui lòng đặt lại thiết bị về trạng thái ban đầu rồi liên hệ với quản trị viên CNTT của bạn."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Đặt lại về trạng thái ban đầu"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Các ứng dụng công việc được lưu giữ trong hồ sơ công việc và do quản trị viên CNTT quản lý"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Các ứng dụng cá nhân được lưu giữ riêng biệt và ẩn khỏi ứng dụng công việc"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Ứ.dụng c.việc được lưu vào hồ sơ c.việc, do đội CNTT quản lý"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Ứng dụng cá nhân được lưu riêng &amp; ẩn khỏi ứng dụng công việc"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Quản trị viên có thể kiểm soát thiết bị này &amp; chặn ứng dụng"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Các ứng dụng công việc được lưu giữ trong hồ sơ công việc của bạn và do quản trị viên CNTT quản lý. Ứng dụng cá nhân được lưu giữ riêng biệt và ẩn khỏi các ứng dụng công việc. Quản trị viên CNTT có thể kiểm soát <xliff:g id="DEVICE_NAME">%1$s</xliff:g> này và chặn một số ứng dụng."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Hãy đợi giây lát…"</string>

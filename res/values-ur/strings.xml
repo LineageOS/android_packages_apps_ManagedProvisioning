@@ -183,7 +183,7 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"آلہ سیٹ اپ نہیں کیا جا سکتا"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"‏اس آلے کا مکمل طور پر نظم شدہ وضع میں اندراج نہیں ہو سکتا۔ اپنے آلے کو فیکٹری ری سیٹ کریں اور اپنے IT منتظم سے رابطہ کریں۔"</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"فیکٹری ری سیٹ کریں"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏دفتری ایپس آپکی دفتری پروفائل میں IT منتظم کے زیر انتظام ہوتی ہیں"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"‏دفتری ایپس دفتری پروفائل میں IT منتظم کے زیر نظم ہوتی ہیں"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ذاتی ایپس دفتری ایپس سے پوشیدہ اور علیحدہ ہوتی ہیں"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"‏آپکا IT منتظم یہ آلہ کنٹرول اور کچھ ایپس مسدود کرسکتا ہے"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"‏دفتری ایپس کو آپ کی دفتری پروفائل میں رکھا گیا اور آپ کے IT منتظم کے ذریعہ ںظم کیا گیا ہے۔ ذاتی ایپس دفتری ایپس سے چھپی ہوئی اور علیحدہ ہیں۔ آپ کا IT منتظم اس <xliff:g id="DEVICE_NAME">%1$s</xliff:g> کو کنٹرول اور کچھ ایپس کو مسدود کر سکتا ہے۔"</string>

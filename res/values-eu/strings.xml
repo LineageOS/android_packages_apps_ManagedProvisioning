@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Ezin da konfiguratu gailua"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Ezin da erregistratu gailua guztiz kudeatutako moduan. Berrezarri gailuaren jatorrizko datuak eta jarri IKT saileko administratzailearekin harremanetan."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Berrezarri jatorrizko datuak"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Laneko aplikazioak laneko profilean egongo dira (IKT saileko administratzaileak kudeatuta)"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplikazio pertsonalak bananduta daude eta ez daude lanekoen artean ikusgai"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IKT saileko administratzaileak gailu hau kontrola dezake, eta zenbait aplikazio blokeatu"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Laneko aplik. laneko profilean daude (IKT administr. kudeatuta)"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplik. perts. bananduta. Ez daude lanekoen artean ikusgai."</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Admin. gailua kontrola dezake, eta zenbait aplik. blokeatu"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Laneko aplikazioak laneko profilean gordetzen dira, eta IKT saileko administratzaileak kudeatzen ditu. Aplikazio pertsonalak bereizita daude eta ez daude laneko aplikazioen artean ikusgai. IKT saileko administratzaileak <xliff:g id="DEVICE_NAME">%1$s</xliff:g> gailua kontrola dezake, eta aplikazio jakin batzuk blokeatu."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Itxaron unetxo batean…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pribatutasun-abisua"</string>
