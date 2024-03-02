@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"មិនអាចរៀបចំឧបករណ៍បានទេ"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"មិនអាចចុះឈ្មោះឧបករណ៍នេះទៅក្នុងមុខងារដែលស្ថិតក្រោមការគ្រប់គ្រងពេញលេញទេ។ សូមកំណត់ឧបករណ៍របស់អ្នកដូចចេញពីរោងចក្រ រួចទាក់ទងទៅអ្នកគ្រប់គ្រងផ្នែកព័ត៌មានវិទ្យារបស់អ្នក។"</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"កំណត់​ដូច​ចេញ​ពី​រោងចក្រ"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"កម្មវិធីការងាររក្សាទុកក្នុងកម្រងព័ត៌មានការងារ និងគ្រប់គ្រងដោយអ្នកគ្រប់គ្រងព័ត៌មានវិទ្យា"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"កម្មវិធី​ផ្ទាល់ខ្លួន​ស្ថិតនៅ​ដោយឡែក និង​លាក់ពី​កម្មវិធី​ការងារ"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"អ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មានវិទ្យាអាចគ្រប់គ្រង​ឧបករណ៍នេះ និង​ទប់ស្កាត់​កម្មវិធី​ខ្លះ"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"កម្មវិធីការងារនៅក្នុងកម្រងព័ត៌មានការងារ និងគ្រប់គ្រងដោយ IT"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"កម្មវិធី​ផ្ទាល់ខ្លួននៅដាច់ដោយឡែក និងលាក់ពីកម្មវិធីការងារ"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"អ្នកគ្រប់គ្រង IT អាចគ្រប់គ្រង​ឧបករណ៍នេះ និងប្លុកកម្មវិធីខ្លះ"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"កម្មវិធី​ការងារ​ត្រូវបានរក្សាទុក​នៅក្នុង​កម្រងព័ត៌មាន​ការងារ​របស់អ្នក និងស្ថិត​ក្រោម​ការគ្រប់គ្រង​នៃ​អ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មានវិទ្យា​របស់អ្នក។ កម្មវិធី​ផ្ទាល់ខ្លួន​ស្ថិតនៅ​ដាច់ដោយឡែក និង​ត្រូវបាន​លាក់ពី​កម្មវិធី​ការងារ។ អ្នកគ្រប់គ្រង​ផ្នែក​ព័ត៌មានវិទ្យា​របស់អ្នក​អាចគ្រប់គ្រង <xliff:g id="DEVICE_NAME">%1$s</xliff:g> នេះ និង​ទប់ស្កាត់​កម្មវិធី​ជាក់លាក់​បាន។"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"ចាំ​មួយ​ភ្លែត…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ការរំលឹកអំពីឯកជនភាព"</string>

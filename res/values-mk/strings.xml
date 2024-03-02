@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Уредот не може да се постави"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Уредов не може да се регистрира во режимот за целосно управување. Ресетирајте го уредот на фабрички поставки и контактирајте со IT-администраторот."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Ресетирај на фабрички поставки"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Работните апликации се чуваат во работниот профил и со нив управува IT-администраторот"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личните апликации се одделни и скриени од работните апликации"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-администраторот може да го контролира уредов и да блокира одредени апликации"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Работните апл. се во работниот профил и ги управува админ."</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личните апликации се одделни и скриени од работните аплик."</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Админ. може да го контр. уредов и да блокира одредени апл."</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Работните апликации се чуваат во вашиот работен профил и со нив управува IT-администраторот. Личните апликации се одделени и скриени од работните апликации. IT-администраторот може да го контролира овој <xliff:g id="DEVICE_NAME">%1$s</xliff:g> и да блокира одредени апликации."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Само момент…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Потсетник за приватност"</string>
