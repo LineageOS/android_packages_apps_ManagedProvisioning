@@ -43,6 +43,8 @@ dependencies {
     api(libs.androidx.activity.ktx)
     api(libs.androidx.fragment.ktx)
     api(libs.androidx.appcompat)
+    api(libs.apache.commons.lang3)
+    api(kotlin("reflect"))
 
     api(project(":RobolectricLib"))
     // this is compile only, to work around the incomplete MockSDK provided to SysUIStudio

@@ -10,10 +10,10 @@ plugins {
 
 val top = extra["ANDROID_TOP"].toString()
 val moduleDir =
-        "$top/external/android_onboarding/src/com/android/onboarding/common"
+    "$top/external/android_onboarding/src/com/android/onboarding/bedsteadonboarding/contractutils"
 
 android {
-    namespace = "com.android.onboarding.common"
+    namespace = "com.android.onboarding.bedsteadonboarding.contractutils"
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
     }
@@ -26,18 +26,14 @@ android {
 
     sourceSets {
         sourceSets.getByName("main") {
-            java.srcDirs(listOf("src", symlinkedSources(moduleDir)))
+            java.srcDirs(listOf("src", symlinkedSources(moduleDir) {
+                include("ContractExecutionEligibilityChecker.kt")
+            }))
         }
     }
 }
 
 dependencies {
-    api(libs.dagger)
-    api(libs.dagger.android)
-    kapt(libs.dagger.compiler)
-    kapt(libs.dagger.android.processor)
-
-    api(libs.javax.inject)
-    api(libs.androidx.annotation)
-    api(project(":android_onboarding.common.annotations"))
+    api(project(":android_onboarding.bedsteadonboarding.providers"))
+    api(project(":android_onboarding.bedsteadonboarding.contractutils"))
 }
