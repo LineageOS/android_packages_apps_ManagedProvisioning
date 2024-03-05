@@ -184,7 +184,7 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"此裝置無法註冊為完全受管理模式。請將裝置回復原廠設定，並聯絡你的 IT 管理員。"</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"回復原廠設定"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"工作應用程式儲存於工作設定檔，並由 IT 管理員管理"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"個人應用程式會與工作應用程式分開，不會一同顯示"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"個人和工作應用程式會分開顯示"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT 管理員可控制此裝置並封鎖特定應用程式"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"工作應用程式儲存喺工作設定檔入面，同埋由 IT 管理員管理。個人應用程式會獨立儲存，唔會喺工作應用程式睇到。IT 管理員可以控制呢部 <xliff:g id="DEVICE_NAME">%1$s</xliff:g> 同埋封鎖部分應用程式。"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"請稍候…"</string>
