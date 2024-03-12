@@ -1109,7 +1109,10 @@ function createDesktopEntry() {
   studiow_icon="${studioUnzippedPath}/android-studio/bin/studio.png"
   targetDir="${HOME}/.local/share/applications"
   mkdir -p "$targetDir"
-  cat "${scriptDir}/MPStudio.desktop" | sed "s|%STUDIOW_PATH%|${studiow_path}|g" | sed "s|%ANDROID_TOP%|${androidBuildTop}|g" | sed "s|%STUDIOW_ICON%|${studiow_icon}|g" > "${targetDir}/MPStudio.desktop"
+  cat "${scriptDir}/MPStudio.desktop" | \
+    sed "s|%STUDIOW_PATH%|${studiow_path}|g" | \
+    sed "s|%ANDROID_TOP%|${androidBuildTop}|g" | \
+    sed "s|%STUDIOW_ICON%|${studiow_icon}|g" > "${targetDir}/MPStudio.desktop"
 }
-createDesktopEntry
+
 main "$@"

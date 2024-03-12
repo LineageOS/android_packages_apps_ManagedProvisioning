@@ -34,7 +34,9 @@ android {
 
 dependencies {
     api("androidx.activity:activity-ktx")
+    api(project(":android_onboarding.bedsteadonboarding.contract_eligibility_checker"))
     api(project(":android_onboarding.contracts.annotations"))
     api(project(":android_onboarding.nodes"))
     api(libs.errorprone.annotations)
+    api(libs.javax.inject)
 }
