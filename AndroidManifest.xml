@@ -17,7 +17,7 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.android.managedprovisioning" >
+    package="com.android.managedprovisioning">
 
     <permission
         android:name="android.permission.PROVISION_MANAGED_DEVICE_SILENTLY"
@@ -28,15 +28,15 @@
     <uses-permission android:name="android.permission.MANAGE_USERS" />
     <uses-permission android:name="android.permission.MANAGE_PROFILE_AND_DEVICE_OWNERS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
-    <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
-    <uses-permission android:name="android.permission.DELETE_PACKAGES"/>
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.DELETE_PACKAGES" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.MANAGE_APP_OPS_MODES"/>
-    <uses-permission android:name="android.permission.HIDE_OVERLAY_WINDOWS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.MANAGE_APP_OPS_MODES" />
+    <uses-permission android:name="android.permission.HIDE_OVERLAY_WINDOWS" />
 
     <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE" />
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
@@ -76,7 +76,7 @@
 
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
 
-    <uses-permission android:name="android.permission.START_FOREGROUND_SERVICES_FROM_BACKGROUND"/>
+    <uses-permission android:name="android.permission.START_FOREGROUND_SERVICES_FROM_BACKGROUND" />
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
@@ -86,12 +86,12 @@
     <uses-permission android:name="android.permission.MANAGE_ROLE_HOLDERS" />
 
     <application
-        android:label="@string/app_label"
+        android:name=".ManagedProvisioningApplication"
         android:allowClearUserData="false"
         android:hardwareAccelerated="true"
-        android:usesCleartextTraffic="true"
+        android:label="@string/app_label"
         android:supportsRtl="true"
-        android:name=".ManagedProvisioningApplication">
+        android:usesCleartextTraffic="true">
 
         <meta-data
             android:name="com.android.managedprovisioning.patch.24760218"
@@ -103,31 +103,30 @@
             (phone calls) will still pop up a small window that can be activated.
         -->
         <activity
-             android:name=".provisioning.ProvisioningActivity"
-             android:excludeFromRecents="true"
-             android:immersive="true"
-             android:launchMode="singleTop"
-             android:theme="@style/SudThemeGlifV4.DayNight">
-        </activity>
+            android:name=".provisioning.ProvisioningActivity"
+            android:excludeFromRecents="true"
+            android:immersive="true"
+            android:launchMode="singleTop"
+            android:theme="@style/SudThemeGlifV4.DayNight"></activity>
 
         <activity
             android:name=".provisioning.AdminIntegratedFlowPrepareActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SudThemeGlifV4.DayNight">
-        </activity>
+            android:theme="@style/SudThemeGlifV4.DayNight"></activity>
 
         <activity
             android:name=".preprovisioning.PreProvisioningActivity"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:exported="true"
             android:theme="@style/SudThemeGlifV4.DayNight">
             <intent-filter android:priority="10">
                 <action android:name="android.app.action.PROVISION_MANAGED_PROFILE" />
                 <action android:name="android.app.action.PROVISION_MANAGED_DEVICE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -136,13 +135,13 @@
             android:name=".provisioning.ResetAndReturnDeviceActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
-            android:theme="@style/SudThemeGlifV4.Light"/>
+            android:theme="@style/SudThemeGlifV4.Light" />
 
         <activity
             android:name=".provisioning.ResetDeviceActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
-            android:theme="@style/SudThemeGlifV4.Light"/>
+            android:theme="@style/SudThemeGlifV4.Light" />
 
         <!--
             Nfc bump entry for device owner provisioning, protected by a permission so only the Nfc
@@ -150,9 +149,9 @@
         -->
         <activity
             android:name=".preprovisioning.PreProvisioningActivityViaNfc"
+            android:exported="true"
             android:permission="android.permission.DISPATCH_NFC_MESSAGE"
-            android:theme="@style/SudThemeGlifV4.DayNight"
-            android:exported="true">
+            android:theme="@style/SudThemeGlifV4.DayNight">
             <intent-filter android:priority="10">
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -165,49 +164,43 @@
         -->
         <activity-alias
             android:name=".PreProvisioningActivityViaTrustedApp"
-            android:targetActivity=".preprovisioning.PreProvisioningActivity"
+            android:exported="true"
             android:permission="android.permission.DISPATCH_PROVISIONING_MESSAGE"
-            android:exported="true">
+            android:targetActivity=".preprovisioning.PreProvisioningActivity">
             <intent-filter android:priority="10">
-                <action
-                    android:name="android.app.action.PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE"
-                />
-                <action
-                    android:name="android.app.action.PROVISION_FINANCED_DEVICE"
-                />
+                <action android:name="android.app.action.PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE" />
+                <action android:name="android.app.action.PROVISION_FINANCED_DEVICE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity-alias>
         <!-- Entry to resume encryption after reboot. -->
         <activity-alias
             android:name=".PreProvisioningActivityAfterEncryption"
-            android:targetActivity=".preprovisioning.PreProvisioningActivity"
-            android:exported="false">
+            android:exported="false"
+            android:targetActivity=".preprovisioning.PreProvisioningActivity">
             <intent-filter android:priority="10">
-                <action
-                    android:name="com.android.managedprovisioning.action.RESUME_PROVISIONING"
-                />
+                <action android:name="com.android.managedprovisioning.action.RESUME_PROVISIONING" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity-alias>
+
         <activity
             android:name=".preprovisioning.terms.TermsActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SudThemeGlifV4.DayNight"/>
+            android:theme="@style/SudThemeGlifV4.DayNight" />
         <activity
             android:name=".preprovisioning.EncryptDeviceActivity"
             android:immersive="true"
-            android:launchMode="singleTop">
-        </activity>
+            android:launchMode="singleTop"></activity>
         <!--
             Entry point for silent device owner provisioning.
         -->
-        <service
-            android:name=".provisioning.SilentDeviceOwnerProvisioningService">
-        </service>
-        <receiver android:name=".provisioning.SilentDeviceOwnerProvisioningReceiver"
+        <service android:name=".provisioning.SilentDeviceOwnerProvisioningService"></service>
+        <receiver
+            android:name=".provisioning.SilentDeviceOwnerProvisioningReceiver"
             android:exported="true"
             android:permission="android.permission.PROVISION_MANAGED_DEVICE_SILENTLY">
             <intent-filter android:priority="10">
@@ -219,30 +212,30 @@
             android:name=".preprovisioning.WebActivity"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SudThemeGlifV4.DayNight"
-            android:process=":webview">
-        </activity>
+            android:process=":webview"
+            android:theme="@style/SudThemeGlifV4.DayNight"></activity>
 
         <activity
             android:name=".TrampolineActivity"
-            android:theme="@android:style/Theme.NoDisplay"
-            android:excludeFromRecents="true">
-        </activity>
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.NoDisplay"></activity>
 
         <!--
             When PostEncryptionActivity is disabled, its entire task is going to get killed.
             So, we explicitly specify a taskAffinity for this instead of a package default to make
             sure it starts in a new task.
         -->
-        <activity android:name=".preprovisioning.PostEncryptionActivity"
-            android:theme="@android:style/Theme.NoDisplay"
-            android:noHistory="true"
-            android:excludeFromRecents="true"
+        <activity
+            android:name=".preprovisioning.PostEncryptionActivity"
             android:enabled="false"
+            android:excludeFromRecents="true"
             android:exported="true"
-            android:taskAffinity=":PostEncryptionActivity">
+            android:noHistory="true"
+            android:taskAffinity=":PostEncryptionActivity"
+            android:theme="@android:style/Theme.NoDisplay">
             <intent-filter android:priority="10">
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -252,21 +245,24 @@
         <service android:name=".finalization.SendDpcBroadcastService" />
         <service android:name=".ota.OtaService" />
 
-        <receiver android:name="com.android.managedprovisioning.BootReminder"
+        <receiver
+            android:name="com.android.managedprovisioning.BootReminder"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.android.managedprovisioning.ota.PreBootListener"
+        <receiver
+            android:name="com.android.managedprovisioning.ota.PreBootListener"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.PRE_BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.android.managedprovisioning.provisioninglisteners.ProvisioningCompletedListener"
+        <receiver
+            android:name="com.android.managedprovisioning.provisioninglisteners.ProvisioningCompletedListener"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.app.action.PROVISIONING_COMPLETED" />
@@ -282,55 +278,58 @@
         </receiver>
 
         <!-- TODO (b/146135268): Add permission for setup-wizard to guard access? -->
-        <activity android:name=".finalization.FinalizationForwarderActivity"
-                  android:excludeFromRecents="true"
-                  android:exported="true"
-                  android:immersive="true"
-                  android:launchMode="singleTop"
-                  android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        <activity
+            android:name=".finalization.FinalizationForwarderActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:immersive="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
                 <!-- TODO (b/177666246): Remove PROVISION_FINALIZATION_INSIDE_SUW
                 after the setup wizard change which calls PROVISION_FINALIZATION is in prebuilt -->
                 <action android:name="android.app.action.PROVISION_FINALIZATION_INSIDE_SUW" />
                 <action android:name="android.app.action.PROVISION_FINALIZATION" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".finalization.FinalizationInsideSuwActivity"
-                  android:excludeFromRecents="true"
-                  android:immersive="true"
-                  android:launchMode="singleTop"
-                  android:theme="@style/SudThemeGlifV4.DayNight" />
+        <activity
+            android:name=".finalization.FinalizationInsideSuwActivity"
+            android:excludeFromRecents="true"
+            android:immersive="true"
+            android:launchMode="singleTop"
+            android:theme="@style/SudThemeGlifV4.DayNight" />
 
         <activity
             android:name=".provisioning.LandingActivity"
-            android:theme="@style/SudThemeGlifV4.DayNight"
-            android:immersive="true" />
+            android:immersive="true"
+            android:theme="@style/SudThemeGlifV4.DayNight" />
 
         <activity
             android:name=".provisioning.FinancedDeviceLandingActivity"
-            android:theme="@style/SudThemeGlifV4.DayNight"
-            android:immersive="true" />
+            android:immersive="true"
+            android:theme="@style/SudThemeGlifV4.DayNight" />
 
         <activity
             android:name=".preprovisioning.DownloadRoleHolderActivity"
-            android:theme="@style/SudThemeGlifV4.DayNight"
-            android:immersive="true" />
+            android:immersive="true"
+            android:theme="@style/SudThemeGlifV4.DayNight" />
 
         <activity
             android:name=".common.RetryLaunchActivity"
-            android:theme="@style/SudThemeGlifV4.DayNight"
-            android:immersive="true" />
+            android:immersive="true"
+            android:theme="@style/SudThemeGlifV4.DayNight" />
 
         <activity
             android:name=".networkconnection.EstablishNetworkConnectionActivity"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SudThemeGlifV3.DayNight"
             android:permission="android.permission.DISPATCH_PROVISIONING_MESSAGE"
-            android:exported="true">
+            android:theme="@style/SudThemeGlifV3.DayNight">
             <intent-filter>
                 <action android:name="android.app.action.ESTABLISH_NETWORK_CONNECTION" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -339,7 +338,7 @@
 
         <service
             android:name=".analytics.ProcessMetricsJobService"
-            android:permission="android.permission.BIND_JOB_SERVICE"/>
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <!-- (b/197919878) Disable startup provider due to resource loading issue. -->
         <provider
