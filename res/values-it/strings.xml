@@ -182,7 +182,7 @@
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Reimposta e restituisci il dispositivo"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Impossibile configurare il dispositivo"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Non è possibile registrare questo dispositivo in modalità completamente gestita. Ripristina i dati di fabbrica del dispositivo e contatta l\'amministratore IT."</string>
-    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Ripristina dati di fabbrica"</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Ripristino dati di fabbrica"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"L\'amm. IT gestisce le app di lavoro nel profilo di lavoro"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Le app personali sono separate e nascoste dalle app di lavoro"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"L\'amm. IT può controllare il dispositivo e bloccare le app"</string>
