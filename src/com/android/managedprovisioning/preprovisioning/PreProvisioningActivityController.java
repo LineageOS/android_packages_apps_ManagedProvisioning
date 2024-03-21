@@ -490,6 +490,10 @@ public class PreProvisioningActivityController {
     void performPlatformProvidedProvisioning() {
         ProvisionLogger.logw("Provisioning via platform-provided provisioning");
         ProvisioningParams params = mViewModel.getParams();
+        if(mSharedPreferences.isProvisioningFlowDelegatedToRoleHolder())
+        {
+            mSharedPreferences.setIsProvisioningFlowDelegatedToRoleHolder(false);
+        }
 
         mViewModel.getTimeLogger().start();
         mViewModel.onPlatformProvisioningInitiated();
