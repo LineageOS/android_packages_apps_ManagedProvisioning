@@ -61,7 +61,6 @@ public class ManagedProvisioningSharedPreferences implements
         mSharedPreferences = context.getSharedPreferences(SHARED_PREFERENCE, Context.MODE_PRIVATE);
     }
 
-    @VisibleForTesting
     public long getProvisioningId() {
         return mSharedPreferences.getLong(KEY_PROVISIONING_ID, DEFAULT_PROVISIONING_ID);
     }

@@ -33,9 +33,9 @@ import com.android.managedprovisioning.contracts.DownloadRoleHolderContract;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.DownloadRoleHolderViewModel.DownloadRoleHolderViewModelFactory;
 
-import javax.inject.Inject;
-
 import dagger.hilt.android.AndroidEntryPoint;
+
+import javax.inject.Inject;
 
 /**
  * Spinner which takes care of network connectivity if needed, and downloading of the role holder.
@@ -45,7 +45,7 @@ import dagger.hilt.android.AndroidEntryPoint;
  *
  * <p>If the result is {@link #RESULT_CANCELED}, it may be accompanied by
  * {@link ErrorDialogUtils#EXTRA_DIALOG_TITLE_ID}, {@link
- * ErrorDialogUtils#EXTRA_ERROR_MESSAGE_RES_ID} and {@link
+ * ErrorDialogUtils#EXTRA_ERROR_MESSAGE_RES} and {@link
  * ErrorDialogUtils#EXTRA_FACTORY_RESET_REQUIRED} which can be used to display in a user-visible
  * dialog.
  */
@@ -99,7 +99,8 @@ public class DownloadRoleHolderActivity extends Hilt_DownloadRoleHolderActivity 
                 break;
             case DownloadRoleHolderViewModel.STATE_ERROR:
                 ErrorWrapper error = mViewModel.getError();
-                setResult(RESULT_CANCELED, ErrorDialogUtils.createResultIntent(error));
+                setResult(RESULT_CANCELED,
+                        ErrorDialogUtils.createResultIntent(error, getApplicationContext()));
                 getTransitionHelper().finishActivity(this);
                 break;
         }

@@ -18,6 +18,12 @@ package com.android.managedprovisioning.common;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import android.content.Context;
+
+import androidx.test.core.app.ApplicationProvider;
+
+import com.android.managedprovisioning.util.LazyStringResource;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -25,16 +31,20 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public final class ErrorWrapperTest {
     private static final int DIALOG_TITLE_ID = 1;
-    private static final int ERROR_MESSAGE_ID = 2;
+    private static final String ERROR_MESSAGE = "message";
     private static final boolean IS_FACTORY_RESET_REQUIRED = true;
+
+    private final Context mApplicationContext = ApplicationProvider.getApplicationContext();
 
     @Test
     public void constructor_works() {
         ErrorWrapper errorWrapper = new ErrorWrapper(
-                DIALOG_TITLE_ID, ERROR_MESSAGE_ID, IS_FACTORY_RESET_REQUIRED);
+                DIALOG_TITLE_ID, LazyStringResource.of(ERROR_MESSAGE),
+                IS_FACTORY_RESET_REQUIRED);
 
         assertThat(errorWrapper.dialogTitleId).isEqualTo(DIALOG_TITLE_ID);
-        assertThat(errorWrapper.errorMessageResId).isEqualTo(ERROR_MESSAGE_ID);
+        assertThat(errorWrapper.errorMessageRes.value(mApplicationContext)).isEqualTo(
+                ERROR_MESSAGE);
         assertThat(errorWrapper.factoryResetRequired).isEqualTo(IS_FACTORY_RESET_REQUIRED);
     }
 }
