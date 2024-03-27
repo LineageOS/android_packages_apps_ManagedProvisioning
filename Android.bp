@@ -52,7 +52,7 @@ android_library {
         "androidx.annotation_annotation",
         "setupdesign",
         "managedprovisioning_protoslite",
-        "androidx.webkit_webkit-nodeps",
+        "androidx.webkit_webkit",
         "setupdesign-lottie-loading-layout",
         "lottie",
         "guava",
