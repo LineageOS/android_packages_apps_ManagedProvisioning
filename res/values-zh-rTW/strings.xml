@@ -47,7 +47,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"要刪除現有的設定檔嗎？"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"你已經有透過下列應用程式管理的工作資料夾："</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"在繼續之前，請參閱"<a href="#read_this_link">"詳細資訊"</a>"。"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"如果繼續執行，這個資料夾中的所有應用程式和資料都將遭到刪除。"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"如果繼續執行，資料夾中的所有應用程式和資料會全數刪除。"</string>
     <string name="delete_profile" msgid="2299218578684663459">"刪除"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"取消"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="6865483664167134470">"如要設定工作資料夾，必須先加密這部「<xliff:g id="DEVICE_NAME">%1$s</xliff:g>」。這項作業可能需要一段時間。"</string>

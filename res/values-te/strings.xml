@@ -141,7 +141,7 @@
     <string name="access_links" msgid="7991363727326168600">"లింక్‌లను యాక్సెస్ చేస్తుంది"</string>
     <string name="access_terms" msgid="1982500872249763745">"యాక్సెస్ నిబంధనలు"</string>
     <string name="read_terms" msgid="1745011123626640728">"నిబంధనలను చదవండి"</string>
-    <string name="close_list" msgid="9053538299788717597">"లిస్ట్‌ను మూసివేయి"</string>
+    <string name="close_list" msgid="9053538299788717597">"లిస్ట్‌ను మూసివేయండి"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"సెటప్‌ను ముగించి, ఫ్యాక్టరీ రీసెట్ చేయాలా?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ఈ సెటప్‌ను ముగిస్తే మీ పరికరం ఫ్యాక్టరీ రీసెట్ చేయబడుతుంది మరియు మీరు తిరిగి సెటప్ ప్రారంభ స్క్రీన్‌కు తీసుకెళ్లబడతారు."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"రద్దు చేయండి"</string>
