@@ -66,7 +66,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"ठिक छ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"प्रयोगकर्ता सेटअप सम्पन्न भएन"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"कार्य उपकरणको प्रयोगकर्ता"</string>
-    <string name="setup_work_device" msgid="6003988351437862369">"कार्य यन्त्र सेटअप गर्दै…"</string>
+    <string name="setup_work_device" msgid="6003988351437862369">"कार्य डिभाइस सेटअप गर्दै…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="410347019947997299">"यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> इन्क्रिप्ट गर्न मिल्दैन तर यो डिभाइस सेटअप गर्नका निम्ति यसलाई इन्क्रिप्ट गर्नै पर्ने हुन्छ। तपाईंलाई मद्दत चाहिन्छ भने आफ्ना IT एड्मिनलाई सम्पर्क गर्नुहोस्।"</string>
     <string name="stop_setup_reset_device_question" msgid="2323844935990001069">"सेटअप गर्ने प्रक्रिया पूरा गरी <xliff:g id="DEVICE_NAME">%1$s</xliff:g> रिसेट गर्ने हो?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="5881727570968119259">"तपाईंले यसो गर्नुभयो भने तपाईंको <xliff:g id="DEVICE_NAME">%1$s</xliff:g> रिसेट गरिने छ र तपाईंलाई पहिलो स्क्रिनमा लगिने छ"</string>
@@ -119,7 +119,7 @@
     <string name="set_up_your_device" msgid="1896651520959894681">"आफ्नो यन्त्रलाई सेटअप गर्नुहोस्"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"आफूले काम गर्ने तरीका बदल्नुहोस्"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"व्यक्तिगत भन्दा अलग कार्य"</string>
-    <string name="one_place_for_work_apps" msgid="2595597562302953960">"कार्य सम्बन्धी अनुप्रयोगहरूको एक ठाउँ"</string>
+    <string name="one_place_for_work_apps" msgid="2595597562302953960">"कार्य सम्बन्धी एपहरूको एक ठाउँ"</string>
     <string name="info_anim_title_2" msgid="4629781398620470204">"तपाईँले काम गरिसकेपछि कार्यलाई निष्क्रिय गर्नुहोस्"</string>
     <string name="provisioning" msgid="4512493827019163451">"प्रावधान गरिँदै"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA सर्टिफिकेटहरू सेटअप गरिँदै"</string>
@@ -153,7 +153,7 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"यस कार्यमा केही मिनेट लाग्न सक्छ"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"तपाईंका कार्यसम्बन्धी एपहरू यो प्रोफाइलमा राखिने छन् र तिनको व्यवस्थापन तपाईंको संगठनले गर्छ"</string>
     <string name="device_owner_description" msgid="168013145812679664">"यो यन्त्रलाई तपाईंको संगठनले सुरक्षित र व्यवस्थित राख्ने छ"</string>
-    <string name="setup_provisioning_header" msgid="4282483198266806271">"कार्यस्थलको यन्त्र सेटअप गर्ने तयारी गर्दै…"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"कार्यस्थलको डिभाइस सेटअप गर्ने तयारी गर्दै…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"प्रशासक एप सेटअप गर्दै"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"यो डिभाइस तपाईंको सङ्गठनको स्वामित्वमा छ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"यो फोनको व्यवस्थापन तथा अनुगमन गर्न निम्न एपको उपयोग गरिने छ"</string>
@@ -173,7 +173,7 @@
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"तपाईंले गर्ने क्रियाकलाप र तपाईंको जानकारी"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"एपलाई दिइएका अनुमति"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="1973320148595109400">"तपाईंका IT एड्मिन यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> मा भएका एपहरूलाई माइक्रोफोन, क्यामेरा र लोकेसन प्रयोग गर्नेलगायतका अनुमति दिन वा नदिन सक्नुहुन्छ।"</string>
-    <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"तपाईंको यन्त्र सेटअप गर्दै…"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"तपाईंको डिभाइस सेटअप गर्दै…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="2532673962822596806">"तपाईंका कामसम्बन्धी एपहरू सजिलै चलाउन यो <xliff:g id="DEVICE_NAME_0">%1$s</xliff:g> प्रयोग गर्नुहोस्। यो <xliff:g id="DEVICE_NAME_1">%1$s</xliff:g> निजी डिभाइस होइन। त्यसैले तपाईंका IT एड्मिन यो डिभाइसमा भएका तपाईंको डेटा र तपाईंले यसमा गर्ने क्रियाकलाप हेर्न सक्छन्।"</string>
     <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="3487964472228264628">"तपाईंका कामसम्बन्धी एपहरू सजिलै चलाउन यो <xliff:g id="DEVICE_NAME_0">%1$s</xliff:g> प्रयोग गर्नुहोस्। यो <xliff:g id="DEVICE_NAME_1">%1$s</xliff:g> निजी डिभाइस होइन। त्यसैले तपाईंका IT एड्मिन तपाईंले यो डिभाइसमा गर्ने क्रियाकलाप र यसमा भएका डेटा हेर्न सक्छन्। तपाईंका IT एड्मिन यो डिभाइसमा भएका एपहरूलाई माइक्रोफोन, क्यामेरा र लोकेसन प्रयोग गर्नेलगायतका अनुमति दिन वा नदिन पनि सक्नुहुन्छ।"</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"यो डिभाइस आफ्ना IT एड्मिनलाई फिर्ता गर्नुहोस्"</string>
