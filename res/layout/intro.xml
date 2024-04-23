@@ -22,19 +22,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.google.android.setupdesign.view.FillContentLayout
+    <LinearLayout
         style="@style/SudContentFrame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:maxWidth="@dimen/animation_max_size"
-        android:maxHeight="@dimen/animation_max_size">
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animation"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.google.android.setupdesign.view.FillContentLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:lottie_loop="true"
-            app:lottie_autoPlay="true"
-            android:importantForAccessibility="no"
-            android:scaleType="fitCenter" />
-    </com.google.android.setupdesign.view.FillContentLayout>
+            android:maxWidth="@dimen/animation_max_size"
+            android:maxHeight="@dimen/animation_max_size">
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter" />
+        </com.google.android.setupdesign.view.FillContentLayout>
+    </LinearLayout>
 </com.google.android.setupdesign.GlifLayout>
