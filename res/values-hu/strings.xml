@@ -183,8 +183,8 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Az eszközt nem lehet beállítani"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Ezen az eszközön nem lehet bekapcsolni a teljes felügyelet módot. Állítsa vissza eszköze gyári beállításait, és forduljon a rendszergazdához."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Gyári beállítások visszaállítása"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"A munkahelyi appok a munkaprofilban vannak, rendszergazda kezeli őket"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"A személyes appok külön vannak a munkahelyi alkalmazásoktól"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"A munkahelyi appok a munkaprofilban vannak (r.gazda kezeli)"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"A személyes appok külön vannak a munkahelyi appoktól"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"A rendszergazda kezeli ezt az eszközt, és letilthat appokat"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"A munkahelyi alkalmazások a munkaprofiljában találhatók, és a rendszergazdája kezeli őket. A személyes alkalmazások elkülönítve találhatók, és el vannak rejtve a munkahelyi alkalmazások elől. Rendszergazdája vezérelheti ezt a(z) <xliff:g id="DEVICE_NAME">%1$s</xliff:g> eszközt, és letilthat bizonyos alkalmazásokat."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Egy pillanat…"</string>

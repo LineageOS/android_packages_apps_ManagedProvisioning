@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Cihaz ayarlanamıyor"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Bu cihaz tümüyle yönetilen modda kullanılmak üzere kaydedilemiyor. Cihazınızı fabrika ayarlarına sıfırlayıp BT yöneticinizle iletişime geçin."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Fabrika ayarlarına sıfırla"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"İş uygulamaları iş profilinizde tutulur ve BT yöneticiniz tarafından yönetilir"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Kişisel uygulamalar ayrı tutulur ve iş uygulamalarından gizlenir"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"BT yöneticiniz bu cihazı kontrol edebilir ve belirli uygulamaları engelleyebilir"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"İş uygulamaları iş profilinizde yöneticinizin kontrolündedir"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Kişisel uygulamalar ayrı tutulup iş uygulamalarından gizlenir"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Yöneticiniz bu cihazı kontrol edip uygulamaları engelleyebilir"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"İş uygulamaları iş profilinizde tutulur ve BT yöneticiniz tarafından yönetilir. Kişisel uygulamalar ayrı olup iş uygulamalarından gizlenir. BT yöneticiniz bu <xliff:g id="DEVICE_NAME">%1$s</xliff:g> cihazı kontrol edebilir ve belirli uygulamaları engelleyebilir."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Bir saniye…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Gizlilik hatırlatıcısı"</string>

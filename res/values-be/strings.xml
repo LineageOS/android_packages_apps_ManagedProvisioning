@@ -183,7 +183,7 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Прыладу немагчыма наладзіць"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Гэту прыладу нельга перавесці ў рэжым з поўным кіраваннем. Скіньце прыладу да заводскіх налад і звярніцеся да IT-адміністратара."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Скінуць да заводскіх налад"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Працоўныя праграмы захаваны ў працоўным профілі і кіруюцца адміністратарам"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Працоўныя праграмы кіруюцца адміністратарам у працоўным профілі"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Асабістыя праграмы схаваны і адасоблены ад працоўных"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Ваш ІТ-адміністратар можа кіраваць прыладай і праграмамі"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Працоўныя праграмы захоўваюцца ў працоўным профілі і знаходзяцца пад кіраваннем ІТ-адміністратара. Асабістыя праграмы схаваны і паказваюцца адасоблена ад працоўных праграм. Ваш ІТ-адміністратар можа кіраваць гэтай прыладай <xliff:g id="DEVICE_NAME">%1$s</xliff:g> і блакіраваць пэўныя праграмы."</string>

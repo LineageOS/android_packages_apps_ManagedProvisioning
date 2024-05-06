@@ -18,7 +18,8 @@ package com.android.managedprovisioning.model;
 import android.os.Parcel;
 import android.test.AndroidTestCase;
 import android.test.MoreAsserts;
-import android.test.suitebuilder.annotation.SmallTest;
+
+import androidx.test.filters.SmallTest;
 
 /** Tests for {@link WifiInfo} */
 public class WifiInfoTest extends AndroidTestCase {

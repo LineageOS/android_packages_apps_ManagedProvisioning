@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Impossible de configurer l\'appareil"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Vous ne pouvez pas inscrire cet appareil en mode entièrement géré. Rétablissez les paramètres par défaut de votre appareil et communiquez avec votre administrateur informatique."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Rétablir les paramètres par défaut"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Les applis sont conservées dans votre profil professionnel et gérées par l\'administrateur"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applis personnelles sont distinctes des applis professionnelles et sont masquées"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applis"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Votre admin. gère vos applis prof. dans votre profil prof."</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applis personnelles sont distinctes des professionnelles"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre admin. TI contrôle cet appareil et bloque des applis"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Les applications professionnelles sont conservées dans votre profil professionnel et gérées par votre administrateur informatique. Les applications personnelles sont masquées des applications professionnelles et traitées de façon distincte. Votre administrateur informatique peut contrôler cet appareil (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>) et bloquer certaines applications."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Veuillez patienter…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Rappel de confidentialité"</string>

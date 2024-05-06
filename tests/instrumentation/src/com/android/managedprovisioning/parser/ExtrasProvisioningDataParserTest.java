@@ -133,8 +133,9 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.os.UserHandle;
 import android.test.AndroidTestCase;
-import android.test.suitebuilder.annotation.SmallTest;
 import android.util.Base64;
+
+import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
