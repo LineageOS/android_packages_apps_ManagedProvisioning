@@ -104,13 +104,11 @@ public class CrossProfileAppsPregrantController {
             }
         }
         if (Flags.backupConnectedAppsSettings()) {
-            for (String crossProfilePackageName : collectUserConfigurableApps()) {
-                if (mUserAllowedCrossProfilePackages.contains(crossProfilePackageName)
-                        && !appOpIsChangedFromDefault(op, crossProfilePackageName)) {
-                    mCrossProfileApps.setInteractAcrossProfilesAppOp(crossProfilePackageName,
-                            AppOpsManager.MODE_ALLOWED);
-                }
-            }
+            mUserAllowedCrossProfilePackages.stream()
+                    .filter(packageName -> !appOpIsChangedFromDefault(op, packageName))
+                    .filter(mCrossProfileApps::canConfigureInteractAcrossProfiles)
+                    .forEach(packageName -> mCrossProfileApps.setInteractAcrossProfilesAppOp(
+                            packageName, AppOpsManager.MODE_ALLOWED));
         }
     }
 
@@ -122,14 +120,6 @@ public class CrossProfileAppsPregrantController {
                 .map(settingString -> Arrays.stream(settingString.split(","))
                         .collect(Collectors.toSet()))
                 .orElse(Collections.emptySet());
-    }
-
-    private Set<String> collectUserConfigurableApps() {
-        return mPackageManager.getInstalledPackages(/* flags= */ 0).stream()
-                .filter(packageInfo -> mCrossProfileApps.canConfigureInteractAcrossProfiles(
-                        packageInfo.packageName))
-                .map(packageInfo -> packageInfo.packageName)
-                .collect(Collectors.toSet());
     }
 
     private boolean appOpIsChangedFromDefault(String op, String packageName) {
