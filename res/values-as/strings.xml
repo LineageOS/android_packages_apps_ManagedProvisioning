@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"ডিভাইচ ছেট আপ কৰিব নোৱাৰি"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"এই ডিভাইচটো সম্পূৰ্ণৰূপে পৰিচালিত ম’ডত পঞ্জীয়ন কৰিব নোৱাৰি। আপোনাৰ ডিভাইচটো ফেক্টৰী ৰিছেট কৰক আৰু আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"ফেক্টৰী ৰিছেট কৰক"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"আপোনাৰ আইটি প্ৰশাসকৰ দ্বাৰা পৰিচালিত কর্মস্থানৰ এপ্‌ কৰ্মস্থানৰ প্ৰ\'ফাইলত ৰখা হয়"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"আইটি প্ৰশাসক পৰিচালিত ৱৰ্ক এপ্‌ আপোনাৰ ৱৰ্ক প্ৰ\'ফাইলত ৰখা হয়"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ব্যক্তিগত এপ্‌বোৰ পৃথক আৰু কৰ্মস্থানৰ এপৰ পৰা লুকুৱাই ৰখা হয়"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"আপোনাৰ আইটি প্ৰশাসকে এই ডিভাইচটো নিয়ন্ত্ৰণ আৰু নিৰ্দিষ্ট কিছুমান এপ্ অৱৰোধ কৰিব পাৰে"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"আইটি প্ৰশাসকে ডিভাইচ নিয়ন্ত্ৰণ আৰু কিছু এপ্ অৱৰোধ কৰিব পাৰে"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"কৰ্মস্থানৰ এপ্‌সমূহ আপোনাৰ কৰ্মস্থানৰ প্ৰ’ফাইলত ৰখা হয় আৰু সেয়া আপোনাৰ আইটি প্ৰশাসকে পৰিচালনা কৰে। ব্যক্তিগত এপ্‌সমূহ পৃথক আৰু সেইসমূহ কৰ্মস্থানৰ এপ্‌সমূহৰ পৰা লুকুৱাই ৰখা হয়। আপোনাৰ আইটি প্ৰশাসকে এই <xliff:g id="DEVICE_NAME">%1$s</xliff:g>টো নিয়ন্ত্ৰণ কৰিব পাৰে আৰু নিৰ্দিষ্ট কিছুমান এপ্‌ অৱৰোধ কৰিব পাৰে।"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"এক ছেকেণ্ড ৰ\'ব…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"গোপনীয়তা সম্পৰ্কীয় ৰিমাইণ্ডাৰ"</string>

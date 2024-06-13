@@ -32,9 +32,7 @@ import static com.android.managedprovisioning.ManagedProvisioningScreens.RESET_D
 import static com.android.managedprovisioning.ManagedProvisioningScreens.RETRY_LAUNCH;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.TERMS;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.WEB;
-
 import static com.google.common.truth.Truth.assertThat;
-
 import static org.junit.Assert.assertThrows;
 
 import android.app.Activity;
@@ -71,6 +69,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -199,11 +198,12 @@ public final class ScreenManagerTest {
                 PackageManager.GET_ACTIVITIES);
         return Arrays.stream(packageInfo.activities)
                 .map(activityInfo -> activityInfo.name)
+                .filter(name -> !Objects.equals(name, "com.android.onboarding.bedsteadonboarding.activities.TrampolineActivity"))
                 .collect(Collectors.toList());
     }
 
     private static Map<ManagedProvisioningScreens, Class<? extends Activity>>
-            createTestScreenToActivityMap() {
+    createTestScreenToActivityMap() {
         Map<ManagedProvisioningScreens, Class<? extends Activity>> map = new HashMap<>();
         map.put(LANDING, Activity.class);
         map.put(PRE_PROVISIONING, Activity.class);
@@ -225,7 +225,7 @@ public final class ScreenManagerTest {
     }
 
     private static Map<ManagedProvisioningScreens, Class<? extends Activity>>
-            createInvalidTestScreenToActivityMap() {
+    createInvalidTestScreenToActivityMap() {
         return Map.of(LANDING, LandingActivity.class);
     }
 }

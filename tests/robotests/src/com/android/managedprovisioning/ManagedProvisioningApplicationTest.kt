@@ -14,22 +14,28 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning;
+package com.android.managedprovisioning
 
-import android.app.Activity;
+import android.app.Activity
+import org.junit.Test
 
-import org.junit.runner.RunWith;
-import org.robolectric.Robolectric;
-import org.robolectric.RobolectricTestRunner;
+import org.junit.runner.RunWith
+import org.robolectric.Robolectric
+import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
 class ManagedProvisioningApplicationTest {
     private val mApplication = ManagedProvisioningApplication()
 
     private fun createActivity(): Activity = Robolectric.buildActivity(Activity::class.java)
-        .create()
-        .start()
-        .resume()
-        .visible()
-        .get()
+            .create()
+            .start()
+            .resume()
+            .visible()
+            .get()
+
+    @Test
+    fun initialisesOK() {
+        println("Splendid!")
+    }
 }

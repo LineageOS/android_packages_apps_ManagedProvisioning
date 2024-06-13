@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Nepavyko nustatyti įrenginio"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Šio įrenginio negalima užregistruoti visiškai valdomu režimu. Atkurkite gamyklinius įrenginio nustatymus ir susisiekite su IT administratoriumi."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Atkurti gamyklinius duomenis"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Darbo programos saugomos darbo profilyje ir jas tvarko IT administratorius"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Asmeninės programos laikomos atskirai ir paslėptos nuo darbo programų"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT administratorius gali valdyti šį įrenginį ir blokuoti tam tikras programas"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Darbo programos yra darbo profilyje ir tvarkomos IT admin."</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Asmeninės programos atskiros yra paslėptos nuo darbinių"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT administratorius valdo šį įrenginį ir blokuoja programas"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Darbo programos saugomos darbo profilyje ir jas tvarko IT administratorius. Asmeninės programos laikomos atskirai ir yra paslėptos nuo darbo programų. IT administratorius gali valdyti šį „<xliff:g id="DEVICE_NAME">%1$s</xliff:g>“ ir blokuoti tam tikras programas."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Šiek tiek palaukite…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privatumo priminimas"</string>

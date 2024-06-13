@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"No es pot configurar el dispositiu"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Aquest dispositiu no es pot inscriure en el mode de dispositiu completament gestionat. Restableix les dades de fàbrica del dispositiu i contacta amb el teu administrador de TI."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Restableix les dades de fàbrica"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"L\'administrador de TI gestiona les apps de treball, que es desen al perfil de treball."</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les aplicacions personals estan separades de les del treball, i també amagades"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"L\'administrador de TI pot controlar el dispositiu i bloquejar determinades aplicacions"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Les apps treball són al teu perfil i les gestiona l’admin."</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les apps personals estan separades de les del treball"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"El teu admin. pot controlar el dispositiu i bloquejar apps"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"L\'administrador de TI gestiona les teves aplicacions de treball, que es desen al teu perfil de treball. Les aplicacions personals es mantenen amagades i separades de les aplicacions de treball. L\'administrador de TI pot controlar aquest dispositiu (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>) i bloquejar determinades aplicacions."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Un moment…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatori de privadesa"</string>

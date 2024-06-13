@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"მოწყობილობის დაყენება ვერ ხერხდება"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"ამ მოწყობილობის სრულად მართულ რეჟიმში რეგისტრაცია ვერ ხერხდება. დააბრუნეთ მოწყობილობა ქარხნულ პარამეტრებზე და დაუკავშირდით თქვენს IT ადმინისტრატორს."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"ქარხნული პარამეტრების დაბრუნება"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"სამსახურის აპები თქვენს სამსახურის პროფილში ინახება. მათ თქვენი IT ადმინისტრატორი მართავს"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"პერსონალური აპები განცალკევებულია და თქვენი სამსახურის აპებისთვის უხილავია"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"თქვენს IT ადმინისტრატორს შეუძლია ამ მოწყობილობის გაკონტროლება და გარკვეული აპების დაბლოკვა"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"სამსახ. აპები სამსახ. პროფილში ინახება. მათ IT ადმინ.მართავს"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"პერსონ. აპები განცალკევებულია და სამსახ. აპებისთვის უხილავია"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT ადმინ-ს შეუძლია მოწყობილობის გაკონტროლება/აპების დაბლოკვა"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"სამსახურის აპები თქვენს სამსახურის პროფილში ინახება და მათ თქვენი IT ადმინისტრატორი მართავს. პერსონალური აპები სამსახურის აპებისგან განცალკევებული და დამალულია. თქვენს IT ადმინისტრატორს შეუძლია ამ <xliff:g id="DEVICE_NAME">%1$s</xliff:g>-ის მართვა და ზოგიერთი აპის დაბლოკვა."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"ერთი წამით…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"კონფიდენციალურობის შესახებ შეხსენება"</string>

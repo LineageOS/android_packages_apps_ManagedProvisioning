@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Устройството не може да бъде настроено"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"У-вото не може да бъде регистр. в режим, в който да бъде изцяло управлявано. Възстановете фабр. настройки на у-вото си и се обърнете към сист. администратор."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Възстановяване на фабричните настройки"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Служебните приложения са в служебния ви профил и се управляват от системния администратор"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личните приложения се съхраняват отделно и са скрити от служебните"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Системният администратор може да управлява устройството и да блокира определени приложения"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Служ. прил. са в служ. профил и се управляват от сист. адм."</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личните прилож. се съхраняват отделно, скрити от служебните"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Сист. адм. може да управлява устр. и да блокира приложения"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Служебните приложения се съхраняват в служебния ви потребителски профил и се управляват от системния администратор. Личните приложения се съхраняват отделно и са скрити от служебните. Системният ви администратор може да управлява това устройство <xliff:g id="DEVICE_NAME">%1$s</xliff:g> и да блокира определени приложения."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Една секунда…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Напомняне за поверителността"</string>

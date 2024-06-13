@@ -29,7 +29,6 @@ import static android.app.admin.DevicePolicyManager.ROLE_HOLDER_UPDATE_FAILURE_S
 import static android.app.admin.DevicePolicyManager.ROLE_HOLDER_UPDATE_FAILURE_STRATEGY_FALLBACK_TO_PLATFORM_PROVISIONING;
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
-
 import static com.android.managedprovisioning.ManagedProvisioningScreens.RETRY_LAUNCH;
 import static com.android.managedprovisioning.common.ErrorDialogUtils.EXTRA_DIALOG_TITLE_ID;
 import static com.android.managedprovisioning.common.ErrorDialogUtils.EXTRA_ERROR_MESSAGE_RES_ID;
@@ -39,9 +38,7 @@ import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_SHOWING_USER_CONSENT;
 import static com.android.managedprovisioning.provisioning.Constants.PROVISIONING_SERVICE_INTENT;
-
 import static com.google.android.setupcompat.util.WizardManagerHelper.EXTRA_IS_SETUP_FLOW;
-
 import static java.util.Objects.requireNonNull;
 
 import android.annotation.NonNull;
@@ -93,16 +90,15 @@ import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityCo
 import com.android.managedprovisioning.provisioning.AdminIntegratedFlowPrepareActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
 import com.android.managedprovisioning.util.LazyStringResource;
-
 import com.google.android.setupcompat.logging.ScreenKey;
 import com.google.android.setupcompat.logging.SetupMetric;
 import com.google.android.setupcompat.logging.SetupMetricsLogger;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.transition.TransitionHelper;
 
-import dagger.hilt.android.AndroidEntryPoint;
-
 import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint(SetupGlifLayoutActivity.class)
 public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implements
@@ -847,7 +843,7 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
         if (mFlags.isCosmicRayEnabled()) {
             intent = mDownloadRoleHolderContract.createIntent(
                     this,
-                    new DownloadRoleHolderArguments(
+                    DownloadRoleHolderArguments.of(
                             mDownloadRoleHolderContract.getSuwArgumentsSerializer().read(
                                     getIntent()),
                             requireNonNull(mController.getParams())));

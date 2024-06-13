@@ -183,9 +183,9 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Uređaj se ne može postaviti"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Uređaj se ne može prijaviti za potpuno upravljani način. Vratite uređaj na tvorničke postavke i obratite se IT administratoru."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Vrati na tvorničke postavke"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Poslovne aplikacije nalaze se na vašem poslovnom profilu i njima upravlja IT administrator"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Osobne aplikacije su odvojene i skrivene od poslovnih"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Administrator može upravljati uređajem i blokirati neke aplikacije"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Posl. apl. su na posl. profilu, njima upravlja administrator"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Osobne aplikacije odvojene su i skrivene od poslovnih"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Administrator može upravljati uređajem i aplikacijama"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Poslovne aplikacije nalaze se na vašem poslovnom profilu i njima upravlja vaš IT administrator. Osobne aplikacije su odvojene i skrivene od poslovnih aplikacija. Vaš IT administrator može upravljati ovim uređajem <xliff:g id="DEVICE_NAME">%1$s</xliff:g> i blokirati određene aplikacije."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Samo tren…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Podsjetnik o privatnosti"</string>

@@ -25,7 +25,7 @@
     <string name="company_controls_workspace" msgid="2808025277267917221">"तपाईँको संगठनले यो प्रोफाइल नियन्त्रण र सुरक्षित राख्छ। तपाईँले तपाईँको उपकरणमा अरू सबै कुरा नियन्त्रण गर्नुहोस्।"</string>
     <string name="company_controls_device" msgid="8230957518758871390">"तपाईँको संगठनले यस यन्त्रलाई नियन्त्रण गर्ने छ र सुरक्षित राख्ने छ।"</string>
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"निम्न एप यो प्रोफाइल पहुँच गर्न आवश्यक हुने छ:"</string>
-    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"निम्न अनुप्रयोगले तपाईँको यन्त्र व्यवस्थापन गर्ने छ:"</string>
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"निम्न एपले तपाईँको यन्त्र व्यवस्थापन गर्ने छ:"</string>
     <string name="next" msgid="1004321437324424398">"अर्को"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"कार्य प्रोफाइल सेटअप गर्दै…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"तपाईंका IT एड्मिनले यो प्रोफाइलसँग सम्बन्धित सेटिङ, संस्थागत पहुँच, एप, अनुमति, डेटा र नेटवर्कसम्बन्धी क्रियाकलापका साथै तपाईंको कल हिस्ट्री तथा कन्ट्याक्ट सर्च हिस्ट्री निगरानी गर्नुका साथै व्यवस्थापन गर्न सक्नुहुन्छ। तपाईं यसका सम्बन्धमा थप जानकारी प्राप्त गर्न र आफ्नो सङ्गठनका गोपनीयता नीतिका बारेमा थप जान्न चाहनुहुन्छ भने आफ्ना IT एड्मिनलाई सम्पर्क गर्नुहोस्।"</string>
@@ -119,7 +119,7 @@
     <string name="set_up_your_device" msgid="1896651520959894681">"आफ्नो यन्त्रलाई सेटअप गर्नुहोस्"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"आफूले काम गर्ने तरीका बदल्नुहोस्"</string>
     <string name="info_anim_title_1" msgid="2657512519467714760">"व्यक्तिगत भन्दा अलग कार्य"</string>
-    <string name="one_place_for_work_apps" msgid="2595597562302953960">"कार्य सम्बन्धी अनुप्रयोगहरूको एक ठाउँ"</string>
+    <string name="one_place_for_work_apps" msgid="2595597562302953960">"कार्य सम्बन्धी एपहरूको एक ठाउँ"</string>
     <string name="info_anim_title_2" msgid="4629781398620470204">"तपाईँले काम गरिसकेपछि कार्यलाई निष्क्रिय गर्नुहोस्"</string>
     <string name="provisioning" msgid="4512493827019163451">"प्रावधान गरिँदै"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA सर्टिफिकेटहरू सेटअप गरिँदै"</string>
@@ -183,8 +183,8 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"यो डिभाइस सेटअप गर्न मिल्दैन"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"यो डिभाइस पूर्ण रूपमा व्यवस्थापन गरिने मोडमा दर्ता गर्न मिल्दैन। आफ्नो डिभाइस फ्याक्ट्री रिसेट गर्नुहोस् अनि आफ्ना IT एड्मिनलाई सम्पर्क गर्नुहोस्।"</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"फ्याक्ट्री रिसेट गर्नुहोस्"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कामसम्बन्धी एपहरू कार्य प्रोफाइलमा राखिन्छन् र IT एड्मिनले ती एप व्यवस्थापन गर्छन्"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"व्यक्तिगत एपहरू छुट्टै राखिन्छन् र ती एप कामसम्बन्धी एपसँगै देखिँदैनन्"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कामसम्बन्धी एप कार्य प्रोफाइलमा हुन्छन् र IT एड्मिनले हेर्छन्"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"व्यक्तिगत एप छुट्टै राखिन्छन् र कामसम्बन्धी एपसँगै देखिँदैनन्"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT एड्मिन यो डिभाइस र यसका केही एपहरू नियन्त्रण गर्न सक्छन्"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"कामसम्बन्धी एपहरू तपाईंको कार्य प्रोफाइलमा राखिन्छन् र तपाईंका IT एड्मिन ती एप व्यवस्थापन गर्छन्। व्यक्तिगत एपहरू छुट्टै राखिन्छन् र ती एप कामसम्बन्धी एपसँगै देखिँदैनन्। तपाईंका IT एड्मिन यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> नियन्त्रण गर्न र निश्चित एपमाथि रोक लगाउन सक्छन्।"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"एकै छिन पर्खनुहोस्…"</string>
