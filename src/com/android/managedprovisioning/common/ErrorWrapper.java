@@ -16,18 +16,23 @@
 
 package com.android.managedprovisioning.common;
 
+import com.android.managedprovisioning.util.LazyStringResource;
+
 /**
  * Wrapper of an error message.
  */
 public final class ErrorWrapper {
     public final int dialogTitleId;
-    public final int errorMessageResId;
+
+    public final LazyStringResource errorMessageRes;
+
     public final boolean factoryResetRequired;
 
     public ErrorWrapper(
-            int dialogTitleId, int errorMessageResId, boolean factoryResetRequired) {
+            int dialogTitleId, LazyStringResource errorMessageRes, boolean factoryResetRequired) {
         this.dialogTitleId = dialogTitleId;
-        this.errorMessageResId = errorMessageResId;
+        this.errorMessageRes = errorMessageRes;
         this.factoryResetRequired = factoryResetRequired;
     }
+
 }
