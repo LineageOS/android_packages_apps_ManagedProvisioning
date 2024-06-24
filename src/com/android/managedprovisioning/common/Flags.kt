@@ -30,4 +30,5 @@ class DefaultFlags(
     override fun isCosmicRayEnabled(): Boolean =
         onboardingFlags.isDebug ||
                 (onboardingFlags.isContractEnabled && aconfigFlags.isCosmicRayEnabled)
+
 }
