@@ -10,3 +10,11 @@ flag {
   description: "Enables Cosmic Ray features"
   bug: "288413994"
 }
+
+flag {
+  name: "bad_state_v3_early_rh_download_enabled"
+  namespace: "enterprise"
+  description: "Download and provision role holder provisioning before precondition checks"
+  bug: "347912855"
+}
+

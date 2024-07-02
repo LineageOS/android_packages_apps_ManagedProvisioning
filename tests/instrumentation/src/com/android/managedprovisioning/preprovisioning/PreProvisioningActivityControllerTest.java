@@ -90,6 +90,8 @@ import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.platform.test.annotations.EnableFlags;
+import android.platform.test.flag.junit.SetFlagsRule;
 import android.service.persistentdata.PersistentDataBlockManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -110,6 +112,7 @@ import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.RoleGranter;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.flags.Flags;
 import com.android.managedprovisioning.model.DisclaimersParam;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -119,6 +122,7 @@ import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityCo
 import com.android.managedprovisioning.util.LazyStringResource;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
@@ -144,8 +148,8 @@ public class PreProvisioningActivityControllerTest {
                     .setCookieHeader("COOKIE_HEADER")
                     .setLocation("LOCATION")
                     .setMinVersion(1)
-                    .setPackageChecksum(new byte[] {1})
-                    .setSignatureChecksum(new byte[] {1})
+                    .setPackageChecksum(new byte[]{1})
+                    .setSignatureChecksum(new byte[]{1})
                     .build();
     public static final ProvisioningParams DOWNLOAD_ROLE_HOLDER_PARAMS_WITH_ALLOW_OFFLINE =
             ProvisioningParams.Builder.builder()
@@ -289,6 +293,8 @@ public class PreProvisioningActivityControllerTest {
     private TelephonyManager mTelephonyManager;
     @Mock
     private ContentInterface mContentInterface;
+    @Rule
+    public final SetFlagsRule mSetFlagsRule = new SetFlagsRule();
 
     private ProvisioningParams mParams;
     private PreProvisioningViewModel mViewModel;
@@ -301,6 +307,7 @@ public class PreProvisioningActivityControllerTest {
     static {
         TEST_ADMIN_BUNDLE.putInt("someKey", 123);
     }
+
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
     @Before
@@ -397,6 +404,65 @@ public class PreProvisioningActivityControllerTest {
         verify(mUi).onParamsValidated(mParams);
         verify(mUi).startProvisioning(mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
+        verifyNoMoreInteractions(mUi);
+    }
+
+    @Test
+    @EnableFlags({Flags.FLAG_BAD_STATE_V3_EARLY_RH_DOWNLOAD_ENABLED})
+    public void testInitiateProvisioning_earlyRoleHolderDownloadEnabled_preConditionChecksSkipped()
+            throws Exception {
+        enableRoleHolderDelegation();
+        mController = createControllerWithRoleHolderUpdaterInstalled();
+        // GIVEN an intent to provision a managed profile
+        prepareMocksForManagedProfileIntent(false);
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
+                mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE));
+
+        verify(mUi).onParamsValidated(mParams);
+        // Verify that platform call is not made here
+        verify(mDevicePolicyManager, never()).checkProvisioningPrecondition(any(), any());
+        verify(mUi).startRoleHolderUpdater(/* isRoleHolderRequestedUpdate= */ false);
+        verifyNoMoreInteractions(mUi);
+    }
+
+    @Test
+    @EnableFlags({Flags.FLAG_BAD_STATE_V3_EARLY_RH_DOWNLOAD_ENABLED})
+    public void testInitiateProvisioning_earlyRoleHolderDownloadEnabled_preConditionChecksSuccess()
+            throws Exception {
+        // GIVEN an intent to provision a managed profile
+        prepareMocksForManagedProfileIntent(false);
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
+                mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE));
+
+        verify(mUi).onParamsValidated(mParams);
+        verify(mDevicePolicyManager, times(2)).checkProvisioningPrecondition(any(), any());
+        verify(mUi).initiateUi(any(UiParams.class));
+        verifyNoMoreInteractions(mUi);
+    }
+
+    @Test
+    @EnableFlags({Flags.FLAG_BAD_STATE_V3_EARLY_RH_DOWNLOAD_ENABLED})
+    public void testInitiateProvisioning_earlyRoleHolderDownloadEnabled_preConditionChecksFailed()
+            throws Exception {
+        // GIVEN an intent to provision a managed profile, but provisioning mode is not allowed
+        prepareMocksForManagedProfileIntent(false);
+        when(mDevicePolicyManager.checkProvisioningPrecondition(
+                ACTION_PROVISION_MANAGED_PROFILE, TEST_MDM_PACKAGE))
+                .thenReturn(STATUS_MANAGED_USERS_NOT_SUPPORTED);
+        when(mContext.getContentResolver()).thenReturn(mContentResolver);
+        when(mContentInterface.call(anyString(), anyString(), any(), any()))
+                .thenReturn(GET_DEVICE_NAME_BUNDLE);
+        // WHEN initiating provisioning
+        mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        // THEN show an error dialog
+        verify(mUi).showErrorAndClose(
+                eq(LazyStringResource.of(R.string.cant_add_work_profile)),
+                eq(LazyStringResource.of(
+                        R.string.work_profile_cant_be_added_contact_admin, DEFAULT_DEVICE_NAME)),
+                any());
+        verify(mUi).onParamsValidated(mParams);
         verifyNoMoreInteractions(mUi);
     }
 
@@ -2005,12 +2071,13 @@ public void testDeviceOwner_frp() throws Exception {
         verify(mUi).abortProvisioning();
         verifyNoMoreInteractions(mUi);
     }
+
     private static Parcelable[] createDisclaimersExtra() {
         Bundle disclaimer = new Bundle();
         disclaimer.putString(
                 EXTRA_PROVISIONING_DISCLAIMER_HEADER, DISCLAIMER_HEADER);
         disclaimer.putParcelable(EXTRA_PROVISIONING_DISCLAIMER_CONTENT, DISCLAIMER_CONTENT_URI);
-        return new Parcelable[]{ disclaimer };
+        return new Parcelable[]{disclaimer};
     }
 
     private ProvisioningParams.Builder createProvisioningParamsBuilderForInitiateProvisioning() {
