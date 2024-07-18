@@ -60,7 +60,7 @@ export ANDROID_HOME="${GRADLE_BUILD_DIR}/MockSdk"
 # Sets the path to the user preferences directory for tools that are part of the Android SDK.
 export ANDROID_USER_HOME="${GRADLE_BUILD_DIR}/.android"
 
-export JAVA_HOME="${ANDROID_BUILD_TOP}/prebuilts/jdk/jdk17/linux-x86"
+export JAVA_HOME="${ANDROID_BUILD_TOP}/prebuilts/jdk/jdk21/linux-x86"
 export PATH="${JAVA_HOME}/bin:${ANDROID_BUILD_TOP}/out/host/linux-x86/bin:$PATH"
 
 "${STUDIO_DEV_DIR}"/studiow --no-download --update-sdk soong || exit $?
