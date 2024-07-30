@@ -32,7 +32,7 @@
     <string name="admin_has_ability_to_monitor_device" msgid="7786186939607332934">"El administrador de TI puede supervisar y administrar la configuración, el acceso corporativo, las apps, los permisos y los datos asociados a este dispositivo <xliff:g id="DEVICE_NAME">%1$s</xliff:g>, lo que incluye la actividad de red, la ubicación, el historial de llamadas y el historial de búsqueda de contactos del dispositivo.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Comuníquese con el administrador de TI para obtener más información, incluidas las políticas de privacidad de la organización."</string>
-    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Para poder usar las funciones de protección contra robos, debes activar el bloqueo de pantalla mediante protección por contraseña."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Para usar las funciones de protección ante robo, el dispositivo debe tener un bloqueo de pantalla con contraseña."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Comunícate con tu administrador de TI para obtener más información, como las políticas de privacidad de la organización."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Más información"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Cancelar"</string>

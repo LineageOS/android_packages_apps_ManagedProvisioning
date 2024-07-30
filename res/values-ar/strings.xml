@@ -45,12 +45,12 @@
     <string name="managed_device_info" msgid="1529447646526616811">"معلومات الجهاز المُدار"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ملف العمل"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"هل تريد حذف الملف الشخصي الحالي؟"</string>
-    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"لديك مسبقًا ملف شخصي للعمل تتم إدارته باستخدام التطبيق التالي:"</string>
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"لديك مسبقًا ملف للعمل تتم إدارته باستخدام التطبيق التالي:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"قبل المتابعة، يجب "<a href="#read_this_link">"قراءة هذا"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"سيتم حذف جميع التطبيقات والبيانات في هذا الملف الشخصي عند المتابعة."</string>
     <string name="delete_profile" msgid="2299218578684663459">"حذف"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"إلغاء"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="6865483664167134470">"لضبط إعدادات ملفك الشخصي للعمل، يجب تشفير \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\". قد يستغرق هذا بعض الوقت."</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="6865483664167134470">"لضبط إعدادات ملف العمل الخاص بك، يجب تشفير \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\". قد يستغرق هذا بعض الوقت."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="230099563510460941">"لضبط إعدادات جهاز \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\" هذا، يجب تشفيره أولاً. قد يستغرق هذا بعض الوقت."</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"هل تريد ترميز هذا الجهاز؟"</string>
     <string name="encrypt" msgid="1749320161747489212">"ترميز"</string>
@@ -59,7 +59,7 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"تعذر إعداد ملف العمل. يمكنك الاتصال بقسم تكنولوجيا المعلومات أو إعادة المحاولة لاحقًا."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"يتعذر إضافة ملف العمل"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"يتعذَّر استبدال ملف العمل أو إزالته"</string>
-    <string name="work_profile_cant_be_added_contact_admin" msgid="4866281518235832928">"تتعذَّر إضافة ملف شخصي للعمل على جهاز \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\" هذا. إذا كان لديك أسئلة، يمكنك التواصل مع مشرف تكنولوجيا."</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4866281518235832928">"تتعذَّر إضافة ملف للعمل على جهاز \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\" هذا. إذا كان لديك أسئلة، يمكنك التواصل مع مشرف تكنولوجيا."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"تغيير مشغّل الجهاز"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"لا يمكن لملف العمل استخدام تطبيق المشغّل هذا"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"إلغاء"</string>
@@ -98,8 +98,8 @@
     <string name="continue_button" msgid="7177918589510964446">"متابعة"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"إيقاف"</string>
     <string name="dismiss" msgid="9009534756748565880">"إغلاق"</string>
-    <string name="profile_owner_info" msgid="8975319972303812298">"أنت بصدد إنشاء ملف شخصي للعمل تتم إدارته ومراقبته بواسطة مؤسستك. تسري البنود."</string>
-    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"أنت بصدد إنشاء ملف شخصي للعمل يخضع لإدارة ومراقبة مؤسستك. تسري البنود المتبعة في <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
+    <string name="profile_owner_info" msgid="8975319972303812298">"أنت بصدد إنشاء ملف للعمل تتم إدارته ومراقبته بواسطة مؤسستك. تسري البنود."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"أنت بصدد إنشاء ملف للعمل يخضع لإدارة ومراقبة مؤسستك. تسري البنود المتبعة في <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"سيتم إنشاء ملف شخصي لتطبيقات العمل، وسيخضع هذا الملف الشخصي وباقي محتوى الجهاز لإدارة ومراقبة مؤسستك. تسري البنود."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"سيتم إنشاء ملف شخصي لتطبيقات العمل، وسيخضع هذا الملف الشخصي وباقي محتوى الجهاز لإدارة ومراقبة مؤسستك. تسري البنود في <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="device_owner_info" msgid="3716661456037934467">"ستدير مؤسسة <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> هذا الجهاز وتراقبه وتحافظ على أمانه. وسيتم تطبيق الأحكام السارية. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
@@ -124,7 +124,7 @@
     <string name="provisioning" msgid="4512493827019163451">"جارٍ توفير الشهادات"</string>
     <string name="copying_certs" msgid="5697938664953550881">"‏جارٍ إعداد شهادات CA"</string>
     <string name="setup_profile" msgid="5573950582159698549">"إعداد الملف الشخصي"</string>
-    <string name="profile_benefits_description" msgid="758432985984252636">"باستخدام ملف شخصي للعمل، يمكنك الفصل بين بيانات العمل والبيانات الشخصية"</string>
+    <string name="profile_benefits_description" msgid="758432985984252636">"باستخدام ملف للعمل، يمكنك الفصل بين بيانات العمل والبيانات الشخصية"</string>
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"يعني استخدامك ملفًا شخصيًا للعمل أنه يمكنك الاحتفاظ بتطبيقات عملك في مكان واحد"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"إعداد ملفك الشخصي. التشفير"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"إعداد ملفك الشخصي. جارٍ عرض التقدم"</string>
@@ -161,11 +161,11 @@
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"تتم إدارة الأجهزة الجوّالة من قِبل مشرف تكنولوجيا المعلومات في مؤسستك لفرض سياسات الأمان."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"جارٍ إعداد جهاز العمل…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"لنبدأ بإعداد ملف العمل"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"يتم الاحتفاظ بتطبيقات العمل في ملفك الشخصي للعمل"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"يتم الاحتفاظ بتطبيقات العمل في ملف العمل الخاص بك"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"إيقاف تطبيقات العمل مؤقتًا عند انتهاء مهام يوم العمل"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"يمكن لمشرف تكنولوجيا المعلومات رؤية البيانات في ملفك الشخصي للعمل"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"يمكن لمشرف تكنولوجيا المعلومات رؤية البيانات في ملف العمل الخاص بك"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"جارٍ إعداد ملف العمل…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"يتم الاحتفاظ بتطبيقات العمل في ملفك الشخصي للعمل. يمكنك إيقاف تطبيقات العمل مؤقتًا عند انتهاء مهام يوم العمل. إنّ بيانات ملفك الشخصي للعمل مرئية لمشرف تكنولوجيا المعلومات في مؤسستك."</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"يتم الاحتفاظ بتطبيقات العمل في ملف العمل الخاص بك. يمكنك إيقاف تطبيقات العمل مؤقتًا عند انتهاء مهام يوم العمل. إنّ بيانات ملف العمل الخاص بك مرئية لمشرف تكنولوجيا المعلومات في مؤسستك."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"حان وقت إعداد جهاز العمل"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"التحكم بسهولة في تطبيقات العمل"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"جهاز \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\" هذا ليس خاصًا"</string>
@@ -186,7 +186,7 @@
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"تبقى تطبيقات العمل بحساب العمل ويديرها مشرف تقنية المعلومات"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"التطبيقات الشخصية منفصلة عن تطبيقات العمل ومخفية عنها"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"يستطيع المشرف التحكم بالجهاز وحظر التطبيقات"</string>
-    <string name="cope_provisioning_summary" msgid="4993405755138454918">"يتم الاحتفاظ بتطبيقات العمل في ملفك الشخصي للعمل ويديرها مشرف تكنولوجيا المعلومات في مؤسستك. تكون التطبيقات الشخصية منفصلة عن تطبيقات العمل ومخفية عنها. يستطيع مشرف تكنولوجيا المعلومات التحكّم في جهاز \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\" هذا وحظر تطبيقات معيّنة."</string>
+    <string name="cope_provisioning_summary" msgid="4993405755138454918">"يتم الاحتفاظ بتطبيقات العمل في ملف العمل الخاص بك ويديرها مشرف تكنولوجيا المعلومات في مؤسستك. تكون التطبيقات الشخصية منفصلة عن تطبيقات العمل ومخفية عنها. يستطيع مشرف تكنولوجيا المعلومات التحكّم في جهاز \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\" هذا وحظر تطبيقات معيّنة."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"لحظة من فضلك…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"تذكير الخصوصية"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2107315052054483060">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على جهاز \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\" هذا."</string>
