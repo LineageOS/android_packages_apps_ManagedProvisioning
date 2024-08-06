@@ -171,7 +171,7 @@
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"इस <xliff:g id="DEVICE_NAME">%1$s</xliff:g> को निजी के तौर पर सेट नहीं किया गया है"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"आपका आईटी एडमिन, इस <xliff:g id="DEVICE_NAME">%1$s</xliff:g> पर आपकी गतिविधि और डेटा देख सकता है."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"आपकी गतिविधि और डेटा"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ऐप्लिकेशन की अनुमतियां"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ऐप्लिकेशन के लिए अनुमतियां"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="1973320148595109400">"आपका आईटी एडमिन, इस <xliff:g id="DEVICE_NAME">%1$s</xliff:g> में मौजूद ऐप्लिकेशन को दी जाने वाली अनुमतियां कंट्रोल कर सकता है. इसमें, माइक्रोफ़ोन, कैमरा, और जगह की जानकारी के लिए अनुमतियां शामिल हैं."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"आपका डिवाइस सेट किया जा रहा है…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="2532673962822596806">"अपने वर्क ऐप्लिकेशन को आसानी से ऐक्सेस करने के लिए, इस <xliff:g id="DEVICE_NAME_0">%1$s</xliff:g> का इस्तेमाल करें. इस <xliff:g id="DEVICE_NAME_1">%1$s</xliff:g> को निजी के तौर पर सेट नहीं किया गया है. इसलिए, आपका आईटी एडमिन आपकी गतिविधि और डेटा देख सकता है."</string>
