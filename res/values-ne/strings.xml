@@ -94,7 +94,7 @@
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"हो"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"रद्द गरिँदै..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"के प्रोफाइल सेटअप रोक्ने हो?"</string>
-    <string name="work_profile_setup_later_message" msgid="122069011117225292">"तपाईंले पछि आफ्नो कार्य प्रोफाइललाई आफ्नो संगठनको यन्त्र व्यवस्थापन एपमा सेटअप गर्न सक्नुहुन्छ"</string>
+    <string name="work_profile_setup_later_message" msgid="122069011117225292">"तपाईंले पछि आफ्नो संस्थाको डिभाइस म्यानेजमेन्ट एपमा आफ्नो कार्य प्रोफाइल सेटअप गर्न सक्नुहुन्छ"</string>
     <string name="continue_button" msgid="7177918589510964446">"जारी राख्नुहोस्"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"रोक्नुहोस्"</string>
     <string name="dismiss" msgid="9009534756748565880">"खारेज गर्नुहोस्"</string>
@@ -157,7 +157,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"प्रशासक एप सेटअप गर्दै"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"यो डिभाइस तपाईंको सङ्गठनको स्वामित्वमा छ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"यो फोनको व्यवस्थापन तथा अनुगमन गर्न निम्न एपको उपयोग गरिने छ"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"तपाईंको खाता नयाँ डिभाइसमा व्यवस्थापन गरिने छ"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"तपाईंको खाता व्यवस्थापन गरिएको छ"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"तपाईंका IT एड्मिन सुरक्षासम्बन्धी नीतिहरू लागू गर्न मोबाइल डिभाइस व्यवस्थापन गर्ने सुविधा प्रयोग गर्नुहुन्छ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"कामका लागि डिभाइस सेटअप गर्ने तयारी गरिँदै छ…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"सर्वप्रथम आफ्नो कार्य प्रोफाइल सेटअप गरौँ"</string>
@@ -166,7 +166,7 @@
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"तपाईंका IT एडमिनले तपाईंको कार्यलयको प्रोफाइलमा भएका डेटा हेर्न सक्छन्"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"तपाईंको कार्य प्रोफाइल सेट गरिँदै छ…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"कामसम्बन्धी एपहरू तपाईंको कार्यलयको प्रोफाइलमा राखिन्छन्। तपाईंले दिनभरिको काम सकेपछि तपाईं कामसम्बन्धी एपहरू पज गर्न सक्नुहुन्छ। तपाईंका IT एडमिनले तपाईंको कार्यलयको प्रोफाइलमा भएका डेटा हेर्न सक्छन्।"</string>
-    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"तपाईंको कार्यस्थलको डिभाइस सेट अप गरौँ"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"तपाईंको कार्यालयको डिभाइस सेट अप गर्नुहोस्"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"आफ्ना कामसम्बन्धी एपहरू सजिलै भेट्टाउनुहोस्"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> निजी डिभाइस होइन"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"तपाईंका IT एड्मिन तपाईंले यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> मा गर्ने क्रियाकलाप र यसमा भएका डेटा हेर्न सक्छन्।"</string>
