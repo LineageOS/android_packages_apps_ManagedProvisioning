@@ -168,7 +168,7 @@
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Працоўныя праграмы захоўваюцца ў вашым працоўным профілі. На перыяд, калі вы не будзеце карыстацца працоўнымі праграмамі, вы можаце прыпыніць іх. Ваш ІT-адміністратар можа бачыць даныя ў працоўным профілі."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Давайце наладзім вашу працоўную прыладу"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Заўсёды трымайце свае працоўныя праграмы пад рукой"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Гэта прылада <xliff:g id="DEVICE_NAME">%1$s</xliff:g> не з\'яўляецца прыватнай"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Гэта прылада <xliff:g id="DEVICE_NAME">%1$s</xliff:g> не з’яўляецца прыватнай"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"Ваш ІT-адміністратар можа праглядаць вашы даныя і дзеянні на гэтай прыладзе <xliff:g id="DEVICE_NAME">%1$s</xliff:g>."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Вашы дзеянні і даныя"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Дазволы праграм"</string>

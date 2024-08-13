@@ -158,7 +158,7 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Ovaj uređaj pripada vašoj organizaciji"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Za upravljanje telefonom i njegovo praćenje koristit će se sljedeća aplikacija"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Računom se upravlja"</string>
-    <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Vaš IT administrator upotrebljava upravljanje mobitelima radi provedbe sigurnosnih pravila"</string>
+    <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Vaš IT administrator upravlja mobilnim uređajima radi provedbe sigurnosnih pravila"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Priprema za postavljanje poslovnog profila…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Postavimo vaš poslovni profil"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Poslovne aplikacije nalaze se na vašem poslovnom profilu"</string>
