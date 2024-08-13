@@ -814,6 +814,7 @@ public class PreProvisioningActivityControllerTest {
     }
 
     @Test
+    @EnableFlags({Flags.FLAG_BAD_STATE_V3_EARLY_RH_DOWNLOAD_ENABLED})
     public void testManagedProfile_provisioningNotAllowed() throws Exception {
         // GIVEN an intent to provision a managed profile, but provisioning mode is not allowed
         prepareMocksForManagedProfileIntent(false);
@@ -826,6 +827,7 @@ public class PreProvisioningActivityControllerTest {
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN show an error dialog
+        verify(mUi).onParamsValidated(any());
         verify(mUi).showErrorAndClose(
                 eq(LazyStringResource.of(R.string.cant_add_work_profile)),
                 eq(LazyStringResource.of(
@@ -835,24 +837,28 @@ public class PreProvisioningActivityControllerTest {
     }
 
     @Test
+    @EnableFlags({Flags.FLAG_BAD_STATE_V3_EARLY_RH_DOWNLOAD_ENABLED})
     public void testManagedProfile_nullCallingPackage() throws Exception {
         // GIVEN a device that is not currently encrypted
         prepareMocksForManagedProfileIntent(false);
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, null);
         // THEN error is shown
+        verify(mUi).onParamsValidated(any());
         verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
                 eq(R.string.contact_your_admin_for_help), any(String.class));
         verifyNoMoreInteractions(mUi);
     }
 
     @Test
+    @EnableFlags({Flags.FLAG_BAD_STATE_V3_EARLY_RH_DOWNLOAD_ENABLED})
     public void testManagedProfile_invalidCallingPackage() throws Exception {
         // GIVEN a device that is not currently encrypted
         prepareMocksForManagedProfileIntent(false);
         // WHEN initiating provisioning
         mController.initiateProvisioning(mIntent, "com.android.invalid.dpc");
         // THEN error is shown
+        verify(mUi).onParamsValidated(any());
         verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
                 eq(R.string.contact_your_admin_for_help), any(String.class));
         verifyNoMoreInteractions(mUi);
@@ -916,6 +922,7 @@ public class PreProvisioningActivityControllerTest {
     }
 
     @Test
+    @EnableFlags({Flags.FLAG_BAD_STATE_V3_EARLY_RH_DOWNLOAD_ENABLED})
     public void testManagedProfile_wrongPackage() throws Exception {
         // GIVEN that the provisioning intent tries to set a package different from the caller
         // as owner of the profile
@@ -923,12 +930,14 @@ public class PreProvisioningActivityControllerTest {
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, TEST_BOGUS_PACKAGE);
         // THEN show an error dialog and do not continue
+        verify(mUi).onParamsValidated(any());
         verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
                 eq(R.string.contact_your_admin_for_help), any());
         verifyNoMoreInteractions(mUi);
     }
 
     @Test
+    @EnableFlags({Flags.FLAG_BAD_STATE_V3_EARLY_RH_DOWNLOAD_ENABLED})
     public void testManagedProfile_frp() throws Exception {
         // GIVEN managed profile provisioning is invoked from SUW with FRP active
         prepareMocksForManagedProfileIntent(false);
@@ -941,6 +950,7 @@ public class PreProvisioningActivityControllerTest {
         // WHEN initiating managed profile provisioning
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN show an error dialog and do not continue
+        verify(mUi).onParamsValidated(any());
         verify(mUi).showErrorAndClose(
                 eq(LazyStringResource.of(R.string.cant_set_up_device)),
                 eq(LazyStringResource.of(R.string.device_has_reset_protection_contact_admin,
@@ -2059,6 +2069,7 @@ public void testDeviceOwner_frp() throws Exception {
     }
 
     @Test
+    @EnableFlags({Flags.FLAG_BAD_STATE_V3_EARLY_RH_DOWNLOAD_ENABLED})
     public void testInitiateProvisioning_withActionProvisionManagedDevice_failsSilently()
             throws Exception {
         prepareMocksForDoIntent(/* skipEncryption= */ false);
@@ -2067,6 +2078,7 @@ public void testDeviceOwner_frp() throws Exception {
             mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         });
 
+        verify(mUi).onParamsValidated(any());
         verify(mUi, never()).initiateUi(any());
         verify(mUi).abortProvisioning();
         verifyNoMoreInteractions(mUi);
