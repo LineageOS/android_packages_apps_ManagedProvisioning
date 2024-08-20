@@ -105,11 +105,11 @@
     <string name="device_owner_info" msgid="3716661456037934467">"Ο οργανισμός <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> θα διαχειρίζεται, θα παρακολουθεί και θα διατηρεί ασφαλή αυτήν τη συσκευή. Ισχύουν όροι. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Ο οργανισμός <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> θα διαχειρίζεται, θα παρακολουθεί και θα διατηρεί ασφαλή αυτήν τη συσκευή. Ισχύουν οι όροι από <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Αυτός ο σύνδεσμος δεν είναι ασφαλής και δεν μπορεί να ανοιχθεί μέχρι να ολοκληρωθεί η ρύθμιση της συσκευής: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
-    <string name="contact_device_provider" msgid="2843488903902493030">"Για να μάθετε περισσότερα, επικοινωνήστε με τον <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="contact_device_provider" msgid="2843488903902493030">"Ο <xliff:g id="IT_ADMIN">%1$s</xliff:g> μπορεί να σας δώσει περισσότερες πληροφορίες."</string>
     <string name="if_questions_contact_admin" msgid="3509427015901582047">"Εάν έχετε απορίες, επικοινωνήστε με τον διαχειριστή IT"</string>
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"Η ρύθμιση δεν έχει ολοκληρωθεί. Για βοήθεια, επικοινωνήστε με τον διαχειριστή IT σας."</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"Για βοήθεια, επικοινωνήστε με τον διαχειριστή IT."</string>
-    <string name="organization_admin" msgid="5975914478148511290">"Διαχειριστής IT"</string>
+    <string name="organization_admin" msgid="5975914478148511290">"Διαχειριστή IT"</string>
     <string name="your_org_app_used" msgid="5336414768293540831">"Ο οργανισμός <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> θα διαχειρίζεται και θα παρακολουθεί αυτήν τη συσκευή χρησιμοποιώντας την παρακάτω εφαρμογή:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"Ο οργανισμός σας"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"ο οργανισμός σας"</string>
@@ -167,7 +167,7 @@
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Δημιουργία του προφίλ εργασίας σας…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Οι εφαρμογές εργασίας διατηρούνται στο προφίλ εργασίας σας. Μπορείτε να θέσετε σε παύση τις εφαρμογές εργασίας σας όταν τελειώσετε την εργασία σας. Μόνο τα δεδομένα στο προφίλ εργασίας σας θα είναι ορατά στον διαχειριστή IT σας."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Ας ρυθμίσουμε τη συσκευή εργασίας σας"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Διατηρήσετε στη διάθεσή σας τις εφαρμογές εργασίας σας"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Οι εφαρμογές της εργασίας σας πάντα στη διάθεσή σας"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Η συσκευή <xliff:g id="DEVICE_NAME">%1$s</xliff:g> δεν είναι ιδιωτική"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"Ο διαχειριστής IT μπορεί να έχει τη δυνατότητα να δει τα δεδομένα και τη δραστηριότητά σας στη συσκευή <xliff:g id="DEVICE_NAME">%1$s</xliff:g>."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Η δραστηριότητα και τα δεδομένα σας"</string>
