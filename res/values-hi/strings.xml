@@ -161,7 +161,7 @@
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"आपका आईटी एडमिन, सुरक्षा नीतियों को लागू करने के लिए मोबाइल मैनेजमेंट का इस्तेमाल करता है"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"वर्क डिवाइस, सेटअप के लिए तैयार हो रहा है…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"चलिए, आपकी वर्क प्रोफ़ाइल सेट अप करते हैं"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ऑफ़िस के काम से जुड़े ऐप्लिकेशन, आपकी वर्क प्रोफ़ाइल में रखे जाते हैं"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"वर्क ऐप्लिकेशन, आपकी वर्क प्रोफ़ाइल में रखे जाते हैं"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ऑफ़िस का दिनभर का काम खत्म हो जाने के बाद, इससे जुड़े ऐप्लिकेशन बंद करें"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"आपके आईटी एडमिन को आपकी वर्क प्रोफ़ाइल में सेव डेटा दिखता है"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"वर्क प्रोफ़ाइल सेट की जा रही है…"</string>
