@@ -65,6 +65,7 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 import com.android.managedprovisioning.testcommon.FakeSharedPreferences;
+import com.android.managedprovisioning.util.LazyStringResource;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -135,10 +136,10 @@ public final class EstablishNetworkConnectionViewModelTest {
             .build();
     private static final ProvisioningParams PARAMS_WITHOUT_NETWORK_DATA =
             new ProvisioningParams.Builder()
-            .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
-            .setDeviceAdminComponentName(ADMIN)
-            .setStartedByTrustedSource(true)
-            .build();
+                    .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
+                    .setDeviceAdminComponentName(ADMIN)
+                    .setStartedByTrustedSource(true)
+                    .build();
     private static final ProvisioningParams PARAMS = EXPECTED_PARAMS;
     @Mock
     private Utils mUtils;
@@ -226,8 +227,8 @@ public final class EstablishNetworkConnectionViewModelTest {
                             /* factoryResetRequired= */ true);
 
                     assertThat(mViewModel.getError().dialogTitleId).isEqualTo(DIALOG_TITLE_RES_ID);
-                    assertThat(mViewModel.getError().errorMessageResId)
-                            .isEqualTo(DIALOG_MESSAGE_RES_ID);
+                    assertThat(mViewModel.getError().errorMessageRes).isInstanceOf(
+                            LazyStringResource.class);
                     assertThat(mViewModel.getError().factoryResetRequired).isTrue();
                 });
     }
@@ -245,13 +246,16 @@ public final class EstablishNetworkConnectionViewModelTest {
     }
 
     @Test
-    public void getError_withMessageText_isNull() {
+    public void getError_withMessageText_isNotNull() {
         mInstrumentation.runOnMainSync(
                 () -> {
                     mViewModel.error(DIALOG_TITLE_RES_ID, DIALOG_MESSAGE,
                             /* factoryResetRequired= */ true);
 
-                    assertThat(mViewModel.getError()).isNull();
+                    assertThat(mViewModel.getError().dialogTitleId).isEqualTo(DIALOG_TITLE_RES_ID);
+                    assertThat(mViewModel.getError().errorMessageRes).isInstanceOf(
+                            LazyStringResource.class);
+                    assertThat(mViewModel.getError().factoryResetRequired).isTrue();
                 });
     }
 
@@ -288,6 +292,7 @@ public final class EstablishNetworkConnectionViewModelTest {
 
     private void blockUntilNextUiThreadCycle() {
         androidx.test.platform.app.InstrumentationRegistry.getInstrumentation()
-                .runOnMainSync(() -> {});
+                .runOnMainSync(() -> {
+                });
     }
 }

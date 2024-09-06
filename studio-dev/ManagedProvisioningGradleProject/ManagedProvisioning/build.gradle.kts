@@ -149,6 +149,7 @@ dependencies {
     api("androidx.webkit:webkit")
     api(libs.javax.inject)
 
+    api(project(":FrameworkFlags"))
     api(project(":android_onboarding.contracts.provisioning"))
     api(project(":android_onboarding.contracts.annotations"))
     api(project(":android_onboarding.contracts.setupwizard"))

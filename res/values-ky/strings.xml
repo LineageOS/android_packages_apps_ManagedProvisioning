@@ -143,7 +143,7 @@
     <string name="read_terms" msgid="1745011123626640728">"Шарттарды окуу"</string>
     <string name="close_list" msgid="9053538299788717597">"Тизмени жабуу"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"Жөндөө токтотулп, түзмк баштпк аблга келснби?"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Бул жөндөө токтотулса түзмөгүңүз баштапкы абалга келтирилип, кайрадан биринчи экранга өтөсүз."</string>
+    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Бул параметр токтотулса түзмөгүңүз баштапкы абалга келтирилип, кайрадан биринчи экранга өтөсүз."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"Жок"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"Түзмөктү баштапкы абалга келтирүү"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> жана <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
@@ -158,7 +158,7 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Бул түзмөк уюмуңузга таандык"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Бул телефон төмөнкү колдонмо аркылуу башкарылып, көзөмөлдөнөт"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Аккаунтуңуз башкарылууда"</string>
-    <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"IT администраторуңуз коопсуздук эрежелерин сактоо үчүн мобилдик түзмөктөрдү тескөө системасын иштетти"</string>
+    <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Коопсуздук эрежелерин сактоо максатында IT администраторуңуз мобилдик түзмөктөрдү тескеген системаны иштетти"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Жумуш профилин түзүүгө даярдык көрүлүүдө…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Келиңиз, жумуш профилиңизди түзүп алалы"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Жумуш колдонмолору жумуш профилиңизде сакталат"</string>

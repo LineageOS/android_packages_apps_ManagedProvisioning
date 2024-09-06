@@ -18,6 +18,7 @@ package com.android.managedprovisioning.common;
 
 import static java.util.Objects.requireNonNull;
 
+import android.content.Context;
 import android.content.Intent;
 
 /**
@@ -26,24 +27,25 @@ import android.content.Intent;
  */
 public final class ErrorDialogUtils {
     public static final String EXTRA_DIALOG_TITLE_ID = "dialog_title_id";
-    public static final String EXTRA_ERROR_MESSAGE_RES_ID =
-            "dialog_error_message_res_id";
+    public static final String EXTRA_ERROR_MESSAGE_RES =
+            "dialog_error_message_res";
     public static final String EXTRA_FACTORY_RESET_REQUIRED =
             "factory_reset_required";
 
-    private ErrorDialogUtils() {}
+    private ErrorDialogUtils() {
+    }
 
     /**
      * Creates a resulting intent to be returned as a result that describes an error.
      */
-    public static Intent createResultIntent(ErrorWrapper error) {
+    public static Intent createResultIntent(ErrorWrapper error, Context context) {
         requireNonNull(error);
         Intent intent = new Intent();
         if (error.dialogTitleId != 0) {
             intent.putExtra(EXTRA_DIALOG_TITLE_ID, error.dialogTitleId);
         }
-        if (error.errorMessageResId != 0) {
-            intent.putExtra(EXTRA_ERROR_MESSAGE_RES_ID, error.errorMessageResId);
+        if (error.errorMessageRes != null) {
+            intent.putExtra(EXTRA_ERROR_MESSAGE_RES, error.errorMessageRes.valueOrNull(context));
         }
         intent.putExtra(EXTRA_FACTORY_RESET_REQUIRED, error.factoryResetRequired);
         return intent;

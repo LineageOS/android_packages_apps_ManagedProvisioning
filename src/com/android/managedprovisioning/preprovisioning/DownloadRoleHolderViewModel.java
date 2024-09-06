@@ -33,6 +33,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.DownloadRoleHolderController;
 import com.android.managedprovisioning.provisioning.ProvisioningControllerCallback;
 import com.android.managedprovisioning.provisioning.ProvisioningManagerHelper;
+import com.android.managedprovisioning.util.LazyStringResource;
 
 /**
  * A {@link ViewModel} which manages the state for the download role holder screen.
@@ -99,20 +100,21 @@ public class DownloadRoleHolderViewModel extends ViewModel implements
 
     @Override
     public void error(int dialogTitleId, int errorMessageId, boolean factoryResetRequired) {
-        mErrorWrapper = new ErrorWrapper(dialogTitleId, errorMessageId, factoryResetRequired);
+        mErrorWrapper = new ErrorWrapper(dialogTitleId, LazyStringResource.of(errorMessageId),
+                factoryResetRequired);
         updateState(STATE_ERROR);
     }
 
     @Override
     public void error(int dialogTitleId, String errorMessage, boolean factoryResetRequired) {
-        // We don't assign ErrorWrapper here since all errors would come as errorMessageId in the
-        // other override. This specific override is only meant for cases when the OEM returns
-        // a string error during the tasks. Today this only happens for the provisioning DPM APIs.
+        mErrorWrapper = new ErrorWrapper(dialogTitleId, LazyStringResource.of(errorMessage),
+                factoryResetRequired);
         updateState(STATE_ERROR);
     }
 
     @Override
-    public void preFinalizationCompleted() {}
+    public void preFinalizationCompleted() {
+    }
 
     /**
      * Returns an {@link ErrorWrapper} which describes the last error that happened. This will

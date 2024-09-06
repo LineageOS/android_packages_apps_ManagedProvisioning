@@ -33,6 +33,7 @@ import androidx.test.platform.app.InstrumentationRegistry;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.util.LazyStringResource;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -70,7 +71,7 @@ public class DownloadRoleHolderViewModelTest {
     @Test
     public void connectToNetworkAndDownloadRoleHolder_goesToDownloadingState() {
         mViewModel.connectToNetworkAndDownloadRoleHolder(
-                 mInstrumentation.getContext());
+                mInstrumentation.getContext());
         blockUntilNextUiThreadCycle();
 
         assertThat(mViewModel.observeState().getValue()).isEqualTo(STATE_DOWNLOADING);
@@ -108,8 +109,8 @@ public class DownloadRoleHolderViewModelTest {
                             /* factoryResetRequired= */ true);
 
                     assertThat(mViewModel.getError().dialogTitleId).isEqualTo(DIALOG_TITLE_RES_ID);
-                    assertThat(mViewModel.getError().errorMessageResId)
-                            .isEqualTo(DIALOG_MESSAGE_RES_ID);
+                    assertThat(mViewModel.getError().errorMessageRes).isInstanceOf(
+                            LazyStringResource.class);
                     assertThat(mViewModel.getError().factoryResetRequired).isTrue();
                 });
     }
@@ -127,13 +128,16 @@ public class DownloadRoleHolderViewModelTest {
     }
 
     @Test
-    public void getError_withMessageText_isNull() {
+    public void getError_withMessageText_isNotNull() {
         mInstrumentation.runOnMainSync(
                 () -> {
                     mViewModel.error(DIALOG_TITLE_RES_ID, DIALOG_MESSAGE,
                             /* factoryResetRequired= */ true);
 
-                    assertThat(mViewModel.getError()).isNull();
+                    assertThat(mViewModel.getError().dialogTitleId).isEqualTo(DIALOG_TITLE_RES_ID);
+                    assertThat(mViewModel.getError().errorMessageRes).isInstanceOf(
+                            LazyStringResource.class);
+                    assertThat(mViewModel.getError().factoryResetRequired).isTrue();
                 });
     }
 
@@ -143,6 +147,7 @@ public class DownloadRoleHolderViewModelTest {
     }
 
     private void blockUntilNextUiThreadCycle() {
-        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {});
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+        });
     }
 }

@@ -157,7 +157,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Konfigurerer administratorapp"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Denne enheten tilhører organisasjonen din"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Følgende app brukes til å administrere og overvåke denne telefonen"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Kontoen din administreres"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Kontoen din er administrert"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"IT-administratoren bruker administrering av mobilenheter for å gjøre retningslinjene for sikkerhet obligatoriske"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Klargjør for jobbkonfigurering …"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"La oss konfigurere jobbprofilen din"</string>
@@ -167,7 +167,7 @@
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Konfigurerer jobbprofilen din …"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Jobbapper oppbevares i jobbprofilen din. Du kan sette jobbappene dine på pause når du er ferdig for dagen. Dataene i jobbprofilen din er synlige for IT-administratoren din."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"La oss konfigurere jobbenheten din"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Få enkel tilgang til jobbappene dine"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Få enkelt tilgang til jobbappene dine"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Denne <xliff:g id="DEVICE_NAME">%1$s</xliff:g>-enheten er ikke privat"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"IT-administratoren kan se dataene dine og det du gjør på denne <xliff:g id="DEVICE_NAME">%1$s</xliff:g>-enheten."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Aktiviteten din og dataene dine"</string>

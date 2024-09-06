@@ -14,6 +14,11 @@ android_test {
     instrumentation_for: "ManagedProvisioning",
     test_suites: ["device-tests"],
 
+    // Packages to be included in code coverage runs.
+    jacoco: {
+        include_filter: ["com.android.managedprovisioning.*"],
+        exclude_filter: ["com.android.onboarding.*"],
+    },
 }
 
 android_library {

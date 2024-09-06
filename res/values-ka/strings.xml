@@ -163,7 +163,7 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"მოდით, გავმართოთ თქვენი სამსახურის პროფილი"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"სამსახურის აპები თქვენს სამსახურის პროფილში ინახება"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"დააპაუზეთ სამსახურის აპები, როდესაც მოცემულ დღეს მუშაობას დაასრულებთ"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"თქვენს სამსახურის პროფილში შენახული მონაცემები ხილულია თქვენი IT ადმინისტრატორისთვის"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"თქვენს სამსახურის პროფილში შენახულ მონაცემებს ხედავს თქვენი IT ადმინისტრატორი"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"მიმდინარეობს თქვენი სამსახურის პროფილის დაყენება…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"სამსახურის აპები თქვენს სამსახურის პროფილში ინახება. შეგიძლიათ, დააპაუზოთ სამსახურის აპები, როდესაც მოცემულ დღეს მუშაობას დაასრულებთ. თქვენი IT ადმინისტრატორი თქვენს სამსახურის პროფილში არსებულ მონაცემებს ხედავს."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"მოდით, გავმართოთ თქვენი სამუშაო მოწყობილობა"</string>

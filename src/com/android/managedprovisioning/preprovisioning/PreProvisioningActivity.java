@@ -29,16 +29,19 @@ import static android.app.admin.DevicePolicyManager.ROLE_HOLDER_UPDATE_FAILURE_S
 import static android.app.admin.DevicePolicyManager.ROLE_HOLDER_UPDATE_FAILURE_STRATEGY_FALLBACK_TO_PLATFORM_PROVISIONING;
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
+
 import static com.android.managedprovisioning.ManagedProvisioningScreens.RETRY_LAUNCH;
 import static com.android.managedprovisioning.common.ErrorDialogUtils.EXTRA_DIALOG_TITLE_ID;
-import static com.android.managedprovisioning.common.ErrorDialogUtils.EXTRA_ERROR_MESSAGE_RES_ID;
+import static com.android.managedprovisioning.common.ErrorDialogUtils.EXTRA_ERROR_MESSAGE_RES;
 import static com.android.managedprovisioning.common.ErrorDialogUtils.EXTRA_FACTORY_RESET_REQUIRED;
 import static com.android.managedprovisioning.common.RetryLaunchActivity.EXTRA_INTENT_TO_LAUNCH;
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_SHOWING_USER_CONSENT;
 import static com.android.managedprovisioning.provisioning.Constants.PROVISIONING_SERVICE_INTENT;
+
 import static com.google.android.setupcompat.util.WizardManagerHelper.EXTRA_IS_SETUP_FLOW;
+
 import static java.util.Objects.requireNonNull;
 
 import android.annotation.NonNull;
@@ -90,15 +93,16 @@ import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityCo
 import com.android.managedprovisioning.provisioning.AdminIntegratedFlowPrepareActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
 import com.android.managedprovisioning.util.LazyStringResource;
+
 import com.google.android.setupcompat.logging.ScreenKey;
 import com.google.android.setupcompat.logging.SetupMetric;
 import com.google.android.setupcompat.logging.SetupMetricsLogger;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.transition.TransitionHelper;
 
-import javax.inject.Inject;
-
 import dagger.hilt.android.AndroidEntryPoint;
+
+import javax.inject.Inject;
 
 @AndroidEntryPoint(SetupGlifLayoutActivity.class)
 public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implements
@@ -417,7 +421,7 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
                                 SetupMetric.ofError(setupMetricScreenName, resultCode));
                         showRoleHolderDownloadFailedDialog(new Intent());
                     }
-                } else if (data != null && data.hasExtra(EXTRA_ERROR_MESSAGE_RES_ID)) {
+                } else if (data != null && data.hasExtra(EXTRA_ERROR_MESSAGE_RES)) {
                     mAnalyticsTracker.logPlatformRoleHolderUpdateFailed();
                     ProvisionLogger.loge("Role holder download failed and offline provisioning is "
                             + "not allowed.");
@@ -642,17 +646,21 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
         int dialogTitleResId = data.getIntExtra(
                 EXTRA_DIALOG_TITLE_ID,
                 R.string.cant_set_up_device);
-        int dialogMessageResId = data.getIntExtra(
-                EXTRA_ERROR_MESSAGE_RES_ID,
-                R.string.contact_your_admin_for_help);
+
+
+        String dialogMessageRes = data.getStringExtra(EXTRA_ERROR_MESSAGE_RES);
+        LazyStringResource dialogMessage = !dialogMessageRes.isEmpty() ? LazyStringResource.of(
+                dialogMessageRes) : LazyStringResource.of(R.string.contact_your_admin_for_help);
+
+
         if (data.getBooleanExtra(EXTRA_FACTORY_RESET_REQUIRED, /* defaultValue= */ false)) {
             showFactoryResetDialog(
-                    dialogTitleResId,
-                    dialogMessageResId);
+                    LazyStringResource.of(dialogTitleResId),
+                    dialogMessage);
         } else {
             showErrorAndClose(
-                    dialogTitleResId,
-                    dialogMessageResId,
+                    LazyStringResource.of(dialogTitleResId),
+                    dialogMessage,
                     "Failed to provision personally-owned device.");
         }
     }
@@ -929,6 +937,17 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
 
     @Override
     public void showFactoryResetDialog(Integer titleId, int messageId) {
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
+                .setTitle(titleId)
+                .setMessage(messageId)
+                .setCancelable(false)
+                .setPositiveButtonMessage(R.string.reset);
+
+        showDialog(dialogBuilder, ERROR_DIALOG_RESET);
+    }
+
+    @Override
+    public void showFactoryResetDialog(LazyStringResource titleId, LazyStringResource messageId) {
         SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setTitle(titleId)
                 .setMessage(messageId)

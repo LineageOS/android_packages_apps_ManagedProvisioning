@@ -16,9 +16,14 @@
 
 package com.android.managedprovisioning.ota;
 
+import static android.provider.Settings.Global.CONNECTED_APPS_ALLOWED_PACKAGES;
+import static android.provider.Settings.Global.CONNECTED_APPS_DISALLOWED_PACKAGES;
+import static android.provider.Settings.Global.getString;
+
 import android.Manifest;
 import android.app.AppOpsManager;
 import android.app.admin.DevicePolicyManager;
+import android.app.admin.flags.Flags;
 import android.content.Context;
 import android.content.pm.CrossProfileApps;
 import android.content.pm.PackageManager;
@@ -29,6 +34,9 @@ import android.os.UserManager;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.task.interactacrossprofiles.CrossProfileAppsSnapshot;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -45,6 +53,8 @@ public class CrossProfileAppsPregrantController {
     private final CrossProfileApps mCrossProfileApps;
     private final CrossProfileAppsSnapshot mCrossProfileAppsSnapshot;
     private final AppOpsManager mAppOpsManager;
+    private final Set<String> mUserDisallowedCrossProfilePackages;
+    private final Set<String> mUserAllowedCrossProfilePackages;
 
     public CrossProfileAppsPregrantController(Context context) {
         this(context,
@@ -69,6 +79,11 @@ public class CrossProfileAppsPregrantController {
         mCrossProfileApps = crossProfileApps;
         mAppOpsManager = appOpsManager;
         mCrossProfileAppsSnapshot = new CrossProfileAppsSnapshot(context);
+
+        mUserAllowedCrossProfilePackages = getConfigurablePackageSetFromSetting(
+                CONNECTED_APPS_ALLOWED_PACKAGES);
+        mUserDisallowedCrossProfilePackages = getConfigurablePackageSetFromSetting(
+                CONNECTED_APPS_DISALLOWED_PACKAGES);
     }
 
     public void checkCrossProfileAppsPermissions() {
@@ -81,12 +96,30 @@ public class CrossProfileAppsPregrantController {
 
         String op = AppOpsManager.permissionToOp(Manifest.permission.INTERACT_ACROSS_PROFILES);
         for (String crossProfilePackageName : getConfigurableDefaultCrossProfilePackages()) {
-            if (crossProfilePackages.contains(crossProfilePackageName) &&
-                    !appOpIsChangedFromDefault(op, crossProfilePackageName)) {
+            if (crossProfilePackages.contains(crossProfilePackageName)
+                    && !appOpIsChangedFromDefault(op, crossProfilePackageName)
+                    && !mUserDisallowedCrossProfilePackages.contains(crossProfilePackageName)) {
                 mCrossProfileApps.setInteractAcrossProfilesAppOp(crossProfilePackageName,
                         AppOpsManager.MODE_ALLOWED);
             }
         }
+        if (Flags.backupConnectedAppsSettings()) {
+            mUserAllowedCrossProfilePackages.stream()
+                    .filter(packageName -> !appOpIsChangedFromDefault(op, packageName))
+                    .filter(mCrossProfileApps::canConfigureInteractAcrossProfiles)
+                    .forEach(packageName -> mCrossProfileApps.setInteractAcrossProfilesAppOp(
+                            packageName, AppOpsManager.MODE_ALLOWED));
+        }
+    }
+
+    private Set<String> getConfigurablePackageSetFromSetting(String settingsKey) {
+        if (!Flags.backupConnectedAppsSettings()) {
+            return Collections.emptySet();
+        }
+        return Optional.ofNullable(getString(mContext.getContentResolver(), settingsKey))
+                .map(settingString -> Arrays.stream(settingString.split(","))
+                        .collect(Collectors.toSet()))
+                .orElse(Collections.emptySet());
     }
 
     private boolean appOpIsChangedFromDefault(String op, String packageName) {

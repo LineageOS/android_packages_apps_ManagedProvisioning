@@ -49,7 +49,7 @@ import com.google.android.setupcompat.util.WizardManagerHelper;
  *
  * <p>If the result is {@link #RESULT_CANCELED}, it may be accompanied by
  * {@link ErrorDialogUtils#EXTRA_DIALOG_TITLE_ID}, {@link
- * ErrorDialogUtils#EXTRA_ERROR_MESSAGE_RES_ID} and {@link
+ * ErrorDialogUtils#EXTRA_ERROR_MESSAGE_RES} and {@link
  * ErrorDialogUtils#EXTRA_FACTORY_RESET_REQUIRED} which can be used to display in a user-visible
  * dialog.
  */
@@ -71,7 +71,7 @@ public final class EstablishNetworkConnectionActivity extends SetupGlifLayoutAct
     }
 
     private void onStateChanged(int state) {
-        switch(state) {
+        switch (state) {
             case EstablishNetworkConnectionViewModel.STATE_IDLE:
                 ProvisioningParams params =
                         mViewModel.parseExtras(getApplicationContext(), getIntent());
@@ -86,7 +86,8 @@ public final class EstablishNetworkConnectionActivity extends SetupGlifLayoutAct
                 break;
             case EstablishNetworkConnectionViewModel.STATE_ERROR:
                 ErrorWrapper error = mViewModel.getError();
-                setResult(RESULT_CANCELED, ErrorDialogUtils.createResultIntent(error));
+                setResult(RESULT_CANCELED,
+                        ErrorDialogUtils.createResultIntent(error, getApplicationContext()));
                 getTransitionHelper().finishActivity(this);
                 break;
             case EstablishNetworkConnectionViewModel.STATE_SHOW_NETWORK_PICKER:
