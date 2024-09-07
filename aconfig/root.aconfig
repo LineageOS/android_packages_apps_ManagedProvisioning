@@ -1,4 +1,4 @@
-# proto-file: build/make/tools/aconfig/protos/aconfig.proto
+# proto-file: build/make/tools/aconfig/aconfig_protos/aconfig.proto
 # proto-message: flag_declarations
 
 package: "com.android.managedprovisioning.flags"
