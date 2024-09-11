@@ -168,7 +168,7 @@
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Pracovné aplikácie sú uchovávané vo vašom pracovnom profile. Na konci pracovného dňa môžete pracovné aplikácie pozastaviť. Váš správca IT vidí iba údaje vo vašom pracovnom profile."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Poďme nastaviť vaše pracovné zariadenie"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Majte svoje pracovné aplikácie poruke"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Zariadenie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> nie je súkromné"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Toto zariadenie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> nie je súkromné"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"Váš správca IT si môže zobraziť vaše údaje a aktivitu v zariadení <xliff:g id="DEVICE_NAME">%1$s</xliff:g>."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Vaša aktivita a údaje"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Povolenia aplikácií"</string>
@@ -188,8 +188,8 @@
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Správca IT môže zariadenie ovládať a blokovať aplikácie"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Pracovné aplikácie sa uchovávajú vo vašom pracovnom profile a spravuje ich váš správca IT. Osobné aplikácie sú od pracovných oddelené a nie je ich vidieť. Váš správca IT môže zariadenie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ovládať a blokovať určité aplikácie."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Moment…"</string>
-    <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pripomenutie týkajúce sa ochrany súkromia"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2107315052054483060">"Váš správca IT si môže zobraziť vaše údaje a aktivitu v zariadení <xliff:g id="DEVICE_NAME">%1$s</xliff:g>"</string>
+    <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pripomenutie k ochrane súkromia"</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2107315052054483060">"Váš správca IT si môže zobraziť vaše údaje a aktivitu v zariadení <xliff:g id="DEVICE_NAME">%1$s</xliff:g>."</string>
     <string name="financed_device_screen_header" msgid="5934940812896302344">"Zariadenie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> poskytuje <xliff:g id="CREDITOR_NAME">%2$s</xliff:g>"</string>
     <string name="financed_make_payments_subheader_title" msgid="743966229235451097">"Splácanie zariadenia <xliff:g id="DEVICE_NAME">%1$s</xliff:g>"</string>
     <string name="financed_make_payments_subheader_description" msgid="7391276584735956742">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> môže nainštalovať aplikáciu <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>, aby ste mohli zariadenie <xliff:g id="DEVICE_NAME">%3$s</xliff:g> splácať."</string>
