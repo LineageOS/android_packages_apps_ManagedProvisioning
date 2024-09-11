@@ -169,8 +169,8 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ચાલો, તમારી ઑફિસના ડિવાઇસનું સેટઅપ કરીએ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"તમારી ઑફિસ માટેની ઍપને તમારી આંગળીના ટેરવે રાખો"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"આ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ખાનગી નથી"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"તમારા IT ઍડમિન આ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે."</string>
-    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"તમારી પ્રવૃત્તિ અને ડેટા"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"તમારા IT ઍડમિન આ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> પર તમારો ડેટા અને તમારી ઍક્ટિવિટી કદાચ જોઈ શકશે."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"તમારી ઍક્ટિવિટી અને ડેટા"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ઍપની પરવાનગીઓ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="1973320148595109400">"તમારા IT ઍડમિન, આ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> પર ઍપ માટેની પરવાનગીઓ સેટ કરી શકે છે, જેમ કે માઇક્રોફોન, કૅમેરા અને લોકેશનની પરવાનગીઓ."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"તમારું ડિવાઇસ સેટ થઈ રહ્યું છે…"</string>
@@ -189,7 +189,7 @@
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"ઑફિસ માટેની ઍપ તમારી ઑફિસની પ્રોફાઇલમાં રાખવામાં આવે છે અને તમારા IT ઍડમિન દ્વારા મેનેજ કરવામાં આવે છે. વ્યક્તિગત ઍપ અલગ હોય છે અને તે ઑફિસ માટેની ઍપથી છુપાયેલી હોય છે. તમારા IT ઍડમિન આ <xliff:g id="DEVICE_NAME">%1$s</xliff:g>ને નિયંત્રિત કરી શકે છે અને અમુક ઍપને બ્લૉક કરી શકે છે."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"માત્ર એક સેકન્ડ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"પ્રાઇવસી રિમાઇન્ડર"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2107315052054483060">"તમારા IT ઍડમિન આ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે"</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2107315052054483060">"તમારા IT ઍડમિન આ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> પર તમારો ડેટા અને તમારી ઍક્ટિવિટી કદાચ જોઈ શકશે"</string>
     <string name="financed_device_screen_header" msgid="5934940812896302344">"આ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME">%2$s</xliff:g> દ્વારા પ્રદાન કરવામાં આવ્યું છે"</string>
     <string name="financed_make_payments_subheader_title" msgid="743966229235451097">"આ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> માટે ચુકવણીઓ કરો"</string>
     <string name="financed_make_payments_subheader_description" msgid="7391276584735956742">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ઍપ ઇન્સ્ટૉલ કરી શકે છે, જેથી તમે આ <xliff:g id="DEVICE_NAME">%3$s</xliff:g> માટે ચુકવણીઓ કરી શકો."</string>

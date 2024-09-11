@@ -162,7 +162,7 @@
     <string name="downloading_administrator_header" msgid="8660294318893902915">"仕事用プロファイルのセットアップを準備しています…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"仕事用プロファイルを設定しましょう"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"仕事用アプリは仕事用プロファイルに保存されます"</string>
-    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"1 日の仕事を終えたら仕事用アプリを一時停止する"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"1 日の仕事を終えたら仕事用アプリを一時停止します"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"仕事用プロファイル内のデータは IT 管理者に公開されます"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"仕事用プロファイルをセットアップしています…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"仕事用アプリは仕事用プロファイルに保存されます。1 日の仕事を終えたら仕事用アプリを一時停止できます。仕事用プロファイル内のデータは IT 管理者に公開されます。"</string>

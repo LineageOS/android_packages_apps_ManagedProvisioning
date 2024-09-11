@@ -167,11 +167,11 @@
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Stel tans jou werkprofiel op …"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Werkprogramme word in jou werkprofiel gehou. Jy kan jou werkprogramme onderbreek wanneer jy klaar is vir die dag. Data in jou werkprofiel is sigbaar vir jou IT-administrateur."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Kom ons stel jou werktoestel op"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Hou jou werkprogramme binne jou bereik"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Hou jou werkapps binne jou bereik"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Hierdie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> is nie privaat nie"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"Jou IT-admin kan dalk jou data en aktiwiteit op hierdie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> sien."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Jou aktiwiteit en data"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Programtoestemmings"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Apptoestemmings"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="1973320148595109400">"Jou IT-admin kan toestemmings vir apps op hierdie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> stel, soos mikrofoon-, kamera- en liggingtoestemmings."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Stel tans jou toestel op …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="2532673962822596806">"Gebruik hierdie <xliff:g id="DEVICE_NAME_0">%1$s</xliff:g> om maklik toegang tot jou werkapps te kry. Hierdie <xliff:g id="DEVICE_NAME_1">%1$s</xliff:g> is nie privaat nie, en jou IT-admin kan dalk jou data en aktiwiteit sien."</string>
