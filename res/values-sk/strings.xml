@@ -188,7 +188,7 @@
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Správca IT môže zariadenie ovládať a blokovať aplikácie"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Pracovné aplikácie sa uchovávajú vo vašom pracovnom profile a spravuje ich váš správca IT. Osobné aplikácie sú od pracovných oddelené a nie je ich vidieť. Váš správca IT môže zariadenie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ovládať a blokovať určité aplikácie."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Moment…"</string>
-    <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pripomenutie týkajúce sa ochrany súkromia"</string>
+    <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pripomenutie k ochrane súkromia"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2107315052054483060">"Váš správca IT si môže zobraziť vaše údaje a aktivitu v zariadení <xliff:g id="DEVICE_NAME">%1$s</xliff:g>."</string>
     <string name="financed_device_screen_header" msgid="5934940812896302344">"Zariadenie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> poskytuje <xliff:g id="CREDITOR_NAME">%2$s</xliff:g>"</string>
     <string name="financed_make_payments_subheader_title" msgid="743966229235451097">"Splácanie zariadenia <xliff:g id="DEVICE_NAME">%1$s</xliff:g>"</string>
