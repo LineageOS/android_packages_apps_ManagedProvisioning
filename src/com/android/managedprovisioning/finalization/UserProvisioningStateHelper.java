@@ -178,7 +178,11 @@ public class UserProvisioningStateHelper {
 
     private void setUserProvisioningState(int state, int userId) {
         ProvisionLogger.logi("Setting userProvisioningState for user " + userId + " to: " + state);
-        mDevicePolicyManager.setUserProvisioningState(state, userId);
+        try {
+            mDevicePolicyManager.setUserProvisioningState(state, userId);
+        } catch (IllegalStateException e) {
+            ProvisionLogger.loge("Exception caught while changing provisioning state", e);
+        }
     }
 
     private void maybeSetHeadlessSystemUserProvisioningState(ProvisioningParams params, int newState) {
