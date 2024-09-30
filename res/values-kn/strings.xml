@@ -45,7 +45,7 @@
     <string name="managed_device_info" msgid="1529447646526616811">"ನಿರ್ವಹಿಸುವ ಸಾಧನದ ಮಾಹಿತಿ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಅಳಿಸುವುದೇ?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ನೀವು ಈಗಾಗಲೇ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿರುವಿರಿ. ಅದನ್ನು ಕೆಳಗಿನ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸಿಕೊಂಡು ನಿರ್ವಹಿಸಲಾಗಿದೆ:"</string>
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ನೀವು ಈಗಾಗಲೇ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿರುವಿರಿ. ಅದನ್ನು ಕೆಳಗಿನ ಆ್ಯಪ್ ಬಳಸಿಕೊಂಡು ನಿರ್ವಹಿಸಲಾಗಿದೆ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ಮುಂದುವರಿಯುವ ಮೊದಲು, "<a href="#read_this_link">"ಇದನ್ನು ಓದಿ"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ನೀವು ಮುಂದುವರಿಸಿದರೆ, ಈ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿನ ಎಲ್ಲ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಡೇಟಾವನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ."</string>
     <string name="delete_profile" msgid="2299218578684663459">"ಅಳಿಸಿ"</string>
@@ -61,7 +61,7 @@
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"ಉದ್ಯೋಗದ ಪ್ರೊಫೈಲ್‌ ಅನ್ನು ಬದಲಾಯಿಸಲು ಅಥವಾ ತೆಗೆದುಹಾಕಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="4866281518235832928">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಈ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಗೆ ಸೇರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ನಿಮ್ಮಲ್ಲಿ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳಿದ್ದರೆ, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"ಸಾಧನದ ಲಾಂಚರ್ ಬದಲಾಯಿಸಿ"</string>
-    <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"ಈ ಲಾಂಚರ್ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಬಳಸಿಕೊಳ್ಳಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
+    <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"ಈ ಲಾಂಚರ್ ಆ್ಯಪ್ ಅನ್ನು ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಬಳಸಿಕೊಳ್ಳಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ರದ್ದುಮಾಡಿ"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ಸರಿ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ಬಳಕೆದಾರ ಸೆಟಪ್ ಅಪೂರ್ಣವಾಗಿದೆ"</string>
@@ -110,7 +110,7 @@
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"ಸೆಟಪ್ ಪೂರ್ಣಗೊಂಡಿಲ್ಲ. ಸಹಾಯಕ್ಕಾಗಿ, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"ಸಹಾಯಕ್ಕಾಗಿ, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ"</string>
     <string name="organization_admin" msgid="5975914478148511290">"IT ನಿರ್ವಾಹಕರನ್ನು"</string>
-    <string name="your_org_app_used" msgid="5336414768293540831">"ಈ ಕೆಳಗಿನ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸಿಕೊಂಡು ಈ ಸಾಧನವನ್ನು <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ನಿರ್ವಹಿಸುತ್ತದೆ ಮತ್ತು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುತ್ತದೆ:"</string>
+    <string name="your_org_app_used" msgid="5336414768293540831">"ಈ ಕೆಳಗಿನ ಆ್ಯಪ್ ಬಳಸಿಕೊಂಡು ಈ ಸಾಧನವನ್ನು <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ನಿರ್ವಹಿಸುತ್ತದೆ ಮತ್ತು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುತ್ತದೆ:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"ನಿಮ್ಮ ಸಂಘಟನೆ"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"ನಿಮ್ಮ ಸಂಸ್ಥೆ"</string>
     <string name="view_terms" msgid="7230493092383341605">"ನಿಯಮಗಳನ್ನು ವೀಕ್ಷಿಸಿ"</string>
