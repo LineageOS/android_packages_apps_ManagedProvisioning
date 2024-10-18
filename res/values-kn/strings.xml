@@ -88,7 +88,7 @@
     <string name="error_hash_mismatch" msgid="1145488923243178454">"ಚೆಕ್‌ಸಮ್ ದೋಷ ಎದುರಾಗಿರುವ ಕಾರಣ ನಿರ್ವಾಹಕ ಆ್ಯಪ್ ಬಳಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ಸಹಾಯಕ್ಕಾಗಿ, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="error_download_failed" msgid="3274283629837019452">"ನಿರ್ವಹಣೆ ಆ್ಯಪ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ"</string>
     <string name="error_package_invalid" msgid="555402554502033988">"ನಿರ್ವಾಹಕ ಆ್ಯಪ್ ಬಳಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಇದರ ಘಟಕಗಳು ಕಾಣೆಯಾಗಿವೆ ಅಥವಾ ದೋಷಪೂರಿತವಾಗಿವೆ. ಸಹಾಯಕ್ಕಾಗಿ, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
-    <string name="error_installation_failed" msgid="2282903750318407285">"ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್‌ ಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ"</string>
+    <string name="error_installation_failed" msgid="2282903750318407285">"ನಿರ್ವಹಣೆ ಆ್ಯಪ್‌ ಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ಹೊಂದಿಸುವುದನ್ನು ನಿಲ್ಲಿಸುವುದೇ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ಇಲ್ಲ"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"ಹೌದು"</string>
@@ -154,7 +154,7 @@
     <string name="work_profile_description" msgid="8524116010729569213">"ನಿಮ್ಮ ಕೆಲಸದ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಈ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿ ಇರಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಮೂಲಕ ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ"</string>
     <string name="device_owner_description" msgid="168013145812679664">"ಈ ಸಾಧನವನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಇರಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಮೂಲಕ ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"ಕೆಲಸದ ಸಾಧನವನ್ನು ಸೆಟಪ್ ಮಾಡಲು ಸಿದ್ಧಗೊಳ್ಳುತ್ತಿದೆ ..."</string>
-    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ನಿರ್ವಹಣೆ ಅಪ್ಲಿಕೇಶನ್ ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ"</string>
+    <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ನಿರ್ವಹಣೆ ಆ್ಯಪ್‌ ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"ಈ ಸಾಧನವು ನಿಮ್ಮ ಸಂಸ್ಥೆಗೆ ಸೇರಿರುತ್ತದೆ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ಈ ಫೋನ್ ಅನ್ನು ನಿರ್ವಹಿಸಲು ಮತ್ತು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲು ಕೆಳಗಿನ ಆ್ಯಪ್‌ ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಹೊಸ ಸಾಧನದಲ್ಲಿ ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ"</string>
