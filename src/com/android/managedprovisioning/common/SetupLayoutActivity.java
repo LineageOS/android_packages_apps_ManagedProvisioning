@@ -78,11 +78,16 @@ public abstract class SetupLayoutActivity extends Hilt_SetupLayoutActivity {
         if (!isWaitingScreen()) {
             mTransitionHelper.applyContentScreenTransitions(this);
         }
-        updateDefaultNightMode();
-        setTheme(mThemeHelper.inferThemeResId(this, getIntent()));
-        if (shouldSetupDynamicColors()) {
-            mThemeHelper.setupDynamicColors(this);
+        boolean themeSet = mThemeHelper.setSuwTheme(this);
+        ProvisionLogger.logd("applyStyles themeSet:" + themeSet);
+        if (!themeSet) {
+            updateDefaultNightMode();
+            setTheme(mThemeHelper.inferThemeResId(this, getIntent()));
+            if (shouldSetupDynamicColors()) {
+                mThemeHelper.setupDynamicColors(this);
+            }
         }
+
         super.onCreate(savedInstanceState);
 
         getWindow().addSystemFlags(SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
@@ -106,7 +111,9 @@ public abstract class SetupLayoutActivity extends Hilt_SetupLayoutActivity {
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        updateDefaultNightMode();
+        if (!mThemeHelper.setSuwTheme(this)) {
+            updateDefaultNightMode();
+        }
     }
 
     private void updateDefaultNightMode() {

@@ -40,7 +40,7 @@ import com.airbnb.lottie.LottieComposition;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.R;
 import com.google.android.setupdesign.util.ThemeResolver;
-
+import static com.google.android.setupdesign.util.ThemeHelper.trySetSuwTheme;
 /**
  * Helper with utility methods to manage the ManagedProvisioning theme and night mode.
  */
@@ -73,6 +73,11 @@ public class ThemeHelper {
                 .resolveTheme(defaultTheme, themeName, shouldSuppressDayNight(context));
     }
 
+    /** Returns {@code true} if the SUW theme is set. */
+    public boolean setSuwTheme(Context context) {
+        requireNonNull(context);
+        return trySetSuwTheme(context);
+    }
     /**
      * Sets up theme-specific colors. Must be called after {@link
      * #inferThemeResId(Context, Intent)}.
