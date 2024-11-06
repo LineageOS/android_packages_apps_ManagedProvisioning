@@ -17,19 +17,18 @@
 package com.android.managedprovisioning.common;
 
 import android.annotation.Nullable;
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.widget.TextView;
-
 import androidx.annotation.VisibleForTesting;
-
 import com.android.managedprovisioning.R;
-
 import com.google.android.setupdesign.GlifLayout;
-
+import com.google.android.setupdesign.template.IconMixin;
 
 /**
  * Base class for setting up the layout.
@@ -89,8 +88,22 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
             increaseMaxLinesIfNecessary(header, mInitialHeaderMaxLines);
         }
 
+    if (ThemeHelper.shouldApplyGlifExpressiveStyle(this)) {
+        layout.setIcon(getDrawable(R.drawable.gs_work_vd_theme_24));
+        IconMixin iconMixin = layout.getMixin(IconMixin.class);
+        iconMixin.setIconTint(resolveColor(layout.getContext(), android.R.attr.colorPrimary));
+    } else {
         layout.setIcon(getDrawable(R.drawable.ic_enterprise_blue_24dp));
     }
+  }
+
+  private int resolveColor(Context context, int attr) {
+    TypedValue typedValue = new TypedValue();
+    if (context.getTheme().resolveAttribute(attr, typedValue, true)) {
+      return context.getColor(typedValue.resourceId);
+    }
+    return 0;
+  }
 
     /**
      * If the text takes more than its {@code textView}'s {@code initialMaxLines}, expand it one

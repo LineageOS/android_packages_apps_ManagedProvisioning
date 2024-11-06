@@ -130,6 +130,7 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
         CharSequence deviceName = DeviceHelper.getDeviceName(getApplicationContext());
         final String title = getString(R.string.setup_device_progress, deviceName);
         initializeLayoutParams(R.layout.empty_loading_layout, headerResId);
+        getUtils().hideIconIfBc25Enabled(findViewById(R.id.setup_wizard_layout));
         setTitle(title);
     }
 
