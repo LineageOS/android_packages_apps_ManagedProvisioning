@@ -507,7 +507,7 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
         } else if (resultCode
                 == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED
         ) {
-            mController.performPlatformProvidedProvisioning();
+            mController.performPlatformProvidedProvisioning(getIntent(), getCallingPackage());
         } else if (resultCode
                 != RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_UNRECOVERABLE_ERROR) {
             mController.resetRoleHolderUpdateRetryCount();
@@ -519,7 +519,8 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
                 if (isRoleHolderUpdaterRequestingPlatformDrivenProvisioning(resultData)) {
                     ProvisionLogger.logi("Result is " + resultCode
                             + " and applied fallback strategy.");
-                    mController.performPlatformProvidedProvisioning();
+                    mController.performPlatformProvidedProvisioning(getIntent(),
+                            getCallingPackage());
                 } else {
                     mAnalyticsTracker.logRoleHolderUpdaterUpdateFailed();
                     failRoleHolderUpdate();
@@ -533,10 +534,10 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
             }
         } else if (mController.getParams().allowOffline) {
             ProvisionLogger.logi("Result is " + resultCode + ". Allowed offline provisioning.");
-            mController.performPlatformProvidedProvisioning();
+            mController.performPlatformProvidedProvisioning(getIntent(), getCallingPackage());
         } else if (isRoleHolderUpdaterRequestingPlatformDrivenProvisioning(resultData)) {
             ProvisionLogger.logi("Result is " + resultCode + " and applied fallback strategy.");
-            mController.performPlatformProvidedProvisioning();
+            mController.performPlatformProvidedProvisioning(getIntent(), getCallingPackage());
         } else {
             mAnalyticsTracker.logRoleHolderUpdaterUpdateFailed();
             failRoleHolderUpdate();
@@ -558,7 +559,7 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
             mController.incrementRoleHolderUpdateRetryCount();
         } else if (resultCode
                 == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED) {
-            mController.performPlatformProvidedProvisioning();
+            mController.performPlatformProvidedProvisioning(getIntent(), getCallingPackage());
         } else if (resultCode
                 != RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_UNRECOVERABLE_ERROR) {
             boolean isProvisioningStarted = mController.startAppropriateProvisioning(
@@ -569,7 +570,8 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
                 if (isRoleHolderUpdaterRequestingPlatformDrivenProvisioning(resultData)) {
                     ProvisionLogger.logi("Result is " + resultCode
                             + " and applied fallback strategy.");
-                    mController.performPlatformProvidedProvisioning();
+                    mController.performPlatformProvidedProvisioning(getIntent(),
+                            getCallingPackage());
                 } else {
                     failRoleHolderUpdate();
                     ProvisionLogger.loge("Failed to start provisioning after a "
@@ -582,10 +584,10 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
             }
         } else if (mController.getParams().allowOffline) {
             ProvisionLogger.logi("Result is " + resultCode + ". Allowed offline provisioning.");
-            mController.performPlatformProvidedProvisioning();
+            mController.performPlatformProvidedProvisioning(getIntent(), getCallingPackage());
         } else if (isRoleHolderUpdaterRequestingPlatformDrivenProvisioning(resultData)) {
             ProvisionLogger.logi("Result is " + resultCode + " and applied fallback strategy.");
-            mController.performPlatformProvidedProvisioning();
+            mController.performPlatformProvidedProvisioning(getIntent(), getCallingPackage());
         } else {
             failRoleHolderUpdate();
             ProvisionLogger.loge("Failed to perform a role holder-requested role holder "

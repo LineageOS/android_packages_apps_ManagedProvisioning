@@ -28,7 +28,6 @@ import static android.content.Context.DEVICE_POLICY_SERVICE;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.app.admin.DevicePolicyManager;
-import android.app.admin.flags.Flags;
 import android.content.Context;
 import android.os.UserHandle;
 
@@ -179,7 +178,11 @@ public class UserProvisioningStateHelper {
 
     private void setUserProvisioningState(int state, int userId) {
         ProvisionLogger.logi("Setting userProvisioningState for user " + userId + " to: " + state);
-        mDevicePolicyManager.setUserProvisioningState(state, userId);
+        try {
+            mDevicePolicyManager.setUserProvisioningState(state, userId);
+        } catch (IllegalStateException e) {
+            ProvisionLogger.loge("Exception caught while changing provisioning state", e);
+        }
     }
 
     private void maybeSetHeadlessSystemUserProvisioningState(ProvisioningParams params, int newState) {
@@ -187,9 +190,8 @@ public class UserProvisioningStateHelper {
             return; // No special headless logic for managed profiles
         }
         if (mUtils.isHeadlessSystemUserMode()
-                && (!Flags.headlessDeviceOwnerProvisioningFixEnabled()
-                || mDevicePolicyManager.getHeadlessDeviceOwnerMode()
-                == HEADLESS_DEVICE_OWNER_MODE_AFFILIATED)
+                && mDevicePolicyManager.getHeadlessDeviceOwnerMode()
+                == HEADLESS_DEVICE_OWNER_MODE_AFFILIATED
                 && mMyUserId != UserHandle.USER_SYSTEM) {
             // For affiliated DO, headless system user's DO has to be set on system user and
             // therefore system user has to be marked the same as the calling user.

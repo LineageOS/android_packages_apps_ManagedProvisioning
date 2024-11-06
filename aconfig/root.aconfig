@@ -1,4 +1,4 @@
-# proto-file: build/make/tools/aconfig/protos/aconfig.proto
+# proto-file: build/make/tools/aconfig/aconfig_protos/aconfig.proto
 # proto-message: flag_declarations
 
 package: "com.android.managedprovisioning.flags"
@@ -10,3 +10,11 @@ flag {
   description: "Enables Cosmic Ray features"
   bug: "288413994"
 }
+
+flag {
+  name: "bad_state_v3_early_rh_download_enabled"
+  namespace: "enterprise"
+  description: "Download and provision role holder provisioning before precondition checks"
+  bug: "347912855"
+}
+

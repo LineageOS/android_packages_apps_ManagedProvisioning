@@ -106,6 +106,7 @@ import com.android.managedprovisioning.common.RoleHolderUpdaterProvider;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.StoreUtils;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.flags.Flags;
 import com.android.managedprovisioning.model.DisclaimersParam;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.ProvisioningParams.FlowType;
@@ -121,6 +122,7 @@ import com.google.android.setupdesign.util.DeviceHelper;
 import java.util.IllformedLocaleException;
 import java.util.List;
 import java.util.function.BiFunction;
+
 
 /**
  * Controller which contains business logic related to provisioning preparation.
@@ -238,7 +240,7 @@ public class PreProvisioningActivityController {
         // In T allowOffline is used here to force platform provisioning.
         if (getParams().allowOffline) {
             ProvisionLogger.logw("allowOffline set, provisioning via platform.");
-            performPlatformProvidedProvisioning();
+            performPlatformProvidedProvisioning(managedProvisioningIntent, callingPackage);
             return true;
         }
 
@@ -257,7 +259,7 @@ public class PreProvisioningActivityController {
                     mUi.startRoleHolderProvisioning(roleHolderProvisioningIntent);
                 } else {
                     ProvisionLogger.logw("Falling back to provisioning via platform.");
-                    performPlatformProvidedProvisioning();
+                    performPlatformProvidedProvisioning(managedProvisioningIntent, callingPackage);
                 }
             });
             return true;
@@ -265,7 +267,7 @@ public class PreProvisioningActivityController {
                 || !mRoleHolderUpdaterHelper.isRoleHolderUpdaterDefined()
                 || !isRoleHolderProvisioningAllowed) {
             ProvisionLogger.logw("Provisioning via platform.");
-            performPlatformProvidedProvisioning();
+            performPlatformProvidedProvisioning(managedProvisioningIntent, callingPackage);
             return true;
         }
         ProvisionLogger.logw("Role holder is configured, can't provision via role holder and "
@@ -404,31 +406,20 @@ public class PreProvisioningActivityController {
         }
 
         ProvisioningParams params = mViewModel.getParams();
-        if (!checkFactoryResetProtection(params, callingPackage)) {
-            return;
-        }
-
-        if (!verifyActionAndCaller(intent, callingPackage)) {
-            return;
-        }
 
         mProvisioningAnalyticsTracker.logProvisioningExtras(mContext, intent);
         mProvisioningAnalyticsTracker.logEntryPoint(mContext, intent, mSettingsFacade);
 
-        // Check whether provisioning is allowed for the current action. This check needs to happen
-        // before any actions that might affect the state of the device.
-        // Note that checkDevicePolicyPreconditions takes care of calling
-        // showProvisioningErrorAndClose. So we only need to show the factory reset dialog (if
-        // applicable) and return.
-        if (!checkDevicePolicyPreconditions()) {
-            return;
-        }
-
-        if (!isIntentActionValid(intent.getAction())) {
-            ProvisionLogger.loge(
-                    ACTION_PROVISION_MANAGED_DEVICE + " is no longer a supported intent action.");
-            mUi.abortProvisioning();
-            return;
+        // Pre provisioning checks will be performed by the roleholder or platform at a later point
+        // in the flow if the flag returns true
+        if (!Flags.badStateV3EarlyRhDownloadEnabled()) {
+            if (!passesPreProvisioningChecks(intent, callingPackage)) {
+                ProvisionLogger.loge(
+                        "Pre-provisioning checks have failed, cancelling provisioning");
+                return;
+            }
+        } else {
+            ProvisionLogger.logd("Skipping pre-provisioning checks until roleholder download");
         }
 
         if (isDeviceOwnerProvisioning()) {
@@ -492,7 +483,45 @@ public class PreProvisioningActivityController {
         ProvisionLogger.logi("Finish logging provisioning extras");
     }
 
-    void performPlatformProvidedProvisioning() {
+    boolean passesPreProvisioningChecks(Intent managedProvisioningIntent, String callingPackage) {
+        ProvisioningParams params = mViewModel.getParams();
+
+        if (!checkFactoryResetProtection(params, callingPackage)) {
+            return false;
+        }
+
+        if (!verifyActionAndCaller(managedProvisioningIntent, callingPackage)) {
+            return false;
+        }
+        // Check whether provisioning is allowed for the current action. This check needs to happen
+        // before any actions that might affect the state of the device.
+        // Note that checkDevicePolicyPreconditions takes care of calling
+        // showProvisioningErrorAndClose. So we only need to show the factory reset dialog (if
+        // applicable) and return.
+        if (!checkDevicePolicyPreconditions()) {
+            return false;
+        }
+
+        if (!isIntentActionValid(managedProvisioningIntent.getAction())) {
+            ProvisionLogger.loge(
+                    ACTION_PROVISION_MANAGED_DEVICE
+                            + " is no longer a supported intent action.");
+            mUi.abortProvisioning();
+            return false;
+        }
+
+        return true;
+    }
+
+    void performPlatformProvidedProvisioning(Intent managedProvisioningIntent,
+            String callingPackage) {
+
+        if (Flags.badStateV3EarlyRhDownloadEnabled()
+                && !passesPreProvisioningChecks(managedProvisioningIntent, callingPackage)) {
+            ProvisionLogger.loge("Pre-provisioning checks have failed, cancelling provisioning");
+            return;
+        }
+
         ProvisionLogger.logw("Provisioning via platform-provided provisioning");
         ProvisioningParams params = mViewModel.getParams();
         if (mSharedPreferences.isProvisioningFlowDelegatedToRoleHolder()) {
