@@ -87,6 +87,13 @@ public class ThemeHelper {
         trySetDynamicColor(context);
     }
 
+    /** Returns {@code true} if this {@code context} should applied Glif expressive style. */
+    public static boolean shouldApplyGlifExpressiveStyle(Context context) {
+        requireNonNull(context);
+        return
+            com.google.android.setupdesign.util.ThemeHelper.shouldApplyGlifExpressiveStyle(context);
+    }
+
     /**
      * Returns the appropriate day or night mode, depending on the setup wizard flags.
      *

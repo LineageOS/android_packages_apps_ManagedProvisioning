@@ -75,6 +75,7 @@ import com.google.android.setupcompat.template.FooterButton;
 import com.google.android.setupcompat.template.FooterButton.ButtonType;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupdesign.util.DeviceHelper;
+import com.google.android.setupdesign.util.ThemeHelper;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -959,5 +960,16 @@ public class Utils {
                     callback.accept(view);
                 }
             });
+    }
+
+    /**
+     * Hides icon from [GlifLayout]. This is useful when we don't want to show an icon on loading
+     * screen.
+     */
+    public void hideIconIfBc25Enabled(GlifLayout glifLayout) {
+        if (ThemeHelper.shouldApplyGlifExpressiveStyle(glifLayout.getContext())) {
+        ProvisionLogger.logd("Setting icon to empty for loading screens");
+        glifLayout.setIcon(glifLayout.getContext().getDrawable(R.drawable.empty_icon));
+        }
     }
 }

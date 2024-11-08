@@ -89,6 +89,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
         activity.setTitle(title);
 
         GlifLayout layout = activity.findViewById(R.id.setup_wizard_layout);
+        getUtils().hideIconIfBc25Enabled(layout);
         setupEducationViews(layout, activity, getShouldSkipEducationScreens(),
                 getProgressLabelResId());
         if (getUtils().isFinancedDeviceAction(getParams().provisioningAction)) {
