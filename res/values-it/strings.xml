@@ -36,7 +36,7 @@
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Contatta l\'amministratore IT per ulteriori informazioni, comprese le norme sulla privacy della tua organizzazione."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Scopri di più"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Annulla"</string>
-    <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"Ok"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Accetto"</string>
     <string name="url_error" msgid="5958494012986243186">"Impossibile visualizzare il link."</string>
     <string name="navigation_button_description" msgid="6106309408994461239">"Torna indietro"</string>
@@ -63,7 +63,7 @@
     <string name="change_device_launcher" msgid="4523563368433637980">"Cambia Avvio app del dispositivo"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Questa app Avvio app non supporta il tuo profilo di lavoro"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Annulla"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"Ok"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Configurazione utenti incompleta"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Utente del dispositivo di lavoro"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Configurazione dispositivo di lavoro…"</string>
