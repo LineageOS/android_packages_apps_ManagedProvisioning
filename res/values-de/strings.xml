@@ -160,9 +160,9 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Dein Konto wird verwaltet"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Dein IT-Administrator verwendet die Mobilgeräteverwaltung, um Sicherheitsrichtlinien durchzusetzen"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Einrichtung des Arbeitsprofils wird vorbereitet…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Richten wir dein Arbeitsprofil ein"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"In deinem Arbeitsprofil werden Apps für die Arbeit abgelegt"</string>
-    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Apps für die Arbeit pausieren, wenn du für heute fertig bist"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Arbeitsprofil einrichten"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"In deinem Arbeitsprofil werden geschäftliche Apps abgelegt"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Geschäftliche Apps pausieren, wenn du Feierabend hast"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Dein IT-Administrator kann Daten in deinem Arbeitsprofil sehen"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Arbeitsprofil wird eingerichtet…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Geschäftliche Apps werden in deinem Arbeitsprofil abgelegt. Wenn du mit deiner Arbeit für heute fertig bist, kannst du deine geschäftlichen Apps pausieren. Dein IT-Administrator kann die Daten in deinem Arbeitsprofil sehen."</string>
