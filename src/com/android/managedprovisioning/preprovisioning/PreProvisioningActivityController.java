@@ -1051,6 +1051,12 @@ public class PreProvisioningActivityController {
             ProvisionLogger.logd("Reset protection not supported.");
             return false;
         }
+
+        if (Flags.checkFrpActive()) {
+            boolean isFrpActive = mPdbManager.isFactoryResetProtectionActive();
+            ProvisionLogger.logd("Is factory reset protection active: " + isFrpActive);
+            return isFrpActive;
+        }
         int size = mPdbManager.getDataBlockSize();
         ProvisionLogger.logd("Data block size: " + size);
         return size > 0;
