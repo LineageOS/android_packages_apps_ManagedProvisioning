@@ -24,8 +24,8 @@
     <string name="setup_work_profile" msgid="1468934631731845267">"Stel werkprofiel op"</string>
     <string name="company_controls_workspace" msgid="2808025277267917221">"Jou organisasie beheer hierdie profiel en hou dit veilig. Jy beheer alle ander goed op jou toestel."</string>
     <string name="company_controls_device" msgid="8230957518758871390">"Jou organisasie sal hierdie toestel beheer en dit veilig hou."</string>
-    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Die volgende program sal toegang tot hierdie profiel moet hê:"</string>
-    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Die volgende program sal jou toestel bestuur:"</string>
+    <string name="the_following_is_your_mdm" msgid="6613658218262376404">"Die volgende app sal toegang tot hierdie profiel moet hê:"</string>
+    <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Die volgende app sal jou toestel bestuur:"</string>
     <string name="next" msgid="1004321437324424398">"Volgende"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Stel tans werkprofiel op …"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"Jou IT-admin kan instellings, korporatiewe toegang, programme, toestemmings, data en netwerkaktiwiteit wat met hierdie profiel geassosieer word, asook jou oproepgeskiedenis en kontaksoekgeskiedenis, monitor en bestuur. Kontak jou IT-admin vir meer inligting, insluitend jou organisasie se privaatheidsbeleide."</string>
@@ -45,7 +45,7 @@
     <string name="managed_device_info" msgid="1529447646526616811">"Inligting oor bestuurde toestel"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Werkprofiel"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Vee bestaande profiel uit?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Jy het reeds \'n werkprofiel. Dit word met die volgende program bestuur:"</string>
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Jy het reeds \'n werkprofiel. Dit word met die volgende app bestuur:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"Lees hier"</a>" voordat jy voortgaan."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"As jy voortgaan, sal alle programme en data in hierdie profiel uitgevee word."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Vee uit"</string>
@@ -110,7 +110,7 @@
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"Opstelling is nie klaar nie. Kontak jou IT-administrateur vir hulp."</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"Kontak jou IT-administrateur vir hulp"</string>
     <string name="organization_admin" msgid="5975914478148511290">"IT-administrateur"</string>
-    <string name="your_org_app_used" msgid="5336414768293540831">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> sal hierdie toestel met die volgende program bestuur en monitor:"</string>
+    <string name="your_org_app_used" msgid="5336414768293540831">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> sal hierdie toestel met die volgende app bestuur en monitor:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"Jou organisasie"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"jou organisasie"</string>
     <string name="view_terms" msgid="7230493092383341605">"Bekyk bepalings"</string>
@@ -156,7 +156,7 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Maak tans gereed om werktoestel op te stel …"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Stel tans administrasieprogram op"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Hierdie toestel behoort aan jou organisasie"</string>
-    <string name="brand_screen_subheader" msgid="7664792208784456436">"Die volgende program sal gebruik word om hierdie foon te bestuur en te monitor"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"Die volgende app sal gebruik word om hierdie foon te bestuur en te monitor"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Jou rekening word bestuur"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Jou IT-admin gebruik mobiele bestuur om sekuriteitbeleide toe te pas"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Maak tans gereed vir werkopstelling …"</string>

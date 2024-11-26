@@ -32,7 +32,7 @@
     <string name="admin_has_ability_to_monitor_device" msgid="7786186939607332934">"Skrbnik za IT lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije, dovoljenja in podatke, povezane s to napravo (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>), vključno z omrežno dejavnostjo, podatki o lokaciji naprave, zgodovino klicev in zgodovino iskanja stikov.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika za IT."</string>
-    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Za uporabo funkcij za zaščito pred krajo morate imeti v napravi nastavljeno zaklepanje zaslona z geslom."</string>
+    <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Za uporabo funkcij za zaščito ob tatvini morate imeti v napravi nastavljeno zaklepanje zaslona z geslom."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika za IT."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Več o tem"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Prekliči"</string>
