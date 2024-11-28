@@ -18,3 +18,10 @@ flag {
   bug: "347912855"
 }
 
+flag {
+  name: "check_frp_active"
+  namespace: "enterprise"
+  description: "Fix persistent data block check for provisioning"
+  bug: "365473481"
+}
+
