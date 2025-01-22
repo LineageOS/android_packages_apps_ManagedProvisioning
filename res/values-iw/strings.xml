@@ -55,7 +55,7 @@
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"להצפין את המכשיר?"</string>
     <string name="encrypt" msgid="1749320161747489212">"הצפנה"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ההצפנה הושלמה"</string>
-    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"יש להקיש כדי להמשיך בהגדרת פרופיל העבודה שלך"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"יש ללחוץ כדי להמשיך בהגדרת פרופיל העבודה שלך"</string>
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"‏לא ניתן להגדיר את פרופיל העבודה שלך. יש ליצור קשר עם מחלקת ה-IT או לנסות שוב מאוחר יותר."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"לא ניתן להוסיף פרופיל עבודה"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"לא ניתן להחליף או להסיר את פרופיל העבודה"</string>
@@ -131,7 +131,7 @@
     <string name="setup_device" msgid="1679201701102889156">"הגדרת המכשיר <xliff:g id="DEVICE_NAME">%1$s</xliff:g>"</string>
     <string name="setup_device_encryption" msgid="2628196093806001835">"הגדרת המכשיר <xliff:g id="DEVICE_NAME">%1$s</xliff:g>. הצפנה"</string>
     <string name="setup_device_progress" msgid="8792474713196537598">"הגדרת המכשיר <xliff:g id="DEVICE_NAME">%1$s</xliff:g>. ההתקדמות מוצגת"</string>
-    <string name="learn_more_label" msgid="2723716758654655009">"לחצן \'למידע נוסף\'"</string>
+    <string name="learn_more_label" msgid="2723716758654655009">"כפתור \'למידע נוסף\'"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"סמל <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="section_heading" msgid="3924666803774291908">"כותרת הקטע \'<xliff:g id="SECTION_HEADING">%1$s</xliff:g>\'."</string>
     <string name="section_content" msgid="8875502515704374394">"תוכן הקטע \'<xliff:g id="SECTION_HEADING">%1$s</xliff:g>\': <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
