@@ -26,6 +26,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ClickableSpan;
 import android.text.style.URLSpan;
+import android.webkit.URLUtil;
 
 import com.android.managedprovisioning.preprovisioning.WebActivity;
 
@@ -64,7 +65,12 @@ public class HtmlToSpannedParser {
 
         URLSpan[] urlSpans = result.getSpans(0, result.length(), URLSpan.class);
         for (URLSpan urlSpan : urlSpans) {
-            Intent intent = mUrlIntentFactory.create(urlSpan.getURL());
+            String url = urlSpan.getURL();
+            if (!isValidURL(url)) {
+                ProvisionLogger.logw("Invalid URL provided. Only HTTP and HTTPS URLs are allowed.");
+                return null;
+            }
+            Intent intent = mUrlIntentFactory.create(url);
             if (intent != null) {
                 int spanStart = result.getSpanStart(urlSpan);
                 int spanEnd = result.getSpanEnd(urlSpan);
@@ -75,6 +81,10 @@ public class HtmlToSpannedParser {
         }
 
         return result;
+    }
+
+    private boolean isValidURL(String url) {
+        return URLUtil.isHttpUrl(url) || URLUtil.isHttpsUrl(url);
     }
 
     /**
