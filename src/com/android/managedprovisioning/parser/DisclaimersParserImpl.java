@@ -20,10 +20,13 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIME
 import static com.android.managedprovisioning.common.StoreUtils.DIR_PROVISIONING_PARAMS_FILE_CACHE;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
+import android.os.Binder;
 
 import android.text.TextUtils;
 import com.android.managedprovisioning.common.ProvisionLogger;
@@ -33,6 +36,7 @@ import com.android.managedprovisioning.model.DisclaimersParam.Disclaimer;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Parser for {@link EXTRA_PROVISIONING_DISCLAIMERS} into {@link DisclaimersParam}
@@ -40,6 +44,9 @@ import java.util.List;
  */
 public class DisclaimersParserImpl implements DisclaimerParser {
     private static final int MAX_LENGTH = 3;
+    private static final String SCHEME_ANDROID_RESOURCE = "android.resource";
+    private static final String SCHEME_CONTENT = "content";
+
 
     private final Context mContext;
     private final long mProvisioningId;
@@ -75,7 +82,17 @@ public class DisclaimersParserImpl implements DisclaimerParser {
                 ProvisionLogger.logw("Null disclaimer content uri in " + i + " element");
                 continue;
             }
-
+            try {
+                validateUriSchemeAndPermission(uri);
+            } catch (SecurityException e) {
+                ProvisionLogger.loge(
+                    "Skipping disclaimer in "
+                        + i
+                        + " element due to URI validation failure: "
+                        + e.getMessage(),
+                    e);
+                continue;
+            }
             File disclaimerFile = saveDisclaimerContentIntoFile(uri, i);
 
             if (disclaimerFile == null) {
@@ -87,6 +104,41 @@ public class DisclaimersParserImpl implements DisclaimerParser {
         }
         return disclaimers.isEmpty() ? null : new DisclaimersParam.Builder()
                 .setDisclaimers(disclaimers.toArray(new Disclaimer[disclaimers.size()])).build();
+    }
+
+    /**
+     * Validates a {@link Uri} extra pointing to disclaimer content.
+     *
+     * <p>It checks that the URI scheme is one of {@code content} ({@link
+     * android.content.ContentResolver#SCHEME_CONTENT}) or {@code
+     * android.resource} ({@link
+     * android.content.ContentResolver#SCHEME_ANDROID_RESOURCE}). If a {@code
+     * content:} URI is passed, it also checks that the caller has grant read
+     * permission ({@link Intent#FLAG_GRANT_READ_URI_PERMISSION}).
+     *
+     * @throws SecurityException if the URI scheme is invalid or the caller
+     * does not have permission to access the URI.
+     */
+    private void validateUriSchemeAndPermission(Uri uri) throws SecurityException {
+        ProvisionLogger.logd("validateUriSchemeAndPermission: " + uri);
+        String scheme = uri.getScheme();
+        if (!Objects.equals(scheme, SCHEME_ANDROID_RESOURCE)
+            && !Objects.equals(scheme, SCHEME_CONTENT)) {
+            String errorMessage = "Invalid URI scheme: " + scheme;
+            throw new SecurityException(errorMessage);
+        }
+        int permissionCheck =
+            mContext.checkUriPermission(
+                uri,
+                Binder.getCallingPid(),
+                Binder.getCallingUid(),
+                Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            String errorMessage = "Caller does not have permission to access"
+                + " disclaimer URI: " + uri;
+            throw new SecurityException(errorMessage);
+        }
     }
 
     /**
