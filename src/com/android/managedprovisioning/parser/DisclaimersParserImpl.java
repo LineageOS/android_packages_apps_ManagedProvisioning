@@ -127,17 +127,19 @@ public class DisclaimersParserImpl implements DisclaimerParser {
             String errorMessage = "Invalid URI scheme: " + scheme;
             throw new SecurityException(errorMessage);
         }
-        int permissionCheck =
-            mContext.checkUriPermission(
-                uri,
-                Binder.getCallingPid(),
-                Binder.getCallingUid(),
-                Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        if (Objects.equals(scheme, SCHEME_CONTENT)) {
+            int permissionCheck =
+                mContext.checkUriPermission(
+                    uri,
+                    Binder.getCallingPid(),
+                    Binder.getCallingUid(),
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            String errorMessage = "Caller does not have permission to access"
-                + " disclaimer URI: " + uri;
-            throw new SecurityException(errorMessage);
+            if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                String errorMessage = "Caller does not have permission to access"
+                    + " disclaimer URI: " + uri;
+                throw new SecurityException(errorMessage);
+            }
         }
     }
 
