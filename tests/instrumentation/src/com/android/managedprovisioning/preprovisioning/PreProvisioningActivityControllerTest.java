@@ -49,6 +49,7 @@ import static android.app.admin.DevicePolicyManager.STATUS_OK;
 
 import static com.android.managedprovisioning.TestUtils.assertBundlesEqual;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
+import static com.android.managedprovisioning.common.Globals.SETUP_WIZARD_PACKAGE_NAME;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_LOCAL_TIME;
 
 import static com.google.common.truth.Truth.assertThat;
@@ -862,6 +863,77 @@ public class PreProvisioningActivityControllerTest {
         verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
                 eq(R.string.contact_your_admin_for_help), any(String.class));
         verifyNoMoreInteractions(mUi);
+    }
+
+    @Test
+    public void testTrustedSource_setupWizardCallsWhenDeviceProvisioned_fails() throws Exception {
+        // GIVEN a trusted source intent and the device is provisioned
+        mParams = createParams(
+                /* startedByTrustedSource= */ true,
+                /* skipEncryption= */ false,
+                /* wifiSsid= */ null,
+                ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE,
+                TEST_MDM_PACKAGE
+            );
+        prepareMocksForTrustedSourceIntent(mParams);
+        when(mSettingsFacade.isDeviceProvisioned(mContext)).thenReturn(true);
+
+        // WHEN initiating provisioning called by setup wizard
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, SETUP_WIZARD_PACKAGE_NAME);
+        });
+
+        // THEN validation fails and error is shown
+        verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
+                eq(R.string.contact_your_admin_for_help), any(String.class));
+    }
+
+    @Test
+    public void testTrustedSource_setupWizardCallsWhenDeviceNotProvisioned_succeeds()
+            throws Exception {
+        // GIVEN a trusted source intent and the device is not provisioned
+        mParams = createParams(
+                /* startedByTrustedSource= */ true,
+                /* skipEncryption= */ false,
+                /* wifiSsid= */ null,
+                ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE,
+                TEST_MDM_PACKAGE
+            );
+        prepareMocksForTrustedSourceIntent(mParams);
+        when(mSettingsFacade.isDeviceProvisioned(mContext)).thenReturn(false);
+
+        // WHEN initiating provisioning called by setup wizard
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, SETUP_WIZARD_PACKAGE_NAME);
+        });
+
+        // THEN validation succeeds
+        verify(mUi).onParamsValidated(mParams);
+        verify(mUi, never()).showErrorAndClose(anyInt(), anyInt(), anyString());
+    }
+
+      @Test
+    public void testTrustedSource_nonSetupWizardCallsWhenDeviceProvisioned_succeeds()
+            throws Exception {
+        // GIVEN a trusted source intent and the device is not provisioned
+        mParams = createParams(
+                /* startedByTrustedSource= */ true,
+                /* skipEncryption= */ false,
+                /* wifiSsid= */ null,
+                ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE,
+                TEST_MDM_PACKAGE
+            );
+        prepareMocksForTrustedSourceIntent(mParams);
+        when(mSettingsFacade.isDeviceProvisioned(mContext)).thenReturn(true);
+
+        // WHEN initiating provisioning called by trusted source other than Setup Wizard
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, "trusted.source.package.name");
+        });
+
+        // THEN validation succeeds
+        verify(mUi).onParamsValidated(mParams);
+        verify(mUi, never()).showErrorAndClose(anyInt(), anyInt(), anyString());
     }
 
     @Test
