@@ -44,6 +44,7 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
+import static com.android.managedprovisioning.common.Globals.SETUP_WIZARD_PACKAGE_NAME;
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
 import static com.android.managedprovisioning.model.ProvisioningParams.PROVISIONING_MODE_MANAGED_PROFILE;
 
@@ -655,10 +656,23 @@ public class PreProvisioningController {
             return verifyActivityAlias(intent, "PreProvisioningActivityViaNfc");
         } else if (ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction())
                 || ACTION_PROVISION_FINANCED_DEVICE.equals(intent.getAction())) {
-            return verifyActivityAlias(intent, "PreProvisioningActivityViaTrustedApp");
+            return verifyTrustedSource(callingPackage)
+                && verifyActivityAlias(intent, "PreProvisioningActivityViaTrustedApp");
         } else {
             return verifyCaller(callingPackage);
         }
+    }
+
+    private boolean verifyTrustedSource(String callingPackage) {
+        if (!mSettingsFacade.isDeviceProvisioned(mContext)) {
+            // All trusted sources are allowed if the device is not provisioned.
+            return true;
+        }
+        ProvisionLogger.logd("Checking if " + callingPackage
+                + " is allowed to start provisioning after SUW flow.");
+        // If the device is already provisioned, then we should not allow setup wizard to
+        // start the provisioning flow as a trusted source.
+        return !SETUP_WIZARD_PACKAGE_NAME.equals(callingPackage);
     }
 
     private boolean verifyActivityAlias(Intent intent, String activityAlias) {

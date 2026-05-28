@@ -26,6 +26,9 @@ public final class Globals {
     public static final String ACTION_RESUME_PROVISIONING =
             "com.android.managedprovisioning.action.RESUME_PROVISIONING";
 
+    public static final String SETUP_WIZARD_PACKAGE_NAME = "com.google.android.setupwizard";
+
+
     /**
      * Start a provisioning flow that sets a Device Owner without user interaction. Per the Android
      * Compatibility Definition document, this is not compatible with declaring the feature
